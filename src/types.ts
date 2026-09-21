@@ -15,6 +15,10 @@ export type DocType =
   | 'comunicado'
   | 'convocacao'
   | 'boletim'
+  | 'aar'
+  | 'casevac'
+  | 'hvt'
+  | 'orbat'
 
 export type Precedence = 'flash' | 'immediate' | 'priority' | 'routine'
 
@@ -22,7 +26,16 @@ export type WatermarkMode = 'none' | 'diagonal' | 'tiled'
 
 export type StampKind = 'oval' | 'box' | 'round'
 
-export type PageId = 'cover' | 'opord' | 'notice' | 'sitrep' | 'intel'
+export type PageId =
+  | 'cover'
+  | 'opord'
+  | 'notice'
+  | 'sitrep'
+  | 'intel'
+  | 'aar'
+  | 'casevac'
+  | 'hvt'
+  | 'orbat'
 
 export interface StampConfig {
   id: string
@@ -52,6 +65,32 @@ export interface NetRow {
   name: string
   freq: string
   callsign: string
+}
+
+export interface HvtCard {
+  id: string
+  name: string
+  alias: string
+  role: string
+  nationality: string
+  lastSeen: string
+  grid: string
+  description: string
+  weapons: string
+  associates: string
+  guidance: string
+  status: string
+  photoSrc: string
+}
+
+export interface OrbatLine {
+  id: string
+  echelon: string
+  designation: string
+  callsign: string
+  lead: string
+  strength: string
+  task: string
 }
 
 export interface Dossier {
@@ -143,6 +182,32 @@ export interface Dossier {
     issues: string
     intent: string
   }
+  aar: {
+    dtg: string
+    location: string
+    summary: string
+    wentWell: string
+    wentWrong: string
+    lessons: string
+    sustain: string
+    improve: string
+    casualties: string
+    bda: string
+  }
+  casevac: {
+    line1: string
+    line2: string
+    line3: string
+    line4: string
+    line5: string
+    line6: string
+    line7: string
+    line8: string
+    line9: string
+    remarks: string
+  }
+  hvts: HvtCard[]
+  orbat: OrbatLine[]
   marks: {
     watermarkMode: WatermarkMode
     watermarkText: string

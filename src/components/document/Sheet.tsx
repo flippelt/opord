@@ -17,7 +17,7 @@ export function Sheet({ page, exportId = page, paper, ink, children }: Props) {
       data-page={exportId}
       style={{ backgroundColor: paper, color: ink }}
     >
-      <PaperGrain id={`grain-${page}`} />
+      <PaperGrain id={`grain-${exportId}`} />
       <div className="binding" aria-hidden>
         <span />
         <span />

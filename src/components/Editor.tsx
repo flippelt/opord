@@ -2,13 +2,14 @@ import {
   CAVEAT_OPTIONS,
   CLASSIFICATIONS,
   DOC_TYPES,
-  NOTICE_TYPES,
+  CASEVAC_LINES,
   PAGE_LABELS,
   PRECEDENCE,
+  TYPE_PAGE,
 } from '../lib/classification'
 import { nowDtg } from '../lib/dtg'
 import { readClanMark, readIntelPhoto } from '../lib/image'
-import { blankDossier, defaultDossier } from '../defaults'
+import { blankDossier, defaultDossier, emptyHvtSlots, emptyOrbatLines } from '../defaults'
 import { useDossier } from '../store'
 import type { Classification, DocType, PageId, Precedence, WatermarkMode } from '../types'
 import { Field, ImageField, SelectField } from './ImageField'
@@ -76,8 +77,8 @@ export function Editor() {
           onChange={(type: DocType) =>
             patch((d) => {
               d.document.type = type
-              if (NOTICE_TYPES.includes(type)) d.document.pages.notice = true
-              if (type === 'sitrep') d.document.pages.sitrep = true
+              const page = TYPE_PAGE[type]
+              if (page) d.document.pages[page] = true
             })
           }
           options={DOC_TYPES.map((t) => ({ id: t.id, label: `${t.short} — ${t.label}` }))}
@@ -380,6 +381,249 @@ export function Editor() {
           multiline
           rows={3}
         />
+      </details>
+
+      <details>
+        <summary>AAR</summary>
+        <Field
+          label="DTG da revisão"
+          value={dossier.aar.dtg}
+          onChange={(dtg) => patch((d) => void (d.aar.dtg = dtg))}
+        />
+        <Field
+          label="Local"
+          value={dossier.aar.location}
+          onChange={(location) => patch((d) => void (d.aar.location = location))}
+        />
+        <Field
+          label="O que aconteceu"
+          value={dossier.aar.summary}
+          onChange={(summary) => patch((d) => void (d.aar.summary = summary))}
+          multiline
+        />
+        <Field
+          label="O que funcionou"
+          value={dossier.aar.wentWell}
+          onChange={(wentWell) => patch((d) => void (d.aar.wentWell = wentWell))}
+          multiline
+          rows={3}
+        />
+        <Field
+          label="O que falhou"
+          value={dossier.aar.wentWrong}
+          onChange={(wentWrong) => patch((d) => void (d.aar.wentWrong = wentWrong))}
+          multiline
+          rows={3}
+        />
+        <Field
+          label="Lições"
+          value={dossier.aar.lessons}
+          onChange={(lessons) => patch((d) => void (d.aar.lessons = lessons))}
+          multiline
+          rows={3}
+        />
+        <Field
+          label="Manter"
+          value={dossier.aar.sustain}
+          onChange={(sustain) => patch((d) => void (d.aar.sustain = sustain))}
+          multiline
+          rows={2}
+        />
+        <Field
+          label="Melhorar"
+          value={dossier.aar.improve}
+          onChange={(improve) => patch((d) => void (d.aar.improve = improve))}
+          multiline
+          rows={2}
+        />
+        <Field
+          label="Baixas / ACE"
+          value={dossier.aar.casualties}
+          onChange={(casualties) => patch((d) => void (d.aar.casualties = casualties))}
+        />
+        <Field
+          label="BDA"
+          value={dossier.aar.bda}
+          onChange={(bda) => patch((d) => void (d.aar.bda = bda))}
+        />
+      </details>
+
+      <details>
+        <summary>CASEVAC (9 linhas)</summary>
+        {CASEVAC_LINES.map((line) => (
+          <Field
+            key={line.key}
+            label={`${line.n}. ${line.label}`}
+            hint={line.hint}
+            value={dossier.casevac[line.key]}
+            onChange={(v) => patch((d) => void (d.casevac[line.key] = v))}
+          />
+        ))}
+        <Field
+          label="Observações"
+          value={dossier.casevac.remarks}
+          onChange={(remarks) => patch((d) => void (d.casevac.remarks = remarks))}
+          multiline
+          rows={3}
+        />
+      </details>
+
+      <details>
+        <summary>HVT</summary>
+        {dossier.hvts.map((card, i) => (
+          <div key={card.id} className="intel-edit">
+            <p className="intel-edit-title">HVT-{String(i + 1).padStart(2, '0')}</p>
+            <ImageField
+              label="Retrato"
+              src={card.photoSrc}
+              readFile={readIntelPhoto}
+              onChange={(photoSrc) => patch((d) => void (d.hvts[i].photoSrc = photoSrc))}
+            />
+            <div className="row2">
+              <Field
+                label="Nome"
+                value={card.name}
+                onChange={(name) => patch((d) => void (d.hvts[i].name = name))}
+              />
+              <Field
+                label="Alias"
+                value={card.alias}
+                onChange={(alias) => patch((d) => void (d.hvts[i].alias = alias))}
+              />
+            </div>
+            <Field
+              label="Status (CAPTURE / KILL / WANTED)"
+              value={card.status}
+              onChange={(status) => patch((d) => void (d.hvts[i].status = status))}
+            />
+            <Field
+              label="Função"
+              value={card.role}
+              onChange={(role) => patch((d) => void (d.hvts[i].role = role))}
+            />
+            <div className="row2">
+              <Field
+                label="Nacionalidade"
+                value={card.nationality}
+                onChange={(nationality) => patch((d) => void (d.hvts[i].nationality = nationality))}
+              />
+              <Field
+                label="Grid"
+                value={card.grid}
+                onChange={(grid) => patch((d) => void (d.hvts[i].grid = grid))}
+              />
+            </div>
+            <Field
+              label="Último avistamento"
+              value={card.lastSeen}
+              onChange={(lastSeen) => patch((d) => void (d.hvts[i].lastSeen = lastSeen))}
+            />
+            <Field
+              label="Descrição"
+              value={card.description}
+              onChange={(description) => patch((d) => void (d.hvts[i].description = description))}
+              multiline
+              rows={3}
+            />
+            <Field
+              label="Armamento"
+              value={card.weapons}
+              onChange={(weapons) => patch((d) => void (d.hvts[i].weapons = weapons))}
+            />
+            <Field
+              label="Associados"
+              value={card.associates}
+              onChange={(associates) => patch((d) => void (d.hvts[i].associates = associates))}
+            />
+            <Field
+              label="Orientação"
+              value={card.guidance}
+              onChange={(guidance) => patch((d) => void (d.hvts[i].guidance = guidance))}
+              multiline
+              rows={2}
+            />
+            <button
+              type="button"
+              className="btn-ghost"
+              onClick={() => patch((d) => void d.hvts.splice(i, 1))}
+            >
+              Remover HVT
+            </button>
+          </div>
+        ))}
+        <button
+          type="button"
+          className="btn-ghost"
+          onClick={() =>
+            patch((d) => {
+              d.hvts.push({ ...emptyHvtSlots()[0], id: `hvt-${crypto.randomUUID()}` })
+            })
+          }
+        >
+          + Cartão de HVT
+        </button>
+      </details>
+
+      <details>
+        <summary>ORBAT</summary>
+        {dossier.orbat.map((row, i) => (
+          <div key={row.id} className="intel-edit">
+            <div className="row2">
+              <Field
+                label="Escalão"
+                value={row.echelon}
+                onChange={(echelon) => patch((d) => void (d.orbat[i].echelon = echelon))}
+              />
+              <Field
+                label="Designação"
+                value={row.designation}
+                onChange={(designation) => patch((d) => void (d.orbat[i].designation = designation))}
+              />
+            </div>
+            <div className="row2">
+              <Field
+                label="Indicativo"
+                value={row.callsign}
+                onChange={(callsign) => patch((d) => void (d.orbat[i].callsign = callsign))}
+              />
+              <Field
+                label="Chefe"
+                value={row.lead}
+                onChange={(lead) => patch((d) => void (d.orbat[i].lead = lead))}
+              />
+            </div>
+            <div className="row2">
+              <Field
+                label="Efetivo"
+                value={row.strength}
+                onChange={(strength) => patch((d) => void (d.orbat[i].strength = strength))}
+              />
+              <Field
+                label="Tarefa"
+                value={row.task}
+                onChange={(task) => patch((d) => void (d.orbat[i].task = task))}
+              />
+            </div>
+            <button
+              type="button"
+              className="btn-ghost"
+              onClick={() => patch((d) => void d.orbat.splice(i, 1))}
+            >
+              Remover linha
+            </button>
+          </div>
+        ))}
+        <button
+          type="button"
+          className="btn-ghost"
+          onClick={() =>
+            patch((d) => {
+              d.orbat.push({ ...emptyOrbatLines()[0], id: `orbat-${crypto.randomUUID()}` })
+            })
+          }
+        >
+          + Linha no ORBAT
+        </button>
       </details>
 
       <details>

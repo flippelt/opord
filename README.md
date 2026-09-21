@@ -55,19 +55,19 @@ carimbo de tinta opcional, desligado por padrão.
 Selos de tinta ligáveis: CONFIDENCIAL, EYES ONLY, CÓPIA, DESTROY AFTER ACTION,
 WORKING PAPERS, ORCON, VERIFICADO.
 
-### Comunicado, convocação, boletim e SITREP
+### Outras folhas
 
-Além do OPORD, o dossiê pode incluir:
+Além do OPORD, o dossiê pode incluir (ligar em **Páginas**):
 
-- **Comunicado interno** — ofício do comando ao efetivo (número, audiência,
-  assunto, texto, determinações, vigência).
-- **Convocação** — emprego / op night: DTG de apresentação, servidor, mods,
-  slotting, uniforme, ponto de reunião, comparecimento.
-- **Boletim** — mesmos campos, titulado como boletim da unidade.
-- **SITREP** — inimigo, amigos, situação própria (ACE), pendências, intenção.
+- **Comunicado / convocação / boletim** — ofício ao efetivo; convocação traz
+  servidor, mods, slotting e ponto de reunião.
+- **SITREP** — inimigo, amigos, ACE, pendências, intenção.
+- **AAR** — o que aconteceu, o que funcionou, o que falhou, lições, manter/melhorar, BDA.
+- **CASEVAC (9 linhas)** — pedido MEDEVAC no formato NATO, com dicas de código em cada linha.
+- **HVT** — cartão de alvo (retrato, alias, grid, orientação CAPTURE/KILL).
+- **ORBAT** — organização de tarefa (escalão, indicativo, chefe, efetivo, missão).
 
-As páginas ligam e desligam no bloco **Documento**. O tipo do documento muda o
-título da capa.
+O tipo no topo muda o título da capa.
 
 ### Exportar
 

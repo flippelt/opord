@@ -8,10 +8,16 @@ import { Marks } from './Watermark'
 export function CoverPage({ dossier }: { dossier: Dossier }) {
   const style = styleOf(dossier.document.classification)
   const kind = docTypeOf(dossier.document.type)
-  const notice = isNoticeType(dossier.document.type)
+  const kindId = dossier.document.type
+  const notice = isNoticeType(kindId)
+  const hvt = kindId === 'hvt' ? dossier.hvts[0] : undefined
   const op = notice
     ? dossier.notice.subject || dossier.mission.name || '—'
-    : dossier.mission.name || dossier.mission.nickname || '—'
+    : hvt
+      ? hvt.name || hvt.alias || 'HVT'
+      : dossier.mission.name || dossier.mission.nickname || '—'
+  const kicker =
+    notice ? 'Assunto' : kindId === 'hvt' ? 'Alvo' : kindId === 'casevac' ? 'Pedido' : kindId === 'orbat' ? 'Unidade' : 'Operação'
 
   return (
     <Sheet page="cover" paper={style.cover} ink={style.coverInk}>
@@ -29,7 +35,7 @@ export function CoverPage({ dossier }: { dossier: Dossier }) {
         {dossier.clan.motto ? <p className="cover-motto">« {dossier.clan.motto} »</p> : null}
         <h1 className="cover-kind">{kind.label}</h1>
         <p className="cover-kind-nato">{kind.short}</p>
-        <p className="cover-op-label">{notice ? 'Assunto' : 'Operação'}</p>
+        <p className="cover-op-label">{kicker}</p>
         <p className="cover-op">{op}</p>
         {!notice && dossier.mission.nickname ? <p className="cover-nick">{dossier.mission.nickname}</p> : null}
         {notice && dossier.notice.number ? (

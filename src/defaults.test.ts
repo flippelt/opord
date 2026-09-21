@@ -13,6 +13,10 @@ describe('migrateDossier', () => {
     expect(next?.marks.stamps.find((s) => s.id === 'confidential')?.enabled).toBe(false)
     expect(next?.notice.number).toBeDefined()
     expect(next?.document.pages.notice).toBe(true)
+    expect(next?.aar).toBeDefined()
+    expect(next?.casevac.line1).toBeDefined()
+    expect(next?.hvts.length).toBeGreaterThan(0)
+    expect(next?.orbat.length).toBeGreaterThan(0)
   })
 
   it('rejects payloads without version 1', () => {

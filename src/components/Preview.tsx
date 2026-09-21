@@ -2,12 +2,16 @@ import { useRef } from 'react'
 import { docTypeOf, styleOf } from '../lib/classification'
 import { chunk } from '../lib/dtg'
 import { captureAll, downloadJson, fileBase, savePdf, savePngZip } from '../lib/export'
-import { emptyIntelSlots } from '../defaults'
+import { emptyHvtSlots, emptyIntelSlots } from '../defaults'
 import { useDossier } from '../store'
+import { AarPage } from './document/AarPage'
+import { CasevacPage } from './document/CasevacPage'
 import { CoverPage } from './document/CoverPage'
+import { HvtPage } from './document/HvtPage'
 import { IntelPage } from './document/IntelPage'
 import { NoticePage } from './document/NoticePage'
 import { OpordBack, OpordFront } from './document/OpordPage'
+import { OrbatPage } from './document/OrbatPage'
 import { SitrepPage } from './document/SitrepPage'
 
 export function Preview() {
@@ -121,6 +125,14 @@ export function Preview() {
             </>
           ) : null}
           {dossier.document.pages.sitrep ? <SitrepPage dossier={dossier} /> : null}
+          {dossier.document.pages.aar ? <AarPage dossier={dossier} /> : null}
+          {dossier.document.pages.orbat ? <OrbatPage dossier={dossier} /> : null}
+          {dossier.document.pages.hvt
+            ? (dossier.hvts.length ? dossier.hvts : emptyHvtSlots()).map((card, i) => (
+                <HvtPage key={card.id} dossier={dossier} card={card} index={i} />
+              ))
+            : null}
+          {dossier.document.pages.casevac ? <CasevacPage dossier={dossier} /> : null}
           {dossier.document.pages.intel
             ? chunk(dossier.intel.length ? dossier.intel : emptyIntelSlots(), 4).map((group, i) => (
                 <IntelPage key={group[0]?.id ?? i} dossier={dossier} photos={group} startIndex={i * 4} />

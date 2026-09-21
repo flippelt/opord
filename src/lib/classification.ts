@@ -73,6 +73,10 @@ export const DOC_TYPES: { id: DocType; label: string; short: string }[] = [
   { id: 'convocacao', label: 'Convocação / emprego', short: 'CONVOCAÇÃO' },
   { id: 'boletim', label: 'Boletim da unidade', short: 'BOLETIM' },
   { id: 'sitrep', label: 'Relatório de Situação', short: 'SITREP' },
+  { id: 'aar', label: 'After Action Review', short: 'AAR' },
+  { id: 'casevac', label: 'Pedido CASEVAC (9 linhas)', short: 'CASEVAC' },
+  { id: 'hvt', label: 'Cartão de HVT', short: 'HVT' },
+  { id: 'orbat', label: 'ORBAT / organização de tarefa', short: 'ORBAT' },
   { id: 'intel', label: 'Informe de Inteligência', short: 'INTEL' },
 ]
 
@@ -81,8 +85,41 @@ export const PAGE_LABELS: Record<PageId, string> = {
   opord: 'OPORD',
   notice: 'Comunicado',
   sitrep: 'SITREP',
+  aar: 'AAR',
+  casevac: 'CASEVAC',
+  hvt: 'HVT',
+  orbat: 'ORBAT',
   intel: 'Anexo intel',
 }
+
+export const TYPE_PAGE: Partial<Record<DocType, PageId>> = {
+  opord: 'opord',
+  frago: 'opord',
+  warnord: 'opord',
+  conops: 'opord',
+  comunicado: 'notice',
+  convocacao: 'notice',
+  boletim: 'notice',
+  sitrep: 'sitrep',
+  aar: 'aar',
+  casevac: 'casevac',
+  hvt: 'hvt',
+  orbat: 'orbat',
+  intel: 'intel',
+}
+
+export const CASEVAC_LINES: { key: keyof import('../types').Dossier['casevac']; n: string; label: string; hint: string }[] =
+  [
+    { key: 'line1', n: '1', label: 'Local do PZ', hint: 'Grid do ponto de coleta' },
+    { key: 'line2', n: '2', label: 'Freq. / indicativo', hint: 'Rede e callsign do pedido' },
+    { key: 'line3', n: '3', label: 'Pacientes por precedência', hint: 'A urgente · B cirúrgico · C prioridade · D rotina · E conveniência' },
+    { key: 'line4', n: '4', label: 'Equipamento especial', hint: 'A nenhum · B içamento · C extração · D ventilador' },
+    { key: 'line5', n: '5', label: 'Pacientes por tipo', hint: 'L maca · A ambulante' },
+    { key: 'line6', n: '6', label: 'Segurança no PZ', hint: 'N sem inimigo · P possível · E inimigo · X escolta armada' },
+    { key: 'line7', n: '7', label: 'Marcação do PZ', hint: 'A painéis · B pirotécnico · C fumaça · D nenhum · E outro' },
+    { key: 'line8', n: '8', label: 'Nacionalidade / status', hint: 'A mil. coligação · B civ. coligação · C mil. outro · D civ. outro · E EPW' },
+    { key: 'line9', n: '9', label: 'NBC / terreno', hint: 'N nuclear · B biológico · C químico — ou descrição do terreno' },
+  ]
 
 export const NOTICE_TYPES: DocType[] = ['comunicado', 'convocacao', 'boletim']
 

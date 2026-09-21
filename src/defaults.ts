@@ -114,7 +114,17 @@ export function blankDossier(): Dossier {
       copyNumber: '01',
       copyTotal: '04',
       controlNumber: '',
-      pages: { cover: true, opord: true, notice: true, sitrep: false, intel: true },
+      pages: {
+        cover: true,
+        opord: true,
+        notice: true,
+        sitrep: false,
+        intel: true,
+        aar: false,
+        casevac: false,
+        hvt: false,
+        orbat: false,
+      },
     },
     header: {
       origin: '',
@@ -169,6 +179,10 @@ export function blankDossier(): Dossier {
     intel: emptyIntelSlots(),
     notice: blankNotice(),
     sitrep: blankSitrep(),
+    aar: blankAar(),
+    casevac: blankCasevac(),
+    hvts: emptyHvtSlots(),
+    orbat: emptyOrbatLines(),
     marks: {
       watermarkMode: 'diagonal',
       watermarkText: '',
@@ -206,6 +220,70 @@ export function blankSitrep() {
     issues: '',
     intent: '',
   }
+}
+
+export function blankAar() {
+  return {
+    dtg: '',
+    location: '',
+    summary: '',
+    wentWell: '',
+    wentWrong: '',
+    lessons: '',
+    sustain: '',
+    improve: '',
+    casualties: '',
+    bda: '',
+  }
+}
+
+export function blankCasevac() {
+  return {
+    line1: '',
+    line2: '',
+    line3: '',
+    line4: '',
+    line5: '',
+    line6: '',
+    line7: '',
+    line8: '',
+    line9: '',
+    remarks: '',
+  }
+}
+
+export function emptyHvtSlots() {
+  return [
+    {
+      id: 'hvt-1',
+      name: '',
+      alias: '',
+      role: '',
+      nationality: '',
+      lastSeen: '',
+      grid: '',
+      description: '',
+      weapons: '',
+      associates: '',
+      guidance: '',
+      status: 'CAPTURE',
+      photoSrc: '',
+    },
+  ]
+}
+
+export function emptyOrbatLines() {
+  return [
+    {
+      id: 'orbat-1',
+      echelon: '',
+      designation: '',
+      callsign: '',
+      lead: '',
+      strength: '',
+      task: '',
+    },
+  ]
 }
 
 export function emptyIntelSlots() {
@@ -327,6 +405,11 @@ export function defaultDossier(): Dossier {
     },
   ]
   d.document.pages.notice = true
+  d.document.pages.sitrep = true
+  d.document.pages.aar = true
+  d.document.pages.casevac = true
+  d.document.pages.hvt = true
+  d.document.pages.orbat = true
   d.notice = {
     number: '12/2026',
     audience: 'TODO O EFETIVO DO GRUPO FALCÃO',
@@ -357,6 +440,62 @@ export function defaultDossier(): Dossier {
     issues: '1ª Esq com 5.56 no limite. Bateria do UAV a 30%. Pedido de ressuprimento ao S4.',
     intent: 'Manter observação. OPORD 23-09-04 permanece em vigor. Próximo SITREP 222000Z ou ao contato.',
   }
+  d.aar = {
+    dtg: '230430ZSEP26',
+    location: 'FOB KAMINO, ALTIS',
+    summary:
+      '2º Pel infiltrou LZ HAWK, isolou o complexo e entrou no TOT. C2 destruído com termite. HVT VIPER detido vivo pela 3ª Esq. Extração por PZ RAVEN sem contato no PZ.',
+    wentWell:
+      'Isolamento sul cortou o BTR. UAV identificou sentinela 040 a tempo. Tráfego de rádio mínimo após H-10. HVT vivo.',
+    wentWrong:
+      '1ª Esq atrasou 4 min na entrada do bloco C2. 5.56 da 1ª Esq no limite antes do consolidar. UAV pousou com 8% de bateria.',
+    lessons:
+      'Ressuprimento de 5.56 na LZ. UAV com bateria reserva no FAC. Ensaio de entrada no bloco com carga de explosivo já montada.',
+    sustain: 'Conceito de isolamento + UAV. PID e HOLD até contato. Extração marcada com IR strobe.',
+    improve: 'Controle de munição por esquadra. Timeline de entrada. Plano B se o UAV cair.',
+    casualties: '0 KIA · 1 WIA (estilhaço leve, evacuado no PZ) · ACE verde no consolidar',
+    bda: 'Estação C2 destruída. 6 EN KIA. 1 HVT capturado. BTR não engajado (ficou na garagem).',
+  }
+  d.casevac = {
+    line1: '146092 (PZ RAVEN)',
+    line2: '80.0 / DUSTOFF',
+    line3: '1 A (urgente)',
+    line4: 'A — nenhum',
+    line5: '1 L (maca)',
+    line6: 'N — sem inimigo no PZ',
+    line7: 'C — fumaça verde + IR strobe',
+    line8: 'A — militar da unidade',
+    line9: 'Terreno: clareira, vento 6 kn de 270, sem NBC',
+    remarks: 'WIA por estilhaço no braço esquerdo, estável, consciente. Escolta 3ª Esq até o PZ.',
+  }
+  d.hvts = [
+    {
+      id: 'hvt-1',
+      name: 'KAREEM “VIPER” AL-SAID',
+      alias: 'VIPER',
+      role: 'Oficial de comunicações CSAT · C2 Pyrgos',
+      nationality: 'CSAT / desconhecida',
+      lastSeen: '221400ZSEP26 · complexo administrativo, bloco norte',
+      grid: '14208930',
+      description:
+        'Homem ~35–40, 1,78 m, barba curta, uniforme de comunicações. Costuma permanecer no segundo piso do bloco C2. Evita patrulha a pé.',
+      weapons: 'Pistola de serviço. Acesso ao rack de rádio e códigos de rede.',
+      associates: '2x técnicos de C2 no mesmo bloco. BTR de sobreaviso a 400 m N.',
+      guidance: 'CAPTURE. Vivo se viável. Não destruir documentos nem o rack antes da busca. Entregar ao S2 no PZ.',
+      status: 'CAPTURE',
+      photoSrc: '',
+    },
+  ]
+  d.orbat = [
+    { id: 'o1', echelon: 'CIA', designation: 'Cia Bravo (HQ)', callsign: 'WATCHTOWER', lead: 'CAP A. Mendes', strength: '—', task: 'C2 em FOB Kamino' },
+    { id: 'o2', echelon: 'PEL', designation: '2º Pelotão', callsign: 'RAIDER', lead: 'RAIDER-1', strength: '3 esq + SL', task: 'Força de assalto' },
+    { id: 'o3', echelon: 'ESQ', designation: '1ª Esquadra', callsign: 'RAIDER-1', lead: 'SL 1ª', strength: '8', task: 'Assalto bloco C2' },
+    { id: 'o4', echelon: 'ESQ', designation: '2ª Esquadra', callsign: 'RAIDER-2', lead: 'SL 2ª', strength: '8', task: 'Isolamento sul / BTR' },
+    { id: 'o5', echelon: 'ESQ', designation: '3ª Esquadra', callsign: 'RAIDER-3', lead: 'SL 3ª', strength: '8', task: 'Reserva / detenção HVT' },
+    { id: 'o6', echelon: 'APOIO', designation: 'QRF (1º Pel)', callsign: 'HAMMER', lead: 'SL QRF', strength: '8 min', task: 'Reação a partir de Kamino' },
+    { id: 'o7', echelon: 'APOIO', designation: 'UAV / FAC', callsign: 'WATCHER', lead: 'Op. UAV', strength: '1+1', task: 'Órbita 300 m AGL' },
+    { id: 'o8', echelon: 'APOIO', designation: 'CASEVAC', callsign: 'DUSTOFF', lead: 'Médico de Cia', strength: '1', task: 'PZ RAVEN · 80.0' },
+  ]
   d.marks.watermarkMode = 'diagonal'
   d.marks.watermarkText = ''
   return d
@@ -378,6 +517,10 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.comms = { ...blankDossier().comms, ...incoming.comms }
   d.notice = { ...blankNotice(), ...incoming.notice }
   d.sitrep = { ...blankSitrep(), ...incoming.sitrep }
+  d.aar = { ...blankAar(), ...incoming.aar }
+  d.casevac = { ...blankCasevac(), ...incoming.casevac }
+  d.hvts = Array.isArray(incoming.hvts) && incoming.hvts.length ? incoming.hvts : emptyHvtSlots()
+  d.orbat = Array.isArray(incoming.orbat) && incoming.orbat.length ? incoming.orbat : emptyOrbatLines()
   d.marks = { ...blankDossier().marks, ...incoming.marks }
   const oldMode = String(incoming.marks?.watermarkMode ?? '')
   if (d.marks.watermarkMode !== 'none' && d.marks.watermarkMode !== 'tiled') {
