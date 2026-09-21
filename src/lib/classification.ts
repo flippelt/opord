@@ -1,4 +1,4 @@
-import type { Classification, DocType, Dossier, Precedence } from '../types'
+import type { Classification, DocType, Dossier, PageId, Precedence } from '../types'
 
 export interface ClassificationStyle {
   id: Classification
@@ -68,10 +68,27 @@ export const DOC_TYPES: { id: DocType; label: string; short: string }[] = [
   { id: 'opord', label: 'Ordem de Operações', short: 'OPORD' },
   { id: 'frago', label: 'Ordem Fragmentária', short: 'FRAGO' },
   { id: 'warnord', label: 'Ordem de Alerta', short: 'WARNORD' },
+  { id: 'conops', label: 'Conceito de Operações', short: 'CONOPS' },
+  { id: 'comunicado', label: 'Comunicado interno', short: 'COMUNICADO' },
+  { id: 'convocacao', label: 'Convocação / emprego', short: 'CONVOCAÇÃO' },
+  { id: 'boletim', label: 'Boletim da unidade', short: 'BOLETIM' },
   { id: 'sitrep', label: 'Relatório de Situação', short: 'SITREP' },
   { id: 'intel', label: 'Informe de Inteligência', short: 'INTEL' },
-  { id: 'conops', label: 'Conceito de Operações', short: 'CONOPS' },
 ]
+
+export const PAGE_LABELS: Record<PageId, string> = {
+  cover: 'Capa',
+  opord: 'OPORD',
+  notice: 'Comunicado',
+  sitrep: 'SITREP',
+  intel: 'Anexo intel',
+}
+
+export const NOTICE_TYPES: DocType[] = ['comunicado', 'convocacao', 'boletim']
+
+export function isNoticeType(id: DocType): boolean {
+  return NOTICE_TYPES.includes(id)
+}
 
 export const PRECEDENCE: { id: Precedence; label: string; nato: string }[] = [
   { id: 'flash', label: 'FLASH', nato: 'FLASH' },

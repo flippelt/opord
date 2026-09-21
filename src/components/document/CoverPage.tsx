@@ -1,4 +1,4 @@
-import { classificationLine, docTypeOf, handlingText, styleOf } from '../../lib/classification'
+import { classificationLine, docTypeOf, handlingText, isNoticeType, styleOf } from '../../lib/classification'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal } from './ClanSeal'
@@ -8,7 +8,10 @@ import { Marks } from './Watermark'
 export function CoverPage({ dossier }: { dossier: Dossier }) {
   const style = styleOf(dossier.document.classification)
   const kind = docTypeOf(dossier.document.type)
-  const op = dossier.mission.name || dossier.mission.nickname || '—'
+  const notice = isNoticeType(dossier.document.type)
+  const op = notice
+    ? dossier.notice.subject || dossier.mission.name || '—'
+    : dossier.mission.name || dossier.mission.nickname || '—'
 
   return (
     <Sheet page="cover" paper={style.cover} ink={style.coverInk}>
@@ -26,9 +29,12 @@ export function CoverPage({ dossier }: { dossier: Dossier }) {
         {dossier.clan.motto ? <p className="cover-motto">« {dossier.clan.motto} »</p> : null}
         <h1 className="cover-kind">{kind.label}</h1>
         <p className="cover-kind-nato">{kind.short}</p>
-        <p className="cover-op-label">Operação</p>
+        <p className="cover-op-label">{notice ? 'Assunto' : 'Operação'}</p>
         <p className="cover-op">{op}</p>
-        {dossier.mission.nickname ? <p className="cover-nick">{dossier.mission.nickname}</p> : null}
+        {!notice && dossier.mission.nickname ? <p className="cover-nick">{dossier.mission.nickname}</p> : null}
+        {notice && dossier.notice.number ? (
+          <p className="cover-nick">Nº {dossier.notice.number}</p>
+        ) : null}
 
         <dl className="cover-meta">
           <div>

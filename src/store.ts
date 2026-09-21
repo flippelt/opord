@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { defaultDossier } from './defaults'
+import { defaultDossier, migrateDossier } from './defaults'
 import { idbGet, idbSet } from './lib/idb'
 import type { Dossier } from './types'
 
@@ -48,14 +48,17 @@ export const useDossier = create<Store>((set, get) => ({
   async hydrate() {
     try {
       const saved = await withTimeout(idbGet<Dossier>(KEY), 1200)
-      if (saved && saved.version === 1) set({ dossier: saved })
+      const migrated = migrateDossier(saved)
+      if (migrated) set({ dossier: migrated })
     } catch {
       /* keep the in-memory default */
     }
   },
   setDossier(dossier) {
-    set({ dossier })
-    persist(dossier)
+    const next = migrateDossier(dossier)
+    if (!next) return
+    set({ dossier: next })
+    persist(next)
   },
   patch(recipe) {
     const next = structuredClone(get().dossier)

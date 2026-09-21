@@ -48,16 +48,26 @@ Caveats (EYES ONLY, NOFORN, ORCON…) entram na faixa de classificação.
 
 ### Selos e marca d’água
 
-A marca d’água clássica **CONFIDENCIAL** (ou o texto da classificação) pode ser:
+A marca d’água é o texto grande na diagonal (CONFIDENCIAL, ou o nível que você
+escolher). Dá para trocar por mosaico ou desligar. O selo oval fica só como
+carimbo de tinta opcional, desligado por padrão.
 
-- palavra diagonal grande
-- selo oval no centro
-- mosaico repetido
-- diagonal + selo (padrão)
+Selos de tinta ligáveis: CONFIDENCIAL, EYES ONLY, CÓPIA, DESTROY AFTER ACTION,
+WORKING PAPERS, ORCON, VERIFICADO.
 
-Por cima, selos de tinta ligáveis: CONFIDENCIAL, EYES ONLY, CÓPIA, DESTROY AFTER
-ACTION, WORKING PAPERS, ORCON, VERIFICADO. Cada um cai numa página (capa, OPORD,
-intel ou todas).
+### Comunicado, convocação, boletim e SITREP
+
+Além do OPORD, o dossiê pode incluir:
+
+- **Comunicado interno** — ofício do comando ao efetivo (número, audiência,
+  assunto, texto, determinações, vigência).
+- **Convocação** — emprego / op night: DTG de apresentação, servidor, mods,
+  slotting, uniforme, ponto de reunião, comparecimento.
+- **Boletim** — mesmos campos, titulado como boletim da unidade.
+- **SITREP** — inimigo, amigos, situação própria (ACE), pendências, intenção.
+
+As páginas ligam e desligam no bloco **Documento**. O tipo do documento muda o
+título da capa.
 
 ### Exportar
 

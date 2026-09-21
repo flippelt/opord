@@ -5,15 +5,24 @@ export type Classification =
   | 'secreto'
   | 'ultra-secreto'
 
-export type DocType = 'opord' | 'frago' | 'warnord' | 'sitrep' | 'intel' | 'conops'
+export type DocType =
+  | 'opord'
+  | 'frago'
+  | 'warnord'
+  | 'sitrep'
+  | 'intel'
+  | 'conops'
+  | 'comunicado'
+  | 'convocacao'
+  | 'boletim'
 
 export type Precedence = 'flash' | 'immediate' | 'priority' | 'routine'
 
-export type WatermarkMode = 'none' | 'diagonal' | 'center' | 'tiled' | 'both'
+export type WatermarkMode = 'none' | 'diagonal' | 'tiled'
 
 export type StampKind = 'oval' | 'box' | 'round'
 
-export type PageId = 'cover' | 'opord' | 'intel'
+export type PageId = 'cover' | 'opord' | 'notice' | 'sitrep' | 'intel'
 
 export interface StampConfig {
   id: string
@@ -109,6 +118,31 @@ export interface Dossier {
     succession: string
   }
   intel: IntelPhoto[]
+  notice: {
+    number: string
+    audience: string
+    subject: string
+    body: string
+    orders: string
+    validFrom: string
+    validUntil: string
+    distribution: string
+    eventDtg: string
+    server: string
+    mods: string
+    slotting: string
+    uniform: string
+    attendance: string
+    rally: string
+  }
+  sitrep: {
+    period: string
+    enemy: string
+    friendly: string
+    own: string
+    issues: string
+    intent: string
+  }
   marks: {
     watermarkMode: WatermarkMode
     watermarkText: string

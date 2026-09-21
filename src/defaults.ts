@@ -8,7 +8,7 @@ export function defaultStamps(): StampConfig[] {
       kind: 'oval',
       title: 'CONFIDENCIAL',
       subtitle: 'CLASSIFIED',
-      enabled: true,
+      enabled: false,
       rotate: -16,
       x: 72,
       y: 58,
@@ -114,7 +114,7 @@ export function blankDossier(): Dossier {
       copyNumber: '01',
       copyTotal: '04',
       controlNumber: '',
-      pages: { cover: true, opord: true, intel: true },
+      pages: { cover: true, opord: true, notice: true, sitrep: false, intel: true },
     },
     header: {
       origin: '',
@@ -167,11 +167,44 @@ export function blankDossier(): Dossier {
       succession: '',
     },
     intel: emptyIntelSlots(),
+    notice: blankNotice(),
+    sitrep: blankSitrep(),
     marks: {
-      watermarkMode: 'both',
+      watermarkMode: 'diagonal',
       watermarkText: '',
       stamps: defaultStamps(),
     },
+  }
+}
+
+export function blankNotice() {
+  return {
+    number: '',
+    audience: '',
+    subject: '',
+    body: '',
+    orders: '',
+    validFrom: '',
+    validUntil: '',
+    distribution: '',
+    eventDtg: '',
+    server: '',
+    mods: '',
+    slotting: '',
+    uniform: '',
+    attendance: '',
+    rally: '',
+  }
+}
+
+export function blankSitrep() {
+  return {
+    period: '',
+    enemy: '',
+    friendly: '',
+    own: '',
+    issues: '',
+    intent: '',
   }
 }
 
@@ -293,7 +326,68 @@ export function defaultDossier(): Dossier {
       dtg: '180000ZSEP26',
     },
   ]
-  d.marks.watermarkMode = 'both'
+  d.document.pages.notice = true
+  d.notice = {
+    number: '12/2026',
+    audience: 'TODO O EFETIVO DO GRUPO FALCÃO',
+    subject: 'Emprego 23 SEP 26 — Operação SERPENTE NEGRA',
+    body:
+      '1. O Comando determina o emprego do 2º Pelotão na AO SUL (Pyrgos) conforme OPORD 23-09-04.\n' +
+      '2. O efetivo deve estar em FOB Kamino NLT 230100ZSEP26, com check-in de rádio em WATCHTOWER.\n' +
+      '3. Ausências só com justificativa ao SL até 222200Z. Reserva permanece em QRF.',
+    orders:
+      'Loadout noturno, NVG, munição padrão + 1 carga extra. Sem IR strobe até H-10. Trazer 1x litro de água. Dúvidas no Discord #s3.',
+    validFrom: '221800ZSEP26',
+    validUntil: '231200ZSEP26',
+    distribution: 'Cia Bravo, QRF, S2, Comando',
+    eventDtg: '230100ZSEP26',
+    server: 'FALCAO-OPS (senha no canal S2)',
+    mods: 'ACE, ACRE2, CUP, mapa Altis',
+    slotting: 'Discord #slotting — NLT 222200ZSEP26',
+    uniform: 'Uniforme noturno, NVG, sem distintivo civil',
+    attendance: 'OBRIGATÓRIA para 2º Pel; voluntária para reserva',
+    rally: 'TeamSpeak Falcão / sala RAIDER, 230045Z',
+  }
+  d.sitrep = {
+    period: '211800Z a 221800Z SEP 26',
+    enemy:
+      'Seção CSAT em Pyrgos; BTR na garagem norte; sentinelas de telhado nos azimutes 040 e 220. Sem reforço observado na via principal após 221400Z.',
+    friendly: 'QRF (1º Pel) em Kamino, pronto em 8 min. UAV disponível 40 min. FAC destacado.',
+    own: '2º Pel em FOB Kamino. Efetivo completo. ACE verde. Sem baixas. Pronto para H-Hour 230200Z.',
+    issues: '1ª Esq com 5.56 no limite. Bateria do UAV a 30%. Pedido de ressuprimento ao S4.',
+    intent: 'Manter observação. OPORD 23-09-04 permanece em vigor. Próximo SITREP 222000Z ou ao contato.',
+  }
+  d.marks.watermarkMode = 'diagonal'
   d.marks.watermarkText = ''
+  return d
+}
+
+export function migrateDossier(raw: unknown): Dossier | null {
+  if (!raw || typeof raw !== 'object') return null
+  const incoming = raw as Partial<Dossier> & { version?: number }
+  if (incoming.version !== 1) return null
+  const d = structuredClone(blankDossier())
+  Object.assign(d, incoming)
+  d.clan = { ...blankDossier().clan, ...incoming.clan }
+  d.document = { ...blankDossier().document, ...incoming.document }
+  d.document.pages = { ...blankDossier().document.pages, ...incoming.document?.pages }
+  d.header = { ...blankDossier().header, ...incoming.header }
+  d.mission = { ...blankDossier().mission, ...incoming.mission }
+  d.body = { ...blankDossier().body, ...incoming.body }
+  d.command = { ...blankDossier().command, ...incoming.command }
+  d.comms = { ...blankDossier().comms, ...incoming.comms }
+  d.notice = { ...blankNotice(), ...incoming.notice }
+  d.sitrep = { ...blankSitrep(), ...incoming.sitrep }
+  d.marks = { ...blankDossier().marks, ...incoming.marks }
+  const oldMode = String(incoming.marks?.watermarkMode ?? '')
+  if (d.marks.watermarkMode !== 'none' && d.marks.watermarkMode !== 'tiled') {
+    d.marks.watermarkMode = 'diagonal'
+  }
+  d.intel = Array.isArray(incoming.intel) ? incoming.intel : emptyIntelSlots()
+  d.marks.stamps = incoming.marks?.stamps?.length ? incoming.marks.stamps : defaultStamps()
+  if (oldMode === 'both' || oldMode === 'center') {
+    const oval = d.marks.stamps.find((s) => s.id === 'confidential')
+    if (oval) oval.enabled = false
+  }
   return d
 }

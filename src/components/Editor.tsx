@@ -1,4 +1,11 @@
-import { CAVEAT_OPTIONS, CLASSIFICATIONS, DOC_TYPES, PRECEDENCE } from '../lib/classification'
+import {
+  CAVEAT_OPTIONS,
+  CLASSIFICATIONS,
+  DOC_TYPES,
+  NOTICE_TYPES,
+  PAGE_LABELS,
+  PRECEDENCE,
+} from '../lib/classification'
 import { nowDtg } from '../lib/dtg'
 import { readClanMark, readIntelPhoto } from '../lib/image'
 import { blankDossier, defaultDossier } from '../defaults'
@@ -66,7 +73,13 @@ export function Editor() {
         <SelectField
           label="Tipo"
           value={dossier.document.type}
-          onChange={(type: DocType) => patch((d) => void (d.document.type = type))}
+          onChange={(type: DocType) =>
+            patch((d) => {
+              d.document.type = type
+              if (NOTICE_TYPES.includes(type)) d.document.pages.notice = true
+              if (type === 'sitrep') d.document.pages.sitrep = true
+            })
+          }
           options={DOC_TYPES.map((t) => ({ id: t.id, label: `${t.short} — ${t.label}` }))}
         />
         <SelectField
@@ -121,23 +134,16 @@ export function Editor() {
         />
         <fieldset className="chips">
           <legend>Páginas</legend>
-          {(['cover', 'opord', 'intel'] as PageId[]).map((p) => {
-            const labels: Record<PageId, string> = {
-              cover: 'Capa',
-              opord: 'OPORD',
-              intel: 'Anexo intel',
-            }
-            return (
-              <label key={p} className={dossier.document.pages[p] ? 'chip on' : 'chip'}>
-                <input
-                  type="checkbox"
-                  checked={dossier.document.pages[p]}
-                  onChange={() => patch((d) => void (d.document.pages[p] = !d.document.pages[p]))}
-                />
-                {labels[p]}
-              </label>
-            )
-          })}
+          {(Object.keys(PAGE_LABELS) as PageId[]).map((p) => (
+            <label key={p} className={dossier.document.pages[p] ? 'chip on' : 'chip'}>
+              <input
+                type="checkbox"
+                checked={dossier.document.pages[p]}
+                onChange={() => patch((d) => void (d.document.pages[p] = !d.document.pages[p]))}
+              />
+              {PAGE_LABELS[p]}
+            </label>
+          ))}
         </fieldset>
       </details>
 
@@ -242,6 +248,137 @@ export function Editor() {
           label="Terreno"
           value={dossier.mission.terrain}
           onChange={(terrain) => patch((d) => void (d.mission.terrain = terrain))}
+        />
+      </details>
+
+      <details open>
+        <summary>Comunicado / convocação</summary>
+        <Field
+          label="Nº do comunicado"
+          value={dossier.notice.number}
+          onChange={(number) => patch((d) => void (d.notice.number = number))}
+          placeholder="12/2026"
+        />
+        <Field
+          label="Para (audiência)"
+          value={dossier.notice.audience}
+          onChange={(audience) => patch((d) => void (d.notice.audience = audience))}
+          placeholder="TODO O EFETIVO"
+        />
+        <Field
+          label="Assunto"
+          value={dossier.notice.subject}
+          onChange={(subject) => patch((d) => void (d.notice.subject = subject))}
+        />
+        <Field
+          label="Texto"
+          value={dossier.notice.body}
+          onChange={(body) => patch((d) => void (d.notice.body = body))}
+          multiline
+          rows={6}
+        />
+        <Field
+          label="Determinações"
+          value={dossier.notice.orders}
+          onChange={(orders) => patch((d) => void (d.notice.orders = orders))}
+          multiline
+          rows={3}
+        />
+        <div className="row2">
+          <Field
+            label="Vigência de"
+            value={dossier.notice.validFrom}
+            onChange={(validFrom) => patch((d) => void (d.notice.validFrom = validFrom))}
+          />
+          <Field
+            label="Até"
+            value={dossier.notice.validUntil}
+            onChange={(validUntil) => patch((d) => void (d.notice.validUntil = validUntil))}
+          />
+        </div>
+        <Field
+          label="Distribuição"
+          value={dossier.notice.distribution}
+          onChange={(distribution) => patch((d) => void (d.notice.distribution = distribution))}
+        />
+        <p className="field-hint">Campos de convocação (op night) — preenchidos, entram no documento.</p>
+        <Field
+          label="Apresentação (DTG)"
+          value={dossier.notice.eventDtg}
+          onChange={(eventDtg) => patch((d) => void (d.notice.eventDtg = eventDtg))}
+        />
+        <Field
+          label="Comparecimento"
+          value={dossier.notice.attendance}
+          onChange={(attendance) => patch((d) => void (d.notice.attendance = attendance))}
+        />
+        <Field
+          label="Servidor"
+          value={dossier.notice.server}
+          onChange={(server) => patch((d) => void (d.notice.server = server))}
+        />
+        <Field
+          label="Ponto de reunião / TS"
+          value={dossier.notice.rally}
+          onChange={(rally) => patch((d) => void (d.notice.rally = rally))}
+        />
+        <Field
+          label="Mods / mapa"
+          value={dossier.notice.mods}
+          onChange={(mods) => patch((d) => void (d.notice.mods = mods))}
+        />
+        <Field
+          label="Slotting"
+          value={dossier.notice.slotting}
+          onChange={(slotting) => patch((d) => void (d.notice.slotting = slotting))}
+        />
+        <Field
+          label="Uniforme / loadout"
+          value={dossier.notice.uniform}
+          onChange={(uniform) => patch((d) => void (d.notice.uniform = uniform))}
+        />
+      </details>
+
+      <details>
+        <summary>SITREP</summary>
+        <Field
+          label="Período coberto"
+          value={dossier.sitrep.period}
+          onChange={(period) => patch((d) => void (d.sitrep.period = period))}
+        />
+        <Field
+          label="1. Inimigo"
+          value={dossier.sitrep.enemy}
+          onChange={(enemy) => patch((d) => void (d.sitrep.enemy = enemy))}
+          multiline
+        />
+        <Field
+          label="2. Forças amigas"
+          value={dossier.sitrep.friendly}
+          onChange={(friendly) => patch((d) => void (d.sitrep.friendly = friendly))}
+          multiline
+          rows={3}
+        />
+        <Field
+          label="3. Situação própria (ACE)"
+          value={dossier.sitrep.own}
+          onChange={(own) => patch((d) => void (d.sitrep.own = own))}
+          multiline
+          rows={3}
+        />
+        <Field
+          label="4. Pendências"
+          value={dossier.sitrep.issues}
+          onChange={(issues) => patch((d) => void (d.sitrep.issues = issues))}
+          multiline
+          rows={3}
+        />
+        <Field
+          label="5. Intenção / próximos passos"
+          value={dossier.sitrep.intent}
+          onChange={(intent) => patch((d) => void (d.sitrep.intent = intent))}
+          multiline
+          rows={3}
         />
       </details>
 
@@ -461,10 +598,8 @@ export function Editor() {
           }
           options={[
             { id: 'none', label: 'Nenhuma' },
-            { id: 'diagonal', label: 'Palavra diagonal (clássica)' },
-            { id: 'center', label: 'Selo oval no centro' },
+            { id: 'diagonal', label: 'Texto grande na diagonal' },
             { id: 'tiled', label: 'Mosaico repetido' },
-            { id: 'both', label: 'Diagonal + selo central' },
           ]}
         />
         <Field
@@ -487,7 +622,7 @@ export function Editor() {
             />
             {stamp.title}
             <small>
-              {stamp.page === 'all' ? 'todas' : stamp.page === 'cover' ? 'capa' : stamp.page === 'opord' ? 'OPORD' : 'intel'}
+              {stamp.page === 'all' ? 'todas' : PAGE_LABELS[stamp.page]}
             </small>
           </label>
         ))}

@@ -6,7 +6,9 @@ import { emptyIntelSlots } from '../defaults'
 import { useDossier } from '../store'
 import { CoverPage } from './document/CoverPage'
 import { IntelPage } from './document/IntelPage'
+import { NoticePage } from './document/NoticePage'
 import { OpordBack, OpordFront } from './document/OpordPage'
+import { SitrepPage } from './document/SitrepPage'
 
 export function Preview() {
   const dossier = useDossier((s) => s.dossier)
@@ -97,7 +99,6 @@ export function Preview() {
               if (!file) return
               void file.text().then((text) => {
                 const parsed = JSON.parse(text)
-                if (parsed?.version !== 1) throw new Error('JSON inválido')
                 useDossier.getState().setDossier(parsed)
               })
             }}
@@ -112,12 +113,14 @@ export function Preview() {
           style={{ transform: `scale(${zoom})` }}
         >
           {dossier.document.pages.cover ? <CoverPage dossier={dossier} /> : null}
+          {dossier.document.pages.notice ? <NoticePage dossier={dossier} /> : null}
           {dossier.document.pages.opord ? (
             <>
               <OpordFront dossier={dossier} />
               <OpordBack dossier={dossier} />
             </>
           ) : null}
+          {dossier.document.pages.sitrep ? <SitrepPage dossier={dossier} /> : null}
           {dossier.document.pages.intel
             ? chunk(dossier.intel.length ? dossier.intel : emptyIntelSlots(), 4).map((group, i) => (
                 <IntelPage key={group[0]?.id ?? i} dossier={dossier} photos={group} startIndex={i * 4} />
