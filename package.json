@@ -11,6 +11,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "abrir": "node scripts/abrir.mjs",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",

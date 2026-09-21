@@ -74,17 +74,43 @@ Ligue o que a operação precisa em **Páginas**.
 
 A capa muda de cor com o nível. A marca d’água usa o texto da classificação (ou o que você escrever).
 
-## Uso local
+## Abrir sem terminal (duplo clique)
+
+Na primeira vez instala o [Node.js 22 LTS](https://nodejs.org/) (o instalador
+oficial). Depois:
+
+| Sistema | Arquivo |
+| --- | --- |
+| macOS | `Abrir-OPORD.command` (Finder; se bloquear: clique direito → Abrir) |
+| Windows | `Abrir-OPORD.bat` |
+| Linux | `abrir-opord.sh` |
+
+O lançador instala as dependências na primeira execução, sobe o app e abre o
+navegador em `http://127.0.0.1:5173`. Deixe a janela aberta; feche-a para
+encerrar.
+
+## Uso no terminal
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
+npm run abrir    # ou: npm run dev
 npm test
 npm run build
 ```
 
-O primeiro acesso abre o exemplo **Operação SERPENTE NEGRA** (Altis). Use **Dossiê em branco** para a operação real do clã, ou edite o exemplo. O dossiê fica no IndexedDB do navegador.
+O primeiro acesso abre o exemplo **Operação SERPENTE NEGRA** (Altis). Use
+**Dossiê em branco** para a operação real do clã, ou edite o exemplo. O dossiê
+fica no IndexedDB do navegador.
 
 ## Licença
 
-MIT. O exemplo do primeiro acesso é ficção de milsim; não representa unidade real.
+[MIT](LICENSE). Copyright (c) 2026 Felipe Lippelt. O exemplo do primeiro acesso
+é ficção de milsim; não representa unidade real.
+
+## Contribuindo
+
+Veja [CONTRIBUTING.md](CONTRIBUTING.md). Código por pull request; a `main` é
+protegida. Missão real do clã não entra no repositório.
+
+Próximo recorte (títulos por folha e páginas em branco):
+[docs/upgrade-paginas.md](docs/upgrade-paginas.md).
