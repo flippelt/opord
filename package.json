@@ -1,0 +1,39 @@
+{
+  "name": "opord",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Gerador de OPORD e briefings classificados para clãs de milsim.",
+  "license": "MIT",
+  "author": "Felipe Lippelt",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@fontsource/cinzel": "^5.2.8",
+    "@fontsource/ibm-plex-sans": "^5.2.8",
+    "@fontsource/oswald": "^5.2.8",
+    "@fontsource/share-tech-mono": "^5.2.8",
+    "fflate": "^0.8.2",
+    "html-to-image": "^1.11.13",
+    "jspdf": "^4.2.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "typescript": "^5.9.3",
+    "vite": "^8.1.5",
+    "vitest": "^4.1.11"
+  }
+}
