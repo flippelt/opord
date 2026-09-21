@@ -1,40 +1,68 @@
 # OPORD
 
-Gerador web de **ordens de operações** e briefings classificados para clãs de
-milsim (Arma 3, Squad e afins). O resultado é um dossiê em papel A4 — capa com
-folha de classificação, OPORD no formato SMEAC e anexo de foto intel — com
-selos, marca d’água e identidade do clã.
+[![CI](https://img.shields.io/github/actions/workflow/status/flippelt/opord/ci.yml?label=CI)](https://github.com/flippelt/opord/actions) [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-Tudo corre **no navegador**. Nada é enviado a servidor.
+Gerador web de **briefings classificados** para **clãs de jogos de simulação militar** — Arma 3, Squad, Hell Let Loose e afins. O clã monta o dossiê da operação (OPORD, comunicado, intel, HVT, CASEVAC…) com visual de documento controlado e exporta PDF ou imagem para o Discord, o briefing da sala ou o print na TV.
 
-## Uso
+Feito para **clã milsim**, não para mesa de RPG. Tudo corre **no navegador**. Nada vai para servidor — o plano da operação fica na máquina.
 
-```bash
-npm install
-npm run dev
-```
+**Demo:** https://flippelt.github.io/opord/
 
-Abre `http://localhost:5173`. O primeiro acesso carrega um exemplo (Operação
-SERPENTE NEGRA, Altis) para o visual já nascer preenchido. Use **Dossiê em
-branco** para começar do zero, ou edite o exemplo.
+[<img src="docs/screenshots/overview.jpg" width="720" alt="Estação de operações com a capa classificada">](docs/screenshots/overview.jpg)
 
-[<img src="docs/screenshots/overview.jpg" width="720" alt="Capa classificada da operação exemplo">](docs/screenshots/overview.jpg)
+## Para o clã
 
-### Identidade do clã
+- Identidade: nome, lema, **selo** (capa, cabeçalho, assinatura) e **patch**
+- Classificação brasileira com equivalente NATO (OSTENSIVO → ULTRA-SECRETO) e caveats (EYES ONLY, NOFORN, ORCON…)
+- Jargão de emprego: origem/destino, DTG Zulu, hora-H, AO, grid, ROE, redes, desafio/senha
+- Marca d’água grande na diagonal; selos de tinta opcionais
+- Exportar **PDF**, **PNG** (ZIP), imprimir A4 ou backup **JSON** entre PCs do clã
 
-- **Selo** — capa, cabeçalho do OPORD e bloco de assinatura.
-- **Distintivo / patch** — canto direito do OPORD.
+## Folhas do dossiê
 
-PNG com fundo transparente funciona melhor no selo.
+Ligue o que a operação precisa em **Páginas**.
 
-### Campos militares
+| Folha | Uso |
+| --- | --- |
+| Capa | Folha de classificação, selo do clã, aviso de manuseio |
+| Comunicado / convocação / boletim | Ofício ao efetivo; op night com servidor, mods, slotting, TS |
+| OPORD | SMEAC: situação, missão, execução, logística, comando |
+| SITREP | Inimigo, amigos, ACE, pendências, intenção |
+| AAR | O que aconteceu, o que funcionou, o que falhou, lições, BDA |
+| ORBAT | Organização de tarefa |
+| HVT | Cartão de alvo (retrato, alias, orientação CAPTURE/KILL) |
+| CASEVAC | Pedido MEDEVAC em 9 linhas NATO |
+| Intel | Placas de foto (UAV, SAT, RECON, HUMINT) |
 
-Origem (FROM), destino (TO), info (CC), precedência (FLASH / IMEDIATO /
-PRIORIDADE / ROTINA), DTG Zulu (`221845ZSEP26`), hora-H, AO, grid, carta,
-terreno, missão no formato *quem / o quê / quando / onde / para quê*,
-execução, logística, redes, desafio/senha, ROE.
+### Capa
 
-Classificação no padrão brasileiro com equivalente NATO:
+[<img src="docs/screenshots/capa.jpg" width="480" alt="Capa CONFIDENCIAL">](docs/screenshots/capa.jpg)
+
+### Comunicado de emprego
+
+[<img src="docs/screenshots/notice.jpg" width="480" alt="Comunicado interno">](docs/screenshots/notice.jpg)
+
+### OPORD
+
+[<img src="docs/screenshots/opord-1.jpg" width="480" alt="OPORD página 1">](docs/screenshots/opord-1.jpg)
+[<img src="docs/screenshots/opord-2.jpg" width="480" alt="OPORD página 2">](docs/screenshots/opord-2.jpg)
+
+### SITREP, AAR, ORBAT
+
+[<img src="docs/screenshots/sitrep.jpg" width="320" alt="SITREP">](docs/screenshots/sitrep.jpg)
+[<img src="docs/screenshots/aar.jpg" width="320" alt="AAR">](docs/screenshots/aar.jpg)
+[<img src="docs/screenshots/orbat.jpg" width="320" alt="ORBAT">](docs/screenshots/orbat.jpg)
+
+### HVT e CASEVAC
+
+[<img src="docs/screenshots/hvt-1.jpg" width="320" alt="Cartão HVT">](docs/screenshots/hvt-1.jpg)
+[<img src="docs/screenshots/casevac.jpg" width="320" alt="CASEVAC 9 linhas">](docs/screenshots/casevac.jpg)
+
+### Anexo de intel
+
+[<img src="docs/screenshots/intel.jpg" width="480" alt="Anexo de foto intel">](docs/screenshots/intel.jpg)
+
+## Classificação
 
 | Documento | NATO |
 | --- | --- |
@@ -44,48 +72,19 @@ Classificação no padrão brasileiro com equivalente NATO:
 | SECRETO | SECRET |
 | ULTRA-SECRETO | TOP SECRET |
 
-Caveats (EYES ONLY, NOFORN, ORCON…) entram na faixa de classificação.
+A capa muda de cor com o nível. A marca d’água usa o texto da classificação (ou o que você escrever).
 
-### Selos e marca d’água
-
-A marca d’água é o texto grande na diagonal (CONFIDENCIAL, ou o nível que você
-escolher). Dá para trocar por mosaico ou desligar. O selo oval fica só como
-carimbo de tinta opcional, desligado por padrão.
-
-Selos de tinta ligáveis: CONFIDENCIAL, EYES ONLY, CÓPIA, DESTROY AFTER ACTION,
-WORKING PAPERS, ORCON, VERIFICADO.
-
-### Outras folhas
-
-Além do OPORD, o dossiê pode incluir (ligar em **Páginas**):
-
-- **Comunicado / convocação / boletim** — ofício ao efetivo; convocação traz
-  servidor, mods, slotting e ponto de reunião.
-- **SITREP** — inimigo, amigos, ACE, pendências, intenção.
-- **AAR** — o que aconteceu, o que funcionou, o que falhou, lições, manter/melhorar, BDA.
-- **CASEVAC (9 linhas)** — pedido MEDEVAC no formato NATO, com dicas de código em cada linha.
-- **HVT** — cartão de alvo (retrato, alias, grid, orientação CAPTURE/KILL).
-- **ORBAT** — organização de tarefa (escalão, indicativo, chefe, efetivo, missão).
-
-O tipo no topo muda o título da capa.
-
-### Exportar
-
-- **PDF** — as páginas A4 visíveis.
-- **PNG** — ZIP com uma imagem por página.
-- **Imprimir** — CSS de impressão A4 (útil também como “Salvar PDF” do sistema).
-- **JSON** — backup / troca de dossiê entre máquinas do clã.
-
-O dossiê também fica salvo no IndexedDB do navegador.
-
-## Scripts
+## Uso local
 
 ```bash
-npm test      # vitest
+npm install
+npm run dev      # http://localhost:5173
+npm test
 npm run build
 ```
 
+O primeiro acesso abre o exemplo **Operação SERPENTE NEGRA** (Altis). Use **Dossiê em branco** para a operação real do clã, ou edite o exemplo. O dossiê fica no IndexedDB do navegador.
+
 ## Licença
 
-MIT. O exemplo no primeiro acesso é ficção de milsim; não representa unidade
-real.
+MIT. O exemplo do primeiro acesso é ficção de milsim; não representa unidade real.
