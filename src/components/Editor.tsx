@@ -27,6 +27,20 @@ export function Editor() {
   const dossier = useDossier((s) => s.dossier)
   const patch = useDossier((s) => s.patch)
   const setDossier = useDossier((s) => s.setDossier)
+  const pageIds = Object.keys(PAGE_LABELS) as PageId[]
+  const pagesOn = pageIds.filter((id) => dossier.document.pages[id])
+  const pagesOff = pageIds.filter((id) => !dossier.document.pages[id])
+
+  const showCommand =
+    dossier.document.pages.opord ||
+    dossier.document.pages.notice ||
+    dossier.document.pages.radio ||
+    dossier.document.pages.roster ||
+    dossier.document.pages.sitrep ||
+    dossier.document.pages.aar ||
+    dossier.document.pages.orbat ||
+    dossier.document.pages.casevac ||
+    dossier.document.pages.hvt
 
   return (
     <aside className="desk">
@@ -143,16 +157,29 @@ export function Editor() {
           onChange={(controlNumber) => patch((d) => void (d.document.controlNumber = controlNumber))}
         />
         <fieldset className="chips">
-          <legend>Páginas</legend>
-          {(Object.keys(PAGE_LABELS) as PageId[]).map((p) => (
-            <label key={p} className={dossier.document.pages[p] ? 'chip on' : 'chip'}>
-              <input
-                type="checkbox"
-                checked={dossier.document.pages[p]}
-                onChange={() => patch((d) => void (d.document.pages[p] = !d.document.pages[p]))}
-              />
-              {PAGE_LABELS[p]}
-            </label>
+          <legend>No pacote</legend>
+          {pagesOn.map((p) => (
+            <button
+              key={p}
+              type="button"
+              className="chip on"
+              onClick={() => patch((d) => void (d.document.pages[p] = false))}
+            >
+              {PAGE_LABELS[p]} · tirar
+            </button>
+          ))}
+        </fieldset>
+        <fieldset className="chips">
+          <legend>Adicionar modelo</legend>
+          {pagesOff.map((p) => (
+            <button
+              key={p}
+              type="button"
+              className="chip"
+              onClick={() => patch((d) => void (d.document.pages[p] = true))}
+            >
+              + {PAGE_LABELS[p]}
+            </button>
           ))}
         </fieldset>
         <details open className="nested">
@@ -269,6 +296,7 @@ export function Editor() {
         />
       </details>
 
+{(dossier.document.pages.notice) ? (
       <details open>
         <summary>Comunicado / convocação</summary>
         <Field
@@ -356,7 +384,9 @@ export function Editor() {
           onChange={(uniform) => patch((d) => void (d.notice.uniform = uniform))}
         />
       </details>
+      ) : null}
 
+{(dossier.document.pages.sitrep) ? (
       <details>
         <summary>SITREP</summary>
         <Field
@@ -399,7 +429,9 @@ export function Editor() {
           rows={3}
         />
       </details>
+      ) : null}
 
+{(dossier.document.pages.aar) ? (
       <details>
         <summary>AAR</summary>
         <Field
@@ -464,7 +496,9 @@ export function Editor() {
           onChange={(bda) => patch((d) => void (d.aar.bda = bda))}
         />
       </details>
+      ) : null}
 
+{(dossier.document.pages.casevac) ? (
       <details>
         <summary>CASEVAC (9 linhas)</summary>
         {CASEVAC_LINES.map((line) => (
@@ -484,7 +518,9 @@ export function Editor() {
           rows={3}
         />
       </details>
+      ) : null}
 
+{(dossier.document.pages.hvt) ? (
       <details>
         <summary>HVT</summary>
         {dossier.hvts.map((card, i) => (
@@ -580,7 +616,9 @@ export function Editor() {
           + Cartão de HVT
         </button>
       </details>
+      ) : null}
 
+{(dossier.document.pages.orbat) ? (
       <details>
         <summary>ORBAT</summary>
         {dossier.orbat.map((row, i) => (
@@ -642,7 +680,9 @@ export function Editor() {
           + Linha no ORBAT
         </button>
       </details>
+      ) : null}
 
+{(dossier.document.pages.timeline) ? (
       <details>
         <summary>Linha do tempo</summary>
         {dossier.timeline.map((row, i) => (
@@ -682,7 +722,9 @@ export function Editor() {
           + Marco
         </button>
       </details>
+      ) : null}
 
+{(dossier.document.pages.roster) ? (
       <details>
         <summary>Escalação</summary>
         <p className="field-hint">Quem ocupa cada vaga. O cartão de rádio e o de ROE usam as redes e as regras já preenchidas.</p>
@@ -729,7 +771,9 @@ export function Editor() {
           + Vaga
         </button>
       </details>
+      ) : null}
 
+{(dossier.document.pages.opord || dossier.document.pages.roe) ? (
       <details>
         <summary>Corpo (SMEAC)</summary>
         <Field
@@ -810,7 +854,9 @@ export function Editor() {
           rows={3}
         />
       </details>
+      ) : null}
 
+{(showCommand) ? (
       <details>
         <summary>Comando e redes</summary>
         <Field
@@ -872,7 +918,9 @@ export function Editor() {
           onChange={(succession) => patch((d) => void (d.comms.succession = succession))}
         />
       </details>
+      ) : null}
 
+{(dossier.document.pages.intel) ? (
       <details open>
         <summary>Anexo de intel</summary>
         {dossier.intel.map((photo, i) => (
@@ -935,6 +983,7 @@ export function Editor() {
           + Placa de intel
         </button>
       </details>
+      ) : null}
 
       <details open>
         <summary>Carimbos e marca d’água</summary>
@@ -1054,7 +1103,7 @@ export function Editor() {
           Restaurar exemplo
         </button>
         <button type="button" className="btn-ghost" onClick={() => setDossier(blankDossier())}>
-          Dossiê em branco
+          Novo dossiê
         </button>
       </div>
     </aside>

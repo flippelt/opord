@@ -117,10 +117,10 @@ export function blankDossier(): Dossier {
       controlNumber: '',
       pages: {
         cover: true,
-        opord: true,
-        notice: true,
+        opord: false,
+        notice: false,
         sitrep: false,
-        intel: true,
+        intel: false,
         aar: false,
         casevac: false,
         hvt: false,
