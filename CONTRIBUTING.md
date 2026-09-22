@@ -1,7 +1,7 @@
 # Contribuindo
 
 Obrigado pelo interesse. Aqui mora o gerador, não a operação do seu clã.
-Selo, fotos e o texto da missão ficam no navegador de quem usa, ou num JSON
+Logo, fotos e o texto da missão ficam no navegador de quem usa, ou num JSON
 que vocês guardam entre si.
 
 ## Licença
@@ -27,14 +27,14 @@ macOS, `abrir-opord.sh` no Linux, `Abrir-OPORD.bat` no Windows).
 
 ## O que é bem-vindo
 
-- Correção de visual no documento A4 (faixas, selos, export PDF/PNG)
+- Correção de visual no documento A4 (faixas, carimbos, logo, export PDF/PNG)
 - Campos e folhas úteis para milsim (sem copiar documento classificado real)
 - Acessibilidade e textos em português
 - Testes (vitest) para DTG, classificação, migração de dossiê
 
 ## O que não entra
 
-- Missão, ORBAT, foto ou selo de clã real
+- Missão, ORBAT, foto ou logo de clã real
 - Segredos, tokens, mapas de servidor privado
 - Dependências pesadas sem necessidade clara
 

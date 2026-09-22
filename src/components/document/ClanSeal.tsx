@@ -11,7 +11,7 @@ export function ClanSeal({ src, name, shortName, size = 128 }: Props) {
       <img
         className="clan-seal-img"
         src={src}
-        alt={name || 'Selo do clã'}
+        alt={name || 'Logo do clã'}
         width={size}
         height={size}
       />
