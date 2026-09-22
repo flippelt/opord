@@ -45,5 +45,5 @@ macOS, `abrir-opord.sh` no Linux, `Abrir-OPORD.bat` no Windows).
 3. Descreva o que mudou no documento (qual folha, qual campo)
 4. Uma imagem, se o papel mudou de cara
 
-O plano de deixar os títulos das folhas editáveis, e de incluir páginas em
-branco, está em [docs/upgrade-paginas.md](docs/upgrade-paginas.md).
+A próxima mudança na marca d'água (logo ou imagem, texto por cima, cor à
+escolha) está em [docs/upgrade-marca.md](docs/upgrade-marca.md).
