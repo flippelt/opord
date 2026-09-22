@@ -844,21 +844,6 @@
   margin-top: 6px;
 }
 
-.photo-stamp {
-  position: absolute;
-  right: 10px;
-  bottom: 22px;
-  font-family: var(--stencil);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  color: #b42318;
-  border: 2px solid #b42318;
-  padding: 1px 6px;
-  transform: rotate(-8deg);
-  mix-blend-mode: multiply;
-  opacity: 0.85;
-}
-
 .photo-plate figcaption {
   display: flex;
   flex-direction: column;
