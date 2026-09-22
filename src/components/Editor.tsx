@@ -54,7 +54,7 @@ export function Editor() {
           onChange={(motto) => patch((d) => void (d.clan.motto = motto))}
         />
         <ImageField
-          label="Selo do clã"
+          label="Logo do clã"
           hint="Vai na capa, no cabeçalho e na assinatura."
           src={dossier.clan.sealSrc}
           readFile={readClanMark}
@@ -833,7 +833,7 @@ export function Editor() {
       </details>
 
       <details open>
-        <summary>Selos e marca d’água</summary>
+        <summary>Carimbos e marca d’água</summary>
         <SelectField
           label="Marca d’água"
           value={dossier.marks.watermarkMode}

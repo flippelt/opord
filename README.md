@@ -2,7 +2,7 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/flippelt/opord/ci.yml?label=CI)](https://github.com/flippelt/opord/actions) [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-Monta o briefing da operação do clã com cara de documento controlado: capa, ordem, comunicado, intel, alvo, pedido de evacuação e o que mais a noite pedir. Você preenche, coloca o selo e as fotos, e leva um PDF ou uma imagem para o Discord, a sala ou a TV.
+Monta o briefing da operação do clã com cara de documento controlado: capa, ordem, comunicado, intel, alvo, pedido de evacuação e o que mais a noite pedir. Você preenche, coloca o logo e as fotos, e leva um PDF ou uma imagem para o Discord, a sala ou a TV.
 
 É para clãs de Arma 3, Squad, Hell Let Loose e jogos do mesmo tipo. Abre no navegador, na sua máquina. O que você escrever fica aí.
 
@@ -16,7 +16,7 @@ Liga e desliga cada folha em **Páginas**.
 
 | Folha | Para quê |
 | --- | --- |
-| Capa | Classificação, selo do clã, aviso de manuseio |
+| Capa | Classificação, logo do clã, aviso de manuseio |
 | Comunicado, convocação ou boletim | Aviso ao efetivo, com servidor, mods, slotting e ponto de reunião quando for noite de operação |
 | OPORD | Situação, missão, execução, logística, comando |
 | SITREP | Como está o inimigo, os amigos, o próprio efetivo e o que falta |
@@ -66,7 +66,7 @@ A capa muda de cor conforme o nível. A marca d'água grande na diagonal usa o m
 | SECRETO | SECRET |
 | ULTRA-SECRETO | TOP SECRET |
 
-Dá para acrescentar restrições como EYES ONLY, NOFORN e ORCON na faixa de cima e de baixo. O selo do clã vai na capa, no cabeçalho e na assinatura. O patch fica no canto da ordem.
+Dá para acrescentar restrições como EYES ONLY, NOFORN e ORCON na faixa de cima e de baixo. O logo do clã vai na capa, no cabeçalho e na assinatura. O patch fica no canto da ordem.
 
 ## Como abrir
 
