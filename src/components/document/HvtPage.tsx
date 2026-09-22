@@ -1,4 +1,5 @@
 import { classificationLine } from '../../lib/classification'
+import { sheetTitle } from '../../lib/stack'
 import type { Dossier, HvtCard } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal } from './ClanSeal'
@@ -22,7 +23,7 @@ export function HvtPage({ dossier, card, index }: { dossier: Dossier; card: HvtC
             <p className="hvt-kicker">
               {dossier.clan.shortName || 'UNIDADE'} · CARTÃO DE ALVO · HVT-{String(index + 1).padStart(2, '0')}
             </p>
-            <h1>{card.status || 'WANTED'}</h1>
+            <h1>{sheetTitle(dossier.titles, 'hvt', card.status || 'WANTED')}</h1>
             <p>
               {dossier.mission.name ? `OP. ${dossier.mission.name}` : '—'} · {dossier.header.dtg || '—'}
             </p>

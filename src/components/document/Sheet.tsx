@@ -3,7 +3,7 @@ import type { PageId } from '../../types'
 import { PaperGrain } from './Banners'
 
 type Props = {
-  page: PageId
+  page: PageId | 'blank'
   exportId?: string
   paper: string
   ink?: string

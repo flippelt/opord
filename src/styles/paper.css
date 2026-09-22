@@ -496,6 +496,35 @@
   padding: 8px 10px;
 }
 
+.blank-body {
+  min-height: 0;
+}
+
+.blank-text {
+  margin: 10px 0 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.blank-lines {
+  flex: 1;
+  min-height: 90mm;
+  margin-top: 10px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 7.2mm,
+    rgba(26, 23, 20, 0.28) 7.4mm
+  );
+}
+
+.blank-open {
+  flex: 1;
+  min-height: 40mm;
+}
+
 .aar-split {
   display: grid;
   grid-template-columns: 1fr 1fr;

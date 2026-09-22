@@ -1,4 +1,5 @@
 import { classificationLine, docTypeOf, precedenceOf } from '../../lib/classification'
+import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal, UnitPatch } from './ClanSeal'
@@ -40,7 +41,11 @@ function OpordChrome({ dossier }: { dossier: Dossier }) {
           {dossier.header.place || '—'} · {dossier.header.dtg || '—'}
         </p>
         <h1>
-          {kind.short} {dossier.header.orderNumber} — {opName}
+          {sheetTitle(
+            dossier.titles,
+            'opord',
+            `${kind.short} ${dossier.header.orderNumber} — ${opName}`.replace(/\s+/g, ' ').trim(),
+          )}
         </h1>
         <p className="op-subject">{dossier.mission.subject || kind.label}</p>
       </div>

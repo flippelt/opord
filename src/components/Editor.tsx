@@ -13,6 +13,7 @@ import { blankDossier, defaultDossier, emptyHvtSlots, emptyOrbatLines } from '..
 import { useDossier } from '../store'
 import type { Classification, DocType, PageId, Precedence, WatermarkMode } from '../types'
 import { Field, ImageField, SelectField } from './ImageField'
+import { SheetOrder } from './SheetOrder'
 
 export function Editor() {
   const dossier = useDossier((s) => s.dossier)
@@ -146,6 +147,14 @@ export function Editor() {
             </label>
           ))}
         </fieldset>
+        <details open className="nested">
+          <summary>Ordem e títulos</summary>
+          <p className="field-hint">
+            O título vazio deixa o nome de sempre. A página em branco entra antes das fotos, e as
+            setas mudam o lugar dela no pacote.
+          </p>
+          <SheetOrder />
+        </details>
       </details>
 
       <details open>

@@ -93,6 +93,19 @@ export interface OrbatLine {
   task: string
 }
 
+export interface BlankPage {
+  id: string
+  title: string
+  heading: string
+  body: string
+  lined: boolean
+}
+
+export interface StackItem {
+  kind: PageId | 'blank'
+  id?: string
+}
+
 export interface Dossier {
   version: 1
   clan: {
@@ -208,6 +221,9 @@ export interface Dossier {
   }
   hvts: HvtCard[]
   orbat: OrbatLine[]
+  titles: Partial<Record<PageId, string>>
+  blanks: BlankPage[]
+  stack: StackItem[]
   marks: {
     watermarkMode: WatermarkMode
     watermarkText: string

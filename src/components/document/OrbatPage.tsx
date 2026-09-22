@@ -1,4 +1,5 @@
 import { classificationLine } from '../../lib/classification'
+import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { DocumentChrome, SignBlock } from './DocumentChrome'
@@ -14,7 +15,11 @@ export function OrbatPage({ dossier }: { dossier: Dossier }) {
       <div className="notice-body">
         <DocumentChrome
           dossier={dossier}
-          title={`ORBAT — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'TASK ORG'}`}
+          title={sheetTitle(
+            dossier.titles,
+            'orbat',
+            `ORBAT — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'TASK ORG'}`,
+          )}
           subtitle="Organização de tarefa · efetivo para o emprego"
         />
         <table className="orbat-table">

@@ -1,4 +1,5 @@
 import { classificationLine, styleOf } from '../../lib/classification'
+import { sheetTitle } from '../../lib/stack'
 import type { Dossier, IntelPhoto } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal } from './ClanSeal'
@@ -40,7 +41,7 @@ export function IntelPage({
           />
           <div>
             <p className="intel-kicker">Anexo B — Inteligência</p>
-            <h1>FOTO INTEL / IMAGERY</h1>
+            <h1>{sheetTitle(dossier.titles, 'intel', 'FOTO INTEL / IMAGERY')}</h1>
             <p>
               {dossier.mission.name ? `OP. ${dossier.mission.name}` : '—'} · {dossier.header.dtg || '—'}
             </p>

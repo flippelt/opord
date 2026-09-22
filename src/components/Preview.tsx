@@ -1,10 +1,11 @@
-import { useRef } from 'react'
+import { Fragment, useRef } from 'react'
 import { docTypeOf, styleOf } from '../lib/classification'
 import { chunk } from '../lib/dtg'
 import { captureAll, downloadJson, fileBase, savePdf, savePngZip } from '../lib/export'
 import { emptyHvtSlots, emptyIntelSlots } from '../defaults'
 import { useDossier } from '../store'
 import { AarPage } from './document/AarPage'
+import { BlankSheet } from './document/BlankPage'
 import { CasevacPage } from './document/CasevacPage'
 import { CoverPage } from './document/CoverPage'
 import { HvtPage } from './document/HvtPage'
@@ -116,28 +117,43 @@ export function Preview() {
           ref={stack}
           style={{ transform: `scale(${zoom})` }}
         >
-          {dossier.document.pages.cover ? <CoverPage dossier={dossier} /> : null}
-          {dossier.document.pages.notice ? <NoticePage dossier={dossier} /> : null}
-          {dossier.document.pages.opord ? (
-            <>
-              <OpordFront dossier={dossier} />
-              <OpordBack dossier={dossier} />
-            </>
-          ) : null}
-          {dossier.document.pages.sitrep ? <SitrepPage dossier={dossier} /> : null}
-          {dossier.document.pages.aar ? <AarPage dossier={dossier} /> : null}
-          {dossier.document.pages.orbat ? <OrbatPage dossier={dossier} /> : null}
-          {dossier.document.pages.hvt
-            ? (dossier.hvts.length ? dossier.hvts : emptyHvtSlots()).map((card, i) => (
-                <HvtPage key={card.id} dossier={dossier} card={card} index={i} />
-              ))
-            : null}
-          {dossier.document.pages.casevac ? <CasevacPage dossier={dossier} /> : null}
-          {dossier.document.pages.intel
-            ? chunk(dossier.intel.length ? dossier.intel : emptyIntelSlots(), 4).map((group, i) => (
-                <IntelPage key={group[0]?.id ?? i} dossier={dossier} photos={group} startIndex={i * 4} />
-              ))
-            : null}
+          {dossier.stack.map((item) => {
+            if (item.kind === 'blank') {
+              const blank = dossier.blanks.find((b) => b.id === item.id)
+              return blank ? <BlankSheet key={blank.id} dossier={dossier} blank={blank} /> : null
+            }
+            if (!dossier.document.pages[item.kind]) return null
+            if (item.kind === 'cover') return <CoverPage key="cover" dossier={dossier} />
+            if (item.kind === 'notice') return <NoticePage key="notice" dossier={dossier} />
+            if (item.kind === 'opord') {
+              return (
+                <Fragment key="opord">
+                  <OpordFront dossier={dossier} />
+                  <OpordBack dossier={dossier} />
+                </Fragment>
+              )
+            }
+            if (item.kind === 'sitrep') return <SitrepPage key="sitrep" dossier={dossier} />
+            if (item.kind === 'aar') return <AarPage key="aar" dossier={dossier} />
+            if (item.kind === 'orbat') return <OrbatPage key="orbat" dossier={dossier} />
+            if (item.kind === 'hvt') {
+              return (
+                <Fragment key="hvt">
+                  {(dossier.hvts.length ? dossier.hvts : emptyHvtSlots()).map((card, i) => (
+                    <HvtPage key={card.id} dossier={dossier} card={card} index={i} />
+                  ))}
+                </Fragment>
+              )
+            }
+            if (item.kind === 'casevac') return <CasevacPage key="casevac" dossier={dossier} />
+            return (
+              <Fragment key="intel">
+                {chunk(dossier.intel.length ? dossier.intel : emptyIntelSlots(), 4).map((group, i) => (
+                  <IntelPage key={group[0]?.id ?? i} dossier={dossier} photos={group} startIndex={i * 4} />
+                ))}
+              </Fragment>
+            )
+          })}
         </div>
       </div>
 
