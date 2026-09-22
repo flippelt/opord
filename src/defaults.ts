@@ -1,4 +1,4 @@
-import type { BlankPage, Dossier, StampConfig } from './types'
+import type { BlankPage, Dossier, MapPlate, StampConfig } from './types'
 import { nowDtg } from './lib/dtg'
 import { defaultStack, insertBlankBeforeIntel, normalizeStack } from './lib/stack'
 
@@ -191,7 +191,7 @@ export function blankDossier(): Dossier {
     casevac: blankCasevac(),
     hvts: emptyHvtSlots(),
     orbat: emptyOrbatLines(),
-    map: { src: '', cols: 6, rows: 6, caption: '', grid: false },
+    maps: [],
     timeline: emptyTimeline(),
     roster: emptyRoster(),
     titles: {},
@@ -303,6 +303,18 @@ export function emptyOrbatLines() {
       task: '',
     },
   ]
+}
+
+export function emptyMapPlate(title = ''): MapPlate {
+  return {
+    id: `map-${crypto.randomUUID()}`,
+    title,
+    caption: '',
+    src: '',
+    grid: false,
+    cols: 6,
+    rows: 6,
+  }
 }
 
 export function emptyTimeline() {
@@ -441,6 +453,45 @@ export function defaultDossier(): Dossier {
   d.document.pages.radio = true
   d.document.pages.roe = true
   d.document.pages.roster = true
+  d.document.pages.map = true
+  d.maps = [
+    {
+      id: 'map-ao',
+      title: 'MAPA — AO SUL',
+      caption: 'Altis · Pyrgos e adjacências',
+      src: '',
+      grid: false,
+      cols: 6,
+      rows: 6,
+    },
+    {
+      id: 'map-lz',
+      title: 'LZ HAWK',
+      caption: '138086 · clareira oeste · aproximação 270 · H-30',
+      src: '',
+      grid: false,
+      cols: 6,
+      rows: 6,
+    },
+    {
+      id: 'map-pz',
+      title: 'PZ RAVEN',
+      caption: '146092 · extração · fumaça verde + IR strobe',
+      src: '',
+      grid: false,
+      cols: 6,
+      rows: 6,
+    },
+    {
+      id: 'map-obj',
+      title: 'OBJETIVO — BLOCO C2',
+      caption: '14208930 · fachada norte · hora-H',
+      src: '',
+      grid: false,
+      cols: 6,
+      rows: 6,
+    },
+  ]
   d.notice = {
     number: '12/2026',
     audience: 'TODO O EFETIVO DO GRUPO FALCÃO',
@@ -560,6 +611,35 @@ function sampleBlank(): BlankPage {
   }
 }
 
+function mapPlatesFrom(incoming: Partial<Dossier> & { map?: Partial<MapPlate> }): MapPlate[] {
+  if (Array.isArray(incoming.maps) && incoming.maps.length) {
+    return incoming.maps.map((plate) => ({
+      id: plate.id || `map-${crypto.randomUUID()}`,
+      title: plate.title || '',
+      caption: plate.caption || '',
+      src: plate.src || '',
+      grid: plate.grid === true,
+      cols: Number(plate.cols) || 6,
+      rows: Number(plate.rows) || 6,
+    }))
+  }
+  const legacy = incoming.map
+  if (legacy && (legacy.src || legacy.caption || legacy.grid)) {
+    return [
+      {
+        id: 'map-1',
+        title: incoming.titles?.map || '',
+        caption: legacy.caption || '',
+        src: legacy.src || '',
+        grid: legacy.grid === true,
+        cols: Number(legacy.cols) || 6,
+        rows: Number(legacy.rows) || 6,
+      },
+    ]
+  }
+  return []
+}
+
 export function migrateDossier(raw: unknown): Dossier | null {
   if (!raw || typeof raw !== 'object') return null
   const incoming = raw as Partial<Dossier> & { version?: number }
@@ -571,13 +651,8 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.document.pages = { ...blankDossier().document.pages, ...incoming.document?.pages }
   d.document.orientation = incoming.document?.orientation === 'landscape' ? 'landscape' : 'portrait'
   d.document.language = incoming.document?.language === 'en' ? 'en' : 'pt'
-  d.map = {
-    src: incoming.map?.src ?? '',
-    caption: incoming.map?.caption ?? '',
-    cols: Number(incoming.map?.cols) || 6,
-    rows: Number(incoming.map?.rows) || 6,
-    grid: incoming.map?.grid === true,
-  }
+  d.maps = mapPlatesFrom(incoming)
+  delete (d as { map?: unknown }).map
   d.header = { ...blankDossier().header, ...incoming.header }
   d.mission = { ...blankDossier().mission, ...incoming.mission }
   d.body = { ...blankDossier().body, ...incoming.body }

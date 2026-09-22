@@ -130,6 +130,16 @@ export interface RosterSlot {
   name: string
 }
 
+export interface MapPlate {
+  id: string
+  title: string
+  caption: string
+  src: string
+  grid: boolean
+  cols: number
+  rows: number
+}
+
 export interface Dossier {
   version: 1
   clan: {
@@ -247,13 +257,7 @@ export interface Dossier {
   }
   hvts: HvtCard[]
   orbat: OrbatLine[]
-  map: {
-    src: string
-    cols: number
-    rows: number
-    caption: string
-    grid: boolean
-  }
+  maps: MapPlate[]
   timeline: TimelineEvent[]
   roster: RosterSlot[]
   titles: Partial<Record<PageId, string>>
