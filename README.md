@@ -2,69 +2,63 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/flippelt/opord/ci.yml?label=CI)](https://github.com/flippelt/opord/actions) [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-Gerador web de **briefings classificados** para **clãs de jogos de simulação militar** — Arma 3, Squad, Hell Let Loose e afins. O clã monta o dossiê da operação (OPORD, comunicado, intel, HVT, CASEVAC…) com visual de documento controlado e exporta PDF ou imagem para o Discord, o briefing da sala ou o print na TV.
+Monta o briefing da operação do clã com cara de documento controlado: capa, ordem, comunicado, intel, alvo, pedido de evacuação e o que mais a noite pedir. Você preenche, coloca o selo e as fotos, e leva um PDF ou uma imagem para o Discord, a sala ou a TV.
 
-Feito para **clã milsim**, não para mesa de RPG. Tudo corre **no navegador**. Nada vai para servidor — o plano da operação fica na máquina.
+É para clãs de Arma 3, Squad, Hell Let Loose e jogos do mesmo tipo. Abre no navegador, na sua máquina. O que você escrever fica aí.
 
-**Demo:** https://flippelt.github.io/opord/
+**Para ver sem instalar:** https://flippelt.github.io/opord/
 
-[<img src="docs/screenshots/overview.jpg" width="720" alt="Estação de operações com a capa classificada">](docs/screenshots/overview.jpg)
+[<img src="docs/screenshots/overview.jpg" width="720" alt="A estação, com a capa da operação ao lado">](docs/screenshots/overview.jpg)
 
-## Para o clã
+## O que entra no pacote
 
-- Identidade: nome, lema, **selo** (capa, cabeçalho, assinatura) e **patch**
-- Classificação brasileira com equivalente NATO (OSTENSIVO → ULTRA-SECRETO) e caveats (EYES ONLY, NOFORN, ORCON…)
-- Jargão de emprego: origem/destino, DTG Zulu, hora-H, AO, grid, ROE, redes, desafio/senha
-- Marca d’água grande na diagonal; selos de tinta opcionais
-- Exportar **PDF**, **PNG** (ZIP), imprimir A4 ou backup **JSON** entre PCs do clã
+Liga e desliga cada folha em **Páginas**.
 
-## Folhas do dossiê
-
-Ligue o que a operação precisa em **Páginas**.
-
-| Folha | Uso |
+| Folha | Para quê |
 | --- | --- |
-| Capa | Folha de classificação, selo do clã, aviso de manuseio |
-| Comunicado / convocação / boletim | Ofício ao efetivo; op night com servidor, mods, slotting, TS |
-| OPORD | SMEAC: situação, missão, execução, logística, comando |
-| SITREP | Inimigo, amigos, ACE, pendências, intenção |
-| AAR | O que aconteceu, o que funcionou, o que falhou, lições, BDA |
-| ORBAT | Organização de tarefa |
-| HVT | Cartão de alvo (retrato, alias, orientação CAPTURE/KILL) |
-| CASEVAC | Pedido MEDEVAC em 9 linhas NATO |
-| Intel | Placas de foto (UAV, SAT, RECON, HUMINT) |
+| Capa | Classificação, selo do clã, aviso de manuseio |
+| Comunicado, convocação ou boletim | Aviso ao efetivo, com servidor, mods, slotting e ponto de reunião quando for noite de operação |
+| OPORD | Situação, missão, execução, logística, comando |
+| SITREP | Como está o inimigo, os amigos, o próprio efetivo e o que falta |
+| AAR | O que rolou, o que deu certo, o que falhou, lições e BDA |
+| ORBAT | Quem vai, com que indicativo e com que tarefa |
+| HVT | Cartão do alvo, com retrato e se é para capturar ou abater |
+| CASEVAC | As 9 linhas do pedido de evacuação |
+| Intel | Fotos do briefing, com grid e fonte |
 
 ### Capa
 
-[<img src="docs/screenshots/capa.jpg" width="480" alt="Capa CONFIDENCIAL">](docs/screenshots/capa.jpg)
+[<img src="docs/screenshots/capa.jpg" width="480" alt="Capa confidencial">](docs/screenshots/capa.jpg)
 
-### Comunicado de emprego
+### Comunicado
 
-[<img src="docs/screenshots/notice.jpg" width="480" alt="Comunicado interno">](docs/screenshots/notice.jpg)
+[<img src="docs/screenshots/notice.jpg" width="480" alt="Comunicado da operação">](docs/screenshots/notice.jpg)
 
-### OPORD
+### Ordem
 
-[<img src="docs/screenshots/opord-1.jpg" width="480" alt="OPORD página 1">](docs/screenshots/opord-1.jpg)
-[<img src="docs/screenshots/opord-2.jpg" width="480" alt="OPORD página 2">](docs/screenshots/opord-2.jpg)
+[<img src="docs/screenshots/opord-1.jpg" width="480" alt="Primeira página da ordem">](docs/screenshots/opord-1.jpg)
+[<img src="docs/screenshots/opord-2.jpg" width="480" alt="Segunda página da ordem, com redes e assinatura">](docs/screenshots/opord-2.jpg)
 
-### SITREP, AAR, ORBAT
+### Situação, revisão e efetivo
 
-[<img src="docs/screenshots/sitrep.jpg" width="320" alt="SITREP">](docs/screenshots/sitrep.jpg)
-[<img src="docs/screenshots/aar.jpg" width="320" alt="AAR">](docs/screenshots/aar.jpg)
-[<img src="docs/screenshots/orbat.jpg" width="320" alt="ORBAT">](docs/screenshots/orbat.jpg)
+[<img src="docs/screenshots/sitrep.jpg" width="320" alt="Relatório de situação">](docs/screenshots/sitrep.jpg)
+[<img src="docs/screenshots/aar.jpg" width="320" alt="Revisão depois da operação">](docs/screenshots/aar.jpg)
+[<img src="docs/screenshots/orbat.jpg" width="320" alt="Organização da força">](docs/screenshots/orbat.jpg)
 
-### HVT e CASEVAC
+### Alvo e evacuação
 
-[<img src="docs/screenshots/hvt-1.jpg" width="320" alt="Cartão HVT">](docs/screenshots/hvt-1.jpg)
-[<img src="docs/screenshots/casevac.jpg" width="320" alt="CASEVAC 9 linhas">](docs/screenshots/casevac.jpg)
+[<img src="docs/screenshots/hvt-1.jpg" width="320" alt="Cartão do alvo">](docs/screenshots/hvt-1.jpg)
+[<img src="docs/screenshots/casevac.jpg" width="320" alt="Pedido de evacuação em nove linhas">](docs/screenshots/casevac.jpg)
 
-### Anexo de intel
+### Fotos
 
-[<img src="docs/screenshots/intel.jpg" width="480" alt="Anexo de foto intel">](docs/screenshots/intel.jpg)
+[<img src="docs/screenshots/intel.jpg" width="480" alt="Anexo com as fotos do briefing">](docs/screenshots/intel.jpg)
 
 ## Classificação
 
-| Documento | NATO |
+A capa muda de cor conforme o nível. A marca d'água grande na diagonal usa o mesmo nome, ou o texto que você escrever no lugar.
+
+| No papel | Equivalente NATO |
 | --- | --- |
 | OSTENSIVO | UNCLASSIFIED |
 | RESERVADO | RESTRICTED |
@@ -72,44 +66,31 @@ Ligue o que a operação precisa em **Páginas**.
 | SECRETO | SECRET |
 | ULTRA-SECRETO | TOP SECRET |
 
-A capa muda de cor com o nível. A marca d’água usa o texto da classificação (ou o que você escrever).
+Dá para acrescentar restrições como EYES ONLY, NOFORN e ORCON na faixa de cima e de baixo. O selo do clã vai na capa, no cabeçalho e na assinatura. O patch fica no canto da ordem.
 
-## Abrir sem terminal (duplo clique)
+## Como abrir
 
-Na primeira vez instala o [Node.js 22 LTS](https://nodejs.org/) (o instalador
-oficial). Depois:
+Se você não mexe em terminal, instale o [Node.js 22](https://nodejs.org/) uma vez (o instalador do site) e dê dois cliques:
 
-| Sistema | Arquivo |
+| Onde | Arquivo |
 | --- | --- |
-| macOS | `Abrir-OPORD.command` (Finder; se bloquear: clique direito → Abrir) |
+| Mac | `Abrir-OPORD.command` |
 | Windows | `Abrir-OPORD.bat` |
 | Linux | `abrir-opord.sh` |
 
-O lançador instala as dependências na primeira execução, sobe o app e abre o
-navegador em `http://127.0.0.1:5173`. Deixe a janela aberta; feche-a para
-encerrar.
+No Mac, se o sistema recusar na primeira vez, clique com o botão direito e escolha Abrir. A janela que aparecer instala o que falta, abre o navegador e precisa ficar aberta enquanto você usa. Fechar ela encerra o programa.
 
-## Uso no terminal
+Quem prefere terminal:
 
 ```bash
 npm install
-npm run abrir    # ou: npm run dev
-npm test
-npm run build
+npm run abrir
 ```
 
-O primeiro acesso abre o exemplo **Operação SERPENTE NEGRA** (Altis). Use
-**Dossiê em branco** para a operação real do clã, ou edite o exemplo. O dossiê
-fica no IndexedDB do navegador.
+A primeira vez mostra a operação de exemplo **Serpente Negra**, em Altis. Dá para editar por cima ou começar um **dossiê em branco**. O trabalho fica salvo neste navegador. PDF, imagens e um arquivo JSON servem para levar a operação para outro computador do clã.
 
 ## Licença
 
-[MIT](LICENSE). Copyright (c) 2026 Felipe Lippelt. O exemplo do primeiro acesso
-é ficção de milsim; não representa unidade real.
+[MIT](LICENSE). A Serpente Negra é inventada.
 
-## Contribuindo
-
-Veja [CONTRIBUTING.md](CONTRIBUTING.md).
-
-Próximo recorte (títulos por folha e páginas em branco):
-[docs/upgrade-paginas.md](docs/upgrade-paginas.md).
+Se quiser ajudar no código ou no visual do papel, o caminho está em [CONTRIBUTING.md](CONTRIBUTING.md).

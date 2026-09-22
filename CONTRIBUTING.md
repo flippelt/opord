@@ -1,9 +1,8 @@
 # Contribuindo
 
-Obrigado pelo interesse. Este repositório é o **motor** do gerador de briefing
-para clãs de milsim. Conteúdo de operação real (OPORD da sua unidade, fotos de
-intel, selo do clã) **não entra** em pull request — fica no navegador de quem
-usa, ou num JSON privado.
+Obrigado pelo interesse. Aqui mora o gerador, não a operação do seu clã.
+Selo, fotos e o texto da missão ficam no navegador de quem usa, ou num JSON
+que vocês guardam entre si.
 
 ## Licença
 
@@ -13,8 +12,7 @@ licenciar a contribuição nos mesmos termos.
 ## Antes de começar
 
 - Node.js **22+**
-- Fork + branch a partir de `main`
-- Código entra por **pull request** (a `main` é protegida)
+- Fork, uma branch sua, e um pull request
 
 ```bash
 git clone https://github.com/<seu-usuario>/opord.git
@@ -45,12 +43,7 @@ macOS, `abrir-opord.sh` no Linux, `Abrir-OPORD.bat` no Windows).
 1. Branch curta (`feat/…`, `fix/…`)
 2. `npm test` e `npm run build` verdes
 3. Descreva o que mudou no documento (qual folha, qual campo)
-4. Screenshots se o visual do papel mudou
+4. Uma imagem, se o papel mudou de cara
 
-O dono faz o merge. Não é preciso clonar o estilo de RPG de mesa — o foco daqui
-é clã de simulação militar.
-
-## Roadmap
-
-O próximo recorte de produto está em [docs/upgrade-paginas.md](docs/upgrade-paginas.md)
-(títulos por folha e páginas em branco).
+O plano de deixar os títulos das folhas editáveis, e de incluir páginas em
+branco, está em [docs/upgrade-paginas.md](docs/upgrade-paginas.md).
