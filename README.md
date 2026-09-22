@@ -1,6 +1,6 @@
 # OPORD
 
-[![CI](https://img.shields.io/github/actions/workflow/status/flippelt/opord/ci.yml?label=CI)](https://github.com/flippelt/opord/actions) [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/flippelt/opord/ci.yml?label=CI)](https://github.com/flippelt/opord/actions)
 
 Monta o briefing da operação do clã com cara de documento controlado: capa, ordem, comunicado, intel, alvo, pedido de evacuação e o que mais a noite pedir. Você preenche, coloca o logo e as fotos, e leva um PDF ou uma imagem para o Discord, a sala ou a TV.
 
@@ -89,8 +89,4 @@ npm run abrir
 
 A primeira vez mostra a operação de exemplo **Serpente Negra**, em Altis. Dá para editar por cima ou começar um **dossiê em branco**. O trabalho fica salvo neste navegador. PDF, imagens e um arquivo JSON servem para levar a operação para outro computador do clã.
 
-## Licença
-
-[MIT](LICENSE).
-
-Se quiser ajudar no código ou no visual do papel, o caminho está em [CONTRIBUTING.md](CONTRIBUTING.md).
+[MIT](LICENSE) · [Contribuir](CONTRIBUTING.md)
