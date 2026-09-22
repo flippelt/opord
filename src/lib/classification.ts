@@ -89,6 +89,7 @@ export const PAGE_LABELS: Record<PageId, string> = {
   casevac: 'CASEVAC',
   hvt: 'HVT',
   orbat: 'ORBAT',
+  map: 'Mapa',
   intel: 'Anexo intel',
   timeline: 'Linha do tempo',
   radio: 'Rádio',
@@ -160,13 +161,22 @@ export function precedenceOf(id: Precedence) {
 
 export function classificationLine(d: Dossier): string {
   const c = styleOf(d.document.classification)
-  const parts = [c.label]
+  const parts = [d.document.language === 'en' ? c.nato : c.label]
   if (d.document.caveats.length) parts.push(...d.document.caveats)
   return parts.join(' // ')
 }
 
 export function handlingText(d: Dossier): string {
   const c = styleOf(d.document.classification)
+  if (d.document.language === 'en') {
+    return (
+      `This document contains information classified ${c.nato}. ` +
+      `Access is limited to personnel authorized by the unit. ` +
+      `Reproduction, transmission, or storage on unapproved systems is prohibited. ` +
+      `Destroy by burning, shredding, or any method that prevents reconstruction. ` +
+      `Report loss at once to the S2 / security officer.`
+    )
+  }
   return (
     `Este documento contém informação classificada como ${c.label} ` +
     `(equiv. NATO ${c.nato}). O acesso é restrito ao efetivo autorizado da unidade. ` +

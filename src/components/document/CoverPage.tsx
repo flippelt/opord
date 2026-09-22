@@ -1,4 +1,5 @@
 import { classificationLine, docTypeOf, handlingText, isNoticeType, styleOf } from '../../lib/classification'
+import { paper } from '../../lib/i18n'
 import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
@@ -8,6 +9,7 @@ import { Marks } from './Watermark'
 
 export function CoverPage({ dossier }: { dossier: Dossier }) {
   const style = styleOf(dossier.document.classification)
+  const t = paper(dossier)
   const kind = docTypeOf(dossier.document.type)
   const kindId = dossier.document.type
   const notice = isNoticeType(kindId)
@@ -18,7 +20,7 @@ export function CoverPage({ dossier }: { dossier: Dossier }) {
       ? hvt.name || hvt.alias || 'HVT'
       : dossier.mission.name || dossier.mission.nickname || '—'
   const kicker =
-    notice ? 'Assunto' : kindId === 'hvt' ? 'Alvo' : kindId === 'casevac' ? 'Pedido' : kindId === 'orbat' ? 'Unidade' : 'Operação'
+    notice ? t.subject : kindId === 'hvt' ? t.target : kindId === 'casevac' ? t.request : kindId === 'orbat' ? t.unit : t.operation
 
   return (
     <Sheet page="cover" paper={style.cover} ink={style.coverInk}>
@@ -45,41 +47,41 @@ export function CoverPage({ dossier }: { dossier: Dossier }) {
 
         <dl className="cover-meta">
           <div>
-            <dt>Classificação</dt>
-            <dd>{style.label}</dd>
+            <dt>{t.classification}</dt>
+            <dd>{dossier.document.language === 'en' ? style.nato : style.label}</dd>
           </div>
           <div>
-            <dt>Equiv. NATO</dt>
+            <dt>{t.nato}</dt>
             <dd>{style.nato}</dd>
           </div>
           <div>
-            <dt>Cópia</dt>
+            <dt>{t.copy}</dt>
             <dd>
               {dossier.document.copyNumber} / {dossier.document.copyTotal}
             </dd>
           </div>
           <div>
-            <dt>Nº controle</dt>
+            <dt>{t.control}</dt>
             <dd>{dossier.document.controlNumber || '—'}</dd>
           </div>
           <div>
-            <dt>DTG de emissão</dt>
+            <dt>{t.issued}</dt>
             <dd>{dossier.header.dtg || '—'}</dd>
           </div>
           <div>
-            <dt>Local</dt>
+            <dt>{t.place}</dt>
             <dd>{dossier.header.place || '—'}</dd>
           </div>
         </dl>
 
         <section className="cover-handling">
-          <h2>Aviso de manuseio</h2>
+          <h2>{t.handling}</h2>
           <p>{handlingText(dossier)}</p>
           <p className="cover-line">{classificationLine(dossier)}</p>
         </section>
 
         <div className="cover-receipt">
-          <span>Recebido por: ________________________</span>
+          <span>{t.received}</span>
           <span>DTG: _______________</span>
         </div>
       </div>

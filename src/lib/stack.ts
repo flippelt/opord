@@ -13,6 +13,7 @@ export const STACK_ORDER: PageId[] = [
   'orbat',
   'hvt',
   'casevac',
+  'map',
   'intel',
 ]
 

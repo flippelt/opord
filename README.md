@@ -12,7 +12,7 @@ Monta o briefing da operação do clã com cara de documento controlado: capa, o
 
 ## O que entra no pacote
 
-Um dossiê novo abre só com a capa. Os outros modelos entram um a um, em **Adicionar modelo**. O título de cada folha pode ser outro — “FRAGO 04” no lugar de OPORD, por exemplo. Dá para inserir uma página em branco, lisa ou pautada, e mudar a ordem do pacote.
+Um dossiê novo abre só com a capa. Os outros modelos entram um a um, em **Adicionar modelo**, ou de uma vez com um modelo pronto: assalto, defesa, comboio ou reconhecimento. O papel pode ficar em retrato ou paisagem, em português ou inglês. O título de cada folha pode ser outro. Dá para inserir uma página em branco e mudar a ordem. Na exportação, cada cópia sai numerada, de 01 até o total.
 
 | Folha | Para quê |
 | --- | --- |
@@ -29,6 +29,7 @@ Um dossiê novo abre só com a capa. Os outros modelos entram um a um, em **Adic
 | Rádio | Frequências, desafio, senha e sucessão |
 | ROE | Regras de engajamento, grandes |
 | Escalação | Quem ocupa cada vaga |
+| Mapa | Foto do mapa com grade por cima |
 
 ### Capa
 

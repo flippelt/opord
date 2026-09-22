@@ -9,6 +9,7 @@ import {
 } from '../lib/classification'
 import { nowDtg } from '../lib/dtg'
 import { readClanMark, readIntelPhoto } from '../lib/image'
+import { applyTemplate, TEMPLATE_CHOICES } from '../lib/templates'
 import { blankDossier, defaultDossier, emptyHvtSlots, emptyOrbatLines, emptyRoster, emptyTimeline } from '../defaults'
 import { useDossier } from '../store'
 import type {
@@ -117,6 +118,42 @@ export function Editor() {
             label: `${c.label} (${c.nato})`,
           }))}
         />
+        <div className="row2">
+          <SelectField
+            label="Sentido"
+            value={dossier.document.orientation}
+            onChange={(orientation: 'portrait' | 'landscape') =>
+              patch((d) => void (d.document.orientation = orientation))
+            }
+            options={[
+              { id: 'portrait', label: 'Retrato' },
+              { id: 'landscape', label: 'Paisagem' },
+            ]}
+          />
+          <SelectField
+            label="Idioma do papel"
+            value={dossier.document.language}
+            onChange={(language: 'pt' | 'en') => patch((d) => void (d.document.language = language))}
+            options={[
+              { id: 'pt', label: 'Português' },
+              { id: 'en', label: 'English' },
+            ]}
+          />
+        </div>
+        <fieldset className="chips">
+          <legend>Modelo pronto</legend>
+          {TEMPLATE_CHOICES.map((choice) => (
+            <button
+              key={choice.id}
+              type="button"
+              className="chip"
+              onClick={() => patch((d) => applyTemplate(d, choice.id))}
+            >
+              {dossier.document.language === 'en' ? choice.en : choice.pt}
+            </button>
+          ))}
+        </fieldset>
+        <p className="field-hint">O modelo preenche a missão e liga as folhas daquele tipo. O logo do clã fica.</p>
         <fieldset className="chips">
           <legend>Restrições / caveats</legend>
           {CAVEAT_OPTIONS.map((c) => {
@@ -147,6 +184,7 @@ export function Editor() {
           />
           <Field
             label="De"
+            hint="A exportação numera de 01 até este total."
             value={dossier.document.copyTotal}
             onChange={(copyTotal) => patch((d) => void (d.document.copyTotal = copyTotal))}
           />
@@ -985,6 +1023,34 @@ export function Editor() {
       </details>
       ) : null}
 
+      {dossier.document.pages.map ? (
+        <details open>
+          <summary>Mapa</summary>
+          <ImageField
+            label="Imagem do mapa"
+            src={dossier.map.src}
+            readFile={readIntelPhoto}
+            onChange={(src) => patch((d) => void (d.map.src = src))}
+          />
+          <div className="row2">
+            <Field
+              label="Colunas da grade"
+              value={String(dossier.map.cols)}
+              onChange={(value) => patch((d) => void (d.map.cols = Number(value) || 1))}
+            />
+            <Field
+              label="Linhas da grade"
+              value={String(dossier.map.rows)}
+              onChange={(value) => patch((d) => void (d.map.rows = Number(value) || 1))}
+            />
+          </div>
+          <Field
+            label="Legenda"
+            value={dossier.map.caption}
+            onChange={(caption) => patch((d) => void (d.map.caption = caption))}
+          />
+        </details>
+      ) : null}
       <details open>
         <summary>Carimbos e marca d’água</summary>
         <SelectField

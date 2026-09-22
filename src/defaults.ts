@@ -115,6 +115,8 @@ export function blankDossier(): Dossier {
       copyNumber: '01',
       copyTotal: '04',
       controlNumber: '',
+      orientation: 'portrait',
+      language: 'pt',
       pages: {
         cover: true,
         opord: false,
@@ -129,6 +131,7 @@ export function blankDossier(): Dossier {
         radio: false,
         roe: false,
         roster: false,
+        map: false,
       },
     },
     header: {
@@ -188,6 +191,7 @@ export function blankDossier(): Dossier {
     casevac: blankCasevac(),
     hvts: emptyHvtSlots(),
     orbat: emptyOrbatLines(),
+    map: { src: '', cols: 6, rows: 6, caption: '' },
     timeline: emptyTimeline(),
     roster: emptyRoster(),
     titles: {},
@@ -565,6 +569,14 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.clan = { ...blankDossier().clan, ...incoming.clan }
   d.document = { ...blankDossier().document, ...incoming.document }
   d.document.pages = { ...blankDossier().document.pages, ...incoming.document?.pages }
+  d.document.orientation = incoming.document?.orientation === 'landscape' ? 'landscape' : 'portrait'
+  d.document.language = incoming.document?.language === 'en' ? 'en' : 'pt'
+  d.map = {
+    src: incoming.map?.src ?? '',
+    caption: incoming.map?.caption ?? '',
+    cols: Number(incoming.map?.cols) || 6,
+    rows: Number(incoming.map?.rows) || 6,
+  }
   d.header = { ...blankDossier().header, ...incoming.header }
   d.mission = { ...blankDossier().mission, ...incoming.mission }
   d.body = { ...blankDossier().body, ...incoming.body }
