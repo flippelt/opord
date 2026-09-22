@@ -29,7 +29,7 @@ Um dossiê novo abre só com a capa. Os outros modelos entram um a um, em **Adic
 | Rádio | Frequências, desafio, senha e sucessão |
 | ROE | Regras de engajamento, grandes |
 | Escalação | Quem ocupa cada vaga |
-| Mapa | Foto do mapa com grade por cima |
+| Mapa | Foto do mapa, com grade por cima só se você quiser |
 
 ### Capa
 

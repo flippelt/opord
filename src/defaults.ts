@@ -191,7 +191,7 @@ export function blankDossier(): Dossier {
     casevac: blankCasevac(),
     hvts: emptyHvtSlots(),
     orbat: emptyOrbatLines(),
-    map: { src: '', cols: 6, rows: 6, caption: '' },
+    map: { src: '', cols: 6, rows: 6, caption: '', grid: false },
     timeline: emptyTimeline(),
     roster: emptyRoster(),
     titles: {},
@@ -576,6 +576,7 @@ export function migrateDossier(raw: unknown): Dossier | null {
     caption: incoming.map?.caption ?? '',
     cols: Number(incoming.map?.cols) || 6,
     rows: Number(incoming.map?.rows) || 6,
+    grid: incoming.map?.grid === true,
   }
   d.header = { ...blankDossier().header, ...incoming.header }
   d.mission = { ...blankDossier().mission, ...incoming.mission }

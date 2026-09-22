@@ -1028,10 +1028,20 @@ export function Editor() {
           <summary>Mapa</summary>
           <ImageField
             label="Imagem do mapa"
+            hint="Se o mapa do jogo já tem grade, deixe a opção abaixo desligada."
             src={dossier.map.src}
             readFile={readIntelPhoto}
             onChange={(src) => patch((d) => void (d.map.src = src))}
           />
+          <label className={dossier.map.grid ? 'chip on' : 'chip'}>
+            <input
+              type="checkbox"
+              checked={dossier.map.grid}
+              onChange={() => patch((d) => void (d.map.grid = !d.map.grid))}
+            />
+            Grade por cima
+          </label>
+          {dossier.map.grid ? (
           <div className="row2">
             <Field
               label="Colunas da grade"
@@ -1044,6 +1054,7 @@ export function Editor() {
               onChange={(value) => patch((d) => void (d.map.rows = Number(value) || 1))}
             />
           </div>
+          ) : null}
           <Field
             label="Legenda"
             value={dossier.map.caption}

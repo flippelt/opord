@@ -252,6 +252,7 @@ export interface Dossier {
     cols: number
     rows: number
     caption: string
+    grid: boolean
   }
   timeline: TimelineEvent[]
   roster: RosterSlot[]

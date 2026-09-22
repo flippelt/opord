@@ -8,7 +8,7 @@
   flex-direction: column;
 }
 
-.stage-inner[data-orient='landscape'] .sheet {
+.sheet.is-landscape {
   width: 297mm;
   height: 210mm;
 }

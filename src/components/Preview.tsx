@@ -13,6 +13,7 @@ import { CoverPage } from './document/CoverPage'
 import { HvtPage } from './document/HvtPage'
 import { IntelPage } from './document/IntelPage'
 import { MapPage } from './document/MapPage'
+import { SheetOrient } from './document/Sheet'
 import { NoticePage } from './document/NoticePage'
 import { OpordBack, OpordFront } from './document/OpordPage'
 import { OrbatPage } from './document/OrbatPage'
@@ -158,6 +159,7 @@ export function Preview() {
       </div>
 
       <div className="stage">
+        <SheetOrient.Provider value={orientation}>
         <div
           className="stage-inner"
           ref={stack}
@@ -207,6 +209,7 @@ export function Preview() {
             )
           })}
         </div>
+        </SheetOrient.Provider>
       </div>
 
       {exporting ? <div className="export-veil">{exporting}</div> : null}

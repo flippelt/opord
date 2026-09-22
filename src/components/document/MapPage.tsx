@@ -25,15 +25,17 @@ export function MapPage({ dossier }: { dossier: Dossier }) {
           ) : (
             <div className="map-empty">{dossier.document.language === 'en' ? 'NO MAP' : 'SEM MAPA'}</div>
           )}
-          <div
-            className="map-grid"
-            style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}
-            aria-hidden
-          >
-            {Array.from({ length: cols * rows }, (_, i) => (
-              <span key={i} />
-            ))}
-          </div>
+          {dossier.map.grid ? (
+            <div
+              className="map-grid"
+              style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}
+              aria-hidden
+            >
+              {Array.from({ length: cols * rows }, (_, i) => (
+                <span key={i} />
+              ))}
+            </div>
+          ) : null}
         </div>
         <p className="op-foot-class">{classificationLine(dossier)}</p>
       </div>
