@@ -17,6 +17,12 @@ describe('migrateDossier', () => {
     expect(next?.casevac.line1).toBeDefined()
     expect(next?.hvts.length).toBeGreaterThan(0)
     expect(next?.orbat.length).toBeGreaterThan(0)
+    const legacy = structuredClone(defaultDossier())
+    delete (legacy.marks as { watermarkFigure?: string }).watermarkFigure
+    delete (legacy.marks as { watermarkTextOnTop?: boolean }).watermarkTextOnTop
+    const kept = migrateDossier(legacy)
+    expect(kept?.marks.watermarkFigure).toBe('none')
+    expect(kept?.marks.watermarkTextOnTop).toBe(true)
   })
 
   it('gives an old dossier a stack and keeps a renamed OPORD', () => {

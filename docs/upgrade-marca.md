@@ -1,7 +1,6 @@
 # Próxima modificação: marca d'água com logo ou imagem
 
-Ainda não está no app. A marca d'água de hoje é o texto grande na diagonal
-(CONFIDENCIAL, ou o que a pessoa escrever), na cor da classificação.
+Está no editor, em **Carimbos e marca d'água**.
 
 ## O que a pessoa vai poder escolher
 

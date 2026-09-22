@@ -309,6 +309,28 @@ textarea {
   gap: 6px;
 }
 
+.color-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-row input[type='color'] {
+  width: 42px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #3a4030;
+  background: transparent;
+}
+
+.color-swatch {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #d9d2c1;
+  padding: 0;
+  cursor: pointer;
+}
+
 .desk details.nested {
   margin-left: 0;
   border-top: 0;

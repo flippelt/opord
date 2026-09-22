@@ -45,5 +45,5 @@ macOS, `abrir-opord.sh` no Linux, `Abrir-OPORD.bat` no Windows).
 3. Descreva o que mudou no documento (qual folha, qual campo)
 4. Uma imagem, se o papel mudou de cara
 
-A próxima mudança na marca d'água (logo ou imagem, texto por cima, cor à
-escolha) está em [docs/upgrade-marca.md](docs/upgrade-marca.md).
+A marca d'água com logo ou imagem está descrita em
+[docs/upgrade-marca.md](docs/upgrade-marca.md).
