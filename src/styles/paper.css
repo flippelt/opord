@@ -8,6 +8,11 @@
   flex-direction: column;
 }
 
+.sheet.is-landscape {
+  width: 297mm;
+  height: 210mm;
+}
+
 .paper-grain {
   position: absolute;
   inset: 0;
@@ -844,6 +849,46 @@
   font-family: var(--mono);
   font-size: 16px;
   line-height: 1.4;
+}
+
+.map-body {
+  min-height: 0;
+}
+
+.map-board {
+  position: relative;
+  flex: 1;
+  min-height: 120mm;
+  margin-top: 8px;
+  border: 1px solid #1a1714;
+  background: #e7dcc4;
+}
+
+.map-board img,
+.map-empty {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.map-empty {
+  display: grid;
+  place-items: center;
+  font-family: var(--stencil);
+  letter-spacing: 0.16em;
+  color: #5c5346;
+}
+
+.map-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  pointer-events: none;
+}
+
+.map-grid span {
+  border: 1px solid rgba(180, 35, 24, 0.45);
 }
 
 .orbat-table {

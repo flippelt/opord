@@ -44,6 +44,7 @@ export type PageId =
   | 'radio'
   | 'roe'
   | 'roster'
+  | 'map'
 
 export interface StampConfig {
   id: string
@@ -145,6 +146,8 @@ export interface Dossier {
     copyNumber: string
     copyTotal: string
     controlNumber: string
+    orientation: 'portrait' | 'landscape'
+    language: 'pt' | 'en'
     pages: Record<PageId, boolean>
   }
   header: {
@@ -244,6 +247,13 @@ export interface Dossier {
   }
   hvts: HvtCard[]
   orbat: OrbatLine[]
+  map: {
+    src: string
+    cols: number
+    rows: number
+    caption: string
+    grid: boolean
+  }
   timeline: TimelineEvent[]
   roster: RosterSlot[]
   titles: Partial<Record<PageId, string>>

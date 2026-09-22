@@ -1,5 +1,7 @@
-import { Fragment, useRef } from 'react'
+import { Fragment, useEffect, useRef } from 'react'
+import { flushSync } from 'react-dom'
 import { docTypeOf, styleOf } from '../lib/classification'
+import { copyNumbers } from '../lib/copies'
 import { chunk } from '../lib/dtg'
 import { captureAll, downloadJson, fileBase, savePdf, savePngZip } from '../lib/export'
 import { emptyHvtSlots, emptyIntelSlots } from '../defaults'
@@ -10,6 +12,8 @@ import { CasevacPage } from './document/CasevacPage'
 import { CoverPage } from './document/CoverPage'
 import { HvtPage } from './document/HvtPage'
 import { IntelPage } from './document/IntelPage'
+import { MapPage } from './document/MapPage'
+import { SheetOrient } from './document/Sheet'
 import { NoticePage } from './document/NoticePage'
 import { OpordBack, OpordFront } from './document/OpordPage'
 import { OrbatPage } from './document/OrbatPage'
@@ -26,16 +30,61 @@ export function Preview() {
   const exporting = useDossier((s) => s.exporting)
   const setExporting = useDossier((s) => s.setExporting)
   const stack = useRef<HTMLDivElement>(null)
+  const orientation = dossier.document.orientation === 'landscape' ? 'landscape' : 'portrait'
+
+  useEffect(() => {
+    const id = 'opord-page-size'
+    let el = document.getElementById(id)
+    if (!el) {
+      el = document.createElement('style')
+      el.id = id
+      document.head.appendChild(el)
+    }
+    el.textContent = `@page { size: A4 ${orientation}; margin: 0; }`
+  }, [orientation])
   const style = styleOf(dossier.document.classification)
   const kind = docTypeOf(dossier.document.type)
   const base = fileBase([kind.short, dossier.mission.name, style.label])
 
-  async function withSheets(job: (sheets: HTMLElement[]) => Promise<void>, msg: string) {
-    const sheets = [...(stack.current?.querySelectorAll<HTMLElement>('.sheet') ?? [])]
-    if (!sheets.length) return
+  async function captureCopies() {
+    const numbers = copyNumbers(dossier.document.copyTotal, dossier.document.copyNumber)
+    const original = dossier.document.copyNumber
+    const pngs: string[] = []
+    const names: string[] = []
+    const patch = useDossier.getState().patch
+    try {
+      for (const num of numbers) {
+        flushSync(() => {
+          patch((d) => {
+            d.document.copyNumber = num
+          })
+        })
+        await new Promise((resolve) => requestAnimationFrame(() => resolve(null)))
+        const sheets = [...(stack.current?.querySelectorAll<HTMLElement>('.sheet') ?? [])]
+        const shot = await captureAll(sheets)
+        shot.forEach((png, i) => {
+          pngs.push(png)
+          const page = sheets[i]?.dataset.page ?? `pagina-${i + 1}`
+          names.push(`${base}-copia-${num}-${page}.png`)
+        })
+      }
+    } finally {
+      flushSync(() => {
+        patch((d) => {
+          d.document.copyNumber = original
+        })
+      })
+    }
+    return { pngs, names }
+  }
+
+  async function withCopies(job: (pngs: string[], names: string[]) => Promise<void>, msg: string) {
+    const sheets = stack.current?.querySelectorAll('.sheet')
+    if (!sheets?.length) return
     setExporting(msg)
     try {
-      await job(sheets)
+      const { pngs, names } = await captureCopies()
+      await job(pngs, names)
     } finally {
       setExporting('')
     }
@@ -62,9 +111,8 @@ export function Preview() {
           type="button"
           className="btn"
           onClick={() =>
-            void withSheets(async (sheets) => {
-              const pngs = await captureAll(sheets)
-              await savePdf(pngs, `${base}.pdf`)
+            void withCopies(async (pngs) => {
+              await savePdf(pngs, `${base}.pdf`, orientation)
             }, 'Gerando PDF…')
           }
         >
@@ -74,12 +122,7 @@ export function Preview() {
           type="button"
           className="btn"
           onClick={() =>
-            void withSheets(async (sheets) => {
-              const pngs = await captureAll(sheets)
-              const names = sheets.map((el, i) => {
-                const page = el.dataset.page ?? `pagina-${i + 1}`
-                return `${base}-${page}.png`
-              })
+            void withCopies(async (pngs, names) => {
               await savePngZip(pngs, `${base}-paginas.zip`, names)
             }, 'Gerando imagens…')
           }
@@ -116,10 +159,12 @@ export function Preview() {
       </div>
 
       <div className="stage">
+        <SheetOrient.Provider value={orientation}>
         <div
           className="stage-inner"
           ref={stack}
-          style={{ transform: `scale(${zoom})` }}
+          data-orient={orientation}
+          style={{ width: orientation === 'landscape' ? '297mm' : '210mm', transform: `scale(${zoom})` }}
         >
           {dossier.stack.map((item) => {
             if (item.kind === 'blank') {
@@ -154,6 +199,7 @@ export function Preview() {
               )
             }
             if (item.kind === 'casevac') return <CasevacPage key="casevac" dossier={dossier} />
+            if (item.kind === 'map') return <MapPage key="map" dossier={dossier} />
             return (
               <Fragment key="intel">
                 {chunk(dossier.intel.length ? dossier.intel : emptyIntelSlots(), 4).map((group, i) => (
@@ -163,6 +209,7 @@ export function Preview() {
             )
           })}
         </div>
+        </SheetOrient.Provider>
       </div>
 
       {exporting ? <div className="export-veil">{exporting}</div> : null}

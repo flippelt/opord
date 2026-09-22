@@ -1,4 +1,5 @@
 import { classificationLine, docTypeOf, precedenceOf } from '../../lib/classification'
+import { paper } from '../../lib/i18n'
 import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
@@ -55,7 +56,9 @@ function OpordChrome({ dossier }: { dossier: Dossier }) {
 }
 
 export function OpordFront({ dossier }: { dossier: Dossier }) {
+  const t = paper(dossier)
   const prec = precedenceOf(dossier.header.precedence)
+  const precLabel = dossier.document.language === 'en' ? prec.nato : `${prec.label} (${prec.nato})`
   return (
     <Sheet page="opord" exportId="opord-1" paper="#efe6d0" ink="#1a1714">
       <ClassificationBanner dossier={dossier} position="top" />
@@ -63,39 +66,39 @@ export function OpordFront({ dossier }: { dossier: Dossier }) {
       <div className="op-body">
         <OpordChrome dossier={dossier} />
         <div className="op-id-grid">
-          <Field k="Origem / FROM" v={dossier.header.origin} />
-          <Field k="Destino / TO" v={dossier.header.destination} />
-          <Field k="Info / CC" v={dossier.header.info} />
-          <Field k="Precedência" v={`${prec.label} (${prec.nato})`} />
-          <Field k="Hora-H / H-HOUR" v={dossier.mission.hHour} />
-          <Field k="Fuso" v={dossier.header.timeZone} />
+          <Field k={t.origin} v={dossier.header.origin} />
+          <Field k={t.destination} v={dossier.header.destination} />
+          <Field k={t.info} v={dossier.header.info} />
+          <Field k={t.precedence} v={precLabel} />
+          <Field k={t.hhour} v={dossier.mission.hHour} />
+          <Field k={t.zone} v={dossier.header.timeZone} />
           <Field k="AO" v={dossier.mission.ao} />
           <Field k="Grid" v={dossier.mission.grid} />
-          <Field k="Carta / MAP" v={dossier.header.mapSheet} />
-          <Field k="Terreno" v={dossier.mission.terrain} />
-          <Field k="Cópia" v={`${dossier.document.copyNumber} de ${dossier.document.copyTotal}`} />
-          <Field k="Controle" v={dossier.document.controlNumber} />
+          <Field k={t.map} v={dossier.header.mapSheet} />
+          <Field k={t.terrain} v={dossier.mission.terrain} />
+          <Field k={t.copy} v={`${dossier.document.copyNumber} ${t.of} ${dossier.document.copyTotal}`} />
+          <Field k={t.control} v={dossier.document.controlNumber} />
         </div>
         <ol className="op-smeac">
           <li>
-            <h2>Situação</h2>
-            <Block label="a. Forças inimigas">{dossier.body.situationEnemy}</Block>
-            <Block label="b. Forças amigas">{dossier.body.situationFriendly}</Block>
-            <Block label="c. Meios destacados / destacáveis">{dossier.body.situationAttachments}</Block>
-            <Block label="d. Condições meteorológicas e de terreno">{dossier.body.situationWeather}</Block>
+            <h2>{t.situation}</h2>
+            <Block label={t.enemy}>{dossier.body.situationEnemy}</Block>
+            <Block label={t.friendly}>{dossier.body.situationFriendly}</Block>
+            <Block label={t.attachments}>{dossier.body.situationAttachments}</Block>
+            <Block label={t.weather}>{dossier.body.situationWeather}</Block>
           </li>
           <li>
-            <h2>Missão</h2>
+            <h2>{t.mission}</h2>
             <p className="op-mission">{dossier.body.mission || '—'}</p>
           </li>
           <li>
-            <h2>Execução</h2>
-            <Block label="a. Conceito da operação">{dossier.body.executionConcept}</Block>
-            <Block label="b. Tarefas às subunidades">{dossier.body.executionTasks}</Block>
-            <Block label="c. Instruções de coordenação">{dossier.body.executionCoord}</Block>
+            <h2>{t.execution}</h2>
+            <Block label={t.concept}>{dossier.body.executionConcept}</Block>
+            <Block label={t.tasks}>{dossier.body.executionTasks}</Block>
+            <Block label={t.coord}>{dossier.body.executionCoord}</Block>
           </li>
         </ol>
-        <p className="op-cont">CONTINUA NA PÁGINA SEGUINTE</p>
+        <p className="op-cont">{paper(dossier).continues}</p>
         <p className="op-foot-class">{classificationLine(dossier)}</p>
       </div>
       <ClassificationBanner dossier={dossier} position="bottom" />
@@ -104,27 +107,28 @@ export function OpordFront({ dossier }: { dossier: Dossier }) {
 }
 
 export function OpordBack({ dossier }: { dossier: Dossier }) {
+  const t = paper(dossier)
   return (
     <Sheet page="opord" exportId="opord-2" paper="#efe6d0" ink="#1a1714">
       <ClassificationBanner dossier={dossier} position="top" />
       <Marks dossier={dossier} page="opord" />
       <div className="op-body">
         <OpordChrome dossier={dossier} />
-        <p className="op-cont op-cont-top">CONTINUAÇÃO</p>
+        <p className="op-cont op-cont-top">{t.continued}</p>
         <ol className="op-smeac" start={4}>
           <li>
-            <h2>Logística e administração</h2>
+            <h2>{t.sustainment}</h2>
             <p>{dossier.body.sustainment || '—'}</p>
           </li>
           <li>
-            <h2>Comando e comunicações</h2>
+            <h2>{t.command}</h2>
             <p>{dossier.body.commandSignal || '—'}</p>
             <table className="op-nets">
               <thead>
                 <tr>
-                  <th>Rede</th>
-                  <th>Freq.</th>
-                  <th>Indicativo</th>
+                  <th>{t.net}</th>
+                  <th>{t.freq}</th>
+                  <th>{t.callsign}</th>
                 </tr>
               </thead>
               <tbody>
@@ -138,14 +142,14 @@ export function OpordBack({ dossier }: { dossier: Dossier }) {
               </tbody>
             </table>
             <div className="op-auth">
-              <span>Desafio: {dossier.comms.challenge || '—'}</span>
-              <span>Senha: {dossier.comms.password || '—'}</span>
-              <span>Sucessão: {dossier.comms.succession || '—'}</span>
+              <span>{t.challenge}: {dossier.comms.challenge || '—'}</span>
+              <span>{t.password}: {dossier.comms.password || '—'}</span>
+              <span>{t.succession}: {dossier.comms.succession || '—'}</span>
             </div>
           </li>
         </ol>
         <section className="op-roe">
-          <h2>Regras de engajamento (ROE)</h2>
+          <h2>{t.roe}</h2>
           <p>{dossier.body.roe || '—'}</p>
         </section>
         <footer className="op-sign">

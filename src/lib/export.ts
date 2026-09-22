@@ -23,12 +23,17 @@ export async function captureAll(sheets: HTMLElement[]): Promise<string[]> {
   return out
 }
 
-export async function savePdf(pngs: string[], filename: string) {
+export async function savePdf(
+  pngs: string[],
+  filename: string,
+  orientation: 'portrait' | 'landscape' = 'portrait',
+) {
   const { jsPDF } = await import('jspdf')
-  const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
+  const wide = orientation === 'landscape'
+  const pdf = new jsPDF({ orientation, unit: 'mm', format: 'a4' })
   pngs.forEach((png, i) => {
     if (i > 0) pdf.addPage()
-    pdf.addImage(png, 'PNG', 0, 0, 210, 297)
+    pdf.addImage(png, 'PNG', 0, 0, wide ? 297 : 210, wide ? 210 : 297)
   })
   pdf.save(filename)
 }
