@@ -13,7 +13,11 @@ import { IntelPage } from './document/IntelPage'
 import { NoticePage } from './document/NoticePage'
 import { OpordBack, OpordFront } from './document/OpordPage'
 import { OrbatPage } from './document/OrbatPage'
+import { RadioPage } from './document/RadioPage'
+import { RoePage } from './document/RoePage'
+import { RosterPage } from './document/RosterPage'
 import { SitrepPage } from './document/SitrepPage'
+import { TimelinePage } from './document/TimelinePage'
 
 export function Preview() {
   const dossier = useDossier((s) => s.dossier)
@@ -133,6 +137,10 @@ export function Preview() {
                 </Fragment>
               )
             }
+            if (item.kind === 'timeline') return <TimelinePage key="timeline" dossier={dossier} />
+            if (item.kind === 'radio') return <RadioPage key="radio" dossier={dossier} />
+            if (item.kind === 'roe') return <RoePage key="roe" dossier={dossier} />
+            if (item.kind === 'roster') return <RosterPage key="roster" dossier={dossier} />
             if (item.kind === 'sitrep') return <SitrepPage key="sitrep" dossier={dossier} />
             if (item.kind === 'aar') return <AarPage key="aar" dossier={dossier} />
             if (item.kind === 'orbat') return <OrbatPage key="orbat" dossier={dossier} />

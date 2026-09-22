@@ -25,6 +25,10 @@ Liga e desliga cada folha em **Páginas**. O título de cada uma pode ser outro 
 | HVT | Cartão do alvo, com retrato e se é para capturar ou abater |
 | CASEVAC | As 9 linhas do pedido de evacuação |
 | Intel | Fotos do briefing, com grid e fonte |
+| Linha do tempo | H-30, hora-H, extração |
+| Rádio | Frequências, desafio, senha e sucessão |
+| ROE | Regras de engajamento, grandes |
+| Escalação | Quem ocupa cada vaga |
 
 ### Capa
 

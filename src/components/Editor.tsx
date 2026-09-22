@@ -9,7 +9,7 @@ import {
 } from '../lib/classification'
 import { nowDtg } from '../lib/dtg'
 import { readClanMark, readIntelPhoto } from '../lib/image'
-import { blankDossier, defaultDossier, emptyHvtSlots, emptyOrbatLines } from '../defaults'
+import { blankDossier, defaultDossier, emptyHvtSlots, emptyOrbatLines, emptyRoster, emptyTimeline } from '../defaults'
 import { useDossier } from '../store'
 import type {
   Classification,
@@ -640,6 +640,93 @@ export function Editor() {
           }
         >
           + Linha no ORBAT
+        </button>
+      </details>
+
+      <details>
+        <summary>Linha do tempo</summary>
+        {dossier.timeline.map((row, i) => (
+          <div key={row.id} className="intel-edit">
+            <div className="row2">
+              <Field
+                label="Marca"
+                value={row.mark}
+                placeholder="H-30"
+                onChange={(mark) => patch((d) => void (d.timeline[i].mark = mark))}
+              />
+              <Field
+                label="DTG"
+                value={row.dtg}
+                onChange={(dtg) => patch((d) => void (d.timeline[i].dtg = dtg))}
+              />
+            </div>
+            <Field
+              label="O que acontece"
+              value={row.what}
+              onChange={(what) => patch((d) => void (d.timeline[i].what = what))}
+            />
+            <button type="button" className="btn-ghost" onClick={() => patch((d) => void d.timeline.splice(i, 1))}>
+              Remover marco
+            </button>
+          </div>
+        ))}
+        <button
+          type="button"
+          className="btn-ghost"
+          onClick={() =>
+            patch((d) => {
+              d.timeline.push({ ...emptyTimeline()[0], id: `t-${crypto.randomUUID()}` })
+            })
+          }
+        >
+          + Marco
+        </button>
+      </details>
+
+      <details>
+        <summary>Escalação</summary>
+        <p className="field-hint">Quem ocupa cada vaga. O cartão de rádio e o de ROE usam as redes e as regras já preenchidas.</p>
+        {dossier.roster.map((row, i) => (
+          <div key={row.id} className="intel-edit">
+            <div className="row2">
+              <Field
+                label="Elemento"
+                value={row.element}
+                onChange={(element) => patch((d) => void (d.roster[i].element = element))}
+              />
+              <Field
+                label="Vaga"
+                value={row.billet}
+                onChange={(billet) => patch((d) => void (d.roster[i].billet = billet))}
+              />
+            </div>
+            <div className="row2">
+              <Field
+                label="Indicativo"
+                value={row.callsign}
+                onChange={(callsign) => patch((d) => void (d.roster[i].callsign = callsign))}
+              />
+              <Field
+                label="Nome"
+                value={row.name}
+                onChange={(name) => patch((d) => void (d.roster[i].name = name))}
+              />
+            </div>
+            <button type="button" className="btn-ghost" onClick={() => patch((d) => void d.roster.splice(i, 1))}>
+              Remover vaga
+            </button>
+          </div>
+        ))}
+        <button
+          type="button"
+          className="btn-ghost"
+          onClick={() =>
+            patch((d) => {
+              d.roster.push({ ...emptyRoster()[0], id: `r-${crypto.randomUUID()}` })
+            })
+          }
+        >
+          + Vaga
         </button>
       </details>
 

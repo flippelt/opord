@@ -125,6 +125,10 @@ export function blankDossier(): Dossier {
         casevac: false,
         hvt: false,
         orbat: false,
+        timeline: false,
+        radio: false,
+        roe: false,
+        roster: false,
       },
     },
     header: {
@@ -184,6 +188,8 @@ export function blankDossier(): Dossier {
     casevac: blankCasevac(),
     hvts: emptyHvtSlots(),
     orbat: emptyOrbatLines(),
+    timeline: emptyTimeline(),
+    roster: emptyRoster(),
     titles: {},
     blanks: [],
     stack: defaultStack(),
@@ -293,6 +299,14 @@ export function emptyOrbatLines() {
       task: '',
     },
   ]
+}
+
+export function emptyTimeline() {
+  return [{ id: 't1', mark: 'H', what: '', dtg: '' }]
+}
+
+export function emptyRoster() {
+  return [{ id: 'r1', element: '', billet: '', callsign: '', name: '' }]
 }
 
 export function emptyIntelSlots() {
@@ -419,6 +433,10 @@ export function defaultDossier(): Dossier {
   d.document.pages.casevac = true
   d.document.pages.hvt = true
   d.document.pages.orbat = true
+  d.document.pages.timeline = true
+  d.document.pages.radio = true
+  d.document.pages.roe = true
+  d.document.pages.roster = true
   d.notice = {
     number: '12/2026',
     audience: 'TODO O EFETIVO DO GRUPO FALCÃO',
@@ -505,6 +523,22 @@ export function defaultDossier(): Dossier {
     { id: 'o7', echelon: 'APOIO', designation: 'UAV / FAC', callsign: 'WATCHER', lead: 'Op. UAV', strength: '1+1', task: 'Órbita 300 m AGL' },
     { id: 'o8', echelon: 'APOIO', designation: 'CASEVAC', callsign: 'DUSTOFF', lead: 'Médico de Cia', strength: '1', task: 'PZ RAVEN · 80.0' },
   ]
+  d.timeline = [
+    { id: 't1', mark: 'H-30', what: 'Check-in em LZ HAWK', dtg: '230130ZSEP26' },
+    { id: 't2', mark: 'H-10', what: 'Isolamento do complexo', dtg: '230150ZSEP26' },
+    { id: 't3', mark: 'H', what: 'Entrada no bloco C2', dtg: '230200ZSEP26' },
+    { id: 't4', mark: 'H+', what: 'Consolidar e BDA ao WATCHTOWER', dtg: '' },
+    { id: 't5', mark: 'EXFIL', what: 'Extração por PZ RAVEN', dtg: '' },
+  ]
+  d.roster = [
+    { id: 'r1', element: '2º Pel', billet: 'Líder', callsign: 'RAIDER-1', name: '' },
+    { id: 'r2', element: '1ª Esq', billet: 'Líder', callsign: 'RAIDER-1A', name: '' },
+    { id: 'r3', element: '1ª Esq', billet: 'Atirador', callsign: '', name: '' },
+    { id: 'r4', element: '2ª Esq', billet: 'Líder', callsign: 'RAIDER-2', name: '' },
+    { id: 'r5', element: '3ª Esq', billet: 'Líder / HVT', callsign: 'RAIDER-3', name: '' },
+    { id: 'r6', element: 'Apoio', billet: 'Médico', callsign: 'DUSTOFF', name: '' },
+    { id: 'r7', element: 'Apoio', billet: 'UAV', callsign: 'WATCHER', name: '' },
+  ]
   d.marks.watermarkMode = 'diagonal'
   d.marks.watermarkText = ''
   d.blanks = [sampleBlank()]
@@ -542,6 +576,8 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.casevac = { ...blankCasevac(), ...incoming.casevac }
   d.hvts = Array.isArray(incoming.hvts) && incoming.hvts.length ? incoming.hvts : emptyHvtSlots()
   d.orbat = Array.isArray(incoming.orbat) && incoming.orbat.length ? incoming.orbat : emptyOrbatLines()
+  d.timeline = Array.isArray(incoming.timeline) && incoming.timeline.length ? incoming.timeline : emptyTimeline()
+  d.roster = Array.isArray(incoming.roster) && incoming.roster.length ? incoming.roster : emptyRoster()
   d.titles = { ...(incoming.titles ?? {}) }
   d.blanks = Array.isArray(incoming.blanks)
     ? incoming.blanks.filter((b) => b && typeof b.id === 'string' && b.id)
