@@ -109,8 +109,7 @@ fica no IndexedDB do navegador.
 
 ## Contribuindo
 
-Veja [CONTRIBUTING.md](CONTRIBUTING.md). Código por pull request; a `main` é
-protegida. Missão real do clã não entra no repositório.
+Veja [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Próximo recorte (títulos por folha e páginas em branco):
 [docs/upgrade-paginas.md](docs/upgrade-paginas.md).
