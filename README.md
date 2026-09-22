@@ -12,7 +12,7 @@ Monta o briefing da operação do clã com cara de documento controlado: capa, o
 
 ## O que entra no pacote
 
-Liga e desliga cada folha em **Páginas**. O título de cada uma pode ser outro — “FRAGO 04” no lugar de OPORD, por exemplo. Dá para inserir uma página em branco, lisa ou pautada, e mudar a ordem do pacote.
+Um dossiê novo abre só com a capa. Os outros modelos entram um a um, em **Adicionar modelo**. O título de cada folha pode ser outro — “FRAGO 04” no lugar de OPORD, por exemplo. Dá para inserir uma página em branco, lisa ou pautada, e mudar a ordem do pacote.
 
 | Folha | Para quê |
 | --- | --- |
@@ -25,6 +25,10 @@ Liga e desliga cada folha em **Páginas**. O título de cada uma pode ser outro 
 | HVT | Cartão do alvo, com retrato e se é para capturar ou abater |
 | CASEVAC | As 9 linhas do pedido de evacuação |
 | Intel | Fotos do briefing, com grid e fonte |
+| Linha do tempo | H-30, hora-H, extração |
+| Rádio | Frequências, desafio, senha e sucessão |
+| ROE | Regras de engajamento, grandes |
+| Escalação | Quem ocupa cada vaga |
 
 ### Capa
 
@@ -87,7 +91,7 @@ npm install
 npm run abrir
 ```
 
-A primeira vez mostra a operação de exemplo **Serpente Negra**, em Altis. Dá para editar por cima ou começar um **dossiê em branco**. O trabalho fica salvo neste navegador. PDF, imagens e um arquivo JSON servem para levar a operação para outro computador do clã.
+A primeira vez mostra a operação de exemplo **Serpente Negra**, em Altis. Dá para editar por cima ou começar um **novo dossiê**, que abre só com a capa. O trabalho fica salvo neste navegador. PDF, imagens e um arquivo JSON servem para levar a operação para outro computador do clã.
 
 ## Licença
 

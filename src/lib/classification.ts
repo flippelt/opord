@@ -90,6 +90,10 @@ export const PAGE_LABELS: Record<PageId, string> = {
   hvt: 'HVT',
   orbat: 'ORBAT',
   intel: 'Anexo intel',
+  timeline: 'Linha do tempo',
+  radio: 'Rádio',
+  roe: 'ROE',
+  roster: 'Escalação',
 }
 
 export const TYPE_PAGE: Partial<Record<DocType, PageId>> = {

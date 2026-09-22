@@ -40,6 +40,10 @@ export type PageId =
   | 'casevac'
   | 'hvt'
   | 'orbat'
+  | 'timeline'
+  | 'radio'
+  | 'roe'
+  | 'roster'
 
 export interface StampConfig {
   id: string
@@ -108,6 +112,21 @@ export interface BlankPage {
 export interface StackItem {
   kind: PageId | 'blank'
   id?: string
+}
+
+export interface TimelineEvent {
+  id: string
+  mark: string
+  what: string
+  dtg: string
+}
+
+export interface RosterSlot {
+  id: string
+  element: string
+  billet: string
+  callsign: string
+  name: string
 }
 
 export interface Dossier {
@@ -225,6 +244,8 @@ export interface Dossier {
   }
   hvts: HvtCard[]
   orbat: OrbatLine[]
+  timeline: TimelineEvent[]
+  roster: RosterSlot[]
   titles: Partial<Record<PageId, string>>
   blanks: BlankPage[]
   stack: StackItem[]

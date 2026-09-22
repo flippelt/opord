@@ -1,5 +1,14 @@
 import { describe, expect, it } from 'vitest'
-import { defaultDossier, migrateDossier } from './defaults'
+import { blankDossier, defaultDossier, migrateDossier } from './defaults'
+
+describe('blankDossier', () => {
+  it('starts with the cover only', () => {
+    const on = Object.entries(blankDossier().document.pages)
+      .filter(([, enabled]) => enabled)
+      .map(([id]) => id)
+    expect(on).toEqual(['cover'])
+  })
+})
 
 describe('migrateDossier', () => {
   it('turns the old dual watermark into diagonal text only', () => {
