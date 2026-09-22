@@ -1,5 +1,6 @@
-import type { Dossier, StampConfig } from './types'
+import type { BlankPage, Dossier, StampConfig } from './types'
 import { nowDtg } from './lib/dtg'
+import { defaultStack, insertBlankBeforeIntel, normalizeStack } from './lib/stack'
 
 export function defaultStamps(): StampConfig[] {
   return [
@@ -183,6 +184,9 @@ export function blankDossier(): Dossier {
     casevac: blankCasevac(),
     hvts: emptyHvtSlots(),
     orbat: emptyOrbatLines(),
+    titles: {},
+    blanks: [],
+    stack: defaultStack(),
     marks: {
       watermarkMode: 'diagonal',
       watermarkText: '',
@@ -498,7 +502,19 @@ export function defaultDossier(): Dossier {
   ]
   d.marks.watermarkMode = 'diagonal'
   d.marks.watermarkText = ''
+  d.blanks = [sampleBlank()]
+  d.stack = insertBlankBeforeIntel(defaultStack(), sampleBlank().id)
   return d
+}
+
+function sampleBlank(): BlankPage {
+  return {
+    id: 'blank-croqui',
+    title: 'ANEXO C — CROQUI DO PZ',
+    heading: 'PZ RAVEN · grid 146092',
+    body: '',
+    lined: true,
+  }
 }
 
 export function migrateDossier(raw: unknown): Dossier | null {
@@ -521,6 +537,11 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.casevac = { ...blankCasevac(), ...incoming.casevac }
   d.hvts = Array.isArray(incoming.hvts) && incoming.hvts.length ? incoming.hvts : emptyHvtSlots()
   d.orbat = Array.isArray(incoming.orbat) && incoming.orbat.length ? incoming.orbat : emptyOrbatLines()
+  d.titles = { ...(incoming.titles ?? {}) }
+  d.blanks = Array.isArray(incoming.blanks)
+    ? incoming.blanks.filter((b) => b && typeof b.id === 'string' && b.id)
+    : []
+  d.stack = normalizeStack(incoming.stack, d.blanks)
   d.marks = { ...blankDossier().marks, ...incoming.marks }
   const oldMode = String(incoming.marks?.watermarkMode ?? '')
   if (d.marks.watermarkMode !== 'none' && d.marks.watermarkMode !== 'tiled') {

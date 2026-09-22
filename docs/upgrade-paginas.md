@@ -3,7 +3,7 @@
 Pedido do clã: poder **renomear o título de cada folha** e **inserir páginas
 em branco** no dossiê (croqui, lista extra, anexo que o OPORD não cobre).
 
-Status: **planejado**. Não implementado nesta versão.
+Status: **feito**. Título por folha, página em branco e ordem da pilha estão no editor, em **Ordem e títulos**.
 
 ## Problema
 

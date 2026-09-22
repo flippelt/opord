@@ -1,4 +1,5 @@
 import { classificationLine } from '../../lib/classification'
+import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { DocumentChrome, SignBlock } from './DocumentChrome'
@@ -23,7 +24,11 @@ export function AarPage({ dossier }: { dossier: Dossier }) {
       <div className="notice-body">
         <DocumentChrome
           dossier={dossier}
-          title={`AAR — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'REVISÃO'}`}
+          title={sheetTitle(
+            dossier.titles,
+            'aar',
+            `AAR — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'REVISÃO'}`,
+          )}
           subtitle="After Action Review · lições para o próximo emprego"
         />
         <div className="notice-meta">

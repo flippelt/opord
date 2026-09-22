@@ -12,7 +12,7 @@ Monta o briefing da operação do clã com cara de documento controlado: capa, o
 
 ## O que entra no pacote
 
-Liga e desliga cada folha em **Páginas**.
+Liga e desliga cada folha em **Páginas**. O título de cada uma pode ser outro — “FRAGO 04” no lugar de OPORD, por exemplo. Dá para inserir uma página em branco, lisa ou pautada, e mudar a ordem do pacote.
 
 | Folha | Para quê |
 | --- | --- |

@@ -1,4 +1,5 @@
 import { classificationLine, docTypeOf, isNoticeType } from '../../lib/classification'
+import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal, UnitPatch } from './ClanSeal'
@@ -45,7 +46,7 @@ export function NoticePage({ dossier }: { dossier: Dossier }) {
             <p className="op-place">
               {dossier.header.place || '—'} · {dossier.header.dtg || '—'}
             </p>
-            <h1>{title}</h1>
+            <h1>{sheetTitle(dossier.titles, 'notice', title)}</h1>
             <p className="op-subject">{kind.label}</p>
           </div>
           <UnitPatch src={dossier.clan.patchSrc} shortName={dossier.clan.shortName} size={64} />

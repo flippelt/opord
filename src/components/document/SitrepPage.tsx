@@ -1,4 +1,5 @@
 import { classificationLine } from '../../lib/classification'
+import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal, UnitPatch } from './ClanSeal'
@@ -34,8 +35,11 @@ export function SitrepPage({ dossier }: { dossier: Dossier }) {
               {dossier.header.place || '—'} · {dossier.header.dtg || '—'}
             </p>
             <h1>
-              SITREP {dossier.header.orderNumber} —{' '}
-              {dossier.mission.name ? `OP. ${dossier.mission.name}` : 'SITUAÇÃO'}
+              {sheetTitle(
+                dossier.titles,
+                'sitrep',
+                `SITREP ${dossier.header.orderNumber} — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'SITUAÇÃO'}`,
+              )}
             </h1>
             <p className="op-subject">{dossier.command.callsign || 'WATCHTOWER'} para cadeia de comando</p>
           </div>

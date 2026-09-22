@@ -2,7 +2,7 @@ import { styleOf } from '../../lib/classification'
 import type { Dossier, PageId } from '../../types'
 import { RubberStamp } from './RubberStamp'
 
-export function Marks({ dossier, page }: { dossier: Dossier; page: PageId }) {
+export function Marks({ dossier, page }: { dossier: Dossier; page: PageId | 'blank' }) {
   const style = styleOf(dossier.document.classification)
   const text = (dossier.marks.watermarkText || style.label).toUpperCase()
   const mode = dossier.marks.watermarkMode
