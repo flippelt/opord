@@ -75,7 +75,6 @@ function PhotoPlate({ photo, index }: { photo: IntelPhoto; index: number }) {
             <small>Slot {index} — subir foto intel</small>
           </div>
         )}
-        <span className="photo-stamp">FOTO INTEL</span>
       </div>
       <figcaption>
         <span className="photo-id">B-{String(index).padStart(2, '0')}</span>
