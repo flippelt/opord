@@ -66,7 +66,7 @@ A capa muda de cor conforme o nível. A marca d'água grande na diagonal usa o m
 | SECRETO | SECRET |
 | ULTRA-SECRETO | TOP SECRET |
 
-Dá para acrescentar restrições como EYES ONLY, NOFORN e ORCON na faixa de cima e de baixo. O logo do clã vai na capa, no cabeçalho e na assinatura. O patch fica no canto da ordem.
+Dá para acrescentar restrições como EYES ONLY, NOFORN e ORCON no cabeçalho e no rodapé. O logo do clã vai na capa, no cabeçalho e na assinatura. O patch fica no canto da ordem.
 
 ## Como abrir
 
@@ -91,6 +91,6 @@ A primeira vez mostra a operação de exemplo **Serpente Negra**, em Altis. Dá 
 
 ## Licença
 
-[MIT](LICENSE). A Serpente Negra é inventada.
+[MIT](LICENSE).
 
 Se quiser ajudar no código ou no visual do papel, o caminho está em [CONTRIBUTING.md](CONTRIBUTING.md).
