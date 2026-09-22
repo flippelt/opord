@@ -11,7 +11,15 @@ import { nowDtg } from '../lib/dtg'
 import { readClanMark, readIntelPhoto } from '../lib/image'
 import { blankDossier, defaultDossier, emptyHvtSlots, emptyOrbatLines } from '../defaults'
 import { useDossier } from '../store'
-import type { Classification, DocType, PageId, Precedence, WatermarkMode } from '../types'
+import type {
+  Classification,
+  DocType,
+  PageId,
+  Precedence,
+  WatermarkColorMode,
+  WatermarkFigure,
+  WatermarkMode,
+} from '../types'
 import { Field, ImageField, SelectField } from './ImageField'
 import { SheetOrder } from './SheetOrder'
 
@@ -861,6 +869,79 @@ export function Editor() {
           value={dossier.marks.watermarkText}
           onChange={(watermarkText) => patch((d) => void (d.marks.watermarkText = watermarkText))}
         />
+        <SelectField
+          label="Figura por baixo"
+          value={dossier.marks.watermarkFigure}
+          onChange={(watermarkFigure: WatermarkFigure) =>
+            patch((d) => void (d.marks.watermarkFigure = watermarkFigure))
+          }
+          options={[
+            { id: 'none', label: 'Nenhuma' },
+            { id: 'logo', label: 'Logo do clã' },
+            { id: 'image', label: 'Outra imagem' },
+          ]}
+        />
+        {dossier.marks.watermarkFigure === 'logo' && !dossier.clan.sealSrc ? (
+          <p className="field-hint">Sobe o logo do clã na identidade para ele aparecer aqui.</p>
+        ) : null}
+        {dossier.marks.watermarkFigure === 'image' ? (
+          <ImageField
+            label="Imagem da marca d’água"
+            hint="Fica grande e clara, no meio da folha. Não troca o logo do cabeçalho."
+            src={dossier.marks.watermarkImageSrc}
+            readFile={readClanMark}
+            onChange={(watermarkImageSrc) =>
+              patch((d) => void (d.marks.watermarkImageSrc = watermarkImageSrc))
+            }
+          />
+        ) : null}
+        <label className={dossier.marks.watermarkTextOnTop ? 'chip on stamp-chip' : 'chip stamp-chip'}>
+          <input
+            type="checkbox"
+            checked={dossier.marks.watermarkTextOnTop}
+            onChange={() =>
+              patch((d) => void (d.marks.watermarkTextOnTop = !d.marks.watermarkTextOnTop))
+            }
+          />
+          Texto confidencial por cima
+        </label>
+        <SelectField
+          label="Cor do texto"
+          value={dossier.marks.watermarkColorMode}
+          onChange={(watermarkColorMode: WatermarkColorMode) =>
+            patch((d) => void (d.marks.watermarkColorMode = watermarkColorMode))
+          }
+          options={[
+            { id: 'classification', label: 'Cor da classificação' },
+            { id: 'custom', label: 'Cor escolhida' },
+          ]}
+        />
+        {dossier.marks.watermarkColorMode === 'custom' ? (
+          <label className="field">
+            <span className="field-label">Cor</span>
+            <span className="color-row">
+              <input
+                type="color"
+                value={
+                  /^#[0-9a-fA-F]{6}$/.test(dossier.marks.watermarkColor)
+                    ? dossier.marks.watermarkColor
+                    : '#c9a227'
+                }
+                onChange={(e) => patch((d) => void (d.marks.watermarkColor = e.target.value))}
+              />
+              {['#c9a227', '#14532d', '#1a1714', '#b42318', '#1e3a8a'].map((color) => (
+                <button
+                  key={color}
+                  type="button"
+                  className="color-swatch"
+                  style={{ background: color }}
+                  aria-label={color}
+                  onClick={() => patch((d) => void (d.marks.watermarkColor = color))}
+                />
+              ))}
+            </span>
+          </label>
+        ) : null}
         {dossier.marks.stamps.map((stamp) => (
           <label key={stamp.id} className={stamp.enabled ? 'chip on stamp-chip' : 'chip stamp-chip'}>
             <input

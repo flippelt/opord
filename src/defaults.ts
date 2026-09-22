@@ -190,6 +190,11 @@ export function blankDossier(): Dossier {
     marks: {
       watermarkMode: 'diagonal',
       watermarkText: '',
+      watermarkFigure: 'none',
+      watermarkImageSrc: '',
+      watermarkTextOnTop: true,
+      watermarkColorMode: 'classification',
+      watermarkColor: '#c9a227',
       stamps: defaultStamps(),
     },
   }

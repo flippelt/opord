@@ -24,6 +24,10 @@ export type Precedence = 'flash' | 'immediate' | 'priority' | 'routine'
 
 export type WatermarkMode = 'none' | 'diagonal' | 'tiled'
 
+export type WatermarkFigure = 'none' | 'logo' | 'image'
+
+export type WatermarkColorMode = 'classification' | 'custom'
+
 export type StampKind = 'oval' | 'box' | 'round'
 
 export type PageId =
@@ -227,6 +231,11 @@ export interface Dossier {
   marks: {
     watermarkMode: WatermarkMode
     watermarkText: string
+    watermarkFigure: WatermarkFigure
+    watermarkImageSrc: string
+    watermarkTextOnTop: boolean
+    watermarkColorMode: WatermarkColorMode
+    watermarkColor: string
     stamps: StampConfig[]
   }
 }

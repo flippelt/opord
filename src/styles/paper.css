@@ -899,6 +899,19 @@
   overflow: visible;
 }
 
+.wm-figure {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 62%;
+  max-height: 62%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .wm-word {
   position: absolute;
   left: 50%;

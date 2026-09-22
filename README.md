@@ -66,7 +66,7 @@ A capa muda de cor conforme o nível. A marca d'água grande na diagonal usa o m
 | SECRETO | SECRET |
 | ULTRA-SECRETO | TOP SECRET |
 
-Dá para acrescentar restrições como EYES ONLY, NOFORN e ORCON no cabeçalho e no rodapé. O logo do clã vai na capa, no cabeçalho e na assinatura. O patch fica no canto da ordem.
+Dá para acrescentar restrições como EYES ONLY, NOFORN e ORCON no cabeçalho e no rodapé. O logo do clã vai na capa, no cabeçalho e na assinatura. O mesmo logo, ou outra imagem, pode virar a marca d'água, bem clara, com o texto confidencial por cima na cor que combinar. O patch fica no canto da ordem.
 
 ## Como abrir
 
