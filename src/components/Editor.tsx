@@ -11,6 +11,7 @@ import {
 import { nowDtg } from '../lib/dtg'
 import { readClanMark, readIntelPhoto } from '../lib/image'
 import { CAPTION_PRESETS, MAP_KINDS } from '../lib/mapPlate'
+import { STAMP_TERMS, stampTerm } from '../lib/stamps'
 import { applyTemplate, TEMPLATE_CHOICES } from '../lib/templates'
 import { blankDossier, defaultDossier, emptyHvtSlots, emptyMapPlate, emptyOrbatLines, emptyRoster, emptyTimeline } from '../defaults'
 import { useDossier } from '../store'
@@ -72,6 +73,32 @@ function MapCaption({
         }}
       />
     </div>
+  )
+}
+
+const STAMP_CHOICES = [
+  ...STAMP_TERMS.map((id) => ({ id, label: id })),
+  { id: 'custom', label: 'Outro texto' },
+]
+
+function StampTerm({ title, onChange }: { title: string; onChange: (title: string) => void }) {
+  const [custom, setCustom] = useState(false)
+  const known = stampTerm(title)
+  const choice = custom || known === 'custom' ? 'custom' : known
+  return (
+    <SelectField
+      label="Termo em inglês"
+      value={choice}
+      onChange={(next) => {
+        if (next === 'custom') {
+          setCustom(true)
+          return
+        }
+        setCustom(false)
+        onChange(next)
+      }}
+      options={STAMP_CHOICES}
+    />
   )
 }
 
@@ -1404,23 +1431,47 @@ export function Editor() {
             </span>
           </label>
         ) : null}
-        {dossier.marks.stamps.map((stamp) => (
-          <label key={stamp.id} className={stamp.enabled ? 'chip on stamp-chip' : 'chip stamp-chip'}>
-            <input
-              type="checkbox"
-              checked={stamp.enabled}
-              onChange={() =>
-                patch((d) => {
-                  const s = d.marks.stamps.find((x) => x.id === stamp.id)
-                  if (s) s.enabled = !s.enabled
-                })
-              }
-            />
-            {stamp.title}
-            <small>
-              {stamp.page === 'all' ? 'todas' : PAGE_LABELS[stamp.page]}
-            </small>
-          </label>
+        <p className="field-hint">
+          O seletor grava o termo em inglês no carimbo. CLASSIFIED, CONFIDENTIAL, SECRET, TOP SECRET, UNCLASSIFIED e RESTRICTED. Outro texto aceita qualquer palavra.
+        </p>
+        {dossier.marks.stamps.map((stamp, i) => (
+          <div key={stamp.id} className="intel-edit">
+            <label className={stamp.enabled ? 'chip on stamp-chip' : 'chip stamp-chip'}>
+              <input
+                type="checkbox"
+                checked={stamp.enabled}
+                onChange={() =>
+                  patch((d) => {
+                    const s = d.marks.stamps.find((x) => x.id === stamp.id)
+                    if (s) s.enabled = !s.enabled
+                  })
+                }
+              />
+              {stamp.title || 'Carimbo'}
+              <small>{stamp.page === 'all' ? 'todas' : PAGE_LABELS[stamp.page]}</small>
+            </label>
+            <div className="row2">
+              <StampTerm
+                title={stamp.title}
+                onChange={(title) => patch((d) => void (d.marks.stamps[i].title = title))}
+              />
+              <Field
+                label="Texto do carimbo"
+                value={stamp.title}
+                onChange={(title) => patch((d) => void (d.marks.stamps[i].title = title))}
+              />
+            </div>
+            {stamp.id === 'copy' ? (
+              <p className="field-hint">A linha de baixo deste carimbo é o número da via.</p>
+            ) : (
+              <Field
+                label="Linha de baixo"
+                value={stamp.subtitle}
+                placeholder="CLASSIFIED"
+                onChange={(subtitle) => patch((d) => void (d.marks.stamps[i].subtitle = subtitle))}
+              />
+            )}
+          </div>
         ))}
       </details>
 
