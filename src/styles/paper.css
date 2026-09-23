@@ -857,27 +857,63 @@
 
 .map-board {
   position: relative;
-  flex: 1;
-  min-height: 120mm;
-  margin-top: 8px;
+  align-self: flex-start;
+  width: max-content;
+  max-width: 100%;
+  margin-top: 6px;
   border: 1px solid #1a1714;
+  line-height: 0;
   background: #e7dcc4;
 }
 
-.map-board img,
-.map-empty {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.map-board img {
   display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 115mm;
+}
+
+.sheet.is-landscape .map-board img {
+  max-height: 62mm;
 }
 
 .map-empty {
+  width: 168mm;
+  height: 36mm;
   display: grid;
   place-items: center;
+  line-height: normal;
   font-family: var(--stencil);
   letter-spacing: 0.16em;
   color: #5c5346;
+}
+
+.map-notes {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+}
+
+.map-notes section:nth-child(n + 3) {
+  grid-column: 1 / -1;
+}
+
+.map-notes h2 {
+  margin: 0 0 2px;
+  font-family: var(--stencil);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.map-notes p {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: pre-wrap;
 }
 
 .map-grid {

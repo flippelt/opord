@@ -1096,10 +1096,39 @@ export function Editor() {
               />
               <ImageField
                 label="Imagem"
-                hint="Recorte do ponto. Se o print já tem grade, deixe a opção abaixo desligada."
+                hint="Fica no topo, no tamanho da foto. Se o print já tem grade, deixe a opção abaixo desligada."
                 src={plate.src}
                 readFile={readIntelPhoto}
                 onChange={(src) => patch((d) => void (d.maps[i].src = src))}
+              />
+              <div className="row2">
+                <Field
+                  label="Localização no grid"
+                  value={plate.location}
+                  placeholder="138086"
+                  onChange={(location) => patch((d) => void (d.maps[i].location = location))}
+                />
+                <Field
+                  label="Azimute após o desembarque"
+                  value={plate.azimuth}
+                  placeholder="090 — leste"
+                  onChange={(azimuth) => patch((d) => void (d.maps[i].azimuth = azimuth))}
+                />
+              </div>
+              <Field
+                label="Pontos de referência"
+                hint="O que se vê no chão: clareira, trilha, prédio, via."
+                value={plate.references}
+                multiline
+                rows={3}
+                onChange={(references) => patch((d) => void (d.maps[i].references = references))}
+              />
+              <Field
+                label="Observações da região"
+                value={plate.observations}
+                multiline
+                rows={3}
+                onChange={(observations) => patch((d) => void (d.maps[i].observations = observations))}
               />
               <label className={plate.grid ? 'chip on' : 'chip'}>
                 <input
