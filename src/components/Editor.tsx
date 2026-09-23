@@ -86,7 +86,6 @@ export function Editor() {
   const showCommand =
     dossier.document.pages.opord ||
     dossier.document.pages.notice ||
-    dossier.document.pages.radio ||
     dossier.document.pages.roster ||
     dossier.document.pages.sitrep ||
     dossier.document.pages.aar ||
@@ -853,7 +852,7 @@ export function Editor() {
 {(dossier.document.pages.roster) ? (
       <details>
         <summary>Escalação</summary>
-        <p className="field-hint">Quem ocupa cada vaga. O cartão de rádio e o de ROE usam as redes e as regras já preenchidas.</p>
+        <p className="field-hint">Quem ocupa cada vaga.</p>
         {dossier.roster.map((row, i) => (
           <div key={row.id} className="intel-edit">
             <div className="row2">
@@ -899,7 +898,7 @@ export function Editor() {
       </details>
       ) : null}
 
-{(dossier.document.pages.opord || dossier.document.pages.roe) ? (
+{dossier.document.pages.opord ? (
       <details>
         <summary>Corpo (SMEAC)</summary>
         <Field

@@ -30,6 +30,18 @@ describe('normalizeStack', () => {
     )
   })
 
+  it('drops radio and roe sheets from an older stack', () => {
+    const stack = normalizeStack(
+      [{ kind: 'cover' }, { kind: 'opord' }, { kind: 'radio' }, { kind: 'roe' }, { kind: 'roster' }],
+      [],
+    )
+    const kinds = stack.map((item) => item.kind)
+    expect(kinds).not.toContain('radio')
+    expect(kinds).not.toContain('roe')
+    expect(kinds).toContain('opord')
+    expect(kinds).toContain('roster')
+  })
+
   it('keeps a blank between the OPORD and the intel annex', () => {
     const stack = insertBlankBeforeIntel(normalizeStack(undefined, []), croqui.id)
     const withBlank = normalizeStack(stack, [croqui])

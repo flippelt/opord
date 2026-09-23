@@ -132,8 +132,6 @@ export function blankDossier(): Dossier {
         hvt: false,
         orbat: false,
         timeline: false,
-        radio: false,
-        roe: false,
         roster: false,
         map: false,
       },
@@ -479,8 +477,6 @@ export function defaultDossier(): Dossier {
   d.document.pages.hvt = true
   d.document.pages.orbat = true
   d.document.pages.timeline = true
-  d.document.pages.radio = true
-  d.document.pages.roe = true
   d.document.pages.roster = true
   d.document.pages.map = true
   d.maps = [
@@ -769,7 +765,10 @@ export function migrateDossier(raw: unknown): Dossier | null {
   Object.assign(d, incoming)
   d.clan = { ...blankDossier().clan, ...incoming.clan }
   d.document = { ...blankDossier().document, ...incoming.document }
-  d.document.pages = { ...blankDossier().document.pages, ...incoming.document?.pages }
+  const pages = { ...blankDossier().document.pages, ...incoming.document?.pages }
+  delete (pages as { radio?: boolean }).radio
+  delete (pages as { roe?: boolean }).roe
+  d.document.pages = pages
   d.document.orientation = incoming.document?.orientation === 'landscape' ? 'landscape' : 'portrait'
   d.document.binding = incoming.document?.binding !== false
   d.document.language = incoming.document?.language === 'en' ? 'en' : 'pt'

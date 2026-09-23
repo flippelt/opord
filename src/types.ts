@@ -41,8 +41,6 @@ export type PageId =
   | 'hvt'
   | 'orbat'
   | 'timeline'
-  | 'radio'
-  | 'roe'
   | 'roster'
   | 'map'
 

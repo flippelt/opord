@@ -92,8 +92,6 @@ export const PAGE_LABELS: Record<PageId, string> = {
   map: 'Mapa',
   intel: 'Anexo intel',
   timeline: 'Linha do tempo',
-  radio: 'Rádio',
-  roe: 'ROE',
   roster: 'Escalação',
 }
 
