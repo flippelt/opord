@@ -3,6 +3,7 @@ import { sheetTitle } from '../../lib/stack'
 import type { Dossier, IntelPhoto } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal } from './ClanSeal'
+import { unitTitle } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
 
@@ -40,6 +41,7 @@ export function IntelPage({
             size={56}
           />
           <div>
+            <p className="op-unit">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
             <p className="intel-kicker">Anexo B — Inteligência</p>
             <h1>{sheetTitle(dossier.titles, 'intel', 'FOTO INTEL / IMAGERY')}</h1>
             <p>
@@ -53,7 +55,7 @@ export function IntelPage({
               key={photo.id}
               photo={photo}
               index={startIndex + i + 1}
-              stamp={dossier.intelStamp.enabled ? dossier.intelStamp.text.trim() : ''}
+              stamp={plateStamp(dossier, photo)}
             />
           ))}
         </div>
@@ -66,6 +68,11 @@ export function IntelPage({
       <ClassificationBanner dossier={dossier} position="bottom" />
     </Sheet>
   )
+}
+
+function plateStamp(dossier: Dossier, photo: IntelPhoto): string {
+  if (!dossier.intelStamp.enabled) return ''
+  return (photo.stamp ?? '').trim() || dossier.intelStamp.text.trim()
 }
 
 function PhotoPlate({ photo, index, stamp }: { photo: IntelPhoto; index: number; stamp: string }) {

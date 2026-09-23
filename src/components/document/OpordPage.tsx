@@ -4,6 +4,7 @@ import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal, UnitPatch } from './ClanSeal'
+import { unitTitle } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
 
@@ -37,7 +38,7 @@ function OpordChrome({ dossier }: { dossier: Dossier }) {
         size={72}
       />
       <div className="op-head-mid">
-        <p className="op-unit">{dossier.clan.name || 'QUARTEL-GENERAL'}</p>
+        <p className="op-unit">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
         <p className="op-place">
           {dossier.header.place || '—'} · {dossier.header.dtg || '—'}
         </p>

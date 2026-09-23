@@ -3,6 +3,7 @@ import { sheetTitle } from '../../lib/stack'
 import type { Dossier, HvtCard } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal } from './ClanSeal'
+import { unitTitle } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
 
@@ -21,7 +22,7 @@ export function HvtPage({ dossier, card, index }: { dossier: Dossier; card: HvtC
           />
           <div>
             <p className="hvt-kicker">
-              {dossier.clan.shortName || 'UNIDADE'} · CARTÃO DE ALVO · HVT-{String(index + 1).padStart(2, '0')}
+              {unitTitle(dossier.clan.name, dossier.clan.shortName, 'UNIDADE')} · CARTÃO DE ALVO · HVT-{String(index + 1).padStart(2, '0')}
             </p>
             <h1>{sheetTitle(dossier.titles, 'hvt', card.status || 'WANTED')}</h1>
             <p>

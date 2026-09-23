@@ -62,12 +62,14 @@ export function Editor() {
         <summary>Identidade do clã</summary>
         <Field
           label="Nome da unidade / clã"
+          hint="Um campo só. O nome entra na capa e no cabeçalho de cada folha."
           value={dossier.clan.name}
           onChange={(name) => patch((d) => void (d.clan.name = name))}
           placeholder="Grupo de Operações…"
         />
         <Field
           label="Sigla"
+          hint="Entra ao lado do nome em todas as folhas. Também no selo e no patch, quando não há imagem."
           value={dossier.clan.shortName}
           onChange={(shortName) => patch((d) => void (d.clan.shortName = shortName))}
           placeholder="FALCÃO"
@@ -86,7 +88,7 @@ export function Editor() {
         />
         <ImageField
           label="Distintivo / patch"
-          hint="Canto direito do OPORD."
+          hint="Canto do cabeçalho, nas folhas que levam o distintivo."
           src={dossier.clan.patchSrc}
           readFile={readClanMark}
           onChange={(patchSrc) => patch((d) => void (d.clan.patchSrc = patchSrc))}
@@ -994,17 +996,15 @@ export function Editor() {
             checked={dossier.intelStamp.enabled}
             onChange={() => patch((d) => void (d.intelStamp.enabled = !d.intelStamp.enabled))}
           />
-          Carimbo na foto
+          Carimbo nas fotos
         </label>
-        {dossier.intelStamp.enabled ? (
-          <Field
-            label="Texto do carimbo"
-            hint="Aparece em cada placa. Vazio esconde o carimbo."
-            value={dossier.intelStamp.text}
-            placeholder="FOTO INTEL"
-            onChange={(text) => patch((d) => void (d.intelStamp.text = text))}
-          />
-        ) : null}
+        <Field
+          label="Texto do carimbo"
+          hint="Vale para as placas que não tiverem um texto próprio."
+          value={dossier.intelStamp.text}
+          placeholder="FOTO INTEL"
+          onChange={(text) => patch((d) => void (d.intelStamp.text = text))}
+        />
         {dossier.intel.map((photo, i) => (
           <div key={photo.id} className="intel-edit">
             <p className="intel-edit-title">Placa B-{String(i + 1).padStart(2, '0')}</p>
@@ -1018,6 +1018,13 @@ export function Editor() {
               label="Legenda"
               value={photo.caption}
               onChange={(caption) => patch((d) => void (d.intel[i].caption = caption))}
+            />
+            <Field
+              label="Texto do carimbo desta placa"
+              hint="Vazio usa o texto geral. O carimbo some se os dois estiverem vazios, ou se Carimbo nas fotos estiver desligado."
+              value={photo.stamp ?? ''}
+              placeholder={dossier.intelStamp.text || 'FOTO INTEL'}
+              onChange={(stamp) => patch((d) => void (d.intel[i].stamp = stamp))}
             />
             <div className="row2">
               <Field
