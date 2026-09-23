@@ -2,76 +2,13 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/flippelt/opord/ci.yml?label=CI)](https://github.com/flippelt/opord/actions) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-Monta o briefing da operação do clã com cara de documento controlado: capa, ordem, comunicado, intel, alvo, pedido de evacuação e o que mais a noite pedir. Você preenche, coloca o logo e as fotos, e leva um PDF ou uma imagem para o Discord, a sala ou a TV.
+Monta o briefing da operação do clã com cara de documento controlado. Você preenche, coloca o logo e as fotos, e leva um PDF ou uma imagem para o Discord, a sala ou a TV.
 
 É para clãs de Arma 3, Squad, Hell Let Loose e jogos do mesmo tipo. Abre no navegador, na sua máquina. O que você escrever fica aí.
 
 **Para ver sem instalar:** https://flippelt.github.io/opord/
 
-[<img src="docs/screenshots/overview.jpg" width="720" alt="A estação, com a capa da operação ao lado">](docs/screenshots/overview.jpg)
-
-## O que entra no pacote
-
-Um dossiê novo abre só com a capa. Os outros modelos entram um a um, em **Adicionar modelo**, ou de uma vez com um modelo pronto: assalto, defesa, comboio ou reconhecimento. O papel pode ficar em retrato ou paisagem, em português ou inglês. O título de cada folha pode ser outro. Dá para inserir uma página em branco e mudar a ordem. Na exportação, cada cópia sai numerada, de 01 até o total.
-
-| Folha | Para quê |
-| --- | --- |
-| Capa | Classificação, logo do clã, aviso de manuseio |
-| Comunicado, convocação ou boletim | Aviso ao efetivo, com servidor, mods, slotting e ponto de reunião quando for noite de operação |
-| OPORD | Situação, missão, execução, logística, comando |
-| SITREP | Como está o inimigo, os amigos, o próprio efetivo e o que falta |
-| AAR | O que rolou, o que deu certo, o que falhou, lições e BDA |
-| ORBAT | Quem vai, com que indicativo e com que tarefa |
-| HVT | Cartão do alvo, com retrato e se é para capturar ou abater |
-| CASEVAC | As 9 linhas do pedido de evacuação |
-| Intel | Fotos do briefing, com grid e fonte |
-| Linha do tempo | H-30, hora-H, extração |
-| Rádio | Frequências, desafio, senha e sucessão |
-| ROE | Regras de engajamento, grandes |
-| Escalação | Quem ocupa cada vaga |
-| Mapas | Uma folha por lugar: mapa geral, LZ, PZ, objetivo. Cada uma com o seu título e o seu recorte |
-
-### Capa
-
-[<img src="docs/screenshots/capa.jpg" width="480" alt="Capa confidencial">](docs/screenshots/capa.jpg)
-
-### Comunicado
-
-[<img src="docs/screenshots/notice.jpg" width="480" alt="Comunicado da operação">](docs/screenshots/notice.jpg)
-
-### Ordem
-
-[<img src="docs/screenshots/opord-1.jpg" width="480" alt="Primeira página da ordem">](docs/screenshots/opord-1.jpg)
-[<img src="docs/screenshots/opord-2.jpg" width="480" alt="Segunda página da ordem, com redes e assinatura">](docs/screenshots/opord-2.jpg)
-
-### Situação, revisão e efetivo
-
-[<img src="docs/screenshots/sitrep.jpg" width="320" alt="Relatório de situação">](docs/screenshots/sitrep.jpg)
-[<img src="docs/screenshots/aar.jpg" width="320" alt="Revisão depois da operação">](docs/screenshots/aar.jpg)
-[<img src="docs/screenshots/orbat.jpg" width="320" alt="Organização da força">](docs/screenshots/orbat.jpg)
-
-### Alvo e evacuação
-
-[<img src="docs/screenshots/hvt-1.jpg" width="320" alt="Cartão do alvo">](docs/screenshots/hvt-1.jpg)
-[<img src="docs/screenshots/casevac.jpg" width="320" alt="Pedido de evacuação em nove linhas">](docs/screenshots/casevac.jpg)
-
-### Fotos
-
-[<img src="docs/screenshots/intel.jpg" width="480" alt="Anexo com as fotos do briefing">](docs/screenshots/intel.jpg)
-
-## Classificação
-
-A capa muda de cor conforme o nível. A marca d'água grande na diagonal usa o mesmo nome, ou o texto que você escrever no lugar.
-
-| No papel | Equivalente NATO |
-| --- | --- |
-| OSTENSIVO | UNCLASSIFIED |
-| RESERVADO | RESTRICTED |
-| CONFIDENCIAL | CONFIDENTIAL |
-| SECRETO | SECRET |
-| ULTRA-SECRETO | TOP SECRET |
-
-Dá para acrescentar restrições como EYES ONLY, NOFORN e ORCON no cabeçalho e no rodapé. O logo do clã vai na capa, no cabeçalho e na assinatura. O mesmo logo, ou outra imagem, pode virar a marca d'água, bem clara, com o texto confidencial por cima na cor que combinar. O patch fica no canto da ordem.
+**Para montar o dossiê:** a [wiki](https://github.com/flippelt/opord/wiki) tem as folhas, as imagens e o passo a passo do editor.
 
 ## Como abrir
 
