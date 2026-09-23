@@ -98,7 +98,7 @@ export function Editor() {
       <header className="desk-brand">
         <p className="desk-kicker">Estação de operações</p>
         <h1>OPORD</h1>
-        <p>Briefing classificado para milsim</p>
+        <p>Briefing confidencial para milsim</p>
         <button
           type="button"
           className="btn-ghost desk-jump"

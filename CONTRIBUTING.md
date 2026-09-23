@@ -28,7 +28,7 @@ macOS, `abrir-opord.sh` no Linux, `Abrir-OPORD.bat` no Windows).
 ## O que é bem-vindo
 
 - Correção de visual no documento A4 (faixas, carimbos, logo, export PDF/PNG)
-- Campos e folhas úteis para milsim (sem copiar documento classificado real)
+- Campos e folhas úteis para milsim (sem copiar documento confidencial real)
 - Acessibilidade e textos em português
 - Testes (vitest) para DTG, classificação, migração de dossiê
 
