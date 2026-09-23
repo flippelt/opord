@@ -175,7 +175,29 @@ export function Editor() {
               </label>
             )
           })}
+          <label className={dossier.document.relToOn ? 'chip on' : 'chip'}>
+            <input
+              type="checkbox"
+              checked={dossier.document.relToOn}
+              onChange={() =>
+                patch((d) => {
+                  d.document.relToOn = !d.document.relToOn
+                  if (d.document.relToOn && !d.document.relTo.trim()) d.document.relTo = d.clan.shortName
+                })
+              }
+            />
+            REL TO
+          </label>
         </fieldset>
+        {dossier.document.relToOn ? (
+          <Field
+            label="REL TO"
+            hint="Entra na faixa depois das outras restrições. O padrão é a sigla do clã."
+            value={dossier.document.relTo}
+            placeholder={dossier.clan.shortName || 'FALCÃO'}
+            onChange={(relTo) => patch((d) => void (d.document.relTo = relTo))}
+          />
+        ) : null}
         <div className="row2">
           <Field
             label="Cópia nº"
@@ -966,6 +988,23 @@ export function Editor() {
 {(dossier.document.pages.intel) ? (
       <details open>
         <summary>Anexo de intel</summary>
+        <label className={dossier.intelStamp.enabled ? 'chip on stamp-chip' : 'chip stamp-chip'}>
+          <input
+            type="checkbox"
+            checked={dossier.intelStamp.enabled}
+            onChange={() => patch((d) => void (d.intelStamp.enabled = !d.intelStamp.enabled))}
+          />
+          Carimbo na foto
+        </label>
+        {dossier.intelStamp.enabled ? (
+          <Field
+            label="Texto do carimbo"
+            hint="Aparece em cada placa. Vazio esconde o carimbo."
+            value={dossier.intelStamp.text}
+            placeholder="FOTO INTEL"
+            onChange={(text) => patch((d) => void (d.intelStamp.text = text))}
+          />
+        ) : null}
         {dossier.intel.map((photo, i) => (
           <div key={photo.id} className="intel-edit">
             <p className="intel-edit-title">Placa B-{String(i + 1).padStart(2, '0')}</p>

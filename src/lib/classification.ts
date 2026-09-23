@@ -139,13 +139,7 @@ export const PRECEDENCE: { id: Precedence; label: string; nato: string }[] = [
   { id: 'routine', label: 'ROTINA', nato: 'ROUTINE' },
 ]
 
-export const CAVEAT_OPTIONS = [
-  'EYES ONLY',
-  'NOFORN',
-  'ORCON',
-  'WNINTEL',
-  'REL TO UNIDADE',
-] as const
+export const CAVEAT_OPTIONS = ['EYES ONLY', 'NOFORN', 'ORCON', 'WNINTEL'] as const
 
 export function styleOf(id: Classification): ClassificationStyle {
   return CLASSIFICATIONS.find((c) => c.id === id) ?? CLASSIFICATIONS[2]
@@ -159,10 +153,18 @@ export function precedenceOf(id: Precedence) {
   return PRECEDENCE.find((p) => p.id === id) ?? PRECEDENCE[1]
 }
 
+export function relToMark(d: Dossier): string {
+  const who = d.document.relTo.trim()
+  if (!d.document.relToOn || !who) return ''
+  return `REL TO ${who}`
+}
+
 export function classificationLine(d: Dossier): string {
   const c = styleOf(d.document.classification)
   const parts = [d.document.language === 'en' ? c.nato : c.label]
-  if (d.document.caveats.length) parts.push(...d.document.caveats)
+  if (d.document.caveats.length) parts.push(...d.document.caveats.filter((c) => !/^REL TO\b/i.test(c)))
+  const rel = relToMark(d)
+  if (rel) parts.push(rel)
   return parts.join(' // ')
 }
 

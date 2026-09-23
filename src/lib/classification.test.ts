@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { classificationLine, styleOf } from './classification'
+import { classificationLine, relToMark, styleOf } from './classification'
 import { defaultDossier } from '../defaults'
 
 describe('styleOf', () => {
@@ -18,6 +18,15 @@ describe('classificationLine', () => {
     const d = structuredClone(defaultDossier())
     d.document.classification = 'secreto'
     d.document.caveats = ['EYES ONLY', 'NOFORN']
+    d.document.relToOn = false
     expect(classificationLine(d)).toBe('SECRETO // EYES ONLY // NOFORN')
+  })
+
+  it('adds REL TO with the clan sigla', () => {
+    const d = defaultDossier()
+    expect(relToMark(d)).toBe('REL TO FALCÃO')
+    expect(classificationLine(d)).toBe('CONFIDENCIAL // EYES ONLY // REL TO FALCÃO')
+    d.document.relTo = '  '
+    expect(relToMark(d)).toBe('')
   })
 })
