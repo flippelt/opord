@@ -4,7 +4,7 @@ import { docTypeOf, styleOf } from '../lib/classification'
 import { copyNumbers } from '../lib/copies'
 import { chunk } from '../lib/dtg'
 import { captureAll, downloadJson, fileBase, savePdf, savePngZip } from '../lib/export'
-import { emptyHvtSlots, emptyIntelSlots } from '../defaults'
+import { emptyHvtSlots, emptyIntelSlots, emptyMapPlate } from '../defaults'
 import { useDossier } from '../store'
 import { AarPage } from './document/AarPage'
 import { BlankSheet } from './document/BlankPage'
@@ -199,7 +199,16 @@ export function Preview() {
               )
             }
             if (item.kind === 'casevac') return <CasevacPage key="casevac" dossier={dossier} />
-            if (item.kind === 'map') return <MapPage key="map" dossier={dossier} />
+            if (item.kind === 'map') {
+              const plates = dossier.maps.length ? dossier.maps : [emptyMapPlate()]
+              return (
+                <Fragment key="map">
+                  {plates.map((plate) => (
+                    <MapPage key={plate.id} dossier={dossier} plate={plate} />
+                  ))}
+                </Fragment>
+              )
+            }
             return (
               <Fragment key="intel">
                 {chunk(dossier.intel.length ? dossier.intel : emptyIntelSlots(), 4).map((group, i) => (

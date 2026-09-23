@@ -10,7 +10,7 @@ import {
 import { nowDtg } from '../lib/dtg'
 import { readClanMark, readIntelPhoto } from '../lib/image'
 import { applyTemplate, TEMPLATE_CHOICES } from '../lib/templates'
-import { blankDossier, defaultDossier, emptyHvtSlots, emptyOrbatLines, emptyRoster, emptyTimeline } from '../defaults'
+import { blankDossier, defaultDossier, emptyHvtSlots, emptyMapPlate, emptyOrbatLines, emptyRoster, emptyTimeline } from '../defaults'
 import { useDossier } from '../store'
 import type {
   Classification,
@@ -214,7 +214,12 @@ export function Editor() {
               key={p}
               type="button"
               className="chip"
-              onClick={() => patch((d) => void (d.document.pages[p] = true))}
+              onClick={() =>
+                patch((d) => {
+                  d.document.pages[p] = true
+                  if (p === 'map' && d.maps.length === 0) d.maps.push(emptyMapPlate('MAPA'))
+                })
+              }
             >
               + {PAGE_LABELS[p]}
             </button>
@@ -1025,41 +1030,69 @@ export function Editor() {
 
       {dossier.document.pages.map ? (
         <details open>
-          <summary>Mapa</summary>
-          <ImageField
-            label="Imagem do mapa"
-            hint="Se o mapa do jogo já tem grade, deixe a opção abaixo desligada."
-            src={dossier.map.src}
-            readFile={readIntelPhoto}
-            onChange={(src) => patch((d) => void (d.map.src = src))}
-          />
-          <label className={dossier.map.grid ? 'chip on' : 'chip'}>
-            <input
-              type="checkbox"
-              checked={dossier.map.grid}
-              onChange={() => patch((d) => void (d.map.grid = !d.map.grid))}
-            />
-            Grade por cima
-          </label>
-          {dossier.map.grid ? (
-          <div className="row2">
-            <Field
-              label="Colunas da grade"
-              value={String(dossier.map.cols)}
-              onChange={(value) => patch((d) => void (d.map.cols = Number(value) || 1))}
-            />
-            <Field
-              label="Linhas da grade"
-              value={String(dossier.map.rows)}
-              onChange={(value) => patch((d) => void (d.map.rows = Number(value) || 1))}
-            />
-          </div>
-          ) : null}
-          <Field
-            label="Legenda"
-            value={dossier.map.caption}
-            onChange={(caption) => patch((d) => void (d.map.caption = caption))}
-          />
+          <summary>Mapas</summary>
+          <p className="field-hint">
+            Uma folha por lugar. O mapa geral numa, o LZ mais fechado noutra, o PZ e o objetivo nas seguintes.
+          </p>
+          {dossier.maps.map((plate, i) => (
+            <div key={plate.id} className="intel-edit">
+              <Field
+                label="Título"
+                value={plate.title}
+                placeholder="LZ HAWK"
+                onChange={(title) => patch((d) => void (d.maps[i].title = title))}
+              />
+              <Field
+                label="Legenda"
+                value={plate.caption}
+                placeholder="138086 · clareira oeste · H-30"
+                onChange={(caption) => patch((d) => void (d.maps[i].caption = caption))}
+              />
+              <ImageField
+                label="Imagem"
+                hint="Recorte do ponto. Se o print já tem grade, deixe a opção abaixo desligada."
+                src={plate.src}
+                readFile={readIntelPhoto}
+                onChange={(src) => patch((d) => void (d.maps[i].src = src))}
+              />
+              <label className={plate.grid ? 'chip on' : 'chip'}>
+                <input
+                  type="checkbox"
+                  checked={plate.grid}
+                  onChange={() => patch((d) => void (d.maps[i].grid = !d.maps[i].grid))}
+                />
+                Grade por cima
+              </label>
+              {plate.grid ? (
+                <div className="row2">
+                  <Field
+                    label="Colunas"
+                    value={String(plate.cols)}
+                    onChange={(value) => patch((d) => void (d.maps[i].cols = Number(value) || 1))}
+                  />
+                  <Field
+                    label="Linhas"
+                    value={String(plate.rows)}
+                    onChange={(value) => patch((d) => void (d.maps[i].rows = Number(value) || 1))}
+                  />
+                </div>
+              ) : null}
+              <button
+                type="button"
+                className="btn-ghost"
+                onClick={() => patch((d) => void d.maps.splice(i, 1))}
+              >
+                Remover mapa
+              </button>
+            </div>
+          ))}
+          <button
+            type="button"
+            className="btn-ghost"
+            onClick={() => patch((d) => void d.maps.push(emptyMapPlate()))}
+          >
+            + Outro mapa
+          </button>
         </details>
       ) : null}
       <details open>

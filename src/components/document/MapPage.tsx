@@ -1,31 +1,32 @@
 import { classificationLine } from '../../lib/classification'
 import { sheetTitle } from '../../lib/stack'
-import type { Dossier } from '../../types'
+import type { Dossier, MapPlate } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { DocumentChrome } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
 
-export function MapPage({ dossier }: { dossier: Dossier }) {
-  const cols = Math.min(24, Math.max(1, dossier.map.cols || 1))
-  const rows = Math.min(24, Math.max(1, dossier.map.rows || 1))
+export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate }) {
+  const cols = Math.min(24, Math.max(1, plate.cols || 1))
+  const rows = Math.min(24, Math.max(1, plate.rows || 1))
+  const fallback = dossier.document.language === 'en' ? 'MAP' : 'MAPA'
   return (
-    <Sheet page="map" paper="#efe6d0" ink="#1a1714">
+    <Sheet page="map" exportId={`map-${plate.id}`} paper="#efe6d0" ink="#1a1714">
       <ClassificationBanner dossier={dossier} position="top" />
       <Marks dossier={dossier} page="map" />
       <div className="notice-body map-body">
         <DocumentChrome
           dossier={dossier}
-          title={sheetTitle(dossier.titles, 'map', dossier.document.language === 'en' ? 'MAP' : 'MAPA')}
-          subtitle={dossier.map.caption || dossier.header.mapSheet || dossier.mission.ao || ''}
+          title={plate.title.trim() || sheetTitle(dossier.titles, 'map', fallback)}
+          subtitle={plate.caption || ''}
         />
         <div className="map-board">
-          {dossier.map.src ? (
-            <img src={dossier.map.src} alt="" />
+          {plate.src ? (
+            <img src={plate.src} alt="" />
           ) : (
             <div className="map-empty">{dossier.document.language === 'en' ? 'NO MAP' : 'SEM MAPA'}</div>
           )}
-          {dossier.map.grid ? (
+          {plate.grid ? (
             <div
               className="map-grid"
               style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}
