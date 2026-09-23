@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   CAVEAT_OPTIONS,
   CLASSIFICATIONS,
@@ -9,6 +10,7 @@ import {
 } from '../lib/classification'
 import { nowDtg } from '../lib/dtg'
 import { readClanMark, readIntelPhoto } from '../lib/image'
+import { CAPTION_PRESETS, MAP_KINDS } from '../lib/mapPlate'
 import { applyTemplate, TEMPLATE_CHOICES } from '../lib/templates'
 import { blankDossier, defaultDossier, emptyHvtSlots, emptyMapPlate, emptyOrbatLines, emptyRoster, emptyTimeline } from '../defaults'
 import { useDossier } from '../store'
@@ -19,10 +21,59 @@ import type {
   Precedence,
   WatermarkColorMode,
   WatermarkFigure,
+  MapKind,
   WatermarkMode,
 } from '../types'
 import { Field, ImageField, SelectField } from './ImageField'
 import { SheetOrder } from './SheetOrder'
+
+const CAPTION_CHOICES = [
+  ...CAPTION_PRESETS.map((id) => ({ id, label: id })),
+  { id: 'custom', label: 'Outra' },
+]
+
+function MapCaption({
+  label,
+  value,
+  fallback,
+  onChange,
+}: {
+  label: string
+  value: string
+  fallback: (typeof CAPTION_PRESETS)[number]
+  onChange: (value: string) => void
+}) {
+  const [custom, setCustom] = useState(false)
+  const trimmed = value.trim()
+  const preset = (CAPTION_PRESETS as readonly string[]).includes(trimmed)
+  const choice = custom || (trimmed && !preset) ? 'custom' : trimmed || fallback
+  return (
+    <div className="row2">
+      <SelectField
+        label={label}
+        value={choice}
+        onChange={(next) => {
+          if (next === 'custom') {
+            setCustom(true)
+            return
+          }
+          setCustom(false)
+          onChange(next)
+        }}
+        options={CAPTION_CHOICES}
+      />
+      <Field
+        label="Texto da legenda"
+        value={value}
+        placeholder={fallback}
+        onChange={(next) => {
+          setCustom(!(CAPTION_PRESETS as readonly string[]).includes(next.trim()))
+          onChange(next)
+        }}
+      />
+    </div>
+  )
+}
 
 export function Editor() {
   const dossier = useDossier((s) => s.dossier)
@@ -1086,7 +1137,7 @@ export function Editor() {
         <details open>
           <summary>Mapas</summary>
           <p className="field-hint">
-            Uma folha por lugar. O mapa geral numa, o LZ mais fechado noutra, o PZ e o objetivo nas seguintes.
+            Uma folha por lugar. O tipo escolhe o que entra embaixo da imagem: azimute só no LZ, marcação e proa no PZ, direção de entrada no objetivo.
           </p>
           {dossier.maps.map((plate, i) => (
             <div key={plate.id} className="intel-edit">
@@ -1097,39 +1148,104 @@ export function Editor() {
                 onChange={(title) => patch((d) => void (d.maps[i].title = title))}
               />
               <Field
-                label="Legenda"
+                label="Legenda da folha"
                 value={plate.caption}
-                placeholder="138086 · clareira oeste · H-30"
+                placeholder="Clareira oeste · H-30"
                 onChange={(caption) => patch((d) => void (d.maps[i].caption = caption))}
               />
+              <SelectField
+                label="Tipo do mapa"
+                value={plate.kind}
+                onChange={(kind: MapKind) => patch((d) => void (d.maps[i].kind = kind))}
+                options={MAP_KINDS}
+              />
+              <SelectField
+                label="Imagens"
+                value={plate.images}
+                onChange={(images) => patch((d) => void (d.maps[i].images = images))}
+                options={[
+                  { id: 'pair', label: 'Zoom e drone' },
+                  { id: 'one', label: 'Uma imagem, maior' },
+                ]}
+              />
+              {plate.images === 'one' ? (
+                <SelectField
+                  label="Qual imagem"
+                  value={plate.focus}
+                  onChange={(focus) => patch((d) => void (d.maps[i].focus = focus))}
+                  options={[
+                    { id: 'chart', label: 'Zoom do mapa' },
+                    { id: 'photo', label: 'Vista de drone' },
+                  ]}
+                />
+              ) : null}
+              <p className="field-hint">
+                Uma imagem, no retrato, ocupa até metade da folha. Com as duas, elas ficam lado a lado, no mesmo tamanho.
+              </p>
               <ImageField
                 label="Zoom do mapa"
-                hint="O mapa do jogo, mais fechado naquele ponto. Fica à esquerda. A grade por cima vale só para esta imagem."
+                hint="O mapa do jogo, mais fechado naquele ponto. Com as duas imagens, fica à esquerda. A grade por cima vale só para esta."
                 src={plate.src}
                 readFile={readIntelPhoto}
                 onChange={(src) => patch((d) => void (d.maps[i].src = src))}
               />
+              <MapCaption
+                label="Legenda do zoom"
+                value={plate.chartLabel}
+                fallback="Zoom"
+                onChange={(chartLabel) => patch((d) => void (d.maps[i].chartLabel = chartLabel))}
+              />
               <ImageField
                 label="Vista de drone"
-                hint="A foto aérea do mesmo ponto. Fica à direita, no tamanho da imagem."
+                hint="A foto aérea do mesmo ponto. Com as duas imagens, fica à direita."
                 src={plate.photoSrc}
                 readFile={readIntelPhoto}
                 onChange={(photoSrc) => patch((d) => void (d.maps[i].photoSrc = photoSrc))}
               />
-              <div className="row2">
-                <Field
-                  label="Localização no grid"
-                  value={plate.location}
-                  placeholder="138086"
-                  onChange={(location) => patch((d) => void (d.maps[i].location = location))}
-                />
+              <MapCaption
+                label="Legenda do drone"
+                value={plate.photoLabel}
+                fallback="Drone"
+                onChange={(photoLabel) => patch((d) => void (d.maps[i].photoLabel = photoLabel))}
+              />
+              <Field
+                label="Localização no grid"
+                value={plate.location}
+                placeholder="166127"
+                onChange={(location) => patch((d) => void (d.maps[i].location = location))}
+              />
+              {plate.kind === 'lz' ? (
                 <Field
                   label="Azimute após o desembarque"
                   value={plate.azimuth}
                   placeholder="090 — leste"
                   onChange={(azimuth) => patch((d) => void (d.maps[i].azimuth = azimuth))}
                 />
-              </div>
+              ) : null}
+              {plate.kind === 'pz' ? (
+                <div className="row2">
+                  <Field
+                    label="Marcação"
+                    value={plate.marking}
+                    placeholder="Fumaça verde + IR strobe"
+                    onChange={(marking) => patch((d) => void (d.maps[i].marking = marking))}
+                  />
+                  <Field
+                    label="Proa de decolagem"
+                    value={plate.heading}
+                    placeholder="270 — vento de 270"
+                    onChange={(heading) => patch((d) => void (d.maps[i].heading = heading))}
+                  />
+                </div>
+              ) : null}
+              {plate.kind === 'objective' ? (
+                <Field
+                  label="Direção de entrada"
+                  value={plate.entry}
+                  placeholder="Face noroeste, junto à rodovia"
+                  onChange={(entry) => patch((d) => void (d.maps[i].entry = entry))}
+                />
+              ) : null}
               <Field
                 label="Pontos de referência"
                 hint="O que se vê no chão: clareira, trilha, prédio, via."
@@ -1162,7 +1278,7 @@ export function Editor() {
                 Página inteira
               </label>
               <p className="field-hint">
-                No modo paisagem, o zoom ocupa a folha toda, como um slide. No retrato, a folha continua com as duas imagens e as notas.
+                Na paisagem, a imagem ocupa o resto da folha, embaixo do cabeçalho. As notas saem; as faixas ficam. No retrato, use uma imagem só.
               </p>
               {plate.grid ? (
                 <div className="row2">

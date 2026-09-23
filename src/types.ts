@@ -136,17 +136,27 @@ export interface RosterSlot {
   name: string
 }
 
+export type MapKind = 'area' | 'lz' | 'pz' | 'objective' | 'other'
+
 export interface MapPlate {
   id: string
   title: string
   caption: string
+  kind: MapKind
   src: string
   photoSrc: string
+  chartLabel: string
+  photoLabel: string
+  images: 'pair' | 'one'
+  focus: 'chart' | 'photo'
   grid: boolean
   cols: number
   rows: number
   location: string
   azimuth: string
+  marking: string
+  heading: string
+  entry: string
   references: string
   observations: string
   fullPage: boolean
