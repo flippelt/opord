@@ -10,8 +10,8 @@ type Pack = {
 }
 
 const pages = {
-  fight: ['cover', 'opord', 'timeline', 'radio', 'roe', 'roster', 'orbat'] as PageId[],
-  recon: ['cover', 'opord', 'timeline', 'radio', 'intel', 'sitrep'] as PageId[],
+  fight: ['cover', 'opord', 'timeline', 'roster', 'orbat'] as PageId[],
+  recon: ['cover', 'opord', 'timeline', 'intel', 'sitrep'] as PageId[],
 }
 
 function marks(items: [string, string][]): TimelineEvent[] {

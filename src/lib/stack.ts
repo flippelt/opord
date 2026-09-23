@@ -5,8 +5,6 @@ export const STACK_ORDER: PageId[] = [
   'notice',
   'opord',
   'timeline',
-  'radio',
-  'roe',
   'roster',
   'sitrep',
   'aar',
