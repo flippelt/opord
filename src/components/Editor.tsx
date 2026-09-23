@@ -142,6 +142,14 @@ export function Editor() {
             ]}
           />
         </div>
+        <label className={dossier.document.binding ? 'chip on' : 'chip'}>
+          <input
+            type="checkbox"
+            checked={dossier.document.binding}
+            onChange={() => patch((d) => void (d.document.binding = !d.document.binding))}
+          />
+          Furos na folha
+        </label>
         <fieldset className="chips">
           <legend>Modelo pronto</legend>
           {TEMPLATE_CHOICES.map((choice) => (
@@ -1145,6 +1153,17 @@ export function Editor() {
                 />
                 Grade por cima do mapa
               </label>
+              <label className={plate.fullPage ? 'chip on' : 'chip'}>
+                <input
+                  type="checkbox"
+                  checked={plate.fullPage}
+                  onChange={() => patch((d) => void (d.maps[i].fullPage = !d.maps[i].fullPage))}
+                />
+                Página inteira
+              </label>
+              <p className="field-hint">
+                No modo paisagem, o zoom ocupa a folha toda, como um slide. No retrato, a folha continua com as duas imagens e as notas.
+              </p>
               {plate.grid ? (
                 <div className="row2">
                   <Field

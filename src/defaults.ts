@@ -116,6 +116,7 @@ export function blankDossier(): Dossier {
       copyTotal: '04',
       controlNumber: '',
       orientation: 'portrait',
+      binding: true,
       language: 'pt',
       relToOn: false,
       relTo: '',
@@ -327,6 +328,7 @@ export function emptyMapPlate(title = ''): MapPlate {
     azimuth: '',
     references: '',
     observations: '',
+    fullPage: false,
   }
 }
 
@@ -482,6 +484,7 @@ export function defaultDossier(): Dossier {
       grid: false,
       cols: 6,
       rows: 6,
+      fullPage: false,
       location: '169128',
       azimuth: 'A leste, a partir de LZ HAWK',
       references: 'Pyrgos no litoral. Complexo murado ao norte da cidade, junto à rodovia. Colinas a leste.',
@@ -496,6 +499,7 @@ export function defaultDossier(): Dossier {
       grid: false,
       cols: 6,
       rows: 6,
+      fullPage: false,
       location: '166127',
       azimuth: '090 — leste, para o complexo, depois do check-in',
       references: 'Terreno aberto a oeste do castelo. Costa no bordo oeste. Pyrgos a leste.',
@@ -510,6 +514,7 @@ export function defaultDossier(): Dossier {
       grid: false,
       cols: 6,
       rows: 6,
+      fullPage: false,
       location: '176129',
       azimuth: '270 — proa de decolagem, vento de 270',
       references: 'Clareira junto à via. Fumaça verde no centro. IR strobe no bordo oeste.',
@@ -524,6 +529,7 @@ export function defaultDossier(): Dossier {
       grid: false,
       cols: 6,
       rows: 6,
+      fullPage: false,
       location: '173131',
       azimuth: 'Entrada pela face noroeste, junto à rodovia',
       references: 'Complexo murado ao norte de Pyrgos. Pátio central. Rodovia no bordo oeste.',
@@ -664,6 +670,7 @@ function mapPlatesFrom(incoming: Partial<Dossier> & { map?: Partial<MapPlate> })
       azimuth: plate.azimuth || '',
       references: plate.references || '',
       observations: plate.observations || '',
+      fullPage: plate.fullPage === true,
     }))
   }
   const legacy = incoming.map
@@ -682,6 +689,7 @@ function mapPlatesFrom(incoming: Partial<Dossier> & { map?: Partial<MapPlate> })
         azimuth: legacy.azimuth || '',
         references: legacy.references || '',
         observations: legacy.observations || '',
+        fullPage: false,
       },
     ]
   }
@@ -698,6 +706,7 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.document = { ...blankDossier().document, ...incoming.document }
   d.document.pages = { ...blankDossier().document.pages, ...incoming.document?.pages }
   d.document.orientation = incoming.document?.orientation === 'landscape' ? 'landscape' : 'portrait'
+  d.document.binding = incoming.document?.binding !== false
   d.document.language = incoming.document?.language === 'en' ? 'en' : 'pt'
   const caveats = Array.isArray(d.document.caveats)
     ? d.document.caveats.filter((c): c is string => typeof c === 'string')

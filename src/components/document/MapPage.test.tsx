@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, it } from 'vitest'
 import { defaultDossier } from '../../defaults'
 import { MapPage } from './MapPage'
+import { SheetOrient } from './Sheet'
 
 describe('MapPage', () => {
   it('puts the ground notes under the picture', () => {
@@ -20,5 +21,24 @@ describe('MapPage', () => {
     expect(html).toContain('Observações da região')
     expect(html).toContain('>Zoom<')
     expect(html).toContain('>Drone<')
+    expect(html).toContain('class="binding"')
+  })
+
+  it('fills a landscape sheet with the map when full page is on', () => {
+    const dossier = defaultDossier()
+    dossier.document.orientation = 'landscape'
+    const plate = dossier.maps.find((item) => item.id === 'map-lz')
+    if (!plate) throw new Error('missing LZ')
+    plate.fullPage = true
+    const html = renderToStaticMarkup(
+      createElement(SheetOrient.Provider, {
+        value: 'landscape',
+        children: createElement(MapPage, { dossier, plate }),
+      }),
+    )
+    expect(html).toContain('map-slide')
+    expect(html).toContain('is-landscape')
+    expect(html).not.toContain('map-notes')
+    expect(html).not.toContain('class="binding"')
   })
 })

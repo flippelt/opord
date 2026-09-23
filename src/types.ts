@@ -149,6 +149,7 @@ export interface MapPlate {
   azimuth: string
   references: string
   observations: string
+  fullPage: boolean
 }
 
 export interface Dossier {
@@ -168,6 +169,7 @@ export interface Dossier {
     copyTotal: string
     controlNumber: string
     orientation: 'portrait' | 'landscape'
+    binding: boolean
     language: 'pt' | 'en'
     pages: Record<PageId, boolean>
     relToOn: boolean
