@@ -308,6 +308,11 @@ export function emptyOrbatLines() {
   ]
 }
 
+function exemplo(file: string) {
+  const base = import.meta.env.BASE_URL || '/'
+  return `${base}exemplo/${file}`
+}
+
 export function emptyMapPlate(title = ''): MapPlate {
   return {
     id: `map-${crypto.randomUUID()}`,
@@ -472,8 +477,8 @@ export function defaultDossier(): Dossier {
       id: 'map-ao',
       title: 'MAPA — AO SUL',
       caption: 'Altis · Pyrgos e adjacências',
-      src: '',
-      photoSrc: '',
+      src: exemplo('altis.jpg'),
+      photoSrc: exemplo('pyrgos.jpg'),
       grid: false,
       cols: 6,
       rows: 6,
@@ -486,8 +491,8 @@ export function defaultDossier(): Dossier {
       id: 'map-lz',
       title: 'LZ HAWK',
       caption: 'Clareira oeste · H-30',
-      src: '',
-      photoSrc: '',
+      src: exemplo('pyrgos.jpg'),
+      photoSrc: exemplo('pyrgos-oeste.jpg'),
       grid: false,
       cols: 6,
       rows: 6,
@@ -500,8 +505,8 @@ export function defaultDossier(): Dossier {
       id: 'map-pz',
       title: 'PZ RAVEN',
       caption: 'Extração',
-      src: '',
-      photoSrc: '',
+      src: exemplo('pyrgos.jpg'),
+      photoSrc: exemplo('pyrgos-leste.jpg'),
       grid: false,
       cols: 6,
       rows: 6,
@@ -514,8 +519,8 @@ export function defaultDossier(): Dossier {
       id: 'map-obj',
       title: 'OBJETIVO — BLOCO C2',
       caption: 'Fachada norte · hora-H',
-      src: '',
-      photoSrc: '',
+      src: exemplo('pyrgos.jpg'),
+      photoSrc: exemplo('pyrgos-centro.jpg'),
       grid: false,
       cols: 6,
       rows: 6,
