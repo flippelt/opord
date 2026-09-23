@@ -22,24 +22,30 @@ export function RubberStamp({ stamp, copyLabel }: { stamp: StampConfig; copyLabe
   )
 }
 
+function stampLine(value: string) {
+  return value.trim().toUpperCase()
+}
+
 function OvalStamp({ title, subtitle }: { title: string; subtitle: string }) {
+  const line = stampLine(title)
+  const under = stampLine(subtitle)
   return (
     <svg viewBox="0 0 280 200">
       <ellipse cx="140" cy="100" rx="132" ry="92" fill="none" stroke="currentColor" strokeWidth="7" />
       <ellipse cx="140" cy="100" rx="120" ry="80" fill="none" stroke="currentColor" strokeWidth="2.2" />
       <text
         x="140"
-        y={subtitle ? 96 : 108}
+        y={under ? 96 : 108}
         textAnchor="middle"
         fill="currentColor"
         fontFamily="Oswald, sans-serif"
-        fontSize={title.length > 12 ? 22 : 28}
+        fontSize={line.length > 12 ? 22 : 28}
         fontWeight="700"
         letterSpacing="3"
       >
-        {title}
+        {line}
       </text>
-      {subtitle && (
+      {under && (
         <text
           x="140"
           y="128"
@@ -49,7 +55,7 @@ function OvalStamp({ title, subtitle }: { title: string; subtitle: string }) {
           fontSize="13"
           letterSpacing="4"
         >
-          {subtitle}
+          {under}
         </text>
       )}
     </svg>
@@ -57,23 +63,25 @@ function OvalStamp({ title, subtitle }: { title: string; subtitle: string }) {
 }
 
 function BoxStamp({ title, subtitle }: { title: string; subtitle: string }) {
+  const line = stampLine(title)
+  const under = stampLine(subtitle)
   return (
     <svg viewBox="0 0 280 120">
       <rect x="8" y="10" width="264" height="100" fill="none" stroke="currentColor" strokeWidth="6" />
       <rect x="16" y="18" width="248" height="84" fill="none" stroke="currentColor" strokeWidth="1.6" />
       <text
         x="140"
-        y={subtitle ? 58 : 70}
+        y={under ? 58 : 70}
         textAnchor="middle"
         fill="currentColor"
         fontFamily="Oswald, sans-serif"
-        fontSize={title.length > 14 ? 18 : 24}
+        fontSize={line.length > 14 ? 18 : 24}
         fontWeight="700"
         letterSpacing="2"
       >
-        {title}
+        {line}
       </text>
-      {subtitle && (
+      {under && (
         <text
           x="140"
           y="82"
@@ -83,7 +91,7 @@ function BoxStamp({ title, subtitle }: { title: string; subtitle: string }) {
           fontSize="11"
           letterSpacing="2"
         >
-          {subtitle}
+          {under}
         </text>
       )}
     </svg>
@@ -91,13 +99,15 @@ function BoxStamp({ title, subtitle }: { title: string; subtitle: string }) {
 }
 
 function RoundStamp({ title, subtitle }: { title: string; subtitle: string }) {
+  const line = stampLine(title)
+  const under = stampLine(subtitle)
   return (
     <svg viewBox="0 0 200 200">
       <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" strokeWidth="7" />
       <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="2" />
       <text
         x="100"
-        y={subtitle ? 92 : 108}
+        y={under ? 92 : 108}
         textAnchor="middle"
         fill="currentColor"
         fontFamily="Oswald, sans-serif"
@@ -105,9 +115,9 @@ function RoundStamp({ title, subtitle }: { title: string; subtitle: string }) {
         fontWeight="700"
         letterSpacing="2"
       >
-        {title}
+        {line}
       </text>
-      {subtitle && (
+      {under && (
         <text
           x="100"
           y="122"
@@ -117,7 +127,7 @@ function RoundStamp({ title, subtitle }: { title: string; subtitle: string }) {
           fontSize="12"
           letterSpacing="1"
         >
-          {subtitle}
+          {under}
         </text>
       )}
     </svg>
