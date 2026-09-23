@@ -1096,14 +1096,14 @@ export function Editor() {
               />
               <ImageField
                 label="Mapa"
-                hint="O print do mapa do jogo, à esquerda. A grade por cima vale só para esta imagem."
+                hint="O mapa da área, à esquerda. No Altis, a ilha ou o trecho maior. A grade por cima vale só para esta imagem."
                 src={plate.src}
                 readFile={readIntelPhoto}
                 onChange={(src) => patch((d) => void (d.maps[i].src = src))}
               />
               <ImageField
-                label="Foto do drone"
-                hint="A foto aérea do mesmo ponto, à direita. As duas ficam no topo, no tamanho da imagem."
+                label="Zoom do local"
+                hint="O mesmo mapa, mais fechado naquele ponto. Fica à direita, no tamanho da imagem."
                 src={plate.photoSrc}
                 readFile={readIntelPhoto}
                 onChange={(photoSrc) => patch((d) => void (d.maps[i].photoSrc = photoSrc))}

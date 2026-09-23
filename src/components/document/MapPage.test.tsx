@@ -19,6 +19,6 @@ describe('MapPage', () => {
     expect(html).toContain('Pontos de referência')
     expect(html).toContain('Observações da região')
     expect(html).toContain('>Mapa<')
-    expect(html).toContain('>Drone<')
+    expect(html).toContain('>Zoom<')
   })
 })

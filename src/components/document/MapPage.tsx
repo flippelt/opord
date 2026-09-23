@@ -10,9 +10,9 @@ function mapLabels(language: Dossier['document']['language']) {
   if (language === 'en') {
     return {
       chart: 'Map',
-      photo: 'Drone',
+      photo: 'Zoom',
       emptyChart: 'NO MAP',
-      emptyPhoto: 'NO PHOTO',
+      emptyPhoto: 'NO ZOOM',
       grid: 'Grid',
       azimuth: 'Azimuth after landing',
       references: 'Reference points',
@@ -21,9 +21,9 @@ function mapLabels(language: Dossier['document']['language']) {
   }
   return {
     chart: 'Mapa',
-    photo: 'Drone',
+    photo: 'Zoom',
     emptyChart: 'SEM MAPA',
-    emptyPhoto: 'SEM FOTO',
+    emptyPhoto: 'SEM ZOOM',
     grid: 'Localização no grid',
     azimuth: 'Azimute após o desembarque',
     references: 'Pontos de referência',
