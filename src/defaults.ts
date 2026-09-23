@@ -381,7 +381,7 @@ export function defaultDossier(): Dossier {
     subject: 'Assalto ao complexo C2 em Pyrgos e captura do HVT VIPER',
     hHour: '230200ZSEP26',
     ao: 'AO SUL — Pyrgos e adjacências',
-    grid: '167126 (centro); alvo 173131',
+    grid: '169128 (centro); alvo 173131',
     terrain: 'Urbano litorâneo, vias estreitas, iluminação residual',
   }
   d.body = {
@@ -482,7 +482,7 @@ export function defaultDossier(): Dossier {
       grid: false,
       cols: 6,
       rows: 6,
-      location: '167126',
+      location: '169128',
       azimuth: 'A leste, a partir de LZ HAWK',
       references: 'Pyrgos no litoral. Complexo murado ao norte da cidade, junto à rodovia. Colinas a leste.',
       observations: 'Urbano litorâneo, vias estreitas, luz residual. Campo minado marcado a oeste do grid 140.',
