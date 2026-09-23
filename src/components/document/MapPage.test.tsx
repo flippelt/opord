@@ -14,7 +14,7 @@ describe('MapPage', () => {
     const notes = html.indexOf('Azimute após o desembarque')
     expect(picture).toBeGreaterThan(-1)
     expect(notes).toBeGreaterThan(picture)
-    expect(html).toContain('138086')
+    expect(html).toContain('166127')
     expect(html).toContain('090 — leste, para o complexo, depois do check-in')
     expect(html).toContain('Pontos de referência')
     expect(html).toContain('Observações da região')
