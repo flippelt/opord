@@ -1095,15 +1095,15 @@ export function Editor() {
                 onChange={(caption) => patch((d) => void (d.maps[i].caption = caption))}
               />
               <ImageField
-                label="Mapa"
-                hint="O mapa da área, à esquerda. No Altis, a ilha ou o trecho maior. A grade por cima vale só para esta imagem."
+                label="Zoom do mapa"
+                hint="O mapa do jogo, mais fechado naquele ponto. Fica à esquerda. A grade por cima vale só para esta imagem."
                 src={plate.src}
                 readFile={readIntelPhoto}
                 onChange={(src) => patch((d) => void (d.maps[i].src = src))}
               />
               <ImageField
-                label="Zoom do local"
-                hint="O mesmo mapa, mais fechado naquele ponto. Fica à direita, no tamanho da imagem."
+                label="Vista de drone"
+                hint="A foto aérea do mesmo ponto. Fica à direita, no tamanho da imagem."
                 src={plate.photoSrc}
                 readFile={readIntelPhoto}
                 onChange={(photoSrc) => patch((d) => void (d.maps[i].photoSrc = photoSrc))}

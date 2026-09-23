@@ -18,7 +18,7 @@ describe('MapPage', () => {
     expect(html).toContain('090 — leste, para o complexo, depois do check-in')
     expect(html).toContain('Pontos de referência')
     expect(html).toContain('Observações da região')
-    expect(html).toContain('>Mapa<')
     expect(html).toContain('>Zoom<')
+    expect(html).toContain('>Drone<')
   })
 })

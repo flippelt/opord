@@ -9,10 +9,10 @@ import { Marks } from './Watermark'
 function mapLabels(language: Dossier['document']['language']) {
   if (language === 'en') {
     return {
-      chart: 'Map',
-      photo: 'Zoom',
-      emptyChart: 'NO MAP',
-      emptyPhoto: 'NO ZOOM',
+      chart: 'Zoom',
+      photo: 'Drone',
+      emptyChart: 'NO ZOOM',
+      emptyPhoto: 'NO DRONE',
       grid: 'Grid',
       azimuth: 'Azimuth after landing',
       references: 'Reference points',
@@ -20,10 +20,10 @@ function mapLabels(language: Dossier['document']['language']) {
     }
   }
   return {
-    chart: 'Mapa',
-    photo: 'Zoom',
-    emptyChart: 'SEM MAPA',
-    emptyPhoto: 'SEM ZOOM',
+    chart: 'Zoom',
+    photo: 'Drone',
+    emptyChart: 'SEM ZOOM',
+    emptyPhoto: 'SEM DRONE',
     grid: 'Localização no grid',
     azimuth: 'Azimute após o desembarque',
     references: 'Pontos de referência',
