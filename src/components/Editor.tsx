@@ -1095,11 +1095,18 @@ export function Editor() {
                 onChange={(caption) => patch((d) => void (d.maps[i].caption = caption))}
               />
               <ImageField
-                label="Imagem"
-                hint="Fica no topo, no tamanho da foto. Se o print já tem grade, deixe a opção abaixo desligada."
+                label="Mapa"
+                hint="O print do mapa do jogo, à esquerda. A grade por cima vale só para esta imagem."
                 src={plate.src}
                 readFile={readIntelPhoto}
                 onChange={(src) => patch((d) => void (d.maps[i].src = src))}
+              />
+              <ImageField
+                label="Foto do drone"
+                hint="A foto aérea do mesmo ponto, à direita. As duas ficam no topo, no tamanho da imagem."
+                src={plate.photoSrc}
+                readFile={readIntelPhoto}
+                onChange={(photoSrc) => patch((d) => void (d.maps[i].photoSrc = photoSrc))}
               />
               <div className="row2">
                 <Field
@@ -1136,7 +1143,7 @@ export function Editor() {
                   checked={plate.grid}
                   onChange={() => patch((d) => void (d.maps[i].grid = !d.maps[i].grid))}
                 />
-                Grade por cima
+                Grade por cima do mapa
               </label>
               {plate.grid ? (
                 <div className="row2">
