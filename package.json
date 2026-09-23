@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Gerador de OPORD e briefings classificados para clãs de jogos de simulação militar.",
+  "description": "Gerador de OPORD e briefings confidenciais para clãs de jogos de simulação militar.",
   "license": "MIT",
   "author": "Felipe Lippelt",
   "engines": {

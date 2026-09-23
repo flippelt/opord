@@ -178,7 +178,7 @@ export function handlingText(d: Dossier): string {
     )
   }
   return (
-    `Este documento contém informação classificada como ${c.label} ` +
+    `Este documento contém informação confidencial: ${c.label} ` +
     `(equiv. NATO ${c.nato}). O acesso é restrito ao efetivo autorizado da unidade. ` +
     `É proibida a reprodução, transmissão ou armazenamento em sistemas não aprovados. ` +
     `Destruir por incineração, fragmentação ou meio que impeça a reconstrução. ` +

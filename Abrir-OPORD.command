@@ -9,7 +9,7 @@ cd "$(dirname "$0")" || exit 1
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 clear 2>/dev/null
-echo "OPORD — briefing classificado para clãs de milsim"
+echo "OPORD — briefing confidencial para clãs de milsim"
 echo "------------------------------------------------------------"
 
 if ! command -v node >/dev/null 2>&1; then

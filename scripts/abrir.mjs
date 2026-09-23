@@ -72,7 +72,7 @@ function pausar(mensagem) {
 
 async function main() {
   log('')
-  log('  OPORD — briefing classificado para clãs de milsim')
+  log('  OPORD — briefing confidencial para clãs de milsim')
   log('  ------------------------------------------------')
   log('')
 
