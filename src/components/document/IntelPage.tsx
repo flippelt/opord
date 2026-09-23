@@ -49,7 +49,12 @@ export function IntelPage({
         </header>
         <div className="intel-grid">
           {slots.slice(0, 4).map((photo, i) => (
-            <PhotoPlate key={photo.id} photo={photo} index={startIndex + i + 1} />
+            <PhotoPlate
+              key={photo.id}
+              photo={photo}
+              index={startIndex + i + 1}
+              stamp={dossier.intelStamp.enabled ? dossier.intelStamp.text.trim() : ''}
+            />
           ))}
         </div>
         <p className="intel-note">
@@ -63,7 +68,7 @@ export function IntelPage({
   )
 }
 
-function PhotoPlate({ photo, index }: { photo: IntelPhoto; index: number }) {
+function PhotoPlate({ photo, index, stamp }: { photo: IntelPhoto; index: number; stamp: string }) {
   return (
     <figure className="photo-plate">
       <div className="photo-frame">
@@ -75,6 +80,7 @@ function PhotoPlate({ photo, index }: { photo: IntelPhoto; index: number }) {
             <small>Slot {index} — subir foto intel</small>
           </div>
         )}
+        {stamp ? <span className="photo-stamp">{stamp}</span> : null}
       </div>
       <figcaption>
         <span className="photo-id">B-{String(index).padStart(2, '0')}</span>

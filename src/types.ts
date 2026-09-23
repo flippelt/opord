@@ -69,6 +69,11 @@ export interface IntelPhoto {
   dtg: string
 }
 
+export interface IntelStamp {
+  enabled: boolean
+  text: string
+}
+
 export interface NetRow {
   id: string
   name: string
@@ -159,6 +164,8 @@ export interface Dossier {
     orientation: 'portrait' | 'landscape'
     language: 'pt' | 'en'
     pages: Record<PageId, boolean>
+    relToOn: boolean
+    relTo: string
   }
   header: {
     origin: string
@@ -261,6 +268,7 @@ export interface Dossier {
   timeline: TimelineEvent[]
   roster: RosterSlot[]
   titles: Partial<Record<PageId, string>>
+  intelStamp: IntelStamp
   blanks: BlankPage[]
   stack: StackItem[]
   marks: {

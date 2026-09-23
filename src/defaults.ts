@@ -117,6 +117,8 @@ export function blankDossier(): Dossier {
       controlNumber: '',
       orientation: 'portrait',
       language: 'pt',
+      relToOn: false,
+      relTo: '',
       pages: {
         cover: true,
         opord: false,
@@ -195,6 +197,7 @@ export function blankDossier(): Dossier {
     timeline: emptyTimeline(),
     roster: emptyRoster(),
     titles: {},
+    intelStamp: { enabled: true, text: 'FOTO INTEL' },
     blanks: [],
     stack: defaultStack(),
     marks: {
@@ -348,7 +351,9 @@ export function defaultDossier(): Dossier {
   d.document.controlNumber = 'FALCAO-23-09-04'
   d.document.copyNumber = '01'
   d.document.copyTotal = '04'
-  d.document.caveats = ['EYES ONLY', 'REL TO UNIDADE']
+  d.document.caveats = ['EYES ONLY']
+  d.document.relToOn = true
+  d.document.relTo = 'FALCÃO'
   d.header = {
     origin: 'S3 / 2º BATALHÃO',
     destination: '2º PELOTÃO / CIA BRAVO',
@@ -409,6 +414,7 @@ export function defaultDossier(): Dossier {
     password: 'MARTELO',
     succession: 'RAIDER-1 → RAIDER-2 → 1ª ESQUADRA',
   }
+  d.intelStamp = { enabled: true, text: 'FOTO INTEL' }
   d.intel = [
     {
       id: 'intel-1',
@@ -443,6 +449,8 @@ export function defaultDossier(): Dossier {
       dtg: '180000ZSEP26',
     },
   ]
+  d.document.pages.opord = true
+  d.document.pages.intel = true
   d.document.pages.notice = true
   d.document.pages.sitrep = true
   d.document.pages.aar = true
@@ -651,6 +659,24 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.document.pages = { ...blankDossier().document.pages, ...incoming.document?.pages }
   d.document.orientation = incoming.document?.orientation === 'landscape' ? 'landscape' : 'portrait'
   d.document.language = incoming.document?.language === 'en' ? 'en' : 'pt'
+  const caveats = Array.isArray(d.document.caveats)
+    ? d.document.caveats.filter((c): c is string => typeof c === 'string')
+    : ['EYES ONLY']
+  const legacyRel = caveats.find((c) => /^REL TO\b/i.test(c.trim()))
+  d.document.caveats = caveats.filter((c) => !/^REL TO\b/i.test(c.trim()))
+  if (typeof incoming.document?.relToOn !== 'boolean') {
+    const rest = legacyRel ? legacyRel.replace(/^REL TO\s*/i, '').trim() : ''
+    const unidade = !rest || rest.toUpperCase() === 'UNIDADE'
+    d.document.relToOn = Boolean(legacyRel)
+    d.document.relTo = legacyRel ? (unidade ? d.clan.shortName : rest) : ''
+  }
+  d.intelStamp = {
+    enabled: incoming.intelStamp ? incoming.intelStamp.enabled !== false : true,
+    text:
+      incoming.intelStamp && typeof incoming.intelStamp.text === 'string'
+        ? incoming.intelStamp.text
+        : 'FOTO INTEL',
+  }
   d.maps = mapPlatesFrom(incoming)
   delete (d as { map?: unknown }).map
   d.header = { ...blankDossier().header, ...incoming.header }

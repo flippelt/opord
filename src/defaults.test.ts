@@ -49,6 +49,31 @@ describe('migrateDossier', () => {
     expect(ids.indexOf('blank-croqui')).toBeLessThan(ids.indexOf('intel'))
   })
 
+  it('turns REL TO UNIDADE into the clan sigla', () => {
+    const raw = structuredClone(defaultDossier())
+    raw.document.caveats = ['EYES ONLY', 'REL TO UNIDADE']
+    delete (raw.document as { relToOn?: boolean }).relToOn
+    delete (raw.document as { relTo?: string }).relTo
+    const next = migrateDossier(raw)
+    expect(next?.document.caveats).toEqual(['EYES ONLY'])
+    expect(next?.document.relToOn).toBe(true)
+    expect(next?.document.relTo).toBe('FALCÃO')
+  })
+
+  it('keeps a custom REL TO name and a hidden intel stamp', () => {
+    const raw = structuredClone(defaultDossier())
+    raw.document.relToOn = true
+    raw.document.relTo = 'BRAVO'
+    raw.document.caveats = ['NOFORN', 'REL TO UNIDADE']
+    raw.intelStamp = { enabled: false, text: 'IMAGERY' }
+    const next = migrateDossier(raw)
+    expect(next?.document.caveats).toEqual(['NOFORN'])
+    expect(next?.document.relTo).toBe('BRAVO')
+    expect(next?.intelStamp).toEqual({ enabled: false, text: 'IMAGERY' })
+    delete (raw as { intelStamp?: unknown }).intelStamp
+    expect(migrateDossier(raw)?.intelStamp).toEqual({ enabled: true, text: 'FOTO INTEL' })
+  })
+
   it('rejects payloads without version 1', () => {
     expect(migrateDossier({})).toBeNull()
     expect(migrateDossier({ version: 2 })).toBeNull()
