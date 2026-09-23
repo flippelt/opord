@@ -141,6 +141,7 @@ export interface MapPlate {
   title: string
   caption: string
   src: string
+  photoSrc: string
   grid: boolean
   cols: number
   rows: number

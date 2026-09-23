@@ -9,6 +9,10 @@ import { Marks } from './Watermark'
 function mapLabels(language: Dossier['document']['language']) {
   if (language === 'en') {
     return {
+      chart: 'Map',
+      photo: 'Drone',
+      emptyChart: 'NO MAP',
+      emptyPhoto: 'NO PHOTO',
       grid: 'Grid',
       azimuth: 'Azimuth after landing',
       references: 'Reference points',
@@ -16,11 +20,46 @@ function mapLabels(language: Dossier['document']['language']) {
     }
   }
   return {
+    chart: 'Mapa',
+    photo: 'Drone',
+    emptyChart: 'SEM MAPA',
+    emptyPhoto: 'SEM FOTO',
     grid: 'Localização no grid',
     azimuth: 'Azimute após o desembarque',
     references: 'Pontos de referência',
     observations: 'Observações da região',
   }
+}
+
+function MapFrame({
+  src,
+  empty,
+  cols,
+  rows,
+  showGrid,
+}: {
+  src: string
+  empty: string
+  cols: number
+  rows: number
+  showGrid: boolean
+}) {
+  return (
+    <div className="map-board">
+      {src ? <img src={src} alt="" /> : <div className="map-empty">{empty}</div>}
+      {showGrid && src ? (
+        <div
+          className="map-grid"
+          style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}
+          aria-hidden
+        >
+          {Array.from({ length: cols * rows }, (_, i) => (
+            <span key={i} />
+          ))}
+        </div>
+      ) : null}
+    </div>
+  )
 }
 
 export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate }) {
@@ -46,23 +85,21 @@ export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate 
           title={plate.title.trim() || sheetTitle(dossier.titles, 'map', fallback)}
           subtitle={plate.caption || ''}
         />
-        <div className="map-board">
-          {plate.src ? (
-            <img src={plate.src} alt="" />
-          ) : (
-            <div className="map-empty">{dossier.document.language === 'en' ? 'NO MAP' : 'SEM MAPA'}</div>
-          )}
-          {plate.grid ? (
-            <div
-              className="map-grid"
-              style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}
-              aria-hidden
-            >
-              {Array.from({ length: cols * rows }, (_, i) => (
-                <span key={i} />
-              ))}
-            </div>
-          ) : null}
+        <div className="map-pair">
+          <figure>
+            <MapFrame
+              src={plate.src}
+              empty={labels.emptyChart}
+              cols={cols}
+              rows={rows}
+              showGrid={plate.grid}
+            />
+            <figcaption>{labels.chart}</figcaption>
+          </figure>
+          <figure>
+            <MapFrame src={plate.photoSrc} empty={labels.emptyPhoto} cols={cols} rows={rows} showGrid={false} />
+            <figcaption>{labels.photo}</figcaption>
+          </figure>
         </div>
         {notes.length ? (
           <div className="map-notes">
