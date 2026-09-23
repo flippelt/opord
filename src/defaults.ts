@@ -1,5 +1,6 @@
 import type { BlankPage, Dossier, MapPlate, StampConfig } from './types'
 import { nowDtg } from './lib/dtg'
+import { inferMapKind, isMapKind } from './lib/mapPlate'
 import { defaultStack, insertBlankBeforeIntel, normalizeStack } from './lib/stack'
 
 export function defaultStamps(): StampConfig[] {
@@ -319,8 +320,13 @@ export function emptyMapPlate(title = ''): MapPlate {
     id: `map-${crypto.randomUUID()}`,
     title,
     caption: '',
+    kind: 'other',
     src: '',
     photoSrc: '',
+    chartLabel: '',
+    photoLabel: '',
+    images: 'pair',
+    focus: 'chart',
     grid: false,
     cols: 6,
     rows: 6,
@@ -328,6 +334,9 @@ export function emptyMapPlate(title = ''): MapPlate {
     azimuth: '',
     references: '',
     observations: '',
+    marking: '',
+    heading: '',
+    entry: '',
     fullPage: false,
   }
 }
@@ -479,29 +488,46 @@ export function defaultDossier(): Dossier {
       id: 'map-ao',
       title: 'MAPA — AO SUL',
       caption: 'Altis · Pyrgos e adjacências',
+      kind: 'area',
       src: exemplo('zoom-ao.jpg'),
       photoSrc: exemplo('drone-ao.jpg'),
+      chartLabel: '',
+      photoLabel: '',
+      images: 'pair',
+      focus: 'chart',
       grid: false,
       cols: 6,
       rows: 6,
       fullPage: false,
       location: '169128',
-      azimuth: 'A leste, a partir de LZ HAWK',
+      azimuth: '',
+      marking: '',
+      heading: '',
+      entry: '',
       references: 'Pyrgos no litoral. Complexo murado ao norte da cidade, junto à rodovia. Colinas a leste.',
-      observations: 'Urbano litorâneo, vias estreitas, luz residual. Campo minado marcado a oeste do grid 140.',
+      observations:
+        'Urbano litorâneo, vias estreitas, luz residual. Movimento a leste a partir de LZ HAWK.',
     },
     {
       id: 'map-lz',
       title: 'LZ HAWK',
       caption: 'Clareira oeste · H-30',
+      kind: 'lz',
       src: exemplo('zoom-lz.jpg'),
       photoSrc: exemplo('drone-lz.jpg'),
+      chartLabel: '',
+      photoLabel: '',
+      images: 'pair',
+      focus: 'chart',
       grid: false,
       cols: 6,
       rows: 6,
       fullPage: false,
       location: '166127',
       azimuth: '090 — leste, para o complexo, depois do check-in',
+      marking: '',
+      heading: '',
+      entry: '',
       references: 'Terreno aberto a oeste do castelo. Costa no bordo oeste. Pyrgos a leste.',
       observations: 'Aproximação da aeronave 270. H-30. Sem IR strobe até H-10.',
     },
@@ -509,14 +535,22 @@ export function defaultDossier(): Dossier {
       id: 'map-pz',
       title: 'PZ RAVEN',
       caption: 'Extração',
+      kind: 'pz',
       src: exemplo('zoom-pz.jpg'),
       photoSrc: exemplo('drone-pz.jpg'),
+      chartLabel: '',
+      photoLabel: '',
+      images: 'pair',
+      focus: 'chart',
       grid: false,
       cols: 6,
       rows: 6,
       fullPage: false,
       location: '176129',
-      azimuth: '270 — proa de decolagem, vento de 270',
+      azimuth: '',
+      marking: 'Fumaça verde + IR strobe',
+      heading: '270 — proa de decolagem, vento de 270',
+      entry: '',
       references: 'Clareira junto à via. Fumaça verde no centro. IR strobe no bordo oeste.',
       observations: 'Verde = extração livre. Vermelho = contato no PZ. CASEVAC na 80.0, DUSTOFF.',
     },
@@ -524,14 +558,22 @@ export function defaultDossier(): Dossier {
       id: 'map-obj',
       title: 'OBJETIVO — BLOCO C2',
       caption: 'Fachada norte · hora-H',
+      kind: 'objective',
       src: exemplo('zoom-obj.jpg'),
       photoSrc: exemplo('drone-obj.jpg'),
+      chartLabel: '',
+      photoLabel: '',
+      images: 'pair',
+      focus: 'chart',
       grid: false,
       cols: 6,
       rows: 6,
       fullPage: false,
       location: '173131',
-      azimuth: 'Entrada pela face noroeste, junto à rodovia',
+      azimuth: '',
+      marking: '',
+      heading: '',
+      entry: 'Entrada pela face noroeste, junto à rodovia',
       references: 'Complexo murado ao norte de Pyrgos. Pátio central. Rodovia no bordo oeste.',
       observations: 'Hora-H 230200Z. 1ª Esq no bloco norte. 2ª Esq isola o sul. Rack de rádio só depois da busca.',
     },
@@ -655,41 +697,64 @@ function sampleBlank(): BlankPage {
   }
 }
 
+function notesFromKind(plate: Partial<MapPlate>, kind: MapPlate['kind']) {
+  const azimuth = plate.azimuth || ''
+  const heading = plate.heading || (kind === 'pz' ? azimuth : '')
+  const entry = plate.entry || (kind === 'objective' ? azimuth : '')
+  let observations = plate.observations || ''
+  if (kind !== 'lz' && kind !== 'pz' && kind !== 'objective' && azimuth && !observations.includes(azimuth)) {
+    observations = observations ? `${observations}\n${azimuth}` : azimuth
+  }
+  return { azimuth, marking: plate.marking || '', heading, entry, observations }
+}
+
 function mapPlatesFrom(incoming: Partial<Dossier> & { map?: Partial<MapPlate> }): MapPlate[] {
   if (Array.isArray(incoming.maps) && incoming.maps.length) {
-    return incoming.maps.map((plate) => ({
-      id: plate.id || `map-${crypto.randomUUID()}`,
-      title: plate.title || '',
-      caption: plate.caption || '',
-      src: plate.src || '',
-      photoSrc: plate.photoSrc || '',
-      grid: plate.grid === true,
-      cols: Number(plate.cols) || 6,
-      rows: Number(plate.rows) || 6,
-      location: plate.location || '',
-      azimuth: plate.azimuth || '',
-      references: plate.references || '',
-      observations: plate.observations || '',
-      fullPage: plate.fullPage === true,
-    }))
+    return incoming.maps.map((plate) => {
+      const kind = isMapKind(plate.kind) ? plate.kind : inferMapKind(plate.title || '')
+      return {
+        id: plate.id || `map-${crypto.randomUUID()}`,
+        title: plate.title || '',
+        caption: plate.caption || '',
+        kind,
+        src: plate.src || '',
+        photoSrc: plate.photoSrc || '',
+        chartLabel: plate.chartLabel || '',
+        photoLabel: plate.photoLabel || '',
+        images: plate.images === 'one' ? 'one' : 'pair',
+        focus: plate.focus === 'photo' ? 'photo' : 'chart',
+        grid: plate.grid === true,
+        cols: Number(plate.cols) || 6,
+        rows: Number(plate.rows) || 6,
+        location: plate.location || '',
+        references: plate.references || '',
+        fullPage: plate.fullPage === true,
+        ...notesFromKind(plate, kind),
+      }
+    })
   }
   const legacy = incoming.map
   if (legacy && (legacy.src || legacy.caption || legacy.grid)) {
+    const kind = inferMapKind(incoming.titles?.map || '')
     return [
       {
         id: 'map-1',
         title: incoming.titles?.map || '',
         caption: legacy.caption || '',
+        kind,
         src: legacy.src || '',
         photoSrc: legacy.photoSrc || '',
+        chartLabel: '',
+        photoLabel: '',
+        images: 'pair',
+        focus: 'chart',
         grid: legacy.grid === true,
         cols: Number(legacy.cols) || 6,
         rows: Number(legacy.rows) || 6,
         location: legacy.location || '',
-        azimuth: legacy.azimuth || '',
         references: legacy.references || '',
-        observations: legacy.observations || '',
         fullPage: false,
+        ...notesFromKind(legacy, kind),
       },
     ]
   }

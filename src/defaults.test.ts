@@ -74,6 +74,35 @@ describe('migrateDossier', () => {
     expect(migrateDossier(raw)?.intelStamp).toEqual({ enabled: true, text: 'FOTO INTEL' })
   })
 
+  it('puts each old azimuth on the line that matches the map', () => {
+    const raw = structuredClone(defaultDossier())
+    raw.maps = [
+      {
+        id: 'map-ao',
+        title: 'MAPA — AO SUL',
+        azimuth: 'A leste, a partir de LZ HAWK',
+        observations: 'Urbano litorâneo.',
+      },
+      { id: 'map-lz', title: 'LZ HAWK', azimuth: '090 — leste', location: '166127' },
+      { id: 'map-pz', title: 'PZ RAVEN', azimuth: '270 — proa de decolagem' },
+      { id: 'map-obj', title: 'OBJETIVO — BLOCO C2', azimuth: 'Face noroeste' },
+    ] as unknown as typeof raw.maps
+    const next = migrateDossier(raw)
+    const ao = next?.maps.find((item) => item.id === 'map-ao')
+    const lz = next?.maps.find((item) => item.id === 'map-lz')
+    const pz = next?.maps.find((item) => item.id === 'map-pz')
+    const objective = next?.maps.find((item) => item.id === 'map-obj')
+    expect(ao?.kind).toBe('area')
+    expect(ao?.observations).toContain('A leste, a partir de LZ HAWK')
+    expect(lz?.kind).toBe('lz')
+    expect(lz?.azimuth).toBe('090 — leste')
+    expect(pz?.kind).toBe('pz')
+    expect(pz?.heading).toBe('270 — proa de decolagem')
+    expect(objective?.kind).toBe('objective')
+    expect(objective?.entry).toBe('Face noroeste')
+    expect(next?.maps.every((item) => item.images === 'pair')).toBe(true)
+  })
+
   it('rejects payloads without version 1', () => {
     expect(migrateDossier({})).toBeNull()
     expect(migrateDossier({ version: 2 })).toBeNull()

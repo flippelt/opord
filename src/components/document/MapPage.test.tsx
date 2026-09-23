@@ -24,7 +24,51 @@ describe('MapPage', () => {
     expect(html).toContain('class="binding"')
   })
 
-  it('fills a landscape sheet with the map when full page is on', () => {
+  it('keeps post-landing azimuth off the other map types', () => {
+    const dossier = defaultDossier()
+    const area = dossier.maps.find((item) => item.id === 'map-ao')
+    const pz = dossier.maps.find((item) => item.id === 'map-pz')
+    const objective = dossier.maps.find((item) => item.id === 'map-obj')
+    if (!area || !pz || !objective) throw new Error('missing map')
+    area.azimuth = '090 — não entra na área'
+    const areaHtml = renderToStaticMarkup(createElement(MapPage, { dossier, plate: area }))
+    expect(areaHtml).not.toContain('Azimute após o desembarque')
+    expect(areaHtml).toContain('Pontos de referência')
+    const pzHtml = renderToStaticMarkup(createElement(MapPage, { dossier, plate: pz }))
+    expect(pzHtml).toContain('Marcação')
+    expect(pzHtml).toContain('Proa de decolagem')
+    expect(pzHtml).toContain('Fumaça verde + IR strobe')
+    expect(pzHtml).not.toContain('Azimute após o desembarque')
+    const objectiveHtml = renderToStaticMarkup(createElement(MapPage, { dossier, plate: objective }))
+    expect(objectiveHtml).toContain('Direção de entrada')
+    expect(objectiveHtml).not.toContain('Azimute após o desembarque')
+  })
+
+  it('prints the caption the author picked', () => {
+    const dossier = defaultDossier()
+    const plate = dossier.maps.find((item) => item.id === 'map-lz')
+    if (!plate) throw new Error('missing LZ')
+    plate.chartLabel = 'Carta'
+    plate.photoLabel = 'Aérea'
+    const html = renderToStaticMarkup(createElement(MapPage, { dossier, plate }))
+    expect(html).toContain('>Carta<')
+    expect(html).toContain('>Aérea<')
+  })
+
+  it('uses one larger frame when a single image is selected', () => {
+    const dossier = defaultDossier()
+    const plate = dossier.maps.find((item) => item.id === 'map-ao')
+    if (!plate) throw new Error('missing AO')
+    plate.images = 'one'
+    plate.focus = 'chart'
+    const html = renderToStaticMarkup(createElement(MapPage, { dossier, plate }))
+    expect(html).toContain('map-one')
+    expect(html).toContain('zoom-ao.jpg')
+    expect(html).not.toContain('drone-ao.jpg')
+    expect(html).toContain('op-head')
+  })
+
+  it('fills the landscape sheet under the header when full page is on', () => {
     const dossier = defaultDossier()
     dossier.document.orientation = 'landscape'
     const plate = dossier.maps.find((item) => item.id === 'map-lz')
@@ -36,9 +80,12 @@ describe('MapPage', () => {
         children: createElement(MapPage, { dossier, plate }),
       }),
     )
-    expect(html).toContain('map-slide')
+    expect(html).toContain('map-slide-fit')
+    expect(html).toContain('op-head')
     expect(html).toContain('is-landscape')
     expect(html).not.toContain('map-notes')
-    expect(html).not.toContain('class="binding"')
+    expect(html).toContain('class="binding"')
+    expect(html).toContain('zoom-lz.jpg')
+    expect(html).not.toContain('drone-lz.jpg')
   })
 })

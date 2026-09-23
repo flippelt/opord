@@ -1,4 +1,5 @@
 import { classificationLine } from '../../lib/classification'
+import { captionText, notesFor } from '../../lib/mapPlate'
 import { sheetTitle } from '../../lib/stack'
 import type { Dossier, MapPlate } from '../../types'
 import { ClassificationBanner } from './Banners'
@@ -8,27 +9,9 @@ import { Marks } from './Watermark'
 
 function mapLabels(language: Dossier['document']['language']) {
   if (language === 'en') {
-    return {
-      chart: 'Zoom',
-      photo: 'Drone',
-      emptyChart: 'NO ZOOM',
-      emptyPhoto: 'NO DRONE',
-      grid: 'Grid',
-      azimuth: 'Azimuth after landing',
-      references: 'Reference points',
-      observations: 'Area notes',
-    }
+    return { chart: 'Zoom', photo: 'Drone', emptyChart: 'NO ZOOM', emptyPhoto: 'NO DRONE' }
   }
-  return {
-    chart: 'Zoom',
-    photo: 'Drone',
-    emptyChart: 'SEM ZOOM',
-    emptyPhoto: 'SEM DRONE',
-    grid: 'Localização no grid',
-    azimuth: 'Azimute após o desembarque',
-    references: 'Pontos de referência',
-    observations: 'Observações da região',
-  }
+  return { chart: 'Zoom', photo: 'Drone', emptyChart: 'SEM ZOOM', emptyPhoto: 'SEM DRONE' }
 }
 
 function MapFrame({
@@ -68,72 +51,48 @@ export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate 
   const fallback = dossier.document.language === 'en' ? 'MAP' : 'MAPA'
   const labels = mapLabels(dossier.document.language)
   const slide = plate.fullPage && dossier.document.orientation === 'landscape'
-  const notes = (
-    [
-      [labels.grid, plate.location],
-      [labels.azimuth, plate.azimuth],
-      [labels.references, plate.references],
-      [labels.observations, plate.observations],
-    ] as const
-  ).filter(([, text]) => text.trim())
-  if (slide) {
-    return (
-      <Sheet page="map" exportId={`map-${plate.id}`} paper="#111" ink="#efe6d0" holes={false}>
-        <div className="map-slide">
-          {plate.src ? (
-            <img src={plate.src} alt="" />
-          ) : (
-            <div className="map-empty">{labels.emptyChart}</div>
-          )}
-          {plate.grid && plate.src ? (
-            <div
-              className="map-grid"
-              style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}
-              aria-hidden
-            >
-              {Array.from({ length: cols * rows }, (_, i) => (
-                <span key={i} />
-              ))}
-            </div>
-          ) : null}
-        </div>
-      </Sheet>
-    )
-  }
+  const single = plate.images === 'one' || slide
+  const photoOnly = plate.images === 'one' && plate.focus === 'photo'
+  const showChart = !photoOnly
+  const showPhoto = plate.images === 'one' ? plate.focus === 'photo' : !slide
+  const chartCaption = captionText(plate.chartLabel, labels.chart)
+  const photoCaption = captionText(plate.photoLabel, labels.photo)
+  const notes = notesFor(plate, dossier.document.language)
+  const pictures = (
+    <div className={single ? 'map-pair map-one' : 'map-pair'}>
+      {showChart ? (
+        <figure>
+          <MapFrame
+            src={plate.src}
+            empty={labels.emptyChart}
+            cols={cols}
+            rows={rows}
+            showGrid={plate.grid}
+          />
+          {slide ? null : <figcaption>{chartCaption}</figcaption>}
+        </figure>
+      ) : null}
+      {showPhoto ? (
+        <figure>
+          <MapFrame src={plate.photoSrc} empty={labels.emptyPhoto} cols={cols} rows={rows} showGrid={false} />
+          {slide ? null : <figcaption>{photoCaption}</figcaption>}
+        </figure>
+      ) : null}
+    </div>
+  )
 
   return (
-    <Sheet
-      page="map"
-      exportId={`map-${plate.id}`}
-      paper="#efe6d0"
-      ink="#1a1714"
-      holes={dossier.document.binding}
-    >
+    <Sheet page="map" exportId={`map-${plate.id}`} paper="#efe6d0" ink="#1a1714">
       <ClassificationBanner dossier={dossier} position="top" />
       <Marks dossier={dossier} page="map" />
-      <div className="notice-body map-body">
+      <div className={slide ? 'notice-body map-body map-slide-page' : 'notice-body map-body'}>
         <DocumentChrome
           dossier={dossier}
           title={plate.title.trim() || sheetTitle(dossier.titles, 'map', fallback)}
           subtitle={plate.caption || ''}
         />
-        <div className="map-pair">
-          <figure>
-            <MapFrame
-              src={plate.src}
-              empty={labels.emptyChart}
-              cols={cols}
-              rows={rows}
-              showGrid={plate.grid}
-            />
-            <figcaption>{labels.chart}</figcaption>
-          </figure>
-          <figure>
-            <MapFrame src={plate.photoSrc} empty={labels.emptyPhoto} cols={cols} rows={rows} showGrid={false} />
-            <figcaption>{labels.photo}</figcaption>
-          </figure>
-        </div>
-        {notes.length ? (
+        {slide ? <div className="map-slide-fit">{pictures}</div> : pictures}
+        {!slide && notes.length ? (
           <div className="map-notes">
             {notes.map(([label, text]) => (
               <section key={label}>
@@ -143,7 +102,7 @@ export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate 
             ))}
           </div>
         ) : null}
-        <p className="op-foot-class">{classificationLine(dossier)}</p>
+        {slide ? null : <p className="op-foot-class">{classificationLine(dossier)}</p>}
       </div>
       <ClassificationBanner dossier={dossier} position="bottom" />
     </Sheet>
