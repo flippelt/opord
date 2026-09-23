@@ -6,10 +6,36 @@ import { DocumentChrome } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
 
+function mapLabels(language: Dossier['document']['language']) {
+  if (language === 'en') {
+    return {
+      grid: 'Grid',
+      azimuth: 'Azimuth after landing',
+      references: 'Reference points',
+      observations: 'Area notes',
+    }
+  }
+  return {
+    grid: 'Localização no grid',
+    azimuth: 'Azimute após o desembarque',
+    references: 'Pontos de referência',
+    observations: 'Observações da região',
+  }
+}
+
 export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate }) {
   const cols = Math.min(24, Math.max(1, plate.cols || 1))
   const rows = Math.min(24, Math.max(1, plate.rows || 1))
   const fallback = dossier.document.language === 'en' ? 'MAP' : 'MAPA'
+  const labels = mapLabels(dossier.document.language)
+  const notes = (
+    [
+      [labels.grid, plate.location],
+      [labels.azimuth, plate.azimuth],
+      [labels.references, plate.references],
+      [labels.observations, plate.observations],
+    ] as const
+  ).filter(([, text]) => text.trim())
   return (
     <Sheet page="map" exportId={`map-${plate.id}`} paper="#efe6d0" ink="#1a1714">
       <ClassificationBanner dossier={dossier} position="top" />
@@ -38,6 +64,16 @@ export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate 
             </div>
           ) : null}
         </div>
+        {notes.length ? (
+          <div className="map-notes">
+            {notes.map(([label, text]) => (
+              <section key={label}>
+                <h2>{label}</h2>
+                <p>{text}</p>
+              </section>
+            ))}
+          </div>
+        ) : null}
         <p className="op-foot-class">{classificationLine(dossier)}</p>
       </div>
       <ClassificationBanner dossier={dossier} position="bottom" />

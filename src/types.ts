@@ -144,6 +144,10 @@ export interface MapPlate {
   grid: boolean
   cols: number
   rows: number
+  location: string
+  azimuth: string
+  references: string
+  observations: string
 }
 
 export interface Dossier {

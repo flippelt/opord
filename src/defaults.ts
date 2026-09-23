@@ -317,6 +317,10 @@ export function emptyMapPlate(title = ''): MapPlate {
     grid: false,
     cols: 6,
     rows: 6,
+    location: '',
+    azimuth: '',
+    references: '',
+    observations: '',
   }
 }
 
@@ -471,33 +475,49 @@ export function defaultDossier(): Dossier {
       grid: false,
       cols: 6,
       rows: 6,
+      location: '142-089',
+      azimuth: 'A leste, a partir de LZ HAWK',
+      references: 'Pyrgos no litoral. Complexo administrativo no centro. Via principal no sentido norte–sul.',
+      observations: 'Urbano litorâneo, vias estreitas, luz residual. Campo minado marcado a oeste do grid 140.',
     },
     {
       id: 'map-lz',
       title: 'LZ HAWK',
-      caption: '138086 · clareira oeste · aproximação 270 · H-30',
+      caption: 'Clareira oeste · H-30',
       src: '',
       grid: false,
       cols: 6,
       rows: 6,
+      location: '138086',
+      azimuth: '090 — leste, para o complexo, depois do check-in',
+      references: 'Clareira oeste. Trilha no bordo leste. Mato fechado ao norte.',
+      observations: 'Aproximação da aeronave 270. H-30. Sem IR strobe até H-10.',
     },
     {
       id: 'map-pz',
       title: 'PZ RAVEN',
-      caption: '146092 · extração · fumaça verde + IR strobe',
+      caption: 'Extração',
       src: '',
       grid: false,
       cols: 6,
       rows: 6,
+      location: '146092',
+      azimuth: '270 — proa de decolagem, vento de 270',
+      references: 'Clareira junto à via. Fumaça verde no centro. IR strobe no bordo oeste.',
+      observations: 'Verde = extração livre. Vermelho = contato no PZ. CASEVAC na 80.0, DUSTOFF.',
     },
     {
       id: 'map-obj',
       title: 'OBJETIVO — BLOCO C2',
-      caption: '14208930 · fachada norte · hora-H',
+      caption: 'Fachada norte · hora-H',
       src: '',
       grid: false,
       cols: 6,
       rows: 6,
+      location: '14208930',
+      azimuth: 'Entrada pela fachada norte',
+      references: 'Bloco C2, segundo piso, HVT. Garagem do BTR 400 m ao norte. Sentinelas nos azimutes 040 e 220.',
+      observations: 'Hora-H 230200Z. 1ª Esq no bloco norte. 2ª Esq isola o sul. Rack de rádio só depois da busca.',
     },
   ]
   d.notice = {
@@ -629,6 +649,10 @@ function mapPlatesFrom(incoming: Partial<Dossier> & { map?: Partial<MapPlate> })
       grid: plate.grid === true,
       cols: Number(plate.cols) || 6,
       rows: Number(plate.rows) || 6,
+      location: plate.location || '',
+      azimuth: plate.azimuth || '',
+      references: plate.references || '',
+      observations: plate.observations || '',
     }))
   }
   const legacy = incoming.map
@@ -642,6 +666,10 @@ function mapPlatesFrom(incoming: Partial<Dossier> & { map?: Partial<MapPlate> })
         grid: legacy.grid === true,
         cols: Number(legacy.cols) || 6,
         rows: Number(legacy.rows) || 6,
+        location: legacy.location || '',
+        azimuth: legacy.azimuth || '',
+        references: legacy.references || '',
+        observations: legacy.observations || '',
       },
     ]
   }
