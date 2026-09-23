@@ -67,6 +67,7 @@ export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate 
   const rows = Math.min(24, Math.max(1, plate.rows || 1))
   const fallback = dossier.document.language === 'en' ? 'MAP' : 'MAPA'
   const labels = mapLabels(dossier.document.language)
+  const slide = plate.fullPage && dossier.document.orientation === 'landscape'
   const notes = (
     [
       [labels.grid, plate.location],
@@ -75,8 +76,39 @@ export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate 
       [labels.observations, plate.observations],
     ] as const
   ).filter(([, text]) => text.trim())
+  if (slide) {
+    return (
+      <Sheet page="map" exportId={`map-${plate.id}`} paper="#111" ink="#efe6d0" holes={false}>
+        <div className="map-slide">
+          {plate.src ? (
+            <img src={plate.src} alt="" />
+          ) : (
+            <div className="map-empty">{labels.emptyChart}</div>
+          )}
+          {plate.grid && plate.src ? (
+            <div
+              className="map-grid"
+              style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}
+              aria-hidden
+            >
+              {Array.from({ length: cols * rows }, (_, i) => (
+                <span key={i} />
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </Sheet>
+    )
+  }
+
   return (
-    <Sheet page="map" exportId={`map-${plate.id}`} paper="#efe6d0" ink="#1a1714">
+    <Sheet
+      page="map"
+      exportId={`map-${plate.id}`}
+      paper="#efe6d0"
+      ink="#1a1714"
+      holes={dossier.document.binding}
+    >
       <ClassificationBanner dossier={dossier} position="top" />
       <Marks dossier={dossier} page="map" />
       <div className="notice-body map-body">
