@@ -4,6 +4,7 @@ import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal } from './ClanSeal'
+import { unitTitle } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
 
@@ -34,7 +35,7 @@ export function CoverPage({ dossier }: { dossier: Dossier }) {
           shortName={dossier.clan.shortName}
           size={148}
         />
-        <p className="cover-unit">{dossier.clan.name || 'UNIDADE'}</p>
+        <p className="cover-unit">{unitTitle(dossier.clan.name, dossier.clan.shortName, 'UNIDADE')}</p>
         {dossier.clan.motto ? <p className="cover-motto">« {dossier.clan.motto} »</p> : null}
         <h1 className="cover-kind">{kind.label}</h1>
         <p className="cover-kind-nato">{kind.short}</p>

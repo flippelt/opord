@@ -1,6 +1,12 @@
 import type { Dossier } from '../../types'
 import { ClanSeal, UnitPatch } from './ClanSeal'
 
+export function unitTitle(name: string, shortName: string, fallback = 'QUARTEL-GENERAL') {
+  const title = name.trim() || fallback
+  const tag = shortName.trim()
+  return tag ? `${title} · ${tag}` : title
+}
+
 export function DocumentChrome({
   dossier,
   title,
@@ -19,7 +25,7 @@ export function DocumentChrome({
         size={72}
       />
       <div className="op-head-mid">
-        <p className="op-unit">{dossier.clan.name || 'QUARTEL-GENERAL'}</p>
+        <p className="op-unit">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
         <p className="op-place">
           {dossier.header.place || '—'} · {dossier.header.dtg || '—'}
         </p>

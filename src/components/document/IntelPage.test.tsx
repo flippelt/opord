@@ -13,6 +13,15 @@ describe('IntelPage photo stamp', () => {
     expect(html).toContain('FOTO INTEL')
   })
 
+  it('uses the plate text when that stamp is edited', () => {
+    const dossier = defaultDossier()
+    dossier.intelStamp = { enabled: true, text: 'FOTO INTEL' }
+    const photos = dossier.intel.slice(0, 1).map((photo) => ({ ...photo, stamp: 'UAV SOMBRA' }))
+    const html = renderToStaticMarkup(createElement(IntelPage, { dossier, photos }))
+    expect(html).toContain('UAV SOMBRA')
+    expect(html).toContain('FOTO INTEL')
+  })
+
   it('hides the stamp when it is off or blank', () => {
     const dossier = defaultDossier()
     dossier.intelStamp = { enabled: false, text: 'FOTO INTEL' }

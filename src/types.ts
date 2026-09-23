@@ -67,6 +67,7 @@ export interface IntelPhoto {
   grid: string
   source: string
   dtg: string
+  stamp?: string
 }
 
 export interface IntelStamp {
