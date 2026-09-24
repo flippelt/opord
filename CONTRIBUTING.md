@@ -1,15 +1,3 @@
-<p align="center">
-  <img src="docs/contributing.jpg" alt="Folha ilustrada de como contribuir. O mesmo texto está abaixo, com links." width="720">
-</p>
-
-<p align="center">
-  <a href="https://github.com/flippelt/opord/issues">Issue</a>
-  ·
-  <a href="https://github.com/flippelt/opord/wiki">Wiki</a>
-  ·
-  <a href="./LICENSE">MIT</a>
-</p>
-
 # Contribuindo
 
 Que bom que você quer ajudar! Só um aviso antes: aqui mora o gerador, não a operação do seu clã. O logo, as fotos e o texto da missão ficam no navegador de quem usa, ou no JSON que vocês trocam entre si. Nada disso vem para o repositório.
