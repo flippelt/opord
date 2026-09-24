@@ -1,18 +1,6 @@
-<p align="center">
-  <img src="docs/readme.jpg" alt="Folha ilustrada do README. O mesmo texto está abaixo, com links." width="720">
-</p>
-
-<p align="center">
-  <a href="https://flippelt.github.io/opord/">Demo</a>
-  ·
-  <a href="https://github.com/flippelt/opord/wiki">Wiki</a>
-  ·
-  <a href="https://github.com/flippelt/opord/actions">CI</a>
-  ·
-  <a href="./LICENSE">MIT</a>
-</p>
-
 # OPORD
+
+[![CI](https://img.shields.io/github/actions/workflow/status/flippelt/opord/ci.yml?label=CI)](https://github.com/flippelt/opord/actions) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 Briefing confidencial para milsim.
 
