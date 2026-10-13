@@ -41,7 +41,7 @@ export function HvtPage({ dossier, card, index }: { dossier: Dossier; card: HvtC
                 <small>Subir foto intel do alvo</small>
               </div>
             )}
-            <figcaption>FOTO INTEL · NÃO CLASSIFICAR FORA DE CIRCUITO</figcaption>
+            <figcaption>FOTO INTEL · NÃO DIVULGAR FORA DO CANAL</figcaption>
           </figure>
           <div className="hvt-id">
             <p className="hvt-name">{card.name || 'IDENTIDADE DESCONHECIDA'}</p>

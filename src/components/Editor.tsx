@@ -1467,7 +1467,7 @@ export function Editor() {
               <Field
                 label="Linha de baixo"
                 value={stamp.subtitle}
-                placeholder="CLASSIFIED"
+                placeholder="CONFIDENTIAL"
                 onChange={(subtitle) => patch((d) => void (d.marks.stamps[i].subtitle = subtitle))}
               />
             )}

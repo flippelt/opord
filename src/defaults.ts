@@ -9,7 +9,7 @@ export function defaultStamps(): StampConfig[] {
       id: 'confidential',
       kind: 'oval',
       title: 'CONFIDENCIAL',
-      subtitle: 'CLASSIFIED',
+      subtitle: 'CONFIDENTIAL',
       enabled: false,
       rotate: -16,
       x: 72,
