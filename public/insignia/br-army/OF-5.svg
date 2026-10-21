@@ -1,0 +1,3887 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="79.948"
+   height="203.777"
+   viewBox="0 0 33.578 70.268"
+   version="1.1"
+   id="svg363"
+   sodipodi:docname="Barzil-Army-OF-5.svg"
+   inkscape:version="0.92.0 r15299">
+  <metadata
+     id="metadata367">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     id="namedview365"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:zoom="3.2756829"
+     inkscape:cx="33.61617"
+     inkscape:cy="105.93648"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg363" />
+  <defs
+     id="defs26">
+    <g
+       id="A">
+      <g
+         id="B">
+        <path
+           id="C"
+           transform="matrix(.951057 .309017 -.309017 .951057 0 -1)"
+           d="M.5 1L0 0v1z" />
+        <use
+           height="2000"
+           width="3000"
+           transform="scale(-1 1)"
+           xlink:href="#C"
+           id="use3" />
+      </g>
+      <use
+         height="2000"
+         width="3000"
+         transform="matrix(.309017 .951057 -.951057 .309017 0 0)"
+         xlink:href="#B"
+         id="use6" />
+      <use
+         height="2000"
+         width="3000"
+         transform="matrix(.309017 -.951057 .951057 .309017 0 0)"
+         xlink:href="#B"
+         id="use8" />
+      <use
+         height="2000"
+         width="3000"
+         transform="matrix(-.809017 .587785 -.587785 -.809017 0 0)"
+         xlink:href="#B"
+         id="use10" />
+      <use
+         height="2000"
+         width="3000"
+         transform="matrix(-.809017 -.587785 .587785 -.809017 0 0)"
+         xlink:href="#B"
+         id="use12" />
+    </g>
+    <path
+       id="D"
+       d="M52.978 39.223l1.876 5.818 6.113-.013-4.953 3.582 1.902 5.81-4.937-3.604-4.937 3.604 1.902-5.81-4.953-3.582 6.113.013z" />
+    <path
+       id="E"
+       d="M44.99 45.028l7.99 2.596-3.036.986z" />
+    <path
+       id="F"
+       d="M48.04 54.42l4.937-6.796v3.192z" />
+    <path
+       id="G"
+       d="M52.978 47.623l3.036.986 1.902 5.81z" />
+    <path
+       id="H"
+       d="M54.854 45.04l6.113-.013-7.99 2.596z" />
+    <path
+       id="I"
+       d="M51.102 45.04l1.876-5.818v8.4z" />
+    <path
+       id="J"
+       d="M51.102 45.04l6.814 9.378" />
+    <path
+       id="K"
+       d="M49.942 48.6l11.025-3.582" />
+    <path
+       id="L"
+       d="M44.99 45.028L56.014 48.6" />
+    <path
+       id="M"
+       d="M0-435a435 435 0 0 0 0 870 435 435 0 0 0 0-870zm0 135a300 300 0 0 0 0 600 300 300 0 0 0 0-600z" />
+    <path
+       id="N"
+       d="M0-410a410 410 0 0 0 0 820 410 410 0 0 0 0-820zm0 85a325 325 0 0 0 0 650 325 325 0 0 0 0-650z" />
+    <inkscape:perspective
+       id="perspective3191"
+       inkscape:persp3d-origin="198.41299 : 132.286 : 1"
+       inkscape:vp_z="396.82599 : 198.429 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 198.429 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <path
+     d="M33.347 77.703L31.01 3.2 16.79-7.38 2.57 3.2.23 77.703z"
+     fill="#1c4c32"
+     fill-rule="evenodd"
+     stroke="#0b361d"
+     stroke-width=".448"
+     id="path28" />
+  <g
+     transform="matrix(.448 0 0 .448 -26.623336 -20.425446)"
+     id="g34">
+    <circle
+       cx="96.903"
+       cy="54.851"
+       r="12.549"
+       fill="#bc8810"
+       id="circle30" />
+    <circle
+       r="11.823"
+       cy="54.851"
+       cx="96.903"
+       fill="#fddd10"
+       id="circle32" />
+  </g>
+  <g
+     id="g8388"
+     transform="translate(0.00105408,-0.82330626)">
+    <g
+       transform="matrix(0.12689194,0,0,0.12764252,-9.3293742,38.451757)"
+       id="g6096-9">
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.213,55.066 72.213,50.651 76.627,50.651 198.653,177.09 "
+         id="polygon2450-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="99.873,50.651 105.193,50.651 198.653,177.09 "
+         id="polygon2452-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="90.192,50.651 96.042,50.651 198.653,177.09 "
+         id="polygon2454-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="80.458,50.651 86.362,50.651 198.653,177.09 "
+         id="polygon2456-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.213,64.747 72.213,58.896 198.653,177.09 "
+         id="polygon2458-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.213,74.481 72.213,68.577 198.653,177.09 "
+         id="polygon2460-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.32,78.311 72.213,83.578 198.653,177.09 "
+         id="polygon2462-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="325.092,299.061 325.092,303.476 320.677,303.476 198.653,177.09 "
+         id="polygon2464-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="297.431,303.476 292.111,303.476 198.653,177.09 "
+         id="polygon2466-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="307.113,303.476 301.261,303.476 198.653,177.09 "
+         id="polygon2468-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="316.846,303.476 310.941,303.476 198.653,177.09 "
+         id="polygon2470-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="325.092,289.38 325.092,295.284 198.653,177.09 "
+         id="polygon2472-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="325.092,279.699 325.092,285.55 198.653,177.09 "
+         id="polygon2474-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="324.984,275.869 325.092,270.548 198.653,177.09 "
+         id="polygon2476-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="116.15,21.927 117.532,17.725 121.735,19.108 198.653,177.09 "
+         id="polygon2478-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="143.81,26.289 148.863,27.938 198.653,177.09 "
+         id="polygon2480-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="134.608,23.31 140.193,25.119 198.653,177.09 "
+         id="polygon2482-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="125.352,20.279 130.938,22.14 198.653,177.09 "
+         id="polygon2484-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="113.172,31.183 114.979,25.598 198.653,177.09 "
+         id="polygon2486-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="110.192,40.385 112.002,34.8 198.653,177.09 "
+         id="polygon2488-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="109.075,44.055 107.374,49.056 198.653,177.09 "
+         id="polygon2490-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="281.153,332.198 279.771,336.401 275.567,335.02 198.653,177.09 "
+         id="polygon2492-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="253.492,327.838 248.44,326.188 198.653,177.09 "
+         id="polygon2494-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="262.697,330.871 257.111,329.009 198.653,177.09 "
+         id="polygon2496-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="271.951,333.849 266.365,332.04 198.653,177.09 "
+         id="polygon2498-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="284.132,322.998 282.324,328.581 198.653,177.09 "
+         id="polygon2500-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="287.111,313.742 285.302,319.328 198.653,177.09 "
+         id="polygon2502-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="288.228,310.072 289.932,305.071 198.653,177.09 "
+         id="polygon2504-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-width:0.69989997;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="168.119,4.055 170.726,0.491 174.29,3.097 198.653,177.09 "
+         id="polygon2506-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="193.014,16.714 197.323,19.852 198.653,177.09 "
+         id="polygon2508-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="185.247,11.022 189.928,14.48 198.653,177.09 "
+         id="polygon2510-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="177.375,5.331 182.162,8.788 198.653,177.09 "
+         id="polygon2512-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="162.428,11.873 165.885,7.14 198.653,177.09 "
+         id="polygon2514-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="156.736,19.745 160.193,15.012 198.653,177.09 "
+         id="polygon2516-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="154.556,22.885 151.364,27.14 198.653,177.09 "
+         id="polygon2518-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="229.186,350.126 226.578,353.691 223.015,351.083 198.653,177.09 "
+         id="polygon2520-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="204.236,337.414 199.929,334.327 198.653,177.09 "
+         id="polygon2522-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="212.057,343.104 207.323,339.648 198.653,177.09 "
+         id="polygon2524-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="219.929,348.849 215.142,345.391 198.653,177.09 "
+         id="polygon2526-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="234.876,342.252 231.419,346.986 198.653,177.09 "
+         id="polygon2528-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="240.567,334.379 237.11,339.17 198.653,177.09 "
+         id="polygon2530-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="242.748,331.243 245.94,327.039 198.653,177.09 "
+         id="polygon2532-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="223.121,3.097 226.686,0.491 229.239,4.055 198.653,177.09 "
+         id="polygon2534-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="242.908,22.885 245.993,27.14 198.653,177.09 "
+         id="polygon2536-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="237.216,15.012 240.675,19.745 198.653,177.09 "
+         id="polygon2538-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="231.523,7.14 234.982,11.926 198.653,177.09 "
+         id="polygon2540-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="215.249,8.788 219.982,5.331 198.653,177.09 "
+         id="polygon2542-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="207.377,14.48 212.163,11.022 198.653,177.09 "
+         id="polygon2544-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="204.343,16.82 200.034,19.852 198.653,177.09 "
+         id="polygon2546-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="174.236,351.083 170.62,353.638 168.066,350.074 198.653,177.09 "
+         id="polygon2548-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="154.396,331.294 151.31,326.987 198.653,177.09 "
+         id="polygon2550-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="160.087,339.114 156.63,334.379 198.653,177.09 "
+         id="polygon2552-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="165.778,346.986 162.375,342.252 198.653,177.09 "
+         id="polygon2554-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="182.055,345.339 177.321,348.797 198.653,177.09 "
+         id="polygon2556-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="189.875,339.648 185.141,343.104 198.653,177.09 "
+         id="polygon2558-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="192.908,337.36 197.216,334.327 198.653,177.09 "
+         id="polygon2560-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="275.729,19.214 279.93,17.83 281.313,22.034 198.653,177.09 "
+         id="polygon2562-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="288.441,44.108 290.09,49.161 198.653,177.09 "
+         id="polygon2564-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="285.462,34.906 287.27,40.491 198.653,177.09 "
+         id="polygon2566-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="282.484,25.651 284.29,31.236 198.653,177.09 "
+         id="polygon2568-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="266.525,22.193 272.111,20.385 198.653,177.09 "
+         id="polygon2570-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="257.269,25.172 262.855,23.363 198.653,177.09 "
+         id="polygon2572-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="253.652,26.448 248.599,27.991 198.653,177.09 "
+         id="polygon2574-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="121.575,334.964 117.373,336.295 115.99,332.093 198.653,177.09 "
+         id="polygon2576-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="108.862,310.019 107.214,304.967 198.653,177.09 "
+         id="polygon2578-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="111.842,319.274 110.034,313.635 198.653,177.09 "
+         id="polygon2580-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="114.82,328.475 113.013,322.893 198.653,177.09 "
+         id="polygon2582-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="130.779,331.988 125.193,333.794 198.653,177.09 "
+         id="polygon2584-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="140.033,328.955 134.448,330.763 198.653,177.09 "
+         id="polygon2586-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="143.65,327.731 148.704,326.136 198.653,177.09 "
+         id="polygon2588-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="320.411,50.438 324.824,50.385 324.824,54.8 198.653,177.09 "
+         id="polygon2590-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="324.878,78.046 324.878,83.365 198.653,177.09 "
+         id="polygon2592-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="324.878,68.365 324.878,74.216 198.653,177.09 "
+         id="polygon2594-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="324.824,58.629 324.824,64.534 198.653,177.09 "
+         id="polygon2596-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="310.73,50.438 316.578,50.438 198.653,177.09 "
+         id="polygon2598-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="300.993,50.438 306.899,50.438 198.653,177.09 "
+         id="polygon2600-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="297.163,50.545 291.9,50.491 198.653,177.09 "
+         id="polygon2602-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="76.894,303.743 72.479,303.743 72.479,299.327 198.653,177.09 "
+         id="polygon2604-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.426,276.081 72.426,270.815 198.653,177.09 "
+         id="polygon2606-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.426,285.814 72.426,279.91 198.653,177.09 "
+         id="polygon2608-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.479,295.495 72.479,289.646 198.653,177.09 "
+         id="polygon2610-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="86.575,303.688 80.724,303.743 198.653,177.09 "
+         id="polygon2612-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="96.309,303.688 90.406,303.688 198.653,177.09 "
+         id="polygon2614-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="100.138,303.581 105.405,303.688 198.653,177.09 "
+         id="polygon2616-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="353.604,94.268 357.805,95.653 356.474,99.854 198.653,177.09 "
+         id="polygon2618-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="349.347,121.929 347.697,126.983 198.653,177.09 "
+         id="polygon2620-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="352.326,112.728 350.518,118.312 198.653,177.09 "
+         id="polygon2622-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="355.305,103.472 353.495,109.057 198.653,177.09 "
+         id="polygon2624-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="344.399,91.29 349.983,93.099 198.653,177.09 "
+         id="polygon2626-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="335.146,88.312 340.729,90.121 198.653,177.09 "
+         id="polygon2628-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="331.474,87.247 326.475,85.545 198.653,177.09 "
+         id="polygon2630-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="43.701,259.859 39.5,258.528 40.83,254.324 198.653,177.09 "
+         id="polygon2632-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="48.01,232.197 49.606,227.145 198.653,177.09 "
+         id="polygon2634-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="44.978,241.454 46.786,235.815 198.653,177.09 "
+         id="polygon2636-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="41.999,250.656 43.809,245.069 198.653,177.09 "
+         id="polygon2638-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="52.903,262.837 47.317,261.027 198.653,177.09 "
+         id="polygon2640-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="62.159,265.814 56.575,264.008 198.653,177.09 "
+         id="polygon2642-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="65.83,266.932 70.829,268.634 198.653,177.09 "
+         id="polygon2644-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="371.635,146.186 375.198,148.792 372.593,152.356 198.653,177.09 "
+         id="polygon2646-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="358.976,171.186 355.889,175.494 198.653,177.09 "
+         id="polygon2648-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="364.667,163.314 361.211,168.1 198.653,177.09 "
+         id="polygon2650-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="370.357,155.441 366.9,160.228 198.653,177.09 "
+         id="polygon2652-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="363.763,140.547 368.496,143.951 198.653,177.09 "
+         id="polygon2654-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="355.889,134.855 360.677,138.26 198.653,177.09 "
+         id="polygon2656-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="352.751,132.674 348.496,129.483 198.653,177.09 "
+         id="polygon2658-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="25.668,207.995 22.106,205.387 24.711,201.824 198.653,177.09 "
+         id="polygon2660-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="38.329,182.995 41.415,178.739 198.653,177.09 "
+         id="polygon2662-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="32.637,190.867 36.096,186.134 198.653,177.09 "
+         id="polygon2664-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="26.947,198.739 30.404,193.952 198.653,177.09 "
+         id="polygon2666-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="33.542,213.688 28.807,210.229 198.653,177.09 "
+         id="polygon2668-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="41.415,219.325 36.627,215.866 198.653,177.09 "
+         id="polygon2670-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="44.553,221.452 48.808,224.644 198.653,177.09 "
+         id="polygon2672-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="372.699,201.238 375.305,204.804 371.741,207.412 198.653,177.09 "
+         id="polygon2674-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="352.965,221.027 348.654,224.113 198.653,177.09 "
+         id="polygon2676-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="360.785,215.281 356.049,218.793 198.653,177.09 "
+         id="polygon2678-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="368.656,209.644 363.868,213.101 198.653,177.09 "
+         id="polygon2680-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="366.953,193.369 370.464,198.154 198.653,177.09 "
+         id="polygon2682-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="361.262,185.548 364.719,190.282 198.653,177.09 "
+         id="polygon2684-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="358.922,182.516 355.889,178.154 198.653,177.09 "
+         id="polygon2686-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="24.606,152.993 21.999,149.43 25.564,146.823 198.653,177.09 "
+         id="polygon2688-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="44.34,133.153 48.649,130.015 198.653,177.09 "
+         id="polygon2690-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="36.521,138.845 41.255,135.387 198.653,177.09 "
+         id="polygon2692-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="28.647,144.537 33.435,141.078 198.653,177.09 "
+         id="polygon2694-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="30.351,160.813 26.892,156.079 198.653,177.09 "
+         id="polygon2696-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="36.042,168.633 32.584,163.898 198.653,177.09 "
+         id="polygon2698-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="38.382,171.665 41.415,176.026 198.653,177.09 "
+         id="polygon2700-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="356.688,253.846 358.069,258.05 353.868,259.381 198.653,177.09 "
+         id="polygon2702-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="331.792,266.611 326.739,268.263 198.653,177.09 "
+         id="polygon2704-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="340.996,263.582 335.411,265.443 198.653,177.09 "
+         id="polygon2706-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="350.251,260.604 344.613,262.412 198.653,177.09 "
+         id="polygon2708-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="353.655,244.591 355.518,250.229 198.653,177.09 "
+         id="polygon2710-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="350.676,235.391 352.486,240.974 198.653,177.09 "
+         id="polygon2712-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="349.398,231.771 347.857,226.72 198.653,177.09 "
+         id="polygon2714-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="40.617,100.28 39.234,96.132 43.435,94.748 198.653,177.09 "
+         id="polygon2716-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="65.511,87.514 70.563,85.917 198.653,177.09 "
+         id="polygon2718-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="56.309,90.546 61.894,88.737 198.653,177.09 "
+         id="polygon2720-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="47.052,93.578 52.692,91.715 198.653,177.09 "
+         id="polygon2722-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="43.648,109.536 41.787,103.951 198.653,177.09 "
+         id="polygon2724-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="46.627,118.736 44.818,113.153 198.653,177.09 "
+         id="polygon2726-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="47.904,122.355 49.446,127.408 198.653,177.09 "
+         id="polygon2728-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+    </g>
+    <g
+       id="g143"
+       transform="translate(-36.189,-6.342)">
+      <use
+         id="use36"
+         xlink:href="#D"
+         style="fill:#e6e6e6;paint-order:normal"
+         x="0"
+         y="0"
+         width="100%"
+         height="100%" />
+      <g
+         id="g48"
+         style="fill:#cccccc">
+        <use
+           id="use38"
+           xlink:href="#E"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use40"
+           xlink:href="#F"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use42"
+           xlink:href="#G"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use44"
+           xlink:href="#H"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use46"
+           xlink:href="#I"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         id="g62"
+         style="fill:none;stroke:#999999;stroke-width:0.20999999">
+        <use
+           id="use50"
+           xlink:href="#D"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use52"
+           xlink:href="#J"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use54"
+           xlink:href="#K"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <path
+           id="path56"
+           d="M 52.978,50.815 V 39.223"
+           inkscape:connector-curvature="0" />
+        <path
+           id="path58"
+           d="m 48.04,54.42 6.814,-9.378"
+           inkscape:connector-curvature="0" />
+        <use
+           id="use60"
+           xlink:href="#L"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         id="g141"
+         transform="matrix(0.221409,0,0,0.220037,41.63429,41.525736)">
+        <circle
+           id="circle64"
+           r="14.616"
+           cx="51.138"
+           cy="27.51"
+           style="fill:#0044aa" />
+        <g
+           id="g139"
+           transform="matrix(0.0336,0,0,0.0336,51.138478,27.510373)">
+          <g
+             id="g70"
+             style="fill-rule:evenodd">
+            <use
+               id="use66"
+               xlink:href="#M"
+               style="fill:#999999"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+            <use
+               id="use68"
+               xlink:href="#N"
+               style="fill:#0044aa"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+          <g
+             id="g125"
+             style="fill:#ffffff">
+            <use
+               id="O"
+               xlink:href="#A"
+               transform="matrix(35,0,0,35,0,-367.5)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use73"
+               xlink:href="#O"
+               transform="rotate(13.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use75"
+               xlink:href="#O"
+               transform="rotate(26.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use77"
+               xlink:href="#O"
+               transform="rotate(40)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use79"
+               xlink:href="#O"
+               transform="rotate(53.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use81"
+               xlink:href="#O"
+               transform="rotate(66.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use83"
+               xlink:href="#O"
+               transform="rotate(80)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use85"
+               xlink:href="#O"
+               transform="rotate(93.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use87"
+               xlink:href="#O"
+               transform="rotate(106.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use89"
+               xlink:href="#O"
+               transform="rotate(120)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use91"
+               xlink:href="#O"
+               transform="rotate(133.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use93"
+               xlink:href="#O"
+               transform="rotate(146.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use95"
+               xlink:href="#O"
+               transform="rotate(160)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use97"
+               xlink:href="#O"
+               transform="rotate(173.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use99"
+               xlink:href="#O"
+               transform="rotate(-173.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use101"
+               xlink:href="#O"
+               transform="rotate(-160)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use103"
+               xlink:href="#O"
+               transform="rotate(-146.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use105"
+               xlink:href="#O"
+               transform="rotate(-133.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use107"
+               xlink:href="#O"
+               transform="rotate(-120)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use109"
+               xlink:href="#O"
+               transform="rotate(-106.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use111"
+               xlink:href="#O"
+               transform="rotate(-93.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use113"
+               xlink:href="#O"
+               transform="rotate(-80)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use115"
+               xlink:href="#O"
+               transform="rotate(-66.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use117"
+               xlink:href="#O"
+               transform="rotate(-53.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use119"
+               xlink:href="#O"
+               transform="rotate(-40)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use121"
+               xlink:href="#O"
+               transform="rotate(-26.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use123"
+               xlink:href="#O"
+               transform="rotate(-13.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+          </g>
+          <g
+             id="g137"
+             style="fill:#ffffff">
+            <use
+               id="use127"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,65,220)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use129"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,-220,65)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use131"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,-65,-220)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use133"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,170,-60)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use135"
+               transform="matrix(51.683094,-18.811108,18.811108,51.683094,30,20)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     id="g8190"
+     transform="translate(0.13962032,-4.019378)">
+    <g
+       transform="matrix(0.12689194,0,0,0.12764252,-9.3506173,20.946658)"
+       id="g6096-2">
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 72.213,55.066 72.213,50.651 76.627,50.651 "
+         id="polygon2450-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="99.873,50.651 105.193,50.651 198.653,177.09 "
+         id="polygon2452-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="90.192,50.651 96.042,50.651 198.653,177.09 "
+         id="polygon2454-78"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="80.458,50.651 86.362,50.651 198.653,177.09 "
+         id="polygon2456-30"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.213,64.747 72.213,58.896 198.653,177.09 "
+         id="polygon2458-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.213,74.481 72.213,68.577 198.653,177.09 "
+         id="polygon2460-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.32,78.311 72.213,83.578 198.653,177.09 "
+         id="polygon2462-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 325.092,299.061 325.092,303.476 320.677,303.476 "
+         id="polygon2464-51"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="297.431,303.476 292.111,303.476 198.653,177.09 "
+         id="polygon2466-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="307.113,303.476 301.261,303.476 198.653,177.09 "
+         id="polygon2468-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="316.846,303.476 310.941,303.476 198.653,177.09 "
+         id="polygon2470-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="325.092,289.38 325.092,295.284 198.653,177.09 "
+         id="polygon2472-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="325.092,279.699 325.092,285.55 198.653,177.09 "
+         id="polygon2474-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="324.984,275.869 325.092,270.548 198.653,177.09 "
+         id="polygon2476-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 116.15,21.927 117.532,17.725 121.735,19.108 "
+         id="polygon2478-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="143.81,26.289 148.863,27.938 198.653,177.09 "
+         id="polygon2480-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="134.608,23.31 140.193,25.119 198.653,177.09 "
+         id="polygon2482-72"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="125.352,20.279 130.938,22.14 198.653,177.09 "
+         id="polygon2484-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="113.172,31.183 114.979,25.598 198.653,177.09 "
+         id="polygon2486-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="110.192,40.385 112.002,34.8 198.653,177.09 "
+         id="polygon2488-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="109.075,44.055 107.374,49.056 198.653,177.09 "
+         id="polygon2490-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 281.153,332.198 279.771,336.401 275.567,335.02 "
+         id="polygon2492-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="253.492,327.838 248.44,326.188 198.653,177.09 "
+         id="polygon2494-77"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="262.697,330.871 257.111,329.009 198.653,177.09 "
+         id="polygon2496-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="271.951,333.849 266.365,332.04 198.653,177.09 "
+         id="polygon2498-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="284.132,322.998 282.324,328.581 198.653,177.09 "
+         id="polygon2500-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="287.111,313.742 285.302,319.328 198.653,177.09 "
+         id="polygon2502-86"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="288.228,310.072 289.932,305.071 198.653,177.09 "
+         id="polygon2504-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-width:0.69989997;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 168.119,4.055 170.726,0.491 174.29,3.097 "
+         id="polygon2506-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="193.014,16.714 197.323,19.852 198.653,177.09 "
+         id="polygon2508-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="185.247,11.022 189.928,14.48 198.653,177.09 "
+         id="polygon2510-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="177.375,5.331 182.162,8.788 198.653,177.09 "
+         id="polygon2512-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="162.428,11.873 165.885,7.14 198.653,177.09 "
+         id="polygon2514-86"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="156.736,19.745 160.193,15.012 198.653,177.09 "
+         id="polygon2516-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="154.556,22.885 151.364,27.14 198.653,177.09 "
+         id="polygon2518-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 229.186,350.126 226.578,353.691 223.015,351.083 "
+         id="polygon2520-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="204.236,337.414 199.929,334.327 198.653,177.09 "
+         id="polygon2522-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="212.057,343.104 207.323,339.648 198.653,177.09 "
+         id="polygon2524-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="219.929,348.849 215.142,345.391 198.653,177.09 "
+         id="polygon2526-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="234.876,342.252 231.419,346.986 198.653,177.09 "
+         id="polygon2528-49"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="240.567,334.379 237.11,339.17 198.653,177.09 "
+         id="polygon2530-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="242.748,331.243 245.94,327.039 198.653,177.09 "
+         id="polygon2532-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 223.121,3.097 226.686,0.491 229.239,4.055 "
+         id="polygon2534-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="242.908,22.885 245.993,27.14 198.653,177.09 "
+         id="polygon2536-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="237.216,15.012 240.675,19.745 198.653,177.09 "
+         id="polygon2538-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="231.523,7.14 234.982,11.926 198.653,177.09 "
+         id="polygon2540-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="215.249,8.788 219.982,5.331 198.653,177.09 "
+         id="polygon2542-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="207.377,14.48 212.163,11.022 198.653,177.09 "
+         id="polygon2544-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="204.343,16.82 200.034,19.852 198.653,177.09 "
+         id="polygon2546-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 174.236,351.083 170.62,353.638 168.066,350.074 "
+         id="polygon2548-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="154.396,331.294 151.31,326.987 198.653,177.09 "
+         id="polygon2550-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="160.087,339.114 156.63,334.379 198.653,177.09 "
+         id="polygon2552-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="165.778,346.986 162.375,342.252 198.653,177.09 "
+         id="polygon2554-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="182.055,345.339 177.321,348.797 198.653,177.09 "
+         id="polygon2556-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="189.875,339.648 185.141,343.104 198.653,177.09 "
+         id="polygon2558-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="192.908,337.36 197.216,334.327 198.653,177.09 "
+         id="polygon2560-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 275.729,19.214 279.93,17.83 281.313,22.034 "
+         id="polygon2562-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="288.441,44.108 290.09,49.161 198.653,177.09 "
+         id="polygon2564-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="285.462,34.906 287.27,40.491 198.653,177.09 "
+         id="polygon2566-51"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="282.484,25.651 284.29,31.236 198.653,177.09 "
+         id="polygon2568-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="266.525,22.193 272.111,20.385 198.653,177.09 "
+         id="polygon2570-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="257.269,25.172 262.855,23.363 198.653,177.09 "
+         id="polygon2572-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="253.652,26.448 248.599,27.991 198.653,177.09 "
+         id="polygon2574-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 121.575,334.964 117.373,336.295 115.99,332.093 "
+         id="polygon2576-61"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="108.862,310.019 107.214,304.967 198.653,177.09 "
+         id="polygon2578-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="111.842,319.274 110.034,313.635 198.653,177.09 "
+         id="polygon2580-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="114.82,328.475 113.013,322.893 198.653,177.09 "
+         id="polygon2582-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="130.779,331.988 125.193,333.794 198.653,177.09 "
+         id="polygon2584-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="140.033,328.955 134.448,330.763 198.653,177.09 "
+         id="polygon2586-06"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="143.65,327.731 148.704,326.136 198.653,177.09 "
+         id="polygon2588-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 320.411,50.438 324.824,50.385 324.824,54.8 "
+         id="polygon2590-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="324.878,78.046 324.878,83.365 198.653,177.09 "
+         id="polygon2592-72"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="324.878,68.365 324.878,74.216 198.653,177.09 "
+         id="polygon2594-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="324.824,58.629 324.824,64.534 198.653,177.09 "
+         id="polygon2596-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="310.73,50.438 316.578,50.438 198.653,177.09 "
+         id="polygon2598-06"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="300.993,50.438 306.899,50.438 198.653,177.09 "
+         id="polygon2600-90"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="297.163,50.545 291.9,50.491 198.653,177.09 "
+         id="polygon2602-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 76.894,303.743 72.479,303.743 72.479,299.327 "
+         id="polygon2604-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.426,276.081 72.426,270.815 198.653,177.09 "
+         id="polygon2606-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.426,285.814 72.426,279.91 198.653,177.09 "
+         id="polygon2608-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.479,295.495 72.479,289.646 198.653,177.09 "
+         id="polygon2610-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="86.575,303.688 80.724,303.743 198.653,177.09 "
+         id="polygon2612-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="96.309,303.688 90.406,303.688 198.653,177.09 "
+         id="polygon2614-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="100.138,303.581 105.405,303.688 198.653,177.09 "
+         id="polygon2616-1"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 353.604,94.268 357.805,95.653 356.474,99.854 "
+         id="polygon2618-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="349.347,121.929 347.697,126.983 198.653,177.09 "
+         id="polygon2620-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="352.326,112.728 350.518,118.312 198.653,177.09 "
+         id="polygon2622-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="355.305,103.472 353.495,109.057 198.653,177.09 "
+         id="polygon2624-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="344.399,91.29 349.983,93.099 198.653,177.09 "
+         id="polygon2626-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="335.146,88.312 340.729,90.121 198.653,177.09 "
+         id="polygon2628-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="331.474,87.247 326.475,85.545 198.653,177.09 "
+         id="polygon2630-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 43.701,259.859 39.5,258.528 40.83,254.324 "
+         id="polygon2632-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="48.01,232.197 49.606,227.145 198.653,177.09 "
+         id="polygon2634-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="44.978,241.454 46.786,235.815 198.653,177.09 "
+         id="polygon2636-32"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="41.999,250.656 43.809,245.069 198.653,177.09 "
+         id="polygon2638-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="52.903,262.837 47.317,261.027 198.653,177.09 "
+         id="polygon2640-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="62.159,265.814 56.575,264.008 198.653,177.09 "
+         id="polygon2642-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="65.83,266.932 70.829,268.634 198.653,177.09 "
+         id="polygon2644-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 371.635,146.186 375.198,148.792 372.593,152.356 "
+         id="polygon2646-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="358.976,171.186 355.889,175.494 198.653,177.09 "
+         id="polygon2648-93"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="364.667,163.314 361.211,168.1 198.653,177.09 "
+         id="polygon2650-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="370.357,155.441 366.9,160.228 198.653,177.09 "
+         id="polygon2652-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="363.763,140.547 368.496,143.951 198.653,177.09 "
+         id="polygon2654-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="355.889,134.855 360.677,138.26 198.653,177.09 "
+         id="polygon2656-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="352.751,132.674 348.496,129.483 198.653,177.09 "
+         id="polygon2658-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 25.668,207.995 22.106,205.387 24.711,201.824 "
+         id="polygon2660-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="38.329,182.995 41.415,178.739 198.653,177.09 "
+         id="polygon2662-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="32.637,190.867 36.096,186.134 198.653,177.09 "
+         id="polygon2664-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="26.947,198.739 30.404,193.952 198.653,177.09 "
+         id="polygon2666-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="33.542,213.688 28.807,210.229 198.653,177.09 "
+         id="polygon2668-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="41.415,219.325 36.627,215.866 198.653,177.09 "
+         id="polygon2670-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="44.553,221.452 48.808,224.644 198.653,177.09 "
+         id="polygon2672-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 372.699,201.238 375.305,204.804 371.741,207.412 "
+         id="polygon2674-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="352.965,221.027 348.654,224.113 198.653,177.09 "
+         id="polygon2676-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="360.785,215.281 356.049,218.793 198.653,177.09 "
+         id="polygon2678-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="368.656,209.644 363.868,213.101 198.653,177.09 "
+         id="polygon2680-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="366.953,193.369 370.464,198.154 198.653,177.09 "
+         id="polygon2682-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="361.262,185.548 364.719,190.282 198.653,177.09 "
+         id="polygon2684-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="358.922,182.516 355.889,178.154 198.653,177.09 "
+         id="polygon2686-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 24.606,152.993 21.999,149.43 25.564,146.823 "
+         id="polygon2688-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="44.34,133.153 48.649,130.015 198.653,177.09 "
+         id="polygon2690-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="36.521,138.845 41.255,135.387 198.653,177.09 "
+         id="polygon2692-3"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="28.647,144.537 33.435,141.078 198.653,177.09 "
+         id="polygon2694-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="30.351,160.813 26.892,156.079 198.653,177.09 "
+         id="polygon2696-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="36.042,168.633 32.584,163.898 198.653,177.09 "
+         id="polygon2698-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="38.382,171.665 41.415,176.026 198.653,177.09 "
+         id="polygon2700-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 356.688,253.846 358.069,258.05 353.868,259.381 "
+         id="polygon2702-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="331.792,266.611 326.739,268.263 198.653,177.09 "
+         id="polygon2704-8"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="340.996,263.582 335.411,265.443 198.653,177.09 "
+         id="polygon2706-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="350.251,260.604 344.613,262.412 198.653,177.09 "
+         id="polygon2708-9"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="353.655,244.591 355.518,250.229 198.653,177.09 "
+         id="polygon2710-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="350.676,235.391 352.486,240.974 198.653,177.09 "
+         id="polygon2712-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="349.398,231.771 347.857,226.72 198.653,177.09 "
+         id="polygon2714-0"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 40.617,100.28 39.234,96.132 43.435,94.748 "
+         id="polygon2716-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="65.511,87.514 70.563,85.917 198.653,177.09 "
+         id="polygon2718-2"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="56.309,90.546 61.894,88.737 198.653,177.09 "
+         id="polygon2720-5"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="47.052,93.578 52.692,91.715 198.653,177.09 "
+         id="polygon2722-6"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="43.648,109.536 41.787,103.951 198.653,177.09 "
+         id="polygon2724-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="46.627,118.736 44.818,113.153 198.653,177.09 "
+         id="polygon2726-7"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="47.904,122.355 49.446,127.408 198.653,177.09 "
+         id="polygon2728-4"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+    </g>
+    <g
+       id="g252"
+       transform="translate(-36.189,-23.814)">
+      <use
+         id="use145"
+         xlink:href="#D"
+         style="fill:#e6e6e6;paint-order:normal"
+         x="0"
+         y="0"
+         width="100%"
+         height="100%" />
+      <g
+         id="g157"
+         style="fill:#cccccc">
+        <use
+           id="use147"
+           xlink:href="#E"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use149"
+           xlink:href="#F"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use151"
+           xlink:href="#G"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use153"
+           xlink:href="#H"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use155"
+           xlink:href="#I"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         id="g171"
+         style="fill:none;stroke:#999999;stroke-width:0.20999999">
+        <use
+           id="use159"
+           xlink:href="#D"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use161"
+           xlink:href="#J"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use163"
+           xlink:href="#K"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <path
+           id="path165"
+           d="M 52.978,50.815 V 39.223"
+           inkscape:connector-curvature="0" />
+        <path
+           id="path167"
+           d="m 48.04,54.42 6.814,-9.378"
+           inkscape:connector-curvature="0" />
+        <use
+           id="use169"
+           xlink:href="#L"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         id="g250"
+         transform="matrix(0.221409,0,0,0.220037,41.63429,41.525736)">
+        <circle
+           id="circle173"
+           r="14.616"
+           cx="51.138"
+           cy="27.51"
+           style="fill:#0044aa" />
+        <g
+           id="g248"
+           transform="matrix(0.0336,0,0,0.0336,51.138478,27.510373)">
+          <g
+             id="g179"
+             style="fill-rule:evenodd">
+            <use
+               id="use175"
+               xlink:href="#M"
+               style="fill:#999999"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+            <use
+               id="use177"
+               xlink:href="#N"
+               style="fill:#0044aa"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+          <g
+             id="g234"
+             style="fill:#ffffff">
+            <use
+               id="P"
+               xlink:href="#A"
+               transform="matrix(35,0,0,35,0,-367.5)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use182"
+               xlink:href="#P"
+               transform="rotate(13.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use184"
+               xlink:href="#P"
+               transform="rotate(26.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use186"
+               xlink:href="#P"
+               transform="rotate(40)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use188"
+               xlink:href="#P"
+               transform="rotate(53.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use190"
+               xlink:href="#P"
+               transform="rotate(66.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use192"
+               xlink:href="#P"
+               transform="rotate(80)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use194"
+               xlink:href="#P"
+               transform="rotate(93.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use196"
+               xlink:href="#P"
+               transform="rotate(106.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use198"
+               xlink:href="#P"
+               transform="rotate(120)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use200"
+               xlink:href="#P"
+               transform="rotate(133.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use202"
+               xlink:href="#P"
+               transform="rotate(146.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use204"
+               xlink:href="#P"
+               transform="rotate(160)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use206"
+               xlink:href="#P"
+               transform="rotate(173.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use208"
+               xlink:href="#P"
+               transform="rotate(-173.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use210"
+               xlink:href="#P"
+               transform="rotate(-160)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use212"
+               xlink:href="#P"
+               transform="rotate(-146.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use214"
+               xlink:href="#P"
+               transform="rotate(-133.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use216"
+               xlink:href="#P"
+               transform="rotate(-120)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use218"
+               xlink:href="#P"
+               transform="rotate(-106.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use220"
+               xlink:href="#P"
+               transform="rotate(-93.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use222"
+               xlink:href="#P"
+               transform="rotate(-80)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use224"
+               xlink:href="#P"
+               transform="rotate(-66.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use226"
+               xlink:href="#P"
+               transform="rotate(-53.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use228"
+               xlink:href="#P"
+               transform="rotate(-40)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use230"
+               xlink:href="#P"
+               transform="rotate(-26.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use232"
+               xlink:href="#P"
+               transform="rotate(-13.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+          </g>
+          <g
+             id="g246"
+             style="fill:#ffffff">
+            <use
+               id="use236"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,65,220)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use238"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,-220,65)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use240"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,-65,-220)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use242"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,170,-60)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use244"
+               transform="matrix(51.683094,-18.811108,18.811108,51.683094,30,20)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     id="g8586"
+     transform="translate(0.1282167,2.4361217)">
+    <g
+       transform="matrix(0.12689194,0,0,0.12764252,-9.3506173,55.890658)"
+       id="g6096">
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="72.213,55.066 72.213,50.651 76.627,50.651 198.653,177.09 "
+         id="polygon2450"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 99.873,50.651 105.193,50.651 "
+         id="polygon2452"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 90.192,50.651 96.042,50.651 "
+         id="polygon2454"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 80.458,50.651 86.362,50.651 "
+         id="polygon2456"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 72.213,64.747 72.213,58.896 "
+         id="polygon2458"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 72.213,74.481 72.213,68.577 "
+         id="polygon2460"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 72.32,78.311 72.213,83.578 "
+         id="polygon2462"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="325.092,299.061 325.092,303.476 320.677,303.476 198.653,177.09 "
+         id="polygon2464"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 297.431,303.476 292.111,303.476 "
+         id="polygon2466"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 307.113,303.476 301.261,303.476 "
+         id="polygon2468"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 316.846,303.476 310.941,303.476 "
+         id="polygon2470"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 325.092,289.38 325.092,295.284 "
+         id="polygon2472"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 325.092,279.699 325.092,285.55 "
+         id="polygon2474"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 324.984,275.869 325.092,270.548 "
+         id="polygon2476"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="116.15,21.927 117.532,17.725 121.735,19.108 198.653,177.09 "
+         id="polygon2478"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 143.81,26.289 148.863,27.938 "
+         id="polygon2480"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 134.608,23.31 140.193,25.119 "
+         id="polygon2482"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 125.352,20.279 130.938,22.14 "
+         id="polygon2484"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 113.172,31.183 114.979,25.598 "
+         id="polygon2486"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 110.192,40.385 112.002,34.8 "
+         id="polygon2488"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 109.075,44.055 107.374,49.056 "
+         id="polygon2490"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="281.153,332.198 279.771,336.401 275.567,335.02 198.653,177.09 "
+         id="polygon2492"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 253.492,327.838 248.44,326.188 "
+         id="polygon2494"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 262.697,330.871 257.111,329.009 "
+         id="polygon2496"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 271.951,333.849 266.365,332.04 "
+         id="polygon2498"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 284.132,322.998 282.324,328.581 "
+         id="polygon2500"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 287.111,313.742 285.302,319.328 "
+         id="polygon2502"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 288.228,310.072 289.932,305.071 "
+         id="polygon2504"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-width:0.69989997;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="168.119,4.055 170.726,0.491 174.29,3.097 198.653,177.09 "
+         id="polygon2506"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 193.014,16.714 197.323,19.852 "
+         id="polygon2508"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 185.247,11.022 189.928,14.48 "
+         id="polygon2510"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 177.375,5.331 182.162,8.788 "
+         id="polygon2512"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 162.428,11.873 165.885,7.14 "
+         id="polygon2514"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 156.736,19.745 160.193,15.012 "
+         id="polygon2516"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 154.556,22.885 151.364,27.14 "
+         id="polygon2518"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="229.186,350.126 226.578,353.691 223.015,351.083 198.653,177.09 "
+         id="polygon2520"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 204.236,337.414 199.929,334.327 "
+         id="polygon2522"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 212.057,343.104 207.323,339.648 "
+         id="polygon2524"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 219.929,348.849 215.142,345.391 "
+         id="polygon2526"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 234.876,342.252 231.419,346.986 "
+         id="polygon2528"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 240.567,334.379 237.11,339.17 "
+         id="polygon2530"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 242.748,331.243 245.94,327.039 "
+         id="polygon2532"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="223.121,3.097 226.686,0.491 229.239,4.055 198.653,177.09 "
+         id="polygon2534"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 242.908,22.885 245.993,27.14 "
+         id="polygon2536"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 237.216,15.012 240.675,19.745 "
+         id="polygon2538"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 231.523,7.14 234.982,11.926 "
+         id="polygon2540"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 215.249,8.788 219.982,5.331 "
+         id="polygon2542"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 207.377,14.48 212.163,11.022 "
+         id="polygon2544"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 204.343,16.82 200.034,19.852 "
+         id="polygon2546"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="174.236,351.083 170.62,353.638 168.066,350.074 198.653,177.09 "
+         id="polygon2548"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 154.396,331.294 151.31,326.987 "
+         id="polygon2550"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 160.087,339.114 156.63,334.379 "
+         id="polygon2552"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 165.778,346.986 162.375,342.252 "
+         id="polygon2554"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 182.055,345.339 177.321,348.797 "
+         id="polygon2556"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 189.875,339.648 185.141,343.104 "
+         id="polygon2558"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 192.908,337.36 197.216,334.327 "
+         id="polygon2560"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="275.729,19.214 279.93,17.83 281.313,22.034 198.653,177.09 "
+         id="polygon2562"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 288.441,44.108 290.09,49.161 "
+         id="polygon2564"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 285.462,34.906 287.27,40.491 "
+         id="polygon2566"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 282.484,25.651 284.29,31.236 "
+         id="polygon2568"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 266.525,22.193 272.111,20.385 "
+         id="polygon2570"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 257.269,25.172 262.855,23.363 "
+         id="polygon2572"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 253.652,26.448 248.599,27.991 "
+         id="polygon2574"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="121.575,334.964 117.373,336.295 115.99,332.093 198.653,177.09 "
+         id="polygon2576"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 108.862,310.019 107.214,304.967 "
+         id="polygon2578"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 111.842,319.274 110.034,313.635 "
+         id="polygon2580"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 114.82,328.475 113.013,322.893 "
+         id="polygon2582"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 130.779,331.988 125.193,333.794 "
+         id="polygon2584"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 140.033,328.955 134.448,330.763 "
+         id="polygon2586"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 143.65,327.731 148.704,326.136 "
+         id="polygon2588"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="320.411,50.438 324.824,50.385 324.824,54.8 198.653,177.09 "
+         id="polygon2590"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 324.878,78.046 324.878,83.365 "
+         id="polygon2592"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 324.878,68.365 324.878,74.216 "
+         id="polygon2594"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 324.824,58.629 324.824,64.534 "
+         id="polygon2596"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 310.73,50.438 316.578,50.438 "
+         id="polygon2598"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 300.993,50.438 306.899,50.438 "
+         id="polygon2600"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 297.163,50.545 291.9,50.491 "
+         id="polygon2602"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="76.894,303.743 72.479,303.743 72.479,299.327 198.653,177.09 "
+         id="polygon2604"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 72.426,276.081 72.426,270.815 "
+         id="polygon2606"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 72.426,285.814 72.426,279.91 "
+         id="polygon2608"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 72.479,295.495 72.479,289.646 "
+         id="polygon2610"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 86.575,303.688 80.724,303.743 "
+         id="polygon2612"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 96.309,303.688 90.406,303.688 "
+         id="polygon2614"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 100.138,303.581 105.405,303.688 "
+         id="polygon2616"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="353.604,94.268 357.805,95.653 356.474,99.854 198.653,177.09 "
+         id="polygon2618"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 349.347,121.929 347.697,126.983 "
+         id="polygon2620"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 352.326,112.728 350.518,118.312 "
+         id="polygon2622"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 355.305,103.472 353.495,109.057 "
+         id="polygon2624"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 344.399,91.29 349.983,93.099 "
+         id="polygon2626"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 335.146,88.312 340.729,90.121 "
+         id="polygon2628"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 331.474,87.247 326.475,85.545 "
+         id="polygon2630"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="43.701,259.859 39.5,258.528 40.83,254.324 198.653,177.09 "
+         id="polygon2632"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 48.01,232.197 49.606,227.145 "
+         id="polygon2634"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 44.978,241.454 46.786,235.815 "
+         id="polygon2636"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 41.999,250.656 43.809,245.069 "
+         id="polygon2638"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 52.903,262.837 47.317,261.027 "
+         id="polygon2640"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 62.159,265.814 56.575,264.008 "
+         id="polygon2642"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 65.83,266.932 70.829,268.634 "
+         id="polygon2644"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="371.635,146.186 375.198,148.792 372.593,152.356 198.653,177.09 "
+         id="polygon2646"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 358.976,171.186 355.889,175.494 "
+         id="polygon2648"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 364.667,163.314 361.211,168.1 "
+         id="polygon2650"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 370.357,155.441 366.9,160.228 "
+         id="polygon2652"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 363.763,140.547 368.496,143.951 "
+         id="polygon2654"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 355.889,134.855 360.677,138.26 "
+         id="polygon2656"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 352.751,132.674 348.496,129.483 "
+         id="polygon2658"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="25.668,207.995 22.106,205.387 24.711,201.824 198.653,177.09 "
+         id="polygon2660"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 38.329,182.995 41.415,178.739 "
+         id="polygon2662"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 32.637,190.867 36.096,186.134 "
+         id="polygon2664"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 26.947,198.739 30.404,193.952 "
+         id="polygon2666"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 33.542,213.688 28.807,210.229 "
+         id="polygon2668"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 41.415,219.325 36.627,215.866 "
+         id="polygon2670"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 44.553,221.452 48.808,224.644 "
+         id="polygon2672"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="372.699,201.238 375.305,204.804 371.741,207.412 198.653,177.09 "
+         id="polygon2674"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 352.965,221.027 348.654,224.113 "
+         id="polygon2676"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 360.785,215.281 356.049,218.793 "
+         id="polygon2678"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 368.656,209.644 363.868,213.101 "
+         id="polygon2680"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 366.953,193.369 370.464,198.154 "
+         id="polygon2682"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 361.262,185.548 364.719,190.282 "
+         id="polygon2684"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 358.922,182.516 355.889,178.154 "
+         id="polygon2686"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="24.606,152.993 21.999,149.43 25.564,146.823 198.653,177.09 "
+         id="polygon2688"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 44.34,133.153 48.649,130.015 "
+         id="polygon2690"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 36.521,138.845 41.255,135.387 "
+         id="polygon2692"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 28.647,144.537 33.435,141.078 "
+         id="polygon2694"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 30.351,160.813 26.892,156.079 "
+         id="polygon2696"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 36.042,168.633 32.584,163.898 "
+         id="polygon2698"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 38.382,171.665 41.415,176.026 "
+         id="polygon2700"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="356.688,253.846 358.069,258.05 353.868,259.381 198.653,177.09 "
+         id="polygon2702"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 331.792,266.611 326.739,268.263 "
+         id="polygon2704"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 340.996,263.582 335.411,265.443 "
+         id="polygon2706"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 350.251,260.604 344.613,262.412 "
+         id="polygon2708"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 353.655,244.591 355.518,250.229 "
+         id="polygon2710"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 350.676,235.391 352.486,240.974 "
+         id="polygon2712"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 349.398,231.771 347.857,226.72 "
+         id="polygon2714"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="40.617,100.28 39.234,96.132 43.435,94.748 198.653,177.09 "
+         id="polygon2716"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 65.511,87.514 70.563,85.917 "
+         id="polygon2718"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 56.309,90.546 61.894,88.737 "
+         id="polygon2720"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 47.052,93.578 52.692,91.715 "
+         id="polygon2722"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 43.648,109.536 41.787,103.951 "
+         id="polygon2724"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 46.627,118.736 44.818,113.153 "
+         id="polygon2726"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+      <polygon
+         stroke-miterlimit="22.9256"
+         points="198.653,177.09 47.904,122.355 49.446,127.408 "
+         id="polygon2728"
+         style="clip-rule:evenodd;fill:#ffcb05;fill-rule:evenodd;stroke:none;stroke-miterlimit:22.92560005"
+         transform="matrix(0.41999801,0,0,0.41999801,122.39776,-52.298269)" />
+    </g>
+    <g
+       id="g361"
+       transform="translate(-36.189,11.13)">
+      <use
+         id="use254"
+         xlink:href="#D"
+         style="fill:#e6e6e6;paint-order:normal"
+         x="0"
+         y="0"
+         width="100%"
+         height="100%" />
+      <g
+         id="g266"
+         style="fill:#cccccc">
+        <use
+           id="use256"
+           xlink:href="#E"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use258"
+           xlink:href="#F"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use260"
+           xlink:href="#G"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use262"
+           xlink:href="#H"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use264"
+           xlink:href="#I"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         id="g280"
+         style="fill:none;stroke:#999999;stroke-width:0.20999999">
+        <use
+           id="use268"
+           xlink:href="#D"
+           style="paint-order:normal"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use270"
+           xlink:href="#J"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           id="use272"
+           xlink:href="#K"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <path
+           id="path274"
+           d="M 52.978,50.815 V 39.223"
+           inkscape:connector-curvature="0" />
+        <path
+           id="path276"
+           d="m 48.04,54.42 6.814,-9.378"
+           inkscape:connector-curvature="0" />
+        <use
+           id="use278"
+           xlink:href="#L"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         id="g359"
+         transform="matrix(0.221409,0,0,0.220037,41.63429,41.525736)">
+        <circle
+           id="circle282"
+           r="14.616"
+           cx="51.138"
+           cy="27.51"
+           style="fill:#0044aa" />
+        <g
+           id="g357"
+           transform="matrix(0.0336,0,0,0.0336,51.138478,27.510373)">
+          <g
+             id="g288"
+             style="fill-rule:evenodd">
+            <use
+               id="use284"
+               xlink:href="#M"
+               style="fill:#999999"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+            <use
+               id="use286"
+               xlink:href="#N"
+               style="fill:#0044aa"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+          <g
+             id="g343"
+             style="fill:#ffffff">
+            <use
+               id="Q"
+               xlink:href="#A"
+               transform="matrix(35,0,0,35,0,-367.5)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use291"
+               xlink:href="#Q"
+               transform="rotate(13.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use293"
+               xlink:href="#Q"
+               transform="rotate(26.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use295"
+               xlink:href="#Q"
+               transform="rotate(40)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use297"
+               xlink:href="#Q"
+               transform="rotate(53.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use299"
+               xlink:href="#Q"
+               transform="rotate(66.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use301"
+               xlink:href="#Q"
+               transform="rotate(80)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use303"
+               xlink:href="#Q"
+               transform="rotate(93.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use305"
+               xlink:href="#Q"
+               transform="rotate(106.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use307"
+               xlink:href="#Q"
+               transform="rotate(120)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use309"
+               xlink:href="#Q"
+               transform="rotate(133.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use311"
+               xlink:href="#Q"
+               transform="rotate(146.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use313"
+               xlink:href="#Q"
+               transform="rotate(160)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use315"
+               xlink:href="#Q"
+               transform="rotate(173.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use317"
+               xlink:href="#Q"
+               transform="rotate(-173.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use319"
+               xlink:href="#Q"
+               transform="rotate(-160)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use321"
+               xlink:href="#Q"
+               transform="rotate(-146.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use323"
+               xlink:href="#Q"
+               transform="rotate(-133.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use325"
+               xlink:href="#Q"
+               transform="rotate(-120)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use327"
+               xlink:href="#Q"
+               transform="rotate(-106.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use329"
+               xlink:href="#Q"
+               transform="rotate(-93.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use331"
+               xlink:href="#Q"
+               transform="rotate(-80)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use333"
+               xlink:href="#Q"
+               transform="rotate(-66.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use335"
+               xlink:href="#Q"
+               transform="rotate(-53.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use337"
+               xlink:href="#Q"
+               transform="rotate(-40)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use339"
+               xlink:href="#Q"
+               transform="rotate(-26.667)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use341"
+               xlink:href="#Q"
+               transform="rotate(-13.333)"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+          </g>
+          <g
+             id="g355"
+             style="fill:#ffffff">
+            <use
+               id="use345"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,65,220)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use347"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,-220,65)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use349"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,-65,-220)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use351"
+               transform="matrix(61.08002,-22.231309,22.231309,61.08002,170,-60)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+            <use
+               id="use353"
+               transform="matrix(51.683094,-18.811108,18.811108,51.683094,30,20)"
+               xlink:href="#A"
+               width="3000"
+               height="2000"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
