@@ -1,3 +1,4 @@
+import { annexLetter } from '../../lib/annexes'
 import { classificationLine, styleOf } from '../../lib/classification'
 import type { Dossier, IntelPhoto } from '../../types'
 import { ClassificationBanner } from './Banners'
@@ -41,7 +42,7 @@ export function IntelPage({
           />
           <div>
             <p className="op-unit">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
-            <p className="intel-kicker">Anexo B — Inteligência</p>
+            <p className="intel-kicker">Anexo {annexLetter(dossier, 'intel') ?? 'B'} — Inteligência</p>
             <h1>{'FOTO INTEL / IMAGERY'}</h1>
             <p>
               {dossier.mission.name ? `OP. ${dossier.mission.name}` : '—'} · {dossier.header.dtg || '—'}

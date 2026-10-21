@@ -174,13 +174,18 @@ export function blankDossier(): Dossier {
       situationFriendly: '',
       situationAttachments: '',
       situationWeather: '',
+      situationCivil: '',
+      enemyCoa: '',
       mission: '',
+      commanderIntent: '',
       executionConcept: '',
       executionTasks: '',
       executionCoord: '',
       sustainment: '',
       commandSignal: '',
       roe: '',
+      acknowledge: true,
+      distribution: '',
     },
     command: {
       commander: '',
@@ -205,6 +210,11 @@ export function blankDossier(): Dossier {
       challenge: '',
       password: '',
       succession: '',
+      commandPost: '',
+      visualSignals: '',
+      recognition: '',
+      runningPassword: '',
+      codeWords: [],
     },
     intel: emptyIntelSlots(),
     notice: blankNotice(),
@@ -422,19 +432,26 @@ export function defaultDossier(): Dossier {
       'Anexado: 1x médico de Cia, 1x operador UAV. Destacável: nenhum. Prioridade de fogos: 81 mm em grid 142091 sob pedido do FAC.',
     situationWeather:
       'Noite sem lua, teto 800 m, vento 6 kn de 270, visibilidade 4 km. Maré irrelevante. NVG autorizados a partir de H-30.',
+    situationCivil:
+      'Vila de Pyrgos habitada; toque de recolher local após 2200. Igreja e escola a 150 m S do complexo: não usar como posição.',
+    enemyCoa:
+      'Ao contato, a guarnição se fecha no bloco C2 e chama o BTR pela via norte. Sem reforço de fora antes de H+20.',
     mission:
       'O 2º Pelotão ataca NLT 230200ZSEP26 o complexo CSAT em Pyrgos (grid 173131) para neutralizar a estação de C2 e capturar o HVT VIPER, a fim de degradar a rede de comando inimiga na AO SUL.',
+    commanderIntent:
+      'Tirar o C2 de Pyrgos do ar esta noite. Estado final: rack de rádio destruído, VIPER sob custódia e o pelotão fora de Pyrgos antes do amanhecer. Se o HVT não for viável, o C2 continua sendo o objetivo.',
     executionConcept:
       'Infiltração noturna em LZ HAWK (166127), movimento dissimulado por eixos leste, isolamento do complexo, assalto em TOT 230200Z, consolidação e extração por PZ RAVEN (176129). Critério de êxito: C2 fora de ação e HVT sob custódia ou BDA confirmada.',
     executionTasks:
       '1ª Esq: assalto ao bloco norte (C2). 2ª Esq: isolamento sul e corte da via do BTR. 3ª Esq: reserva / detenção do HVT. UAV: órbita 300 m AGL, PIR em sentinelas e reforço. FAC: prioridade no BTR se sair da garagem.',
     executionCoord:
-      'H-30: check-in em LZ HAWK. H-10: isolamento. Hora-H: entrada. Abortar se QRF inimiga > seção antes do isolamento. Sinais: IR strobe no PZ; verde = extração, vermelho = contato no PZ. Não cruzar grid 140 a oeste (campo minado marcado).',
+      'H-30: check-in em LZ HAWK. H-10: isolamento. Hora-H: entrada. Abortar se QRF inimiga > seção antes do isolamento. Não cruzar grid 140 a oeste (campo minado marcado).',
     sustainment:
       'Munição padrão + 1x carga extra 5.56 por esquadra. 2x termite para o rack de rádio. Água para 6 h. CASEVAC: 9 linhas para DUSTOFF na 80.0. FARP em FOB Kamino. Prisioneiros: busca, silêncio, entrega ao S2 no PZ.',
-    commandSignal:
-      'SL no terreno (RAIDER-1). Sucessão: RAIDER-2, depois 1ª Esq. COMANDO em 50.0 (WATCHTOWER). Tática 60.0. Apoio 70.0. CASEVAC 80.0. Desligar GPS civil. Tráfego mínimo após H-10.',
+    commandSignal: 'Desligar GPS civil. Tráfego mínimo após H-10. Relatório de situação a cada fase, na rede COMANDO.',
     roe: 'Armas em HOLD até contato ou PID positivo de ameaça. Proibido fogo em civis e detidos. HVT vivo se viável. Granadas só no interior do bloco C2 após isolamento. Reportar BDA ao WATCHTOWER ao consolidar.',
+    acknowledge: true,
+    distribution: 'Cia Bravo (HQ), 2º Pel, QRF (1º Pel), FAC, S2, S4',
   }
   d.command = {
     ...d.command,
@@ -456,6 +473,16 @@ export function defaultDossier(): Dossier {
     challenge: 'TROVÃO',
     password: 'MARTELO',
     succession: 'RAIDER-1 → RAIDER-2 → 1ª ESQUADRA',
+    commandPost: 'Cmt com a 3ª Esq, 100 m S do complexo. PC da Cia em FOB Kamino.',
+    visualSignals: 'IR strobe no PZ. Fumaça verde = extração; vermelha = contato no PZ. Flare branca = abortar.',
+    recognition: 'Luz IR: 2 piscadas, resposta 3. De dia, braço esquerdo levantado.',
+    runningPassword: 'SERPENTE',
+    codeWords: [
+      { id: 'cw1', word: 'JACKPOT', meaning: 'HVT capturado' },
+      { id: 'cw2', word: 'BROADSWORD', meaning: 'C2 destruído' },
+      { id: 'cw3', word: 'HAWKEYE', meaning: 'Isolamento pronto' },
+      { id: 'cw4', word: 'ANVIL', meaning: 'Abortar e ir ao PZ' },
+    ],
   }
   d.intelStamp = { enabled: true, text: 'FOTO INTEL' }
   d.intel = [
@@ -720,7 +747,7 @@ export function defaultDossier(): Dossier {
 function sampleBlank(): BlankPage {
   return {
     id: 'blank-croqui',
-    title: 'ANEXO C — CROQUI DO PZ',
+    title: 'CROQUI DO PZ',
     heading: 'PZ RAVEN · grid 176129',
     body: '',
     lined: true,
@@ -855,6 +882,9 @@ export function migrateDossier(raw: unknown): Dossier | null {
   if (!['clan', 'insignia', 'avatar'].includes(d.command.mark)) d.command.mark = 'clan'
   if (!['none', 'font', 'image'].includes(d.command.signature)) d.command.signature = 'none'
   d.comms = { ...blankDossier().comms, ...incoming.comms }
+  d.comms.codeWords = Array.isArray(d.comms.codeWords)
+    ? d.comms.codeWords.filter((c) => c && typeof c.word === 'string' && typeof c.meaning === 'string')
+    : []
   d.notice = { ...blankNotice(), ...incoming.notice }
   d.sitrep = { ...blankSitrep(), ...incoming.sitrep }
   d.aar = { ...blankAar(), ...incoming.aar, ...normalizeAarResults(incoming.aar) }
