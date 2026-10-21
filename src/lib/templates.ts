@@ -203,11 +203,21 @@ export const TEMPLATE_CHOICES: { id: MissionTemplate; pt: string; en: string }[]
   { id: 'recon', pt: 'Reconhecimento', en: 'Recon' },
 ]
 
+/** Folhas que o modelo marca no novo dossiê. */
+export function templatePages(id: MissionTemplate): PageId[] {
+  return [...pt[id].pages]
+}
+
+const INTENT = {
+  pt: 'Para que serve a operação e como ela termina: o estado final que conta como missão cumprida.',
+  en: 'Purpose of the operation and the end state that counts as mission accomplished.',
+}
+
+/** Escreve o roteiro do modelo (assunto, corpo, intenção e linha do tempo). As folhas vêm do novo dossiê. */
 export function applyTemplate(d: Dossier, id: MissionTemplate): void {
-  const pack = (d.document.language === 'en' ? en : pt)[id]
+  const lang = d.document.language === 'en' ? 'en' : 'pt'
+  const pack = (lang === 'en' ? en : pt)[id]
   d.mission = { ...d.mission, ...pack.mission }
-  d.body = { ...d.body, ...pack.body }
+  d.body = { ...d.body, commanderIntent: INTENT[lang], ...pack.body }
   d.timeline = pack.timeline.map((row) => ({ ...row }))
-  d.document.pages.cover = true
-  for (const page of pack.pages) d.document.pages[page] = true
 }

@@ -1,10 +1,11 @@
 import { create } from 'zustand'
 import { defaultDossier, migrateDossier } from './defaults'
+import type { MissionTemplate } from './lib/templates'
 import { idbGet, idbSet } from './lib/idb'
 import type { DocType, Dossier, PageId } from './types'
 
 /** Novo dossiê em criação: nada é gravado até a pessoa confirmar. */
-export type Wizard = { step: 'type' | 'pages'; type: DocType; pages: PageId[] }
+export type Wizard = { step: 'type' | 'pages'; type: DocType; pages: PageId[]; template?: MissionTemplate }
 
 const KEY = 'dossier'
 

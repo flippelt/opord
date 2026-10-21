@@ -46,7 +46,7 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
   const setActive = useDossier((s) => s.setActive)
   const wizard = useDossier((s) => s.wizard)
   const draft = useMemo(
-    () => (wizard?.step === 'pages' ? newDossier(wizard.type, wizard.pages) : null),
+    () => (wizard?.step === 'pages' ? newDossier(wizard.type, wizard.pages, wizard.template) : null),
     [wizard],
   )
   const draftSheets = useMemo(() => (draft ? sheetList(draft) : []), [draft])
