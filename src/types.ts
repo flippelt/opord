@@ -155,6 +155,23 @@ export interface AarEventResult {
 }
 
 /** Situação de um mapa de LZ, PZ ou objetivo, pela id do mapa. */
+export type AceStatus = '' | 'green' | 'amber' | 'red'
+
+/** Baixas de um elemento do ORBAT, pela id da linha. */
+export interface AarLoss {
+  kia: string
+  wia: string
+  status: AceStatus
+}
+
+/** Uma ação para a próxima operação: manter ou melhorar, com responsável. */
+export interface AarAction {
+  id: string
+  kind: 'sustain' | 'improve'
+  text: string
+  owner: string
+}
+
 export interface AarObjectiveResult {
   status: ObjectiveStatus
   note: string
@@ -311,6 +328,8 @@ export interface Dossier {
     bda: string
     events: Record<string, AarEventResult>
     objectives: Record<string, AarObjectiveResult>
+    losses: Record<string, AarLoss>
+    actions: AarAction[]
   }
   casevac: {
     line1: string

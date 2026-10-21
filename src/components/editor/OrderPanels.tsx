@@ -1,4 +1,14 @@
-import { aarEvent, aarObjective, aarObjectives, aarTimeline, OBJECTIVE_STATUS, objectiveName } from '../../lib/aar'
+import {
+  ACE_STATUS,
+  aarElements,
+  aarEvent,
+  aarLoss,
+  aarObjective,
+  aarObjectives,
+  aarTimeline,
+  OBJECTIVE_STATUS,
+  objectiveName,
+} from '../../lib/aar'
 import { annexList } from '../../lib/annexes'
 import { CASEVAC_LINES, PRECEDENCE } from '../../lib/classification'
 import type { Dossier, Precedence } from '../../types'
@@ -387,8 +397,8 @@ export function AarPanel() {
         <Field label="Lições" edit="aar.lessons" value={a.lessons} onChange={set('lessons')} multiline rows={3} />
       </Group>
       <p className="field-hint">
-        A folha AAR — execução entra quando a linha do tempo tem marcos ou o pacote tem mapas de LZ, PZ ou
-        objetivo.
+        A folha AAR — execução entra quando há marcos na linha do tempo, mapas de LZ, PZ ou objetivo, elementos no
+        ORBAT ou ações para a próxima.
       </p>
       <SignatureGroup />
     </>
@@ -399,6 +409,7 @@ export function AarExecutionPanel() {
   const { dossier, patch } = usePatch()
   const events = aarTimeline(dossier)
   const objectives = aarObjectives(dossier)
+  const elements = aarElements(dossier)
   return (
     <>
       {events.length ? (
@@ -452,6 +463,79 @@ export function AarExecutionPanel() {
           })}
         </Group>
       ) : null}
+      <Group title="Baixas por elemento" sub="KIA, WIA e ACE de cada elemento do ORBAT">
+        {elements.length ? (
+          elements.map((row) => {
+            const loss = aarLoss(dossier, row.id)
+            const setLoss = (key: 'kia' | 'wia') => (value: string) =>
+              patch((d) => void (d.aar.losses[row.id] = { ...aarLoss(d, row.id), [key]: value }))
+            return (
+              <div key={row.id} className="intel-edit" data-edit={`aar.loss.${row.id}`}>
+                <p className="intel-edit-title">
+                  {row.designation || '—'} · {row.callsign || '—'}
+                </p>
+                <div className="loss-row">
+                  <Field label="KIA" value={loss.kia} placeholder="0" onChange={setLoss('kia')} />
+                  <Field label="WIA" value={loss.wia} placeholder="0" onChange={setLoss('wia')} />
+                  <SelectField
+                    label="ACE"
+                    value={loss.status}
+                    options={ACE_STATUS}
+                    onChange={(status) =>
+                      patch((d) => void (d.aar.losses[row.id] = { ...aarLoss(d, row.id), status }))
+                    }
+                  />
+                </div>
+              </div>
+            )
+          })
+        ) : (
+          <p className="field-hint">Os elementos vêm do ORBAT. Ligue a folha ORBAT em Geral e preencha as linhas.</p>
+        )}
+      </Group>
+      <Group title="Ações para a próxima" sub="Manter ou melhorar, com responsável">
+        {dossier.aar.actions.map((action, i) => (
+          <div key={action.id} className="intel-edit" data-edit={`aar.action.${action.id}`}>
+            <Field
+              label="Ação"
+              value={action.text}
+              placeholder="Ressuprimento de 5.56 já na LZ"
+              onChange={(text) => patch((d) => void (d.aar.actions[i].text = text))}
+            />
+            <div className="row2">
+              <SelectField
+                label="Tipo"
+                value={action.kind}
+                options={[
+                  { id: 'improve', label: 'Melhorar' },
+                  { id: 'sustain', label: 'Manter' },
+                ]}
+                onChange={(kind) => patch((d) => void (d.aar.actions[i].kind = kind))}
+              />
+              <Field
+                label="Responsável"
+                value={action.owner}
+                placeholder="S4"
+                onChange={(owner) => patch((d) => void (d.aar.actions[i].owner = owner))}
+              />
+            </div>
+            <button type="button" className="btn-ghost" onClick={() => patch((d) => void d.aar.actions.splice(i, 1))}>
+              Remover ação
+            </button>
+          </div>
+        ))}
+        <button
+          type="button"
+          className="btn-ghost"
+          onClick={() =>
+            patch((d) =>
+              void d.aar.actions.push({ id: `act-${crypto.randomUUID()}`, kind: 'improve', text: '', owner: '' }),
+            )
+          }
+        >
+          + Ação
+        </button>
+      </Group>
       <SignatureGroup />
     </>
   )
