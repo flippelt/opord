@@ -1,12 +1,13 @@
 import { Fragment, useEffect, useRef } from 'react'
 import { flushSync } from 'react-dom'
+import { hasAarExecution } from '../lib/aar'
 import { docTypeOf, styleOf } from '../lib/classification'
 import { copyNumbers } from '../lib/copies'
 import { chunk } from '../lib/dtg'
 import { captureAll, downloadJson, fileBase, savePdf, savePngZip } from '../lib/export'
 import { emptyHvtSlots, emptyIntelSlots, emptyMapPlate } from '../defaults'
 import { useDossier } from '../store'
-import { AarPage } from './document/AarPage'
+import { AarExecutionPage, AarPage } from './document/AarPage'
 import { BlankSheet } from './document/BlankPage'
 import { CasevacPage } from './document/CasevacPage'
 import { CoverPage } from './document/CoverPage'
@@ -184,7 +185,14 @@ export function Preview() {
             if (item.kind === 'timeline') return <TimelinePage key="timeline" dossier={dossier} />
             if (item.kind === 'roster') return <RosterPage key="roster" dossier={dossier} />
             if (item.kind === 'sitrep') return <SitrepPage key="sitrep" dossier={dossier} />
-            if (item.kind === 'aar') return <AarPage key="aar" dossier={dossier} />
+            if (item.kind === 'aar') {
+              return (
+                <Fragment key="aar">
+                  <AarPage dossier={dossier} />
+                  {hasAarExecution(dossier) ? <AarExecutionPage dossier={dossier} /> : null}
+                </Fragment>
+              )
+            }
             if (item.kind === 'orbat') return <OrbatPage key="orbat" dossier={dossier} />
             if (item.kind === 'hvt') {
               return (

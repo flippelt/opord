@@ -545,6 +545,35 @@
   gap: 10px;
 }
 
+.aar-table {
+  margin: 4px 0 0;
+}
+
+.aar-delta {
+  white-space: nowrap;
+}
+
+.aar-late {
+  color: #9f1239;
+  font-weight: 600;
+}
+
+.aar-status {
+  font-family: var(--stencil);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.aar-status-partial {
+  color: #8a5a00;
+}
+
+.aar-status-failed {
+  color: #9f1239;
+}
+
 .nine-kicker {
   margin: 6px 0 8px;
   font-family: var(--mono);
