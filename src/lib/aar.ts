@@ -1,9 +1,13 @@
 import type {
+  AarAction,
+  AarLoss,
+  AceStatus,
   AarEventResult,
   AarObjectiveResult,
   Dossier,
   MapPlate,
   ObjectiveStatus,
+  OrbatLine,
   TimelineEvent,
 } from '../types'
 import { MAP_KINDS } from './mapPlate'
@@ -47,8 +51,37 @@ export function aarObjective(dossier: Dossier, id: string): AarObjectiveResult {
   return dossier.aar.objectives[id] ?? { status: '', note: '' }
 }
 
+export const ACE_STATUS: { id: AceStatus; label: string }[] = [
+  { id: '', label: '—' },
+  { id: 'green', label: 'Verde' },
+  { id: 'amber', label: 'Âmbar' },
+  { id: 'red', label: 'Vermelho' },
+]
+
+export function aceLabel(status: AceStatus): string {
+  return ACE_STATUS.find((s) => s.id === status)?.label ?? '—'
+}
+
+/** Elementos do ORBAT que entram no AAR (linhas com designação ou indicativo). */
+export function aarElements(dossier: Dossier): OrbatLine[] {
+  return dossier.orbat.filter((row) => row.designation.trim() || row.callsign.trim())
+}
+
+export function aarLoss(dossier: Dossier, id: string): AarLoss {
+  return dossier.aar.losses[id] ?? { kia: '', wia: '', status: '' }
+}
+
+export function aarActions(dossier: Dossier): AarAction[] {
+  return dossier.aar.actions.filter((a) => a.text.trim() || a.owner.trim())
+}
+
 export function hasAarExecution(dossier: Dossier): boolean {
-  return aarTimeline(dossier).length > 0 || aarObjectives(dossier).length > 0
+  return (
+    aarTimeline(dossier).length > 0 ||
+    aarObjectives(dossier).length > 0 ||
+    aarElements(dossier).length > 0 ||
+    aarActions(dossier).length > 0
+  )
 }
 
 type Clock = { minutes: number; zone: string; dated: boolean }
@@ -109,11 +142,34 @@ function isStatus(value: unknown): value is ObjectiveStatus {
 export function normalizeAarResults(incoming: unknown): {
   events: Record<string, AarEventResult>
   objectives: Record<string, AarObjectiveResult>
+  losses: Record<string, AarLoss>
+  actions: AarAction[]
 } {
   const raw = (incoming && typeof incoming === 'object' ? incoming : {}) as {
     events?: unknown
     objectives?: unknown
+    losses?: unknown
+    actions?: unknown
   }
+  const losses: Record<string, AarLoss> = {}
+  if (raw.losses && typeof raw.losses === 'object') {
+    for (const [id, value] of Object.entries(raw.losses as Record<string, unknown>)) {
+      if (!value || typeof value !== 'object') continue
+      const row = value as Record<string, unknown>
+      const status = ACE_STATUS.some((s) => s.id === row.status) ? (row.status as AceStatus) : ''
+      losses[id] = { kia: text(row.kia), wia: text(row.wia), status }
+    }
+  }
+  const actions: AarAction[] = Array.isArray(raw.actions)
+    ? raw.actions
+        .filter((a): a is Record<string, unknown> => Boolean(a) && typeof a === 'object')
+        .map((a, i) => ({
+          id: text(a.id) || `act-${i + 1}`,
+          kind: a.kind === 'sustain' ? 'sustain' : 'improve',
+          text: text(a.text),
+          owner: text(a.owner),
+        }))
+    : []
   const events: Record<string, AarEventResult> = {}
   const objectives: Record<string, AarObjectiveResult> = {}
   if (raw.events && typeof raw.events === 'object') {
@@ -130,5 +186,5 @@ export function normalizeAarResults(incoming: unknown): {
       objectives[id] = { status: isStatus(row.status) ? row.status : '', note: text(row.note) }
     }
   }
-  return { events, objectives }
+  return { events, objectives, losses, actions }
 }

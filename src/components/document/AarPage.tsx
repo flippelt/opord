@@ -1,4 +1,8 @@
 import {
+  aarActions,
+  aarElements,
+  aarLoss,
+  aceLabel,
   aarEvent,
   aarObjective,
   aarObjectives,
@@ -49,6 +53,16 @@ export function AarPage({ dossier }: { dossier: Dossier }) {
 export function AarExecutionPage({ dossier }: { dossier: Dossier }) {
   const events = aarTimeline(dossier)
   const objectives = aarObjectives(dossier)
+  const elements = aarElements(dossier)
+  const actions = aarActions(dossier)
+  // Os itens continuam a numeração do AAR (1 a 4 na primeira folha) e pulam o que estiver vazio.
+  let next = 5
+  const num = {
+    events: events.length ? next++ : 0,
+    objectives: objectives.length ? next++ : 0,
+    losses: elements.length ? next++ : 0,
+    actions: actions.length ? next++ : 0,
+  }
   return (
     <Sheet page="aar" exportId="aar-execucao" paper="#efe6d0" ink="#1a1714">
       <ClassificationBanner dossier={dossier} position="top" />
@@ -61,7 +75,7 @@ export function AarExecutionPage({ dossier }: { dossier: Dossier }) {
         />
         {events.length ? (
           <section className="sitrep-para">
-            <h2>5. Planejado × real</h2>
+            <h2>{num.events}. Planejado × real</h2>
             <table className="orbat-table aar-table">
               <thead>
                 <tr>
@@ -94,7 +108,7 @@ export function AarExecutionPage({ dossier }: { dossier: Dossier }) {
         ) : null}
         {objectives.length ? (
           <section className="sitrep-para">
-            <h2>{events.length ? '6' : '5'}. Objetivos</h2>
+            <h2>{num.objectives}. Objetivos</h2>
             <table className="orbat-table aar-table">
               <thead>
                 <tr>
@@ -118,6 +132,61 @@ export function AarExecutionPage({ dossier }: { dossier: Dossier }) {
                     </tr>
                   )
                 })}
+              </tbody>
+            </table>
+          </section>
+        ) : null}
+        {elements.length ? (
+          <section className="sitrep-para">
+            <h2>{num.losses}. Baixas por elemento</h2>
+            <table className="orbat-table aar-table">
+              <thead>
+                <tr>
+                  <th>Elemento</th>
+                  <th>Indicativo</th>
+                  <th>KIA</th>
+                  <th>WIA</th>
+                  <th>ACE</th>
+                </tr>
+              </thead>
+              <tbody>
+                {elements.map((row) => {
+                  const loss = aarLoss(dossier, row.id)
+                  return (
+                    <tr key={row.id} data-edit={`aar.loss.${row.id}`}>
+                      <td>{row.designation || '—'}</td>
+                      <td>{row.callsign || '—'}</td>
+                      <td>{loss.kia || '—'}</td>
+                      <td>{loss.wia || '—'}</td>
+                      <td className={`aar-status aar-ace-${loss.status || 'none'}`}>
+                        {loss.status ? aceLabel(loss.status) : '—'}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </section>
+        ) : null}
+        {actions.length ? (
+          <section className="sitrep-para">
+            <h2>{num.actions}. Ações para a próxima</h2>
+            <table className="orbat-table aar-table">
+              <thead>
+                <tr>
+                  <th>Ação</th>
+                  <th>Tipo</th>
+                  <th>Responsável</th>
+                </tr>
+              </thead>
+              <tbody>
+                {actions.map((action) => (
+                  <tr key={action.id} data-edit={`aar.action.${action.id}`}>
+                    <td>{action.text || '—'}</td>
+                    <td className="aar-status">{action.kind === 'sustain' ? 'Manter' : 'Melhorar'}</td>
+                    <td>{action.owner || '—'}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </section>

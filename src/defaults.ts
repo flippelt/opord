@@ -286,6 +286,8 @@ export function blankAar() {
     bda: '',
     events: {},
     objectives: {},
+    losses: {},
+    actions: [],
   }
 }
 
@@ -680,6 +682,21 @@ export function defaultDossier(): Dossier {
       'map-obj': { status: 'partial', note: 'C2 destruído e HVT vivo; busca do rack incompleta.' },
       'map-pz': { status: 'done', note: '1 WIA embarcado no PZ.' },
     },
+    losses: {
+      o2: { kia: '0', wia: '1', status: 'amber' },
+      o3: { kia: '0', wia: '1', status: 'amber' },
+      o4: { kia: '0', wia: '0', status: 'green' },
+      o5: { kia: '0', wia: '0', status: 'green' },
+      o6: { kia: '0', wia: '0', status: 'green' },
+      o7: { kia: '0', wia: '0', status: 'green' },
+      o8: { kia: '0', wia: '0', status: 'green' },
+    },
+    actions: [
+      { id: 'act-1', kind: 'sustain', text: 'Isolamento sul + UAV antes de qualquer entrada', owner: 'CMT 2º Pel' },
+      { id: 'act-2', kind: 'improve', text: 'Ressuprimento de 5.56 já na LZ', owner: 'S4' },
+      { id: 'act-3', kind: 'improve', text: 'Bateria reserva do UAV com o FAC', owner: 'Op. UAV' },
+      { id: 'act-4', kind: 'improve', text: 'Ensaio de entrada com a carga montada', owner: 'SL 1ª Esq' },
+    ],
   }
   d.casevac = {
     line1: '176129 (PZ RAVEN)',

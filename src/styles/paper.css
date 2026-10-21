@@ -662,6 +662,18 @@
   color: #8a5a00;
 }
 
+.aar-ace-green {
+  color: #14532d;
+}
+
+.aar-ace-amber {
+  color: #8a5a00;
+}
+
+.aar-ace-red {
+  color: #9f1239;
+}
+
 .aar-status-failed {
   color: #9f1239;
 }

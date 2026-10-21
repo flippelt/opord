@@ -138,6 +138,12 @@ textarea {
   color: var(--sand-dim);
 }
 
+.loss-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 8px;
+}
+
 .code-row {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) auto;

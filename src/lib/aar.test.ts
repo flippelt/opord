@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { blankDossier, defaultDossier, migrateDossier } from '../defaults'
 import {
+  aarActions,
+  aarElements,
   aarObjectives,
   aarTimeline,
   clockDelta,
@@ -116,5 +118,42 @@ describe('normalizeAarResults', () => {
     expect(next?.aar.improve).toBe('Atraso na entrada.')
     expect(next && 'wentWell' in next.aar).toBe(false)
     expect(next && 'wentWrong' in next.aar).toBe(false)
+  })
+})
+
+describe('losses and actions', () => {
+  it('takes the ORBAT lines as elements and skips empty actions', () => {
+    const d = defaultDossier()
+    expect(aarElements(d).map((r) => r.id)).toContain('o3')
+    d.aar.actions.push({ id: 'x', kind: 'improve', text: '', owner: '' })
+    expect(aarActions(d).map((a) => a.id)).not.toContain('x')
+  })
+
+  it('opens the execution sheet for an ORBAT even without timeline or maps', () => {
+    const d = blankDossier()
+    expect(hasAarExecution(d)).toBe(false)
+    d.orbat = [{ id: 'o1', echelon: 'ESQ', designation: '1ª Esquadra', callsign: 'R1', lead: '', strength: '', task: '' }]
+    expect(hasAarExecution(d)).toBe(true)
+  })
+
+  it('cleans losses and actions from a saved dossier', () => {
+    const out = normalizeAarResults({
+      losses: { o1: { kia: '1', wia: 2, status: 'red' }, o2: { status: 'blue' }, o3: null },
+      actions: [{ id: 'a', kind: 'sustain', text: 'X', owner: 'Y' }, { text: 'Z' }, 7],
+    })
+    expect(out.losses).toEqual({ o1: { kia: '1', wia: '', status: 'red' }, o2: { kia: '', wia: '', status: '' } })
+    expect(out.actions).toEqual([
+      { id: 'a', kind: 'sustain', text: 'X', owner: 'Y' },
+      { id: 'act-2', kind: 'improve', text: 'Z', owner: '' },
+    ])
+  })
+
+  it('gives an old dossier empty losses and actions', () => {
+    const raw = structuredClone(defaultDossier()) as unknown as { aar: Record<string, unknown> }
+    delete raw.aar.losses
+    delete raw.aar.actions
+    const next = migrateDossier(raw)
+    expect(next?.aar.losses).toEqual({})
+    expect(next?.aar.actions).toEqual([])
   })
 })
