@@ -28,7 +28,7 @@ export function CoverPage({ dossier }: { dossier: Dossier }) {
       <Marks dossier={dossier} page="cover" />
       <div className="cover-body">
         <p className="cover-kicker">Documento controlado · cópia numerada</p>
-        <div className="cover-seal" data-edit="clan.seal">
+        <div className="cover-seal">
           <ClanSeal
             src={dossier.clan.sealSrc}
             name={dossier.clan.name}

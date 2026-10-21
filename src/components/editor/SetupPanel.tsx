@@ -1,10 +1,11 @@
 import { CAVEAT_OPTIONS, CLASSIFICATIONS, docTypeOf, PAGE_LABELS, TYPE_DEFAULT_PAGES } from '../../lib/classification'
+import { readClanMark } from '../../lib/image'
 import { sheetList } from '../../lib/sheets'
 import { applyTemplate, TEMPLATE_CHOICES } from '../../lib/templates'
 import { defaultDossier, emptyMapPlate } from '../../defaults'
 import { useDossier } from '../../store'
 import type { Classification, PageId } from '../../types'
-import { Field, SelectField } from '../ImageField'
+import { Field, ImageField, SelectField } from '../ImageField'
 import { SheetOrder } from '../SheetOrder'
 import { Group, usePatch } from './common'
 
@@ -51,6 +52,20 @@ export function SetupPanel() {
         </div>
       </Group>
       ) : null}
+
+      <Group
+        title="Logo do clã"
+        sub="Capa, cabeçalho e assinatura"
+        hint="Sai na capa, no cabeçalho e na assinatura de todas as folhas. Clicar no logo de qualquer folha também abre o seletor."
+      >
+        <ImageField
+          label="Logo do clã"
+          edit="clan.seal"
+          src={dossier.clan.sealSrc}
+          readFile={readClanMark}
+          onChange={(sealSrc) => patch((d) => void (d.clan.sealSrc = sealSrc))}
+        />
+      </Group>
 
       <Group
         title="Classificação"

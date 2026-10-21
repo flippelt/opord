@@ -9,6 +9,7 @@ export function ClanSeal({ src, name, shortName, size = 128 }: Props) {
   if (src) {
     return (
       <img
+        data-edit="clan.seal"
         className="clan-seal-img"
         src={src}
         alt={name || 'Logo do clã'}
@@ -20,7 +21,7 @@ export function ClanSeal({ src, name, shortName, size = 128 }: Props) {
   const rim = (shortName || name || 'UNIDADE').toUpperCase().slice(0, 24)
   const uid = `seal-${size}-${rim.replace(/\s+/g, '')}`
   return (
-    <svg className="clan-seal" width={size} height={size} viewBox="0 0 200 200" role="img" aria-label={name}>
+    <svg data-edit="clan.seal" className="clan-seal" width={size} height={size} viewBox="0 0 200 200" role="img" aria-label={name}>
       <defs>
         <path id={`${uid}-top`} d="M28 108 A78 78 0 0 1 172 108" fill="none" />
       </defs>

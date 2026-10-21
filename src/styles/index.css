@@ -684,6 +684,8 @@ textarea {
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--brass-dim) transparent;
   padding: 32px 24px 64px;
 }
 
@@ -696,9 +698,14 @@ textarea {
 }
 
 .overview-stack {
-  zoom: 0.34;
-  gap: 48px;
-  max-width: 100%;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.zoom-value {
+  min-width: 3.2em;
+  font-family: var(--mono);
+  color: var(--sand);
 }
 
 .wizard-group {

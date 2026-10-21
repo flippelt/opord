@@ -12,8 +12,8 @@ export function CoverPanel() {
     <>
       <Group
         title="Identidade do clã"
-        sub="Nome, sigla, lema, logo e distintivo"
-        hint="Nome, sigla e logo entram no cabeçalho de todas as folhas. Clicar no logo da capa também abre o seletor de imagem."
+        sub="Nome, sigla, lema e distintivo"
+        hint="Nome e sigla entram no cabeçalho de todas as folhas. O logo do clã fica em Geral, porque se repete em todas."
       >
         <Field
           label="Nome da unidade / clã"
@@ -35,14 +35,6 @@ export function CoverPanel() {
           edit="clan.motto"
           value={dossier.clan.motto}
           onChange={(motto) => patch((d) => void (d.clan.motto = motto))}
-        />
-        <ImageField
-          label="Logo do clã"
-          edit="clan.seal"
-          hint="Vai na capa, no cabeçalho e na assinatura."
-          src={dossier.clan.sealSrc}
-          readFile={readClanMark}
-          onChange={(sealSrc) => patch((d) => void (d.clan.sealSrc = sealSrc))}
         />
         <ImageField
           label="Distintivo / patch"

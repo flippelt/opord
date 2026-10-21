@@ -10,6 +10,20 @@ import { PageTabs } from './PageTabs'
 import { PreviewModal } from './PreviewModal'
 import { SheetStack } from './SheetStack'
 
+/** Campos que só existem em Geral, mesmo aparecendo em todas as folhas. */
+const GERAL_KEYS = ['clan.seal', 'document.classification']
+
+/** Abre os blocos do campo no menu e dá foco nele (ou abre o seletor de imagem). */
+function openField(key: string): boolean {
+  const holder = document.querySelector<HTMLElement>(`.desk [data-edit~="${CSS.escape(key)}"]`)
+  if (!holder) return false
+  for (let el = holder.closest('details'); el; el = el.parentElement?.closest('details') ?? null) el.open = true
+  const file = holder.querySelector<HTMLInputElement>('input[type="file"]')
+  if (file) file.click()
+  else holder.querySelector<HTMLElement>('input, textarea, select, button')?.focus()
+  return true
+}
+
 /** Realça no palco o que tem o mesmo `data-edit` do campo com foco. */
 function focusRule(key: string) {
   if (!key) return ''
@@ -21,6 +35,8 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
   const dossier = useDossier((s) => s.dossier)
   const zoom = useDossier((s) => s.zoom)
   const setZoom = useDossier((s) => s.setZoom)
+  const overviewZoom = useDossier((s) => s.overviewZoom)
+  const setOverviewZoom = useDossier((s) => s.setOverviewZoom)
   const exporting = useDossier((s) => s.exporting)
   const setExporting = useDossier((s) => s.setExporting)
   const active = useDossier((s) => s.active)
@@ -134,17 +150,33 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
         <div className="toolbar-class" style={{ background: style.banner, color: style.ink }}>
           {style.label}
         </div>
-        <label className="zoom">
-          Zoom
-          <input
-            type="range"
-            min={0.45}
-            max={1.05}
-            step={0.01}
-            value={zoom}
-            onChange={(e) => setZoom(Number(e.target.value))}
-          />
-        </label>
+        {overview ? (
+          <label className="zoom" title="Tamanho das miniaturas">
+            Miniaturas
+            <input
+              type="range"
+              min={0.2}
+              max={1}
+              step={0.01}
+              value={overviewZoom}
+              onChange={(e) => setOverviewZoom(Number(e.target.value))}
+            />
+            <span className="zoom-value">{Math.round(overviewZoom * 100)}%</span>
+          </label>
+        ) : (
+          <label className="zoom">
+            Zoom
+            <input
+              type="range"
+              min={0.45}
+              max={1.05}
+              step={0.01}
+              value={zoom}
+              onChange={(e) => setZoom(Number(e.target.value))}
+            />
+            <span className="zoom-value">{Math.round(scale * 100)}%</span>
+          </label>
+        )}
         <button
           type="button"
           className="btn"
@@ -211,19 +243,16 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
           if (wizard) return
           const target = (e.target as HTMLElement).closest<HTMLElement>('[data-edit]')
           const key = target?.dataset.edit?.split(' ')[0]
-          const holder = key ? document.querySelector<HTMLElement>(`.desk [data-edit~="${CSS.escape(key)}"]`) : null
-          if (!holder) {
-            // Na miniatura, clicar fora de um campo de Geral abre a folha para editar.
-            const page = (e.target as HTMLElement).closest<HTMLElement>('.overview-stack .sheet')?.dataset.page
-            if (page) setActive(page)
+          if (key && openField(key)) return
+          if (key && GERAL_KEYS.includes(key) && active !== SETUP_KEY) {
+            // O campo mora em Geral: vai para lá e abre o campo, ainda dentro do clique.
+            flushSync(() => setActive(SETUP_KEY))
+            openField(key)
             return
           }
-          // O bloco começa fechado: abre os que guardam o campo antes de dar foco.
-          for (let el = holder.closest('details'); el; el = el.parentElement?.closest('details') ?? null) el.open = true
-          // Num campo de imagem, clicar no papel já abre o seletor de arquivo.
-          const file = holder.querySelector<HTMLInputElement>('input[type="file"]')
-          if (file) file.click()
-          else holder.querySelector<HTMLElement>('input, textarea, select, button')?.focus()
+          // Na miniatura, clicar fora de um campo de Geral abre a folha para editar.
+          const page = (e.target as HTMLElement).closest<HTMLElement>('.overview-stack .sheet')?.dataset.page
+          if (page) setActive(page)
         }}
       >
         <style>{showAll ? '' : focusRule(focus)}</style>
@@ -243,6 +272,7 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
                 active={null}
                 scope="ov-"
                 className="preview-stack overview-stack"
+                style={{ zoom: overviewZoom }}
               />
             )}
           </>

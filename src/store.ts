@@ -20,6 +20,8 @@ function persist(dossier: Dossier) {
 interface Store {
   dossier: Dossier
   zoom: number
+  /** Zoom das miniaturas (Geral e novo dossiê). */
+  overviewZoom: number
   exporting: string
   /** Passo do editor: `setup` ou a chave de uma folha (ver lib/sheets). */
   active: string
@@ -35,6 +37,7 @@ interface Store {
   setDossier: (dossier: Dossier) => void
   patch: (recipe: (draft: Dossier) => void) => void
   setZoom: (zoom: number) => void
+  setOverviewZoom: (zoom: number) => void
   setExporting: (msg: string) => void
 }
 
@@ -57,6 +60,7 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 export const useDossier = create<Store>((set, get) => ({
   dossier: defaultDossier(),
   zoom: 0.78,
+  overviewZoom: 0.5,
   exporting: '',
   active: 'setup',
   focus: '',
@@ -97,6 +101,9 @@ export const useDossier = create<Store>((set, get) => ({
   },
   setZoom(zoom) {
     set({ zoom })
+  },
+  setOverviewZoom(overviewZoom) {
+    set({ overviewZoom })
   },
   setExporting(msg) {
     set({ exporting: msg })
