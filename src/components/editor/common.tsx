@@ -51,7 +51,7 @@ export function SignatureGroup() {
   return (
     <Group
       title="Assinatura"
-      sub={own ? 'Própria desta folha' : 'Comum a todas as folhas'}
+      sub="Quem assina, insígnia ou foto, e a assinatura"
     >
       <label className={own ? 'chip' : 'chip on'} data-edit="command">
         <input
