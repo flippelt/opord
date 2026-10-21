@@ -1,4 +1,4 @@
-/** Fontes cursivas para a assinatura. Todas livres (OFL ou Apache), via @fontsource. */
+/** Fontes cursivas para a assinatura: as livres vêm do @fontsource; as de uso pessoal, de src/assets/fonts. */
 export const SIGNATURE_FONTS: { id: string; label: string; family: string; scale: number }[] = [
   { id: 'mrs-saint-delafield', label: 'Mrs Saint Delafield', family: "'Mrs Saint Delafield'", scale: 1.25 },
   { id: 'herr-von-muellerhoff', label: 'Herr Von Muellerhoff', family: "'Herr Von Muellerhoff'", scale: 1.3 },
@@ -8,6 +8,13 @@ export const SIGNATURE_FONTS: { id: string; label: string; family: string; scale
   { id: 'homemade-apple', label: 'Homemade Apple', family: "'Homemade Apple'", scale: 0.75 },
   { id: 'zeyada', label: 'Zeyada', family: "'Zeyada'", scale: 1.05 },
   { id: 'dancing-script', label: 'Dancing Script', family: "'Dancing Script'", scale: 0.9 },
+  { id: 'attallia', label: 'Attallia', family: "'Attallia'", scale: 1.1 },
+  { id: 'autograf', label: 'Autograf', family: "'Autograf'", scale: 0.8 },
+  { id: 'bastliga-one', label: 'Bastliga One', family: "'Bastliga One'", scale: 1.15 },
+  { id: 'honofly', label: 'Honofly', family: "'Honofly'", scale: 0.75 },
+  { id: 'montreuil', label: 'Montreuil', family: "'Montreuil'", scale: 1.3 },
+  { id: 'patricia-wilcie', label: 'Patricia Wilcie', family: "'Patricia Wilcie'", scale: 1.25 },
+  { id: 'the-scientist', label: 'The Scientist', family: "'The Scientist'", scale: 0.8 },
 ]
 
 export function signatureFont(id: string) {
