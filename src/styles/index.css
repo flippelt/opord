@@ -788,6 +788,41 @@ textarea {
   padding-bottom: 40px;
 }
 
+.overview-zoom {
+  position: sticky;
+  top: -32px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: -16px auto 12px;
+  padding: 8px 12px;
+  background: var(--desk);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.overview-zoom .btn-ghost {
+  min-width: 34px;
+  padding: 4px 8px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.overview-zoom input {
+  width: 220px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .zoom-value {
   min-width: 3.2em;
   font-family: var(--mono);
