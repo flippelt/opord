@@ -1,16 +1,12 @@
 import { CAVEAT_OPTIONS, CLASSIFICATIONS, docTypeOf, PAGE_LABELS, TYPE_DEFAULT_PAGES } from '../../lib/classification'
 import { readClanMark } from '../../lib/image'
 import { sheetList } from '../../lib/sheets'
-import { applyTemplate, TEMPLATE_CHOICES } from '../../lib/templates'
 import { defaultDossier, emptyMapPlate } from '../../defaults'
 import { useDossier } from '../../store'
 import type { Classification, PageId } from '../../types'
 import { Field, ImageField, SelectField } from '../ImageField'
 import { SheetOrder } from '../SheetOrder'
 import { Group, usePatch } from './common'
-
-/** Modelos prontos desligados até o conserto (2026-10-21). Volta com true. */
-const TEMPLATES_ON = false
 
 /** Vai para a primeira folha de um tipo, depois que ela entrou no pacote. */
 function goToFirst(kind: PageId) {
@@ -22,7 +18,6 @@ function goToFirst(kind: PageId) {
 export function SetupPanel() {
   const { dossier, patch } = usePatch()
   const setDossier = useDossier((s) => s.setDossier)
-  const setActive = useDossier((s) => s.setActive)
   const setWizard = useDossier((s) => s.setWizard)
   const pageIds = Object.keys(PAGE_LABELS) as PageId[]
   const pagesOn = pageIds.filter((id) => dossier.document.pages[id])
@@ -30,29 +25,6 @@ export function SetupPanel() {
 
   return (
     <>
-      {TEMPLATES_ON ? (
-      <Group
-        title="Modelo pronto" sub="Desativado"
-        hint="O modelo preenche a missão e liga as folhas daquele tipo. Depois o editor segue folha por folha. O logo do clã fica."
-      >
-        <div className="chips">
-          {TEMPLATE_CHOICES.map((choice) => (
-            <button
-              key={choice.id}
-              type="button"
-              className="chip"
-              onClick={() => {
-                patch((d) => applyTemplate(d, choice.id))
-                setActive('cover')
-              }}
-            >
-              {dossier.document.language === 'en' ? choice.en : choice.pt}
-            </button>
-          ))}
-        </div>
-      </Group>
-      ) : null}
-
       <Group
         title="Identidade do clã"
         sub="Nome, sigla e logo"

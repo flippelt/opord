@@ -1,10 +1,13 @@
 import { docTypeOf, DOC_TYPE_GROUPS, PAGE_LABELS, TYPE_DEFAULT_PAGES, TYPE_PAGE } from '../../lib/classification'
 import { STACK_ORDER } from '../../lib/stack'
+import { TEMPLATE_CHOICES, templatePages } from '../../lib/templates'
 import { newDossier } from '../../defaults'
 import { useDossier } from '../../store'
 import type { PageId } from '../../types'
 
-/** Novo dossiê em dois passos: o tipo, depois as folhas. Só grava ao criar. */
+const ORDER_TYPES = ['opord', 'frago', 'warnord', 'conops']
+
+/** Novo dossiê em dois passos: o tipo, depois as folhas (e, nas ordens, um modelo de missão). Só grava ao criar. */
 export function NewDossierWizard() {
   const wizard = useDossier((s) => s.wizard)
   const setWizard = useDossier((s) => s.setWizard)
@@ -59,7 +62,7 @@ export function NewDossierWizard() {
                     key={type}
                     type="button"
                     className={type === wizard.type ? 'type-card on' : 'type-card'}
-                    onClick={() => setWizard({ step: 'pages', type, pages: TYPE_DEFAULT_PAGES[type] })}
+                    onClick={() => setWizard({ step: 'pages', type, pages: TYPE_DEFAULT_PAGES[type], template: undefined })}
                   >
                     <strong>{t.short}</strong>
                     <span>{t.label}</span>
@@ -71,6 +74,34 @@ export function NewDossierWizard() {
         ))
       ) : (
         <>
+          {ORDER_TYPES.includes(wizard.type) ? (
+            <section className="wizard-group">
+              <h3>Modelo de missão (opcional)</h3>
+              <p className="field-hint">
+                O modelo marca as folhas daquele tipo de missão e já escreve um roteiro na ordem: assunto, situação,
+                intenção, execução e os marcos da linha do tempo. Você troca o texto depois.
+              </p>
+              <div className="chips">
+                <button
+                  type="button"
+                  className={wizard.template ? 'chip' : 'chip on'}
+                  onClick={() => setWizard({ ...wizard, template: undefined, pages: TYPE_DEFAULT_PAGES[wizard.type] })}
+                >
+                  Nenhum
+                </button>
+                {TEMPLATE_CHOICES.map((choice) => (
+                  <button
+                    key={choice.id}
+                    type="button"
+                    className={wizard.template === choice.id ? 'chip on' : 'chip'}
+                    onClick={() => setWizard({ ...wizard, template: choice.id, pages: templatePages(choice.id) })}
+                  >
+                    {choice.pt}
+                  </button>
+                ))}
+              </div>
+            </section>
+          ) : null}
           <section className="wizard-group">
             <h3>Padrão do tipo</h3>
             {defaults.map(pageCheck)}
@@ -97,7 +128,7 @@ export function NewDossierWizard() {
             type="button"
             className="btn"
             onClick={() => {
-              setDossier(newDossier(wizard.type, wizard.pages))
+              setDossier(newDossier(wizard.type, wizard.pages, wizard.template))
               setWizard(null)
               setActive('setup')
             }}
