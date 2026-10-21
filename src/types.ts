@@ -73,6 +73,12 @@ export interface IntelStamp {
   text: string
 }
 
+export interface CodeWord {
+  id: string
+  word: string
+  meaning: string
+}
+
 export interface NetRow {
   id: string
   name: string
@@ -226,13 +232,19 @@ export interface Dossier {
     situationFriendly: string
     situationAttachments: string
     situationWeather: string
+    situationCivil: string
+    enemyCoa: string
     mission: string
+    commanderIntent: string
     executionConcept: string
     executionTasks: string
     executionCoord: string
     sustainment: string
     commandSignal: string
     roe: string
+    /** Fecha a ordem com "ACUSAR RECEBIMENTO". */
+    acknowledge: boolean
+    distribution: string
   }
   command: {
     commander: string
@@ -256,6 +268,11 @@ export interface Dossier {
     challenge: string
     password: string
     succession: string
+    commandPost: string
+    visualSignals: string
+    recognition: string
+    runningPassword: string
+    codeWords: CodeWord[]
   }
   intel: IntelPhoto[]
   notice: {

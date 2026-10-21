@@ -1,10 +1,12 @@
 import { aarEvent, aarObjective, aarObjectives, aarTimeline, OBJECTIVE_STATUS, objectiveName } from '../../lib/aar'
+import { annexList } from '../../lib/annexes'
 import { CASEVAC_LINES, PRECEDENCE } from '../../lib/classification'
 import type { Dossier, Precedence } from '../../types'
 import { Field, SelectField } from '../ImageField'
 import { Group, RoutingFields, SignatureGroup, usePatch } from './common'
 
-type BodyKey = keyof Dossier['body']
+/** Só os campos de texto do corpo (`acknowledge` é uma caixa). */
+type BodyKey = { [K in keyof Dossier['body']]: Dossier['body'][K] extends string ? K : never }[keyof Dossier['body']]
 
 function BodyField({ k, label, rows }: { k: BodyKey; label: string; rows?: number }) {
   const { dossier, patch } = usePatch()
@@ -142,19 +144,23 @@ export function OpordFrontPanel() {
         </div>
         <p className="field-hint">Cópia e nº de controle ficam na capa.</p>
       </Group>
-      <Group title="1. Situação" sub="Inimigo, amigos, tempo">
+      <Group title="1. Situação" sub="Inimigo, amigos, tempo, civis">
         <BodyField k="situationEnemy" label="a. Forças inimigas" />
+        <BodyField k="enemyCoa" label="Linha de ação provável do inimigo" rows={2} />
         <BodyField k="situationFriendly" label="b. Forças amigas" />
         <BodyField k="situationAttachments" label="c. Destacamentos" rows={3} />
         <BodyField k="situationWeather" label="d. Tempo e terreno" rows={3} />
+        <BodyField k="situationCivil" label="e. Considerações civis" rows={2} />
       </Group>
       <Group title="2. Missão" sub="Quem, o quê, quando" hint="Quem, o quê, quando, onde, para quê.">
         <BodyField k="mission" label="Missão" />
       </Group>
-      <Group title="3. Execução" sub="Conceito e tarefas">
-        <BodyField k="executionConcept" label="a. Conceito da operação" />
-        <BodyField k="executionTasks" label="b. Tarefas" />
-        <BodyField k="executionCoord" label="c. Coordenação" />
+      <Group title="3. Execução" sub="Intenção, conceito e tarefas">
+        <BodyField k="commanderIntent" label="a. Intenção do comandante" rows={3} />
+        <p className="field-hint">Para que serve a operação e como ela deve terminar. Vale quando o plano não der certo.</p>
+        <BodyField k="executionConcept" label="b. Conceito da operação" />
+        <BodyField k="executionTasks" label="c. Tarefas" />
+        <BodyField k="executionCoord" label="d. Coordenação" />
       </Group>
     </>
   )
@@ -162,13 +168,20 @@ export function OpordFrontPanel() {
 
 export function OpordBackPanel() {
   const { dossier, patch } = usePatch()
+  const annexes = annexList(dossier)
   return (
     <>
       <Group title="4. Logística" sub="Munição e apoio">
         <BodyField k="sustainment" label="Logística e administração" />
       </Group>
-      <Group title="5. Comando e comunicações" sub="Redes e senhas">
-        <BodyField k="commandSignal" label="Texto" />
+      <Group title="5. Comando e comunicações" sub="Comando, redes e senhas">
+        <Field
+          label="Posição do comandante / PC"
+          edit="comms.commandPost"
+          value={dossier.comms.commandPost}
+          onChange={(commandPost) => patch((d) => void (d.comms.commandPost = commandPost))}
+        />
+        <BodyField k="commandSignal" label="Texto" rows={3} />
         <div data-edit="comms.nets">
           {dossier.comms.nets.map((net, i) => (
             <div key={net.id} className="net-row">
@@ -205,14 +218,100 @@ export function OpordBackPanel() {
           />
         </div>
         <Field
+          label="Senha corrida"
+          edit="comms.auth"
+          hint="Para quem chega sem tempo de desafio, sob fogo."
+          value={dossier.comms.runningPassword}
+          onChange={(runningPassword) => patch((d) => void (d.comms.runningPassword = runningPassword))}
+        />
+        <Field
           label="Sucessão de comando"
           edit="comms.auth"
           value={dossier.comms.succession}
           onChange={(succession) => patch((d) => void (d.comms.succession = succession))}
         />
       </Group>
+      <Group title="Sinais" sub="Visuais, reconhecimento e palavras-código">
+        <Field
+          label="Sinais visuais e pirotecnia"
+          edit="comms.signals"
+          hint="Fumaça, flare, strobe: o que cada cor quer dizer."
+          value={dossier.comms.visualSignals}
+          multiline
+          rows={2}
+          onChange={(visualSignals) => patch((d) => void (d.comms.visualSignals = visualSignals))}
+        />
+        <Field
+          label="Sinais de reconhecimento"
+          edit="comms.signals"
+          value={dossier.comms.recognition}
+          multiline
+          rows={2}
+          onChange={(recognition) => patch((d) => void (d.comms.recognition = recognition))}
+        />
+        <p className="field-label">Palavras-código</p>
+        <div data-edit="comms.codeWords">
+          {dossier.comms.codeWords.map((cw, i) => (
+            <div key={cw.id} className="code-row">
+              <Field
+                label={i === 0 ? 'Palavra' : ''}
+                value={cw.word}
+                placeholder="JACKPOT"
+                onChange={(word) => patch((d) => void (d.comms.codeWords[i].word = word))}
+              />
+              <Field
+                label={i === 0 ? 'Significado' : ''}
+                value={cw.meaning}
+                placeholder="HVT capturado"
+                onChange={(meaning) => patch((d) => void (d.comms.codeWords[i].meaning = meaning))}
+              />
+              <button
+                type="button"
+                className="btn-ghost code-remove"
+                aria-label="Remover palavra"
+                onClick={() => patch((d) => void d.comms.codeWords.splice(i, 1))}
+              >
+                ×
+              </button>
+            </div>
+          ))}
+          <button
+            type="button"
+            className="btn-ghost"
+            onClick={() =>
+              patch((d) => void d.comms.codeWords.push({ id: `cw-${crypto.randomUUID()}`, word: '', meaning: '' }))
+            }
+          >
+            + Palavra-código
+          </button>
+        </div>
+      </Group>
       <Group title="Regras de engajamento" sub="ROE">
         <BodyField k="roe" label="ROE" rows={3} />
+      </Group>
+      <Group title="Fechamento" sub="Recebimento, anexos e distribuição">
+        <label className={dossier.body.acknowledge ? 'chip on' : 'chip'} data-edit="body.acknowledge">
+          <input
+            type="checkbox"
+            checked={dossier.body.acknowledge}
+            onChange={() => patch((d) => void (d.body.acknowledge = !d.body.acknowledge))}
+          />
+          Pedir "ACUSAR RECEBIMENTO"
+        </label>
+        <p className="field-label">Anexos</p>
+        {annexes.length ? (
+          <ul className="annex-list" data-edit="body.annexes">
+            {annexes.map((a) => (
+              <li key={a.letter}>
+                <strong>{a.letter}</strong> {a.label}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="field-hint">Sem anexos no pacote.</p>
+        )}
+        <p className="field-hint">A lista sai sozinha das folhas do pacote, na ordem de Geral.</p>
+        <BodyField k="distribution" label="Distribuição" rows={2} />
       </Group>
       <SignatureGroup />
     </>
