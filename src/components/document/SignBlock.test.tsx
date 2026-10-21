@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, it } from 'vitest'
 import { blankDossier, defaultDossier, migrateDossier } from '../../defaults'
 import { SignBlock } from './DocumentChrome'
+import { SheetKey } from './Sheet'
 
 const html = (d: ReturnType<typeof defaultDossier>) => renderToStaticMarkup(createElement(SignBlock, { dossier: d }))
 
@@ -40,5 +41,23 @@ describe('SignBlock', () => {
     expect(next?.command.mark).toBe('clan')
     expect(next?.command.signature).toBe('none')
     expect(next?.command.signatureFont).toBe('mrs-saint-delafield')
+  })
+
+  it('uses the sheet own signature when it has one', () => {
+    const d = defaultDossier()
+    d.signatures['sitrep'] = { ...d.command, commander: 'B. SOUZA', signatureText: 'B. Souza' }
+    const on = (key: string) =>
+      renderToStaticMarkup(createElement(SheetKey.Provider, { value: key }, createElement(SignBlock, { dossier: d })))
+    expect(on('sitrep')).toContain('>B. Souza<')
+    expect(on('opord-2')).toContain('>A. Mendes<')
+  })
+
+  it('keeps own signatures from a saved dossier', () => {
+    const raw = structuredClone(defaultDossier())
+    raw.signatures = { aar: { ...raw.command, commander: 'C. LIMA' } }
+    const next = migrateDossier(raw)
+    expect(next?.signatures.aar.commander).toBe('C. LIMA')
+    expect(next?.signatures.aar.signatureFont).toBe('mrs-saint-delafield')
+    expect(migrateDossier({ ...raw, signatures: undefined })?.signatures).toEqual({})
   })
 })

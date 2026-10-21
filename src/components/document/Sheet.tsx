@@ -8,6 +8,8 @@ export const SheetHoles = createContext(true)
 export const ActiveSheet = createContext<string | null>(null)
 /** Prefixo dos ids de SVG, para a pré-visualização não reusar o filtro de uma folha escondida. */
 export const SheetScope = createContext('')
+/** Chave da folha (a mesma do `data-page`), para a assinatura própria de cada folha. */
+export const SheetKey = createContext('')
 
 type Props = {
   page: PageId | 'blank'
@@ -26,6 +28,7 @@ export function Sheet({ page, exportId = page, paper, ink, holes, children }: Pr
   const showHoles = holes ?? holesFromDoc
   const off = active !== null && active !== exportId
   return (
+    <SheetKey.Provider value={exportId}>
     <article
       className={`sheet sheet-${page}${orient === 'landscape' ? ' is-landscape' : ''}${showHoles ? '' : ' no-binding'}${off ? ' is-off' : ''}`}
       data-page={exportId}
@@ -41,5 +44,6 @@ export function Sheet({ page, exportId = page, paper, ink, holes, children }: Pr
       ) : null}
       {children}
     </article>
+    </SheetKey.Provider>
   )
 }

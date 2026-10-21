@@ -211,6 +211,7 @@ export function blankDossier(): Dossier {
     sitrep: blankSitrep(),
     aar: blankAar(),
     casevac: blankCasevac(),
+    signatures: {},
     hvts: emptyHvtSlots(),
     orbat: emptyOrbatLines(),
     maps: [],
@@ -847,6 +848,10 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.mission = { ...blankDossier().mission, ...incoming.mission }
   d.body = { ...blankDossier().body, ...incoming.body }
   d.command = { ...blankDossier().command, ...incoming.command }
+  d.signatures = {}
+  for (const [key, value] of Object.entries(incoming.signatures ?? {})) {
+    if (value && typeof value === 'object') d.signatures[key] = { ...d.command, ...value }
+  }
   if (!['clan', 'insignia', 'avatar'].includes(d.command.mark)) d.command.mark = 'clan'
   if (!['none', 'font', 'image'].includes(d.command.signature)) d.command.signature = 'none'
   d.comms = { ...blankDossier().comms, ...incoming.comms }

@@ -26,7 +26,7 @@ export function NoticePanel() {
   const set = (key: keyof Dossier['notice']) => (value: string) => patch((d) => void (d.notice[key] = value))
   return (
     <>
-      <Group title="Cabeçalho">
+      <Group title="Cabeçalho" sub="Nº, origem e assunto">
         <Field label="Nº do comunicado" edit="notice.number" value={n.number} onChange={set('number')} placeholder="12/2026" />
         <RoutingFields destination={false} />
         <Field
@@ -38,7 +38,7 @@ export function NoticePanel() {
         />
         <Field label="Assunto" edit="notice.subject" value={n.subject} onChange={set('subject')} />
       </Group>
-      <Group title="Dados do emprego" hint="Campos de convocação (op night). Preenchidos, entram na folha.">
+      <Group title="Dados do emprego" sub="Apresentação e servidor" hint="Campos de convocação (op night). Preenchidos, entram na folha.">
         <Field label="Apresentação (DTG)" edit="notice.eventDtg" value={n.eventDtg} onChange={set('eventDtg')} />
         <Field label="Comparecimento" edit="notice.attendance" value={n.attendance} onChange={set('attendance')} />
         <div className="row2">
@@ -49,11 +49,11 @@ export function NoticePanel() {
         <Field label="Slotting" edit="notice.slotting" value={n.slotting} onChange={set('slotting')} />
         <Field label="Uniforme / loadout" edit="notice.uniform" value={n.uniform} onChange={set('uniform')} />
       </Group>
-      <Group title="Texto">
+      <Group title="Texto" sub="Texto e determinações">
         <Field label="Texto" edit="notice.body" value={n.body} onChange={set('body')} multiline rows={6} />
         <Field label="Determinações" edit="notice.orders" value={n.orders} onChange={set('orders')} multiline rows={3} />
       </Group>
-      <Group title="Vigência">
+      <Group title="Vigência" sub="Datas e distribuição">
         <div className="row2">
           <Field label="Vigência de" edit="notice.validity" value={n.validFrom} onChange={set('validFrom')} />
           <Field label="Até" edit="notice.validity" value={n.validUntil} onChange={set('validUntil')} />
@@ -71,7 +71,7 @@ export function OpordFrontPanel() {
   const m = dossier.mission
   return (
     <>
-      <Group title="Título" hint="O título junta o tipo, o número da ordem e o nome da operação (na capa).">
+      <Group title="Título" sub="Nº da ordem e assunto" hint="O título junta o tipo, o número da ordem e o nome da operação (na capa).">
         <Field
           label="Nº da ordem"
           edit="header.orderNumber"
@@ -87,7 +87,7 @@ export function OpordFrontPanel() {
           rows={2}
         />
       </Group>
-      <Group title="Identificação">
+      <Group title="Identificação" sub="Origem, hora-H e área">
         <RoutingFields />
         <Field
           label="Info (CC)"
@@ -142,16 +142,16 @@ export function OpordFrontPanel() {
         </div>
         <p className="field-hint">Cópia e nº de controle ficam na capa.</p>
       </Group>
-      <Group title="1. Situação">
+      <Group title="1. Situação" sub="Inimigo, amigos, tempo">
         <BodyField k="situationEnemy" label="a. Forças inimigas" />
         <BodyField k="situationFriendly" label="b. Forças amigas" />
         <BodyField k="situationAttachments" label="c. Destacamentos" rows={3} />
         <BodyField k="situationWeather" label="d. Tempo e terreno" rows={3} />
       </Group>
-      <Group title="2. Missão" hint="Quem, o quê, quando, onde, para quê.">
+      <Group title="2. Missão" sub="Quem, o quê, quando" hint="Quem, o quê, quando, onde, para quê.">
         <BodyField k="mission" label="Missão" />
       </Group>
-      <Group title="3. Execução">
+      <Group title="3. Execução" sub="Conceito e tarefas">
         <BodyField k="executionConcept" label="a. Conceito da operação" />
         <BodyField k="executionTasks" label="b. Tarefas" />
         <BodyField k="executionCoord" label="c. Coordenação" />
@@ -164,10 +164,10 @@ export function OpordBackPanel() {
   const { dossier, patch } = usePatch()
   return (
     <>
-      <Group title="4. Logística">
+      <Group title="4. Logística" sub="Munição e apoio">
         <BodyField k="sustainment" label="Logística e administração" />
       </Group>
-      <Group title="5. Comando e comunicações">
+      <Group title="5. Comando e comunicações" sub="Redes e senhas">
         <BodyField k="commandSignal" label="Texto" />
         <div data-edit="comms.nets">
           {dossier.comms.nets.map((net, i) => (
@@ -211,7 +211,7 @@ export function OpordBackPanel() {
           onChange={(succession) => patch((d) => void (d.comms.succession = succession))}
         />
       </Group>
-      <Group title="Regras de engajamento">
+      <Group title="Regras de engajamento" sub="ROE">
         <BodyField k="roe" label="ROE" rows={3} />
       </Group>
       <SignatureGroup />
@@ -225,11 +225,11 @@ export function SitrepPanel() {
   const set = (key: keyof Dossier['sitrep']) => (value: string) => patch((d) => void (d.sitrep[key] = value))
   return (
     <>
-      <Group title="Cabeçalho" hint="Origem e destino são os mesmos da OPORD. O DTG é o de emissão, na capa.">
+      <Group title="Cabeçalho" sub="Origem, destino e período" hint="Origem e destino são os mesmos da OPORD. O DTG é o de emissão, na capa.">
         <RoutingFields />
         <Field label="Período coberto" edit="sitrep.period" value={s.period} onChange={set('period')} />
       </Group>
-      <Group title="Relatório">
+      <Group title="Relatório" sub="Itens 1 a 5">
         <Field label="1. Inimigo" edit="sitrep.enemy" value={s.enemy} onChange={set('enemy')} multiline />
         <Field label="2. Forças amigas" edit="sitrep.friendly" value={s.friendly} onChange={set('friendly')} multiline rows={3} />
         <Field label="3. Situação própria (ACE)" edit="sitrep.own" value={s.own} onChange={set('own')} multiline rows={3} />
@@ -255,7 +255,7 @@ export function AarPanel() {
     (value: string) => patch((d) => void (d.aar[key] = value))
   return (
     <>
-      <Group title="Revisão">
+      <Group title="Revisão" sub="DTG, baixas e BDA">
         <div className="row2">
           <Field label="DTG da revisão" edit="aar.dtg" value={a.dtg} onChange={set('dtg')} />
           <Field label="Local" edit="aar.location" value={a.location} onChange={set('location')} />
@@ -263,10 +263,10 @@ export function AarPanel() {
         <Field label="Baixas / ACE" edit="aar.casualties" value={a.casualties} onChange={set('casualties')} />
         <Field label="BDA" edit="aar.bda" value={a.bda} onChange={set('bda')} />
       </Group>
-      <Group title="1. O que aconteceu">
+      <Group title="1. O que aconteceu" sub="Resumo">
         <Field label="Resumo" edit="aar.summary" value={a.summary} onChange={set('summary')} multiline />
       </Group>
-      <Group title="2 e 3. Manter e melhorar">
+      <Group title="2 e 3. Manter e melhorar" sub="O que funcionou e falhou">
         <Field
           label="Manter — o que funcionou"
           edit="aar.sustain"
@@ -284,7 +284,7 @@ export function AarPanel() {
           rows={3}
         />
       </Group>
-      <Group title="4. Lições identificadas">
+      <Group title="4. Lições identificadas" sub="Lições">
         <Field label="Lições" edit="aar.lessons" value={a.lessons} onChange={set('lessons')} multiline rows={3} />
       </Group>
       <p className="field-hint">
@@ -303,7 +303,7 @@ export function AarExecutionPanel() {
   return (
     <>
       {events.length ? (
-        <Group title="5. Planejado × real" hint="A hora real aceita DTG (230204ZSEP26) ou só a hora (0204).">
+        <Group title="5. Planejado × real" sub="Hora real de cada marco" hint="A hora real aceita DTG (230204ZSEP26) ou só a hora (0204).">
           {events.map((row) => {
             const result = aarEvent(dossier, row.id)
             const setEvent = (key: 'actual' | 'note') => (value: string) =>
@@ -324,7 +324,7 @@ export function AarExecutionPanel() {
         </Group>
       ) : null}
       {objectives.length ? (
-        <Group title={`${events.length ? '6' : '5'}. Objetivos`} hint="Os mapas de LZ, PZ e objetivo viram as linhas.">
+        <Group title={`${events.length ? '6' : '5'}. Objetivos`} sub="Situação de cada objetivo" hint="Os mapas de LZ, PZ e objetivo viram as linhas.">
           {objectives.map((plate) => {
             const result = aarObjective(dossier, plate.id)
             return (
@@ -362,7 +362,7 @@ export function CasevacPanel() {
   const { dossier, patch } = usePatch()
   return (
     <>
-      <Group title="9 linhas" hint="Transmitir na rede CASEVAC, linha por linha.">
+      <Group title="9 linhas" sub="Pedido de evacuação" hint="Transmitir na rede CASEVAC, linha por linha.">
         {CASEVAC_LINES.map((line) => (
           <Field
             key={line.key}
@@ -374,7 +374,7 @@ export function CasevacPanel() {
           />
         ))}
       </Group>
-      <Group title="Observações">
+      <Group title="Observações" sub="Notas do pedido">
         <Field
           label="Observações"
           edit="casevac.remarks"

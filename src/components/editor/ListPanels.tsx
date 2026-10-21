@@ -9,7 +9,7 @@ export function TimelinePanel() {
   const { dossier, patch } = usePatch()
   return (
     <>
-      <Group title="Hora-H" hint="Sai no subtítulo da folha. É a mesma da OPORD.">
+      <Group title="Hora-H" sub="Hora-H e fuso" hint="Sai no subtítulo da folha. É a mesma da OPORD.">
         <div className="row2">
           <Field
             label="Hora-H"
@@ -25,7 +25,7 @@ export function TimelinePanel() {
           />
         </div>
       </Group>
-      <Group title="Marcos" hint="O AAR compara cada marco com a hora em que ele aconteceu.">
+      <Group title="Marcos" sub="Marca, DTG e evento" hint="O AAR compara cada marco com a hora em que ele aconteceu.">
         {dossier.timeline.map((row, i) => (
           <div key={row.id} className="intel-edit" data-edit={`timeline.${row.id}`}>
             <div className="row2">
@@ -71,7 +71,7 @@ export function RosterPanel() {
   const { dossier, patch } = usePatch()
   return (
     <>
-      <Group title="Vagas" hint="Quem ocupa cada vaga.">
+      <Group title="Vagas" sub="Elemento, vaga e nome" hint="Quem ocupa cada vaga.">
         {dossier.roster.map((row, i) => (
           <div key={row.id} className="intel-edit" data-edit={`roster.${row.id}`}>
             <div className="row2">
@@ -124,7 +124,7 @@ export function OrbatPanel() {
   const { dossier, patch } = usePatch()
   return (
     <>
-      <Group title="Organização de tarefa">
+      <Group title="Organização de tarefa" sub="Escalões e tarefas">
         {dossier.orbat.map((row, i) => (
           <div key={row.id} className="intel-edit" data-edit={`orbat.${row.id}`}>
             <div className="row2">
@@ -180,7 +180,7 @@ export function OrbatPanel() {
           + Linha no ORBAT
         </button>
       </Group>
-      <Group title="Rodapé" hint="Sucessão, desafio e senha vêm da OPORD 2/2.">
+      <Group title="Rodapé" sub="Sucessão de comando" hint="Sucessão, desafio e senha vêm da OPORD 2/2.">
         <Field
           label="Sucessão de comando"
           edit="comms.auth"
@@ -206,7 +206,7 @@ export function HvtPanel({ card, index }: { card: HvtCard; index: number }) {
   const edit = (key: string) => `hvt.${card.id}.${key}`
   return (
     <>
-      <Group title={`Alvo HVT-${String(index + 1).padStart(2, '0')}`}>
+      <Group title={`Alvo HVT-${String(index + 1).padStart(2, '0')}`} sub="Retrato, nome e status">
         <ImageField label="Retrato" edit={edit('photo')} src={card.photoSrc} readFile={readIntelPhoto} onChange={set('photoSrc')} />
         <Field label="Status (CAPTURE / KILL / WANTED)" edit={edit('status')} value={card.status} onChange={set('status')} />
         <div className="row2">
@@ -220,7 +220,7 @@ export function HvtPanel({ card, index }: { card: HvtCard; index: number }) {
         </div>
         <Field label="Último avistamento" edit={edit('id')} value={card.lastSeen} onChange={set('lastSeen')} />
       </Group>
-      <Group title="Perfil">
+      <Group title="Perfil" sub="Descrição e orientação">
         <Field label="Descrição" edit={edit('description')} value={card.description} onChange={set('description')} multiline rows={3} />
         <Field label="Armamento" edit={edit('weapons')} value={card.weapons} onChange={set('weapons')} />
         <Field label="Associados" edit={edit('associates')} value={card.associates} onChange={set('associates')} />

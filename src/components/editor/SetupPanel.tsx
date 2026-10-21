@@ -32,7 +32,7 @@ export function SetupPanel() {
     <>
       {TEMPLATES_ON ? (
       <Group
-        title="Modelo pronto"
+        title="Modelo pronto" sub="Desativado"
         hint="O modelo preenche a missão e liga as folhas daquele tipo. Depois o editor segue folha por folha. O logo do clã fica."
       >
         <div className="chips">
@@ -55,7 +55,7 @@ export function SetupPanel() {
 
       <Group
         title="Identidade do clã"
-        sub="Nome, sigla, lema, logo e distintivo"
+        sub="Nome, sigla e logo"
         hint="Tudo aqui se repete nas folhas: nome e sigla no cabeçalho, logo na capa e na assinatura, distintivo no canto. Clicar nessas partes de qualquer folha abre o campo."
       >
         <Field
@@ -199,7 +199,7 @@ export function SetupPanel() {
 
       <Group
         title="Folhas do pacote"
-        sub="Quais folhas entram e em que ordem"
+        sub="Quais e em que ordem"
         hint="Cada folha ligada vira uma página no seletor, na ordem de baixo. A miniatura ao lado mostra o pacote."
       >
         <fieldset className="chips">

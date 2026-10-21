@@ -1,7 +1,9 @@
+import { useContext } from 'react'
 import type { Dossier } from '../../types'
 import { findInsignia, insigniaUrl } from '../../lib/insignia'
 import { signatureFont } from '../../lib/signature'
 import { ClanSeal, UnitPatch } from './ClanSeal'
+import { SheetKey } from './Sheet'
 
 export function unitTitle(name: string, shortName: string, fallback = 'QUARTEL-GENERAL') {
   const title = name.trim() || fallback
@@ -43,8 +45,7 @@ export function DocumentChrome({
 }
 
 /** O que vai ao lado da assinatura: insígnia, foto ou, no padrão, o logo do clã. */
-function SignMark({ dossier, size }: { dossier: Dossier; size: number }) {
-  const c = dossier.command
+function SignMark({ dossier, c, size }: { dossier: Dossier; c: Dossier['command']; size: number }) {
   const insignia = c.mark === 'insignia' ? findInsignia(c.insignia) : null
   if (insignia) {
     return (
@@ -80,8 +81,7 @@ function SignMark({ dossier, size }: { dossier: Dossier; size: number }) {
   )
 }
 
-function Signature({ dossier }: { dossier: Dossier }) {
-  const c = dossier.command
+function Signature({ c }: { c: Dossier['command'] }) {
   if (c.signature === 'image' && c.signatureSrc) {
     return <img className="op-sign-signature-img" data-edit="command.signature" src={c.signatureSrc} alt="Assinatura" />
   }
@@ -104,12 +104,13 @@ function Signature({ dossier }: { dossier: Dossier }) {
 
 /** Assinatura do pé das folhas: marca ao lado, assinatura sobre a linha, nome e função embaixo. */
 export function SignBlock({ dossier, size = 64 }: { dossier: Dossier; size?: number }) {
-  const c = dossier.command
+  const key = useContext(SheetKey)
+  const c = dossier.signatures?.[key] ?? dossier.command
   return (
     <footer className="op-sign">
-      <SignMark dossier={dossier} size={size} />
+      <SignMark dossier={dossier} c={c} size={size} />
       <div className="op-sign-block" data-edit="command">
-        <Signature dossier={dossier} />
+        <Signature c={c} />
         <p className="op-sign-name">
           {c.rank} {c.commander}
         </p>

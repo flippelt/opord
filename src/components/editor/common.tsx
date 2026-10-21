@@ -3,7 +3,7 @@ import { useDossier } from '../../store'
 import { readClanMark } from '../../lib/image'
 import { findInsignia, INSIGNIA_SETS, insigniaUrl } from '../../lib/insignia'
 import { SIGNATURE_FONTS } from '../../lib/signature'
-import type { SignatureMode, SignMark } from '../../types'
+import type { Dossier, SignatureMode, SignMark } from '../../types'
 import { Field, ImageField, SelectField } from '../ImageField'
 
 export function usePatch() {
@@ -40,44 +40,69 @@ export function Group({
 /** Assinatura no pé da folha. É a mesma em todas as folhas que a levam. */
 export function SignatureGroup() {
   const { dossier, patch } = usePatch()
-  const c = dossier.command
+  const key = useDossier((s) => s.active)
+  const own = Boolean(dossier.signatures[key])
+  const c = dossier.signatures[key] ?? dossier.command
+  /** Edita a assinatura desta folha se ela tiver a própria; senão, a comum. */
+  const update = (recipe: (t: Dossier['command']) => void) => patch((d) => recipe(d.signatures[key] ?? d.command))
   const [setId] = c.insignia.split('/')
   const set = INSIGNIA_SETS.find((s) => s.id === setId) ?? INSIGNIA_SETS[0]
   const chosen = findInsignia(c.insignia)
   return (
-    <Group title="Assinatura" sub="Quem assina, insígnia ou foto, e a assinatura" hint="A mesma em todas as folhas que a levam.">
+    <Group
+      title="Assinatura"
+      sub={own ? 'Própria desta folha' : 'Comum a todas as folhas'}
+    >
+      <label className={own ? 'chip' : 'chip on'} data-edit="command">
+        <input
+          type="checkbox"
+          checked={!own}
+          onChange={() =>
+            patch((d) => {
+              if (d.signatures[key]) delete d.signatures[key]
+              else d.signatures[key] = structuredClone(d.command)
+            })
+          }
+        />
+        Repetir a mesma assinatura em todas as folhas que assinam
+      </label>
+      <p className="field-hint">
+        {own
+          ? 'Esta folha tem assinatura própria. Marque para voltar a usar a comum.'
+          : 'Mudar aqui muda todas. Desmarque para esta folha ter assinatura própria, a partir de uma cópia da comum.'}
+      </p>
       <Field
         label="Comandante / signatário"
         edit="command"
         value={c.commander}
-        onChange={(commander) => patch((d) => void (d.command.commander = commander))}
+        onChange={(commander) => update((t) => void (t.commander = commander))}
       />
       <div className="row2">
         <Field
           label="Posto"
           edit="command"
           value={c.rank}
-          onChange={(rank) => patch((d) => void (d.command.rank = rank))}
+          onChange={(rank) => update((t) => void (t.rank = rank))}
         />
         <Field
           label="Indicativo"
           edit="command"
           value={c.callsign}
-          onChange={(callsign) => patch((d) => void (d.command.callsign = callsign))}
+          onChange={(callsign) => update((t) => void (t.callsign = callsign))}
         />
       </div>
       <Field
         label="Função"
         edit="command"
         value={c.billet}
-        onChange={(billet) => patch((d) => void (d.command.billet = billet))}
+        onChange={(billet) => update((t) => void (t.billet = billet))}
       />
 
       <SelectField
         label="Ao lado da assinatura"
         edit="command.mark"
         value={c.mark}
-        onChange={(mark: SignMark) => patch((d) => void (d.command.mark = mark))}
+        onChange={(mark: SignMark) => update((t) => void (t.mark = mark))}
         options={[
           { id: 'clan', label: 'Logo do clã' },
           { id: 'insignia', label: 'Insígnia da patente' },
@@ -90,7 +115,7 @@ export function SignatureGroup() {
             <SelectField
               label="Força"
               value={set.id}
-              onChange={(id) => patch((d) => void (d.command.insignia = `${id}/`))}
+              onChange={(id) => update((t) => void (t.insignia = `${id}/`))}
               options={INSIGNIA_SETS.map((s) => ({ id: s.id, label: s.label }))}
             />
             {(['enlisted', 'officer'] as const).map((group) => (
@@ -109,9 +134,9 @@ export function SignatureGroup() {
                           className={c.insignia === ref ? 'insignia-pick on' : 'insignia-pick'}
                           title={rank.label}
                           onClick={() =>
-                            patch((d) => {
-                              d.command.insignia = ref
-                              if (!d.command.rank.trim()) d.command.rank = rank.abbr
+                            update((t) => {
+                              t.insignia = ref
+                              if (!t.rank.trim()) t.rank = rank.abbr
                             })
                           }
                         >
@@ -145,7 +170,7 @@ export function SignatureGroup() {
           hint="Sai quadrada, ao lado da assinatura. Avatar do jogo ou foto do perfil."
           src={c.avatarSrc}
           readFile={readClanMark}
-          onChange={(avatarSrc) => patch((d) => void (d.command.avatarSrc = avatarSrc))}
+          onChange={(avatarSrc) => update((t) => void (t.avatarSrc = avatarSrc))}
         />
       ) : null}
 
@@ -153,7 +178,7 @@ export function SignatureGroup() {
         label="Assinatura"
         edit="command.signature"
         value={c.signature}
-        onChange={(signature: SignatureMode) => patch((d) => void (d.command.signature = signature))}
+        onChange={(signature: SignatureMode) => update((t) => void (t.signature = signature))}
         options={[
           { id: 'none', label: 'Sem assinatura (só a linha)' },
           { id: 'font', label: 'Nome em letra cursiva' },
@@ -167,7 +192,7 @@ export function SignatureGroup() {
             hint="Vazio usa o nome do signatário."
             value={c.signatureText}
             placeholder={c.commander || 'A. Mendes'}
-            onChange={(signatureText) => patch((d) => void (d.command.signatureText = signatureText))}
+            onChange={(signatureText) => update((t) => void (t.signatureText = signatureText))}
           />
           <div className="font-picks">
             {SIGNATURE_FONTS.map((font) => (
@@ -177,7 +202,7 @@ export function SignatureGroup() {
                 className={c.signatureFont === font.id ? 'font-pick on' : 'font-pick'}
                 title={font.label}
                 style={{ fontFamily: `${font.family}, cursive`, fontSize: `${Math.round(24 * font.scale)}px` }}
-                onClick={() => patch((d) => void (d.command.signatureFont = font.id))}
+                onClick={() => update((t) => void (t.signatureFont = font.id))}
               >
                 {c.signatureText.trim() || c.commander.trim() || 'A. Mendes'}
               </button>
@@ -192,7 +217,7 @@ export function SignatureGroup() {
           hint="PNG com fundo transparente fica melhor: assine num papel branco, fotografe e recorte."
           src={c.signatureSrc}
           readFile={readClanMark}
-          onChange={(signatureSrc) => patch((d) => void (d.command.signatureSrc = signatureSrc))}
+          onChange={(signatureSrc) => update((t) => void (t.signatureSrc = signatureSrc))}
         />
       ) : null}
     </Group>

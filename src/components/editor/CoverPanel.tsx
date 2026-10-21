@@ -29,7 +29,7 @@ export function CoverPanel() {
         />
       </Group>
 
-      <Group title="Controle e emissão" sub="Cópias, nº de controle, DTG e local" hint="O DTG e o local também saem no cabeçalho das outras folhas.">
+      <Group title="Controle e emissão" sub="Cópias, controle e DTG" hint="O DTG e o local também saem no cabeçalho das outras folhas.">
         <div className="row2">
           <Field
             label="Cópia nº"

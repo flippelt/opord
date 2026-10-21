@@ -36,7 +36,7 @@ function StampTerm({ title, onChange }: { title: string; onChange: (title: strin
 export function WatermarkGroup() {
   const { dossier, patch } = usePatch()
   return (
-      <Group title="Marca d’água" sub="Texto e figura no fundo de todas as folhas" hint="Vale para todas as folhas.">
+      <Group title="Marca d’água" sub="Fundo das folhas" hint="Vale para todas as folhas.">
         <SelectField
           label="Marca d’água"
           edit="marks.watermark"
@@ -143,7 +143,7 @@ export function StampsGroup() {
   return (
       <Group
         title="Carimbos"
-        sub="Ligar e editar cada carimbo"
+        sub="Quais carimbos e textos"
         hint="Marque um carimbo para ligá-lo e editar o texto. Desmarcado, ele some da folha. O seletor grava o termo em inglês no carimbo. CLASSIFIED, CONFIDENTIAL, SECRET, TOP SECRET, UNCLASSIFIED e RESTRICTED. Outro texto aceita qualquer palavra."
       >
         {dossier.marks.stamps.map((stamp, i) => (

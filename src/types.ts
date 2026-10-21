@@ -307,6 +307,8 @@ export interface Dossier {
     line9: string
     remarks: string
   }
+  /** Assinatura própria de uma folha, pela chave da folha. Sem entrada, a folha usa `command`. */
+  signatures: Record<string, Dossier['command']>
   hvts: HvtCard[]
   orbat: OrbatLine[]
   maps: MapPlate[]

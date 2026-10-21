@@ -81,7 +81,7 @@ export function MapPanel({ plate }: { plate: MapPlate }) {
   const edit = (key: string) => `map.${plate.id}.${key}`
   return (
     <>
-      <Group title="Lugar" hint="O tipo escolhe o que entra embaixo da imagem: azimute só no LZ, marcação e proa no PZ, direção de entrada no objetivo.">
+      <Group title="Lugar" sub="Nome, legenda e tipo" hint="O tipo escolhe o que entra embaixo da imagem: azimute só no LZ, marcação e proa no PZ, direção de entrada no objetivo.">
         <Field
           label="Nome do lugar"
           edit={edit('title')}
@@ -104,7 +104,7 @@ export function MapPanel({ plate }: { plate: MapPlate }) {
           options={MAP_KINDS}
         />
       </Group>
-      <Group title="Imagens" hint="Uma imagem, no retrato, ocupa até metade da folha. Com as duas, elas ficam lado a lado, no mesmo tamanho.">
+      <Group title="Imagens" sub="Zoom, drone e grade" hint="Uma imagem, no retrato, ocupa até metade da folha. Com as duas, elas ficam lado a lado, no mesmo tamanho.">
         <div className="row2">
           <SelectField
             label="Imagens"
@@ -189,7 +189,7 @@ export function MapPanel({ plate }: { plate: MapPlate }) {
           Na paisagem, a imagem ocupa o resto da folha, embaixo do cabeçalho. As notas saem; as faixas ficam. No retrato, use uma imagem só.
         </p>
       </Group>
-      <Group title="Notas do mapa">
+      <Group title="Notas do mapa" sub="Grid e referências">
         <Field
           label="Localização no grid"
           edit={edit('notes')}
@@ -287,7 +287,7 @@ export function IntelPanel({ photos, startIndex }: { photos: IntelPhoto[]; start
   const saved = photos.filter((p) => dossier.intel.some((x) => x.id === p.id))
   return (
     <>
-      <Group title="Carimbo das fotos" hint="Vale para todas as placas de intel.">
+      <Group title="Carimbo das fotos" sub="Texto sobre as placas" hint="Vale para todas as placas de intel.">
         <label className={dossier.intelStamp.enabled ? 'chip on stamp-chip' : 'chip stamp-chip'}>
           <input
             type="checkbox"
@@ -305,7 +305,7 @@ export function IntelPanel({ photos, startIndex }: { photos: IntelPhoto[]; start
           onChange={(text) => patch((d) => void (d.intelStamp.text = text))}
         />
       </Group>
-      <Group title="Placas desta folha" hint="Quatro placas por folha. A quinta abre outra folha.">
+      <Group title="Placas desta folha" sub="Imagem, legenda e fonte" hint="Quatro placas por folha. A quinta abre outra folha.">
         {saved.map((photo) => {
           const i = dossier.intel.findIndex((x) => x.id === photo.id)
           const n = i + 1
@@ -392,7 +392,7 @@ export function BlankPanel({ blank }: { blank: BlankPage }) {
   const edit = (key: string) => `blank.${blank.id}.${key}`
   return (
     <>
-      <Group title="Página em branco" hint="Só esta folha tem título livre. A ordem fica em Documento.">
+      <Group title="Página em branco" sub="Título, texto e pauta" hint="Só esta folha tem título livre. A ordem fica em Geral.">
         <Field label="Título" edit={edit('title')} value={blank.title} onChange={(title) => update((b) => void (b.title = title))} />
         <Field
           label="Linha menor"
