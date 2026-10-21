@@ -2,7 +2,7 @@ const MIN = 0.2
 const MAX = 1
 const step = (value: number) => Math.min(MAX, Math.max(MIN, Math.round(value * 100) / 100))
 
-/** Tamanho das miniaturas do Geral. Solto no canto inferior esquerdo ou preso no topo do palco. */
+/** Tamanho das miniaturas do Geral. Solto no canto inferior direito ou preso no topo do palco. */
 export function OverviewZoom({
   zoom,
   onZoom,

@@ -803,10 +803,10 @@ textarea {
   font-size: 12px;
 }
 
-/* Solto: no canto inferior esquerdo do papel, por cima das folhas. */
+/* Solto: no canto inferior direito do papel, por cima das folhas. */
 .overview-zoom.is-floating {
   position: absolute;
-  left: 18px;
+  right: 24px;
   bottom: 18px;
 }
 
