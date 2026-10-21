@@ -136,6 +136,20 @@ export interface RosterSlot {
 
 export type MapKind = 'area' | 'lz' | 'pz' | 'objective' | 'other'
 
+export type ObjectiveStatus = '' | 'done' | 'partial' | 'failed'
+
+/** Horário real de um marco da linha do tempo, pela id do marco. */
+export interface AarEventResult {
+  actual: string
+  note: string
+}
+
+/** Situação de um mapa de LZ, PZ ou objetivo, pela id do mapa. */
+export interface AarObjectiveResult {
+  status: ObjectiveStatus
+  note: string
+}
+
 export interface MapPlate {
   id: string
   title: string
@@ -265,6 +279,8 @@ export interface Dossier {
     improve: string
     casualties: string
     bda: string
+    events: Record<string, AarEventResult>
+    objectives: Record<string, AarObjectiveResult>
   }
   casevac: {
     line1: string

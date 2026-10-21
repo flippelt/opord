@@ -1,5 +1,6 @@
 import type { BlankPage, Dossier, MapPlate, StampConfig } from './types'
 import { nowDtg } from './lib/dtg'
+import { normalizeAarResults } from './lib/aar'
 import { inferMapKind, isMapKind } from './lib/mapPlate'
 import { defaultStack, insertBlankBeforeIntel, normalizeStack } from './lib/stack'
 
@@ -256,6 +257,8 @@ export function blankAar() {
     improve: '',
     casualties: '',
     bda: '',
+    events: {},
+    objectives: {},
   }
 }
 
@@ -619,6 +622,18 @@ export function defaultDossier(): Dossier {
     improve: 'Controle de munição por esquadra. Timeline de entrada. Plano B se o UAV cair.',
     casualties: '0 KIA · 1 WIA (estilhaço leve, evacuado no PZ) · ACE verde no consolidar',
     bda: 'Estação C2 destruída. 6 EN KIA. 1 HVT capturado. BTR não engajado (ficou na garagem).',
+    events: {
+      t1: { actual: '230131ZSEP26', note: 'Check-in com 1 min de atraso no aquecimento.' },
+      t2: { actual: '230150ZSEP26', note: '' },
+      t3: { actual: '230204ZSEP26', note: '1ª Esq montou a carga na porta.' },
+      t4: { actual: '230221ZSEP26', note: 'BDA ao WATCHTOWER.' },
+      t5: { actual: '230243ZSEP26', note: 'Sem contato no PZ.' },
+    },
+    objectives: {
+      'map-lz': { status: 'done', note: 'Infiltração sem contato.' },
+      'map-obj': { status: 'partial', note: 'C2 destruído e HVT vivo; busca do rack incompleta.' },
+      'map-pz': { status: 'done', note: '1 WIA embarcado no PZ.' },
+    },
   }
   d.casevac = {
     line1: '176129 (PZ RAVEN)',
@@ -799,7 +814,7 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.comms = { ...blankDossier().comms, ...incoming.comms }
   d.notice = { ...blankNotice(), ...incoming.notice }
   d.sitrep = { ...blankSitrep(), ...incoming.sitrep }
-  d.aar = { ...blankAar(), ...incoming.aar }
+  d.aar = { ...blankAar(), ...incoming.aar, ...normalizeAarResults(incoming.aar) }
   d.casevac = { ...blankCasevac(), ...incoming.casevac }
   d.hvts = Array.isArray(incoming.hvts) && incoming.hvts.length ? incoming.hvts : emptyHvtSlots()
   d.orbat = Array.isArray(incoming.orbat) && incoming.orbat.length ? incoming.orbat : emptyOrbatLines()

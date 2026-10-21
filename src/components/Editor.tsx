@@ -8,6 +8,7 @@ import {
   PRECEDENCE,
   TYPE_PAGE,
 } from '../lib/classification'
+import { aarEvent, aarObjective, aarObjectives, aarTimeline, OBJECTIVE_STATUS, objectiveName } from '../lib/aar'
 import { nowDtg } from '../lib/dtg'
 import { readClanMark, readIntelPhoto } from '../lib/image'
 import { CAPTION_PRESETS, MAP_KINDS } from '../lib/mapPlate'
@@ -647,6 +648,70 @@ export function Editor() {
           value={dossier.aar.bda}
           onChange={(bda) => patch((d) => void (d.aar.bda = bda))}
         />
+        <p className="field-label">Planejado × real</p>
+        {aarTimeline(dossier).length ? (
+          aarTimeline(dossier).map((row) => {
+            const result = aarEvent(dossier, row.id)
+            return (
+              <div key={row.id} className="intel-edit">
+                <p className="intel-edit-title">
+                  {row.mark || '—'} · {row.what || '—'}
+                </p>
+                <p className="field-hint">Planejado {row.dtg || '—'}</p>
+                <div className="row2">
+                  <Field
+                    label="Hora real"
+                    value={result.actual}
+                    placeholder={row.dtg || '0204'}
+                    onChange={(actual) =>
+                      patch((d) => void (d.aar.events[row.id] = { ...aarEvent(d, row.id), actual }))
+                    }
+                  />
+                  <Field
+                    label="Nota"
+                    value={result.note}
+                    onChange={(note) =>
+                      patch((d) => void (d.aar.events[row.id] = { ...aarEvent(d, row.id), note }))
+                    }
+                  />
+                </div>
+              </div>
+            )
+          })
+        ) : (
+          <p className="field-hint">Preencha os marcos da linha do tempo para comparar com o que aconteceu.</p>
+        )}
+        <p className="field-label">Objetivos</p>
+        {aarObjectives(dossier).length ? (
+          aarObjectives(dossier).map((plate) => {
+            const result = aarObjective(dossier, plate.id)
+            return (
+              <div key={plate.id} className="intel-edit">
+                <p className="intel-edit-title">{objectiveName(plate)}</p>
+                <p className="field-hint">Grid {plate.location || '—'}</p>
+                <div className="row2">
+                  <SelectField
+                    label="Situação"
+                    value={result.status}
+                    options={OBJECTIVE_STATUS}
+                    onChange={(status) =>
+                      patch((d) => void (d.aar.objectives[plate.id] = { ...aarObjective(d, plate.id), status }))
+                    }
+                  />
+                  <Field
+                    label="Observação"
+                    value={result.note}
+                    onChange={(note) =>
+                      patch((d) => void (d.aar.objectives[plate.id] = { ...aarObjective(d, plate.id), note }))
+                    }
+                  />
+                </div>
+              </div>
+            )
+          })
+        ) : (
+          <p className="field-hint">Os mapas de LZ, PZ e objetivo aparecem aqui para marcar a situação.</p>
+        )}
       </details>
       ) : null}
 
