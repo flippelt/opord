@@ -18,6 +18,7 @@ import '@fontsource/monsieur-la-doulaise/400.css'
 import '@fontsource/mrs-saint-delafield/400.css'
 import '@fontsource/zeyada/400.css'
 import { App } from './App'
+import './styles/signature-fonts.css'
 import './styles/index.css'
 
 createRoot(document.getElementById('root')!).render(

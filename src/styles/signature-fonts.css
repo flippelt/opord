@@ -1,0 +1,8 @@
+/* Fontes de assinatura de uso pessoal (ver src/assets/fonts/README.md). */
+@font-face { font-family: 'Attallia'; src: url('../assets/fonts/attallia.otf') format('opentype'); font-display: swap; }
+@font-face { font-family: 'Autograf'; src: url('../assets/fonts/autograf.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Bastliga One'; src: url('../assets/fonts/bastliga-one.otf') format('opentype'); font-display: swap; }
+@font-face { font-family: 'Honofly'; src: url('../assets/fonts/honofly.otf') format('opentype'); font-display: swap; }
+@font-face { font-family: 'Montreuil'; src: url('../assets/fonts/montreuil.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Patricia Wilcie'; src: url('../assets/fonts/patricia-wilcie.otf') format('opentype'); font-display: swap; }
+@font-face { font-family: 'The Scientist'; src: url('../assets/fonts/the-scientist.ttf') format('truetype'); font-display: swap; }
