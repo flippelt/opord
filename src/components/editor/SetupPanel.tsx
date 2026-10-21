@@ -322,11 +322,15 @@ export function SetupPanel() {
 
       <Group
         title="Carimbos"
-        hint="O seletor grava o termo em inglês no carimbo. CLASSIFIED, CONFIDENTIAL, SECRET, TOP SECRET, UNCLASSIFIED e RESTRICTED. Outro texto aceita qualquer palavra."
+        hint="Marque um carimbo para ligá-lo e editar o texto. Desmarcado, ele some da folha. O seletor grava o termo em inglês no carimbo. CLASSIFIED, CONFIDENTIAL, SECRET, TOP SECRET, UNCLASSIFIED e RESTRICTED. Outro texto aceita qualquer palavra."
       >
         {dossier.marks.stamps.map((stamp, i) => (
-          <div key={stamp.id} className="intel-edit" data-edit={`marks.stamp.${stamp.id}`}>
-            <label className={stamp.enabled ? 'chip on stamp-chip' : 'chip stamp-chip'}>
+          <div
+            key={stamp.id}
+            className={stamp.enabled ? 'stamp-edit is-on' : 'stamp-edit'}
+            data-edit={`marks.stamp.${stamp.id}`}
+          >
+            <label className="stamp-toggle">
               <input
                 type="checkbox"
                 checked={stamp.enabled}
@@ -337,30 +341,34 @@ export function SetupPanel() {
                   })
                 }
               />
-              {stamp.title || 'Carimbo'}
-              <small>{stamp.page === 'all' ? 'todas' : PAGE_LABELS[stamp.page]}</small>
+              <span className="stamp-toggle-name">{stamp.title || 'Carimbo'}</span>
+              <small>{stamp.page === 'all' ? 'todas as folhas' : PAGE_LABELS[stamp.page]}</small>
             </label>
-            <div className="row2">
-              <StampTerm
-                title={stamp.title}
-                onChange={(title) => patch((d) => void (d.marks.stamps[i].title = title))}
-              />
-              <Field
-                label="Texto do carimbo"
-                value={stamp.title}
-                onChange={(title) => patch((d) => void (d.marks.stamps[i].title = title))}
-              />
-            </div>
-            {stamp.id === 'copy' ? (
-              <p className="field-hint">A linha de baixo deste carimbo é o número da via.</p>
-            ) : (
-              <Field
-                label="Linha de baixo"
-                value={stamp.subtitle}
-                placeholder="CLASSIFIED"
-                onChange={(subtitle) => patch((d) => void (d.marks.stamps[i].subtitle = subtitle))}
-              />
-            )}
+            {stamp.enabled ? (
+              <div className="stamp-body">
+                <div className="row2">
+                  <StampTerm
+                    title={stamp.title}
+                    onChange={(title) => patch((d) => void (d.marks.stamps[i].title = title))}
+                  />
+                  <Field
+                    label="Texto do carimbo"
+                    value={stamp.title}
+                    onChange={(title) => patch((d) => void (d.marks.stamps[i].title = title))}
+                  />
+                </div>
+                {stamp.id === 'copy' ? (
+                  <p className="field-hint">A linha de baixo deste carimbo é o número da via.</p>
+                ) : (
+                  <Field
+                    label="Linha de baixo"
+                    value={stamp.subtitle}
+                    placeholder="CLASSIFIED"
+                    onChange={(subtitle) => patch((d) => void (d.marks.stamps[i].subtitle = subtitle))}
+                  />
+                )}
+              </div>
+            ) : null}
           </div>
         ))}
       </Group>

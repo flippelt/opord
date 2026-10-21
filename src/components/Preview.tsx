@@ -198,10 +198,11 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
           const target = (e.target as HTMLElement).closest<HTMLElement>('[data-edit]')
           const key = target?.dataset.edit?.split(' ')[0]
           if (!key) return
-          const field = document.querySelector<HTMLElement>(
-            `.desk [data-edit~="${CSS.escape(key)}"] :is(input, textarea, select, button)`,
-          )
-          field?.focus()
+          const holder = document.querySelector<HTMLElement>(`.desk [data-edit~="${CSS.escape(key)}"]`)
+          if (!holder) return
+          // O bloco começa fechado: abre os que guardam o campo antes de dar foco.
+          for (let el = holder.closest('details'); el; el = el.parentElement?.closest('details') ?? null) el.open = true
+          holder.querySelector<HTMLElement>('input, textarea, select, button')?.focus()
         }}
       >
         <style>{showAll ? '' : focusRule(focus)}</style>

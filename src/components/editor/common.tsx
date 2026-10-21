@@ -8,14 +8,14 @@ export function usePatch() {
   return { dossier, patch }
 }
 
-/** Um bloco do painel, com o nome do trecho da folha que ele edita. */
+/** Um bloco do painel, com o nome do trecho da folha que ele edita. Começa fechado. */
 export function Group({ title, hint, children }: { title: string; hint?: string; children: ReactNode }) {
   return (
-    <section className="panel-group">
-      <h3>{title}</h3>
+    <details className="panel-group">
+      <summary>{title}</summary>
       {hint ? <p className="field-hint">{hint}</p> : null}
       {children}
-    </section>
+    </details>
   )
 }
 
