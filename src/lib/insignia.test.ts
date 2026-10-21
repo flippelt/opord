@@ -28,6 +28,12 @@ describe('insignia catalog', () => {
     }
   })
 
+  it('gives Brazilian officers the matching US pin until they have their own', () => {
+    expect(findInsignia('br-army/OF-2')?.rank.file).toBe('us-army/pin/OF-2.svg')
+    expect(findInsignia('br-navy/OF-5')?.rank.file).toBe('us-army/pin/OF-5.svg')
+    expect(findInsignia('br-air/OF-D')?.rank.file).toBe('us-army/pin/OF-1-2lt.svg')
+  })
+
   it('finds a rank by set and id', () => {
     expect(findInsignia('br-army/OF-2')?.rank.label).toBe('Capitão')
     expect(findInsignia('br-army/')).toBeNull()

@@ -84,11 +84,11 @@
           "abbr": "Asp",
           "group": "officer",
           "order": 7,
-          "file": "br-army/OF-D.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-(D).svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-1-2lt.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg",
+          "author": "U.S. Military (design); SVG: Yaddah",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-1-2ten",
@@ -96,11 +96,11 @@
           "abbr": "2º Ten",
           "group": "officer",
           "order": 8,
-          "file": "br-army/OF-1-2ten.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-1a.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-1-2lt.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg",
+          "author": "U.S. Military (design); SVG: Yaddah",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-1-1ten",
@@ -108,11 +108,11 @@
           "abbr": "1º Ten",
           "group": "officer",
           "order": 9,
-          "file": "br-army/OF-1-1ten.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-1b.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-1-1lt.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O2_insignia.svg",
+          "author": "Yaddah",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-2",
@@ -120,11 +120,11 @@
           "abbr": "Cap",
           "group": "officer",
           "order": 10,
-          "file": "br-army/OF-2.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-2.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-2.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O3_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-3",
@@ -132,11 +132,11 @@
           "abbr": "Maj",
           "group": "officer",
           "order": 11,
-          "file": "br-army/OF-3.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-3.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-3.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O4_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-4",
@@ -144,11 +144,11 @@
           "abbr": "TC",
           "group": "officer",
           "order": 12,
-          "file": "br-army/OF-4.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-4.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-4.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O5_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-5",
@@ -156,11 +156,11 @@
           "abbr": "Cel",
           "group": "officer",
           "order": 13,
-          "file": "br-army/OF-5.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-5.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-5.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O6_insignia.svg",
+          "author": "U.S. Defense Logistics Agency",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-7",
@@ -168,11 +168,11 @@
           "abbr": "Gen Bda",
           "group": "officer",
           "order": 14,
-          "file": "br-army/OF-7.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-7.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-7.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O8_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-8",
@@ -180,11 +180,11 @@
           "abbr": "Gen Div",
           "group": "officer",
           "order": 15,
-          "file": "br-army/OF-8.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-8.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-8.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O9_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-9",
@@ -192,11 +192,11 @@
           "abbr": "Gen Ex",
           "group": "officer",
           "order": 16,
-          "file": "br-army/OF-9.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-9.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-9.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O10_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-10",
@@ -204,11 +204,11 @@
           "abbr": "Mar",
           "group": "officer",
           "order": 17,
-          "file": "br-army/OF-10.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-10.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-10.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O11_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         }
       ]
     },
@@ -296,11 +296,11 @@
           "abbr": "GM",
           "group": "officer",
           "order": 7,
-          "file": "br-navy/OF-D.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Generic-Navy-1.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-1-2lt.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg",
+          "author": "U.S. Military (design); SVG: Yaddah",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-1-2t",
@@ -308,11 +308,11 @@
           "abbr": "2T",
           "group": "officer",
           "order": 8,
-          "file": "br-navy/OF-1-2t.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Generic-Navy-2.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-1-2lt.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg",
+          "author": "U.S. Military (design); SVG: Yaddah",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-1-1t",
@@ -320,11 +320,11 @@
           "abbr": "1T",
           "group": "officer",
           "order": 9,
-          "file": "br-navy/OF-1-1t.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Generic-Navy-3.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-1-1lt.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O2_insignia.svg",
+          "author": "Yaddah",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-2",
@@ -332,11 +332,11 @@
           "abbr": "CT",
           "group": "officer",
           "order": 10,
-          "file": "br-navy/OF-2.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Generic-Navy-4.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-2.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O3_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-3",
@@ -344,11 +344,11 @@
           "abbr": "CC",
           "group": "officer",
           "order": 11,
-          "file": "br-navy/OF-3.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Generic-Navy-5.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-3.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O4_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-4",
@@ -356,11 +356,11 @@
           "abbr": "CF",
           "group": "officer",
           "order": 12,
-          "file": "br-navy/OF-4.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Generic-Navy-6.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-4.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O5_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-5",
@@ -368,11 +368,11 @@
           "abbr": "CMG",
           "group": "officer",
           "order": 13,
-          "file": "br-navy/OF-5.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Generic-Navy-8.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-5.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O6_insignia.svg",
+          "author": "U.S. Defense Logistics Agency",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-7",
@@ -380,11 +380,11 @@
           "abbr": "CA",
           "group": "officer",
           "order": 14,
-          "file": "br-navy/OF-7.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Generic-Navy-10.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-7.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O8_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-8",
@@ -392,11 +392,11 @@
           "abbr": "VA",
           "group": "officer",
           "order": 15,
-          "file": "br-navy/OF-8.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Generic-Navy-11.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-8.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O9_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-9",
@@ -404,11 +404,11 @@
           "abbr": "AE",
           "group": "officer",
           "order": 16,
-          "file": "br-navy/OF-9.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Generic-Navy-12.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-9.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O10_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-10",
@@ -416,11 +416,11 @@
           "abbr": "Alte",
           "group": "officer",
           "order": 17,
-          "file": "br-navy/OF-10.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Generic-Navy-13.svg",
-          "author": "Skjoldbro",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+          "file": "us-army/pin/OF-10.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O11_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         }
       ]
     },
@@ -508,11 +508,11 @@
           "abbr": "Asp",
           "group": "officer",
           "order": 7,
-          "file": "br-air/OF-D.png",
-          "source": "https://commons.wikimedia.org/wiki/File:Aspirante_Ar.png",
-          "author": "João vrs",
-          "license": "CC0",
-          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+          "file": "us-army/pin/OF-1-2lt.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg",
+          "author": "U.S. Military (design); SVG: Yaddah",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-1-2t",
@@ -520,11 +520,11 @@
           "abbr": "2T",
           "group": "officer",
           "order": 8,
-          "file": "br-air/OF-1-2t.png",
-          "source": "https://commons.wikimedia.org/wiki/File:Segundo_Tenente_Ar.png",
-          "author": "João vrs",
-          "license": "CC0",
-          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+          "file": "us-army/pin/OF-1-2lt.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg",
+          "author": "U.S. Military (design); SVG: Yaddah",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-1-1t",
@@ -532,11 +532,11 @@
           "abbr": "1T",
           "group": "officer",
           "order": 9,
-          "file": "br-air/OF-1-1t.png",
-          "source": "https://commons.wikimedia.org/wiki/File:Primeiro_Tenente_Ar.png",
-          "author": "João vrs",
-          "license": "CC0",
-          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+          "file": "us-army/pin/OF-1-1lt.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O2_insignia.svg",
+          "author": "Yaddah",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-2",
@@ -544,11 +544,11 @@
           "abbr": "Cap",
           "group": "officer",
           "order": 10,
-          "file": "br-air/OF-2.png",
-          "source": "https://commons.wikimedia.org/wiki/File:Capit%C3%A3o_Ar.png",
-          "author": "João vrs",
-          "license": "CC0",
-          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+          "file": "us-army/pin/OF-2.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O3_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-3",
@@ -556,11 +556,11 @@
           "abbr": "Maj",
           "group": "officer",
           "order": 11,
-          "file": "br-air/OF-3.png",
-          "source": "https://commons.wikimedia.org/wiki/File:Major_Ar.png",
-          "author": "João vrs",
-          "license": "CC0",
-          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+          "file": "us-army/pin/OF-3.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O4_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-4",
@@ -568,11 +568,11 @@
           "abbr": "TC",
           "group": "officer",
           "order": 12,
-          "file": "br-air/OF-4.png",
-          "source": "https://commons.wikimedia.org/wiki/File:Ten_Coronel_Ar.png",
-          "author": "João vrs",
-          "license": "CC0",
-          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+          "file": "us-army/pin/OF-4.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O5_insignia.svg",
+          "author": "Ipankonin",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-5",
@@ -580,11 +580,11 @@
           "abbr": "Cel",
           "group": "officer",
           "order": 13,
-          "file": "br-air/OF-5.png",
-          "source": "https://commons.wikimedia.org/wiki/File:Coronel_Ar.png",
-          "author": "João vrs",
-          "license": "CC0",
-          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+          "file": "us-army/pin/OF-5.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O6_insignia.svg",
+          "author": "U.S. Defense Logistics Agency",
+          "license": "Public domain",
+          "licenseUrl": ""
         },
         {
           "id": "OF-7",
@@ -592,9 +592,9 @@
           "abbr": "Brig",
           "group": "officer",
           "order": 14,
-          "file": "br-air/OF-7.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazilian_Air_Force_Brigadier_rank_insignia.svg",
-          "author": "Greenshed",
+          "file": "us-army/pin/OF-7.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O8_insignia.svg",
+          "author": "Ipankonin",
           "license": "Public domain",
           "licenseUrl": ""
         },
@@ -604,9 +604,9 @@
           "abbr": "Maj Brig",
           "group": "officer",
           "order": 15,
-          "file": "br-air/OF-8.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazilian_Air_Force_Major-Brigadier_rank_insignia.svg",
-          "author": "Greenshed",
+          "file": "us-army/pin/OF-8.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O9_insignia.svg",
+          "author": "Ipankonin",
           "license": "Public domain",
           "licenseUrl": ""
         },
@@ -616,9 +616,9 @@
           "abbr": "Ten Brig",
           "group": "officer",
           "order": 16,
-          "file": "br-air/OF-9.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazilian_Air_Force_Lieutenant-Brigadier_rank_insignia.svg",
-          "author": "Greenshed",
+          "file": "us-army/pin/OF-9.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O10_insignia.svg",
+          "author": "Ipankonin",
           "license": "Public domain",
           "licenseUrl": ""
         },
@@ -628,9 +628,9 @@
           "abbr": "Mar Ar",
           "group": "officer",
           "order": 17,
-          "file": "br-air/OF-10.svg",
-          "source": "https://commons.wikimedia.org/wiki/File:Brazilian_Air_Force_marshal_of_the_air_rank_insignia.svg",
-          "author": "Greenshed",
+          "file": "us-army/pin/OF-10.svg",
+          "source": "https://commons.wikimedia.org/wiki/File:US-O11_insignia.svg",
+          "author": "Ipankonin",
           "license": "Public domain",
           "licenseUrl": ""
         }

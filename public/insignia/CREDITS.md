@@ -5,9 +5,9 @@ As insígnias de patente vêm do [Wikimedia Commons](https://commons.wikimedia.o
 - **Domínio público** e **CC0**: uso livre.
 - **CC BY 4.0** e **CC BY-SA 4.0**: uso com crédito ao autor. Nos arquivos CC BY-SA, uma versão alterada sai com a mesma licença.
 
-Oficiais dos EUA usam o pin de gola (pasta `pin/`). Para os oficiais do Brasil, o Commons só tem as platinas de ombro.
+Os oficiais usam o pin de gola dos EUA (pasta `us-army/pin/`), em domínio público. Por enquanto, os oficiais do Brasil usam o pin americano equivalente pelo código OTAN, até termos imagens próprias. Aspirante e Guarda-Marinha usam a barra dourada.
 
-Mudança feita aqui: os PNG CC0 da Força Aérea Brasileira e da Marinha (Suboficial) foram reduzidos para 480 px de altura. Nenhum arquivo CC BY ou CC BY-SA foi alterado.
+Mudança feita aqui: os PNG CC0 de Suboficial (Marinha e Força Aérea Brasileira) foram reduzidos para 480 px de altura. Nenhum arquivo CC BY ou CC BY-SA foi alterado.
 
 O app mostra o autor e a licença da insígnia escolhida no bloco Assinatura.
 
@@ -21,17 +21,17 @@ O app mostra o autor e a licença da insígnia escolhida no bloco Assinatura.
 | 2º Sgt — Segundo-Sargento | `br-army/OR-7.svg` | Cleberson Carlos | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:G04-EB_Segundo_Sargento.svg) |
 | 1º Sgt — Primeiro-Sargento | `br-army/OR-8.svg` | Cleberson Carlos | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:G05-EB_Primeiro_Sargento.svg) |
 | ST — Subtenente | `br-army/OR-9.jpg` | Exército Brasileiro (Regulamento de Uniformes do Exército, 2016) | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Subtenente_EB.jpg) |
-| Asp — Aspirante a Oficial | `br-army/OF-D.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-(D).svg) |
-| 2º Ten — Segundo-Tenente | `br-army/OF-1-2ten.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-1a.svg) |
-| 1º Ten — Primeiro-Tenente | `br-army/OF-1-1ten.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-1b.svg) |
-| Cap — Capitão | `br-army/OF-2.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-2.svg) |
-| Maj — Major | `br-army/OF-3.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-3.svg) |
-| TC — Tenente-Coronel | `br-army/OF-4.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-4.svg) |
-| Cel — Coronel | `br-army/OF-5.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-5.svg) |
-| Gen Bda — General de Brigada | `br-army/OF-7.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-7.svg) |
-| Gen Div — General de Divisão | `br-army/OF-8.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-8.svg) |
-| Gen Ex — General de Exército | `br-army/OF-9.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-9.svg) |
-| Mar — Marechal | `br-army/OF-10.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Brazil-Army-OF-10.svg) |
+| Asp — Aspirante a Oficial | `us-army/pin/OF-1-2lt.svg` | U.S. Military (design); SVG: Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg) |
+| 2º Ten — Segundo-Tenente | `us-army/pin/OF-1-2lt.svg` | U.S. Military (design); SVG: Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg) |
+| 1º Ten — Primeiro-Tenente | `us-army/pin/OF-1-1lt.svg` | Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O2_insignia.svg) |
+| Cap — Capitão | `us-army/pin/OF-2.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O3_insignia.svg) |
+| Maj — Major | `us-army/pin/OF-3.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O4_insignia.svg) |
+| TC — Tenente-Coronel | `us-army/pin/OF-4.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O5_insignia.svg) |
+| Cel — Coronel | `us-army/pin/OF-5.svg` | U.S. Defense Logistics Agency | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O6_insignia.svg) |
+| Gen Bda — General de Brigada | `us-army/pin/OF-7.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O8_insignia.svg) |
+| Gen Div — General de Divisão | `us-army/pin/OF-8.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O9_insignia.svg) |
+| Gen Ex — General de Exército | `us-army/pin/OF-9.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O10_insignia.svg) |
+| Mar — Marechal | `us-army/pin/OF-10.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O11_insignia.svg) |
 
 ## Marinha do Brasil
 
@@ -43,17 +43,17 @@ O app mostra o autor e a licença da insígnia escolhida no bloco Assinatura.
 | 2SG — Segundo-Sargento | `br-navy/OR-7.svg` | Cleberson Carlos | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:G04-MB_Segundo_Sargento.svg) |
 | 1SG — Primeiro-Sargento | `br-navy/OR-8.svg` | Cleberson Carlos | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:G05-MB_Primeiro_Sargento.svg) |
 | SO — Suboficial | `br-navy/OR-9.png` | João vrs | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:SubOficial_Marinha_Br.png) |
-| GM — Guarda-Marinha | `br-navy/OF-D.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Generic-Navy-1.svg) |
-| 2T — Segundo-Tenente | `br-navy/OF-1-2t.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Generic-Navy-2.svg) |
-| 1T — Primeiro-Tenente | `br-navy/OF-1-1t.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Generic-Navy-3.svg) |
-| CT — Capitão-Tenente | `br-navy/OF-2.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Generic-Navy-4.svg) |
-| CC — Capitão de Corveta | `br-navy/OF-3.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Generic-Navy-5.svg) |
-| CF — Capitão de Fragata | `br-navy/OF-4.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Generic-Navy-6.svg) |
-| CMG — Capitão de Mar e Guerra | `br-navy/OF-5.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Generic-Navy-8.svg) |
-| CA — Contra-Almirante | `br-navy/OF-7.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Generic-Navy-10.svg) |
-| VA — Vice-Almirante | `br-navy/OF-8.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Generic-Navy-11.svg) |
-| AE — Almirante de Esquadra | `br-navy/OF-9.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Generic-Navy-12.svg) |
-| Alte — Almirante | `br-navy/OF-10.svg` | Skjoldbro | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Generic-Navy-13.svg) |
+| GM — Guarda-Marinha | `us-army/pin/OF-1-2lt.svg` | U.S. Military (design); SVG: Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg) |
+| 2T — Segundo-Tenente | `us-army/pin/OF-1-2lt.svg` | U.S. Military (design); SVG: Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg) |
+| 1T — Primeiro-Tenente | `us-army/pin/OF-1-1lt.svg` | Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O2_insignia.svg) |
+| CT — Capitão-Tenente | `us-army/pin/OF-2.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O3_insignia.svg) |
+| CC — Capitão de Corveta | `us-army/pin/OF-3.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O4_insignia.svg) |
+| CF — Capitão de Fragata | `us-army/pin/OF-4.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O5_insignia.svg) |
+| CMG — Capitão de Mar e Guerra | `us-army/pin/OF-5.svg` | U.S. Defense Logistics Agency | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O6_insignia.svg) |
+| CA — Contra-Almirante | `us-army/pin/OF-7.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O8_insignia.svg) |
+| VA — Vice-Almirante | `us-army/pin/OF-8.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O9_insignia.svg) |
+| AE — Almirante de Esquadra | `us-army/pin/OF-9.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O10_insignia.svg) |
+| Alte — Almirante | `us-army/pin/OF-10.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O11_insignia.svg) |
 
 ## Força Aérea Brasileira
 
@@ -65,17 +65,17 @@ O app mostra o autor e a licença da insígnia escolhida no bloco Assinatura.
 | 2S — Segundo-Sargento | `br-air/OR-7.svg` | Cleberson Carlos | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:G04-FAB_Segundo_Sargento.svg) |
 | 1S — Primeiro-Sargento | `br-air/OR-8.svg` | Cleberson Carlos | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:G05-FAB_Primeiro_Sargento.svg) |
 | SO — Suboficial | `br-air/OR-9.png` | João vrs | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Suboficial_Ar.png) |
-| Asp — Aspirante a Oficial | `br-air/OF-D.png` | João vrs | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Aspirante_Ar.png) |
-| 2T — Segundo-Tenente | `br-air/OF-1-2t.png` | João vrs | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Segundo_Tenente_Ar.png) |
-| 1T — Primeiro-Tenente | `br-air/OF-1-1t.png` | João vrs | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Primeiro_Tenente_Ar.png) |
-| Cap — Capitão | `br-air/OF-2.png` | João vrs | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Capit%C3%A3o_Ar.png) |
-| Maj — Major | `br-air/OF-3.png` | João vrs | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Major_Ar.png) |
-| TC — Tenente-Coronel | `br-air/OF-4.png` | João vrs | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Ten_Coronel_Ar.png) |
-| Cel — Coronel | `br-air/OF-5.png` | João vrs | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Coronel_Ar.png) |
-| Brig — Brigadeiro | `br-air/OF-7.svg` | Greenshed | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Brazilian_Air_Force_Brigadier_rank_insignia.svg) |
-| Maj Brig — Major-Brigadeiro | `br-air/OF-8.svg` | Greenshed | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Brazilian_Air_Force_Major-Brigadier_rank_insignia.svg) |
-| Ten Brig — Tenente-Brigadeiro | `br-air/OF-9.svg` | Greenshed | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Brazilian_Air_Force_Lieutenant-Brigadier_rank_insignia.svg) |
-| Mar Ar — Marechal do Ar | `br-air/OF-10.svg` | Greenshed | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Brazilian_Air_Force_marshal_of_the_air_rank_insignia.svg) |
+| Asp — Aspirante a Oficial | `us-army/pin/OF-1-2lt.svg` | U.S. Military (design); SVG: Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg) |
+| 2T — Segundo-Tenente | `us-army/pin/OF-1-2lt.svg` | U.S. Military (design); SVG: Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg) |
+| 1T — Primeiro-Tenente | `us-army/pin/OF-1-1lt.svg` | Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O2_insignia.svg) |
+| Cap — Capitão | `us-army/pin/OF-2.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O3_insignia.svg) |
+| Maj — Major | `us-army/pin/OF-3.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O4_insignia.svg) |
+| TC — Tenente-Coronel | `us-army/pin/OF-4.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O5_insignia.svg) |
+| Cel — Coronel | `us-army/pin/OF-5.svg` | U.S. Defense Logistics Agency | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O6_insignia.svg) |
+| Brig — Brigadeiro | `us-army/pin/OF-7.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O8_insignia.svg) |
+| Maj Brig — Major-Brigadeiro | `us-army/pin/OF-8.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O9_insignia.svg) |
+| Ten Brig — Tenente-Brigadeiro | `us-army/pin/OF-9.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O10_insignia.svg) |
+| Mar Ar — Marechal do Ar | `us-army/pin/OF-10.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O11_insignia.svg) |
 
 ## U.S. Army
 
