@@ -5,6 +5,8 @@ As insígnias de patente vêm do [Wikimedia Commons](https://commons.wikimedia.o
 - **Domínio público** e **CC0**: uso livre.
 - **CC BY 4.0** e **CC BY-SA 4.0**: uso com crédito ao autor. Nos arquivos CC BY-SA, uma versão alterada sai com a mesma licença.
 
+Oficiais dos EUA usam o pin de gola (pasta `pin/`). Para os oficiais do Brasil, o Commons só tem as platinas de ombro.
+
 Mudança feita aqui: os PNG CC0 da Força Aérea Brasileira e da Marinha (Suboficial) foram reduzidos para 480 px de altura. Nenhum arquivo CC BY ou CC BY-SA foi alterado.
 
 O app mostra o autor e a licença da insígnia escolhida no bloco Assinatura.
@@ -91,22 +93,22 @@ O app mostra o autor e a licença da insígnia escolhida no bloco Assinatura.
 | SGM — Sergeant Major | `us-army/OR-9-sgm.svg` | Braindrain0000 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OR-09c.svg) |
 | CSM — Command Sergeant Major | `us-army/OR-9-csm.svg` | Waryklingon | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OR-09b.svg) |
 | SMA — Sergeant Major of the Army | `us-army/OR-9-sma.svg` | Darz Mol | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OR-09a.svg) |
-| WO1 — Warrant Officer 1 | `us-army/WO-1.svg` | U.S. Army (design); SVG: Officer781 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-Army-WO1.svg) |
-| CW2 — Chief Warrant Officer 2 | `us-army/WO-2.svg` | U.S. Army (design); SVG: Officer781 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-Army-CW2.svg) |
-| CW3 — Chief Warrant Officer 3 | `us-army/WO-3.svg` | U.S. Army (design); SVG: Officer781 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-Army-CW3.svg) |
-| CW4 — Chief Warrant Officer 4 | `us-army/WO-4.svg` | U.S. Army (design); SVG: Officer781 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-Army-CW4.svg) |
-| CW5 — Chief Warrant Officer 5 | `us-army/WO-5.svg` | U.S. Army (design); SVG: Officer781 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-Army-CW5.svg) |
-| 2LT — Second Lieutenant | `us-army/OF-1-2lt.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OF-01b.svg) |
-| 1LT — First Lieutenant | `us-army/OF-1-1lt.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OF-01a.svg) |
-| CPT — Captain | `us-army/OF-2.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OF-02.svg) |
-| MAJ — Major | `us-army/OF-3.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OF-03.svg) |
-| LTC — Lieutenant Colonel | `us-army/OF-4.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OF-04.svg) |
-| COL — Colonel | `us-army/OF-5.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OF-05.svg) |
-| BG — Brigadier General | `us-army/OF-6.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OF-06.svg) |
-| MG — Major General | `us-army/OF-7.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OF-07.svg) |
-| LTG — Lieutenant General | `us-army/OF-8.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OF-08.svg) |
-| GEN — General | `us-army/OF-9.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OF-09.svg) |
-| GA — General of the Army | `us-army/OF-10.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Army-USA-OF-10.svg) |
+| WO1 — Warrant Officer 1 | `us-army/pin/WO-1.svg` | U.S. Army (design); SVG: Officer781 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-Army-WO1.svg) |
+| CW2 — Chief Warrant Officer 2 | `us-army/pin/WO-2.svg` | U.S. Army (design); SVG: Officer781 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-Army-CW2.svg) |
+| CW3 — Chief Warrant Officer 3 | `us-army/pin/WO-3.svg` | U.S. Army (design); SVG: Officer781 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-Army-CW3.svg) |
+| CW4 — Chief Warrant Officer 4 | `us-army/pin/WO-4.svg` | U.S. Army (design); SVG: Officer781 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-Army-CW4.svg) |
+| CW5 — Chief Warrant Officer 5 | `us-army/pin/WO-5.svg` | U.S. Army (design); SVG: Officer781 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-Army-CW5.svg) |
+| 2LT — Second Lieutenant | `us-army/pin/OF-1-2lt.svg` | U.S. Military (design); SVG: Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg) |
+| 1LT — First Lieutenant | `us-army/pin/OF-1-1lt.svg` | Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O2_insignia.svg) |
+| CPT — Captain | `us-army/pin/OF-2.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O3_insignia.svg) |
+| MAJ — Major | `us-army/pin/OF-3.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O4_insignia.svg) |
+| LTC — Lieutenant Colonel | `us-army/pin/OF-4.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O5_insignia.svg) |
+| COL — Colonel | `us-army/pin/OF-5.svg` | U.S. Defense Logistics Agency | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O6_insignia.svg) |
+| BG — Brigadier General | `us-army/pin/OF-6.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O7_insignia.svg) |
+| MG — Major General | `us-army/pin/OF-7.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O8_insignia.svg) |
+| LTG — Lieutenant General | `us-army/pin/OF-8.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O9_insignia.svg) |
+| GEN — General | `us-army/pin/OF-9.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O10_insignia.svg) |
+| GA — General of the Army | `us-army/pin/OF-10.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O11_insignia.svg) |
 
 ## U.S. Navy
 
@@ -121,17 +123,17 @@ O app mostra o autor e a licença da insígnia escolhida no bloco Assinatura.
 | SCPO — Senior Chief Petty Officer | `us-navy/OR-8.svg` | U.S. Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:SCPO_GC,_winter.svg) |
 | MCPO — Master Chief Petty Officer | `us-navy/OR-9.svg` | U.S. Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:MCPO_GC,_winter.svg) |
 | MCPON — Master Chief Petty Officer of the Navy | `us-navy/OR-9-mcpon.svg` | Wil Bradley; SVG: Officer781 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:MCPON.svg) |
-| ENS — Ensign | `us-navy/OF-1-ens.svg` | US Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Navy_O1_shoulderboard.svg) |
-| LTJG — Lieutenant (Junior Grade) | `us-navy/OF-1-ltjg.svg` | US Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Navy_O2_shoulderboard.svg) |
-| LT — Lieutenant | `us-navy/OF-2.svg` | US Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Navy_O3_shoulderboard.svg) |
-| LCDR — Lieutenant Commander | `us-navy/OF-3.svg` | US Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Navy_O4_shoulderboard.svg) |
-| CDR — Commander | `us-navy/OF-4.svg` | US Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Navy_O5_shoulderboard.svg) |
-| CAPT — Captain | `us-navy/OF-5.svg` | US Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Navy_O6_shoulderboard.svg) |
-| RDML — Rear Admiral (Lower Half) | `us-navy/OF-6.svg` | US Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Navy_O7_shoulderboard.svg) |
-| RADM — Rear Admiral | `us-navy/OF-7.svg` | US Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Navy_O8_shoulderboard.svg) |
-| VADM — Vice Admiral | `us-navy/OF-8.svg` | US Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Navy_O9_shoulderboard.svg) |
-| ADM — Admiral | `us-navy/OF-9.svg` | US Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Navy_O10_shoulderboard.svg) |
-| FADM — Fleet Admiral | `us-navy/OF-10.svg` | US Navy | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Navy_O11_shoulderboard.svg) |
+| ENS — Ensign | `us-navy/pin/OF-1-ens.svg` | U.S. Military (design); SVG: Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg) |
+| LTJG — Lieutenant (Junior Grade) | `us-navy/pin/OF-1-ltjg.svg` | Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O2_insignia.svg) |
+| LT — Lieutenant | `us-navy/pin/OF-2.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O3_insignia.svg) |
+| LCDR — Lieutenant Commander | `us-navy/pin/OF-3.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O4_insignia.svg) |
+| CDR — Commander | `us-navy/pin/OF-4.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O5_insignia.svg) |
+| CAPT — Captain | `us-navy/pin/OF-5.svg` | U.S. Defense Logistics Agency | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O6_insignia.svg) |
+| RDML — Rear Admiral (Lower Half) | `us-navy/pin/OF-6.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O7_insignia.svg) |
+| RADM — Rear Admiral | `us-navy/pin/OF-7.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O8_insignia.svg) |
+| VADM — Vice Admiral | `us-navy/pin/OF-8.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O9_insignia.svg) |
+| ADM — Admiral | `us-navy/pin/OF-9.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O10_insignia.svg) |
+| FADM — Fleet Admiral | `us-navy/pin/OF-10.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O11_insignia.svg) |
 
 ## U.S. Air Force
 
@@ -147,14 +149,14 @@ O app mostra o autor e a licença da insígnia escolhida no bloco Assinatura.
 | CMSgt — Chief Master Sergeant | `us-air/OR-9.svg` | Thadius856 | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:E9a_USAF_CMSGT.svg) |
 | CCM — Command Chief Master Sergeant | `us-air/OR-9-ccm.svg` | U.S. Air Force (design); SVG: Wikimedia Commons users | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:E9c_USAF_CCMS.svg) |
 | CMSAF — Chief Master Sergeant of the Air Force | `us-air/OR-9-cmsaf.svg` | United States Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:E9d_USAF_CMSAF.svg) |
-| 2d Lt — Second Lieutenant | `us-air/OF-1-2lt.svg` | US Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Air_Force_O1_shoulderboard.svg) |
-| 1st Lt — First Lieutenant | `us-air/OF-1-1lt.svg` | US Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Air_Force_O2_shoulderboard.svg) |
-| Capt — Captain | `us-air/OF-2.svg` | US Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Air_Force_O3_shoulderboard.svg) |
-| Maj — Major | `us-air/OF-3.svg` | US Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Air_Force_O4_shoulderboard.svg) |
-| Lt Col — Lieutenant Colonel | `us-air/OF-4.svg` | US Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Air_Force_O5_shoulderboard.svg) |
-| Col — Colonel | `us-air/OF-5.svg` | US Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Air_Force_O6_shoulderboard.svg) |
-| Brig Gen — Brigadier General | `us-air/OF-6.svg` | US Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Air_Force_O7_shoulderboard.svg) |
-| Maj Gen — Major General | `us-air/OF-7.svg` | US Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Air_Force_O8_shoulderboard.svg) |
-| Lt Gen — Lieutenant General | `us-air/OF-8.svg` | US Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Air_Force_O9_shoulderboard.svg) |
-| Gen — General | `us-air/OF-9.svg` | US Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Air_Force_O10_shoulderboard.svg) |
-| GAF — General of the Air Force | `us-air/OF-10.svg` | US Air Force | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US_Air_Force_O11_shoulderboard.svg) |
+| 2d Lt — Second Lieutenant | `us-air/pin/OF-1-2lt.svg` | U.S. Military (design); SVG: Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O1_insignia.svg) |
+| 1st Lt — First Lieutenant | `us-air/pin/OF-1-1lt.svg` | Yaddah | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O2_insignia.svg) |
+| Capt — Captain | `us-air/pin/OF-2.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O3_insignia.svg) |
+| Maj — Major | `us-air/pin/OF-3.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O4_insignia.svg) |
+| Lt Col — Lieutenant Colonel | `us-air/pin/OF-4.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O5_insignia.svg) |
+| Col — Colonel | `us-air/pin/OF-5.svg` | U.S. Defense Logistics Agency | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O6_insignia.svg) |
+| Brig Gen — Brigadier General | `us-air/pin/OF-6.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O7_insignia.svg) |
+| Maj Gen — Major General | `us-air/pin/OF-7.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O8_insignia.svg) |
+| Lt Gen — Lieutenant General | `us-air/pin/OF-8.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O9_insignia.svg) |
+| Gen — General | `us-air/pin/OF-9.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O10_insignia.svg) |
+| GAF — General of the Air Force | `us-air/pin/OF-10.svg` | Ipankonin | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:US-O11_insignia.svg) |
