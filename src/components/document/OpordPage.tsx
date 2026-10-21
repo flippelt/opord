@@ -3,7 +3,7 @@ import { paper } from '../../lib/i18n'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal, UnitPatch } from './ClanSeal'
-import { unitTitle } from './DocumentChrome'
+import { unitTitle, SignBlock } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
 
@@ -148,23 +148,7 @@ export function OpordBack({ dossier }: { dossier: Dossier }) {
           <h2>{t.roe}</h2>
           <p data-edit="body.roe">{dossier.body.roe || '—'}</p>
         </section>
-        <footer className="op-sign">
-          <div className="op-sign-seal">
-            <ClanSeal
-              src={dossier.clan.sealSrc}
-              name={dossier.clan.name}
-              shortName={dossier.clan.shortName}
-              size={72}
-            />
-          </div>
-          <div className="op-sign-block" data-edit="command">
-            <p className="op-sign-name">
-              {dossier.command.rank} {dossier.command.commander}
-            </p>
-            <p>{dossier.command.billet}</p>
-            <p>Indicativo: {dossier.command.callsign || '—'}</p>
-          </div>
-        </footer>
+        <SignBlock dossier={dossier} size={72} />
         <p className="op-foot-class">{classificationLine(dossier)}</p>
       </div>
       <ClassificationBanner dossier={dossier} position="bottom" />

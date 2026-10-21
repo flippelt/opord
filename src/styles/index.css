@@ -138,6 +138,62 @@ textarea {
   color: var(--sand-dim);
 }
 
+.insignia-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.insignia-pick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 4px;
+  background: #e9e2cf;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  color: #1a1714;
+  font-family: var(--mono);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.insignia-pick img {
+  height: 40px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.insignia-pick.on {
+  border-color: var(--brass);
+  box-shadow: 0 0 0 1px var(--brass);
+}
+
+.font-picks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.font-pick {
+  min-height: 52px;
+  padding: 4px 8px;
+  background: #efe6d0;
+  color: #1d2f6b;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.font-pick.on {
+  border-color: var(--brass);
+}
+
 .stamp-edit {
   border: 1px solid var(--line);
   margin: 8px 0;

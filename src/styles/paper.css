@@ -423,6 +423,50 @@
   font-size: 13px !important;
 }
 
+/* A assinatura fica em cima da linha, como tinta de caneta. */
+.op-sign-block {
+  position: relative;
+}
+
+.op-sign-signature {
+  position: absolute;
+  left: 6px;
+  bottom: calc(100% - 0.35em);
+  margin: 0 !important;
+  line-height: 1;
+  color: #1d2f6b;
+  white-space: nowrap;
+  transform: rotate(-3deg);
+  transform-origin: left bottom;
+  pointer-events: auto;
+}
+
+.op-sign-signature-img {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% - 6px);
+  max-height: 46px;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.op-sign:has(.op-sign-signature, .op-sign-signature-img) {
+  margin-top: 34px;
+}
+
+.sign-insignia {
+  width: auto;
+  max-width: 96px;
+  object-fit: contain;
+}
+
+.sign-avatar {
+  object-fit: cover;
+  border: 2px solid #1a1714;
+  border-radius: 2px;
+  filter: grayscale(0.35) contrast(1.05);
+}
+
 .op-foot-class {
   margin: 8px 0 0;
   text-align: center;

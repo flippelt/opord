@@ -187,6 +187,13 @@ export function blankDossier(): Dossier {
       rank: '',
       billet: '',
       callsign: '',
+      mark: 'clan',
+      insignia: '',
+      avatarSrc: '',
+      signature: 'none',
+      signatureFont: 'mrs-saint-delafield',
+      signatureText: '',
+      signatureSrc: '',
     },
     comms: {
       nets: [
@@ -429,10 +436,14 @@ export function defaultDossier(): Dossier {
     roe: 'Armas em HOLD até contato ou PID positivo de ameaça. Proibido fogo em civis e detidos. HVT vivo se viável. Granadas só no interior do bloco C2 após isolamento. Reportar BDA ao WATCHTOWER ao consolidar.',
   }
   d.command = {
+    ...d.command,
     commander: 'A. MENDES',
     rank: 'CAP',
     billet: 'S3 — OPERAÇÕES',
     callsign: 'WATCHTOWER',
+    signature: 'font',
+    signatureFont: 'mrs-saint-delafield',
+    signatureText: 'A. Mendes',
   }
   d.comms = {
     nets: [
@@ -834,6 +845,8 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.mission = { ...blankDossier().mission, ...incoming.mission }
   d.body = { ...blankDossier().body, ...incoming.body }
   d.command = { ...blankDossier().command, ...incoming.command }
+  if (!['clan', 'insignia', 'avatar'].includes(d.command.mark)) d.command.mark = 'clan'
+  if (!['none', 'font', 'image'].includes(d.command.signature)) d.command.signature = 'none'
   d.comms = { ...blankDossier().comms, ...incoming.comms }
   d.notice = { ...blankNotice(), ...incoming.notice }
   d.sitrep = { ...blankSitrep(), ...incoming.sitrep }

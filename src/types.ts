@@ -136,6 +136,10 @@ export interface RosterSlot {
 
 export type MapKind = 'area' | 'lz' | 'pz' | 'objective' | 'other'
 
+export type SignMark = 'clan' | 'insignia' | 'avatar'
+
+export type SignatureMode = 'none' | 'font' | 'image'
+
 export type ObjectiveStatus = '' | 'done' | 'partial' | 'failed'
 
 /** Horário real de um marco da linha do tempo, pela id do marco. */
@@ -235,6 +239,17 @@ export interface Dossier {
     rank: string
     billet: string
     callsign: string
+    /** O que vai ao lado da assinatura: logo do clã, insígnia da patente ou foto. */
+    mark: SignMark
+    /** Insígnia escolhida, `<conjunto>/<posto>` (ver lib/insignia). */
+    insignia: string
+    avatarSrc: string
+    /** Assinatura: nenhuma, nome numa fonte cursiva ou imagem enviada. */
+    signature: SignatureMode
+    signatureFont: string
+    /** Texto da assinatura; vazio usa o nome do signatário. */
+    signatureText: string
+    signatureSrc: string
   }
   comms: {
     nets: NetRow[]

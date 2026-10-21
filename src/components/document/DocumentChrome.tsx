@@ -1,4 +1,6 @@
 import type { Dossier } from '../../types'
+import { findInsignia, insigniaUrl } from '../../lib/insignia'
+import { signatureFont } from '../../lib/signature'
 import { ClanSeal, UnitPatch } from './ClanSeal'
 
 export function unitTitle(name: string, shortName: string, fallback = 'QUARTEL-GENERAL') {
@@ -40,21 +42,79 @@ export function DocumentChrome({
   )
 }
 
-export function SignBlock({ dossier }: { dossier: Dossier }) {
+/** O que vai ao lado da assinatura: insígnia, foto ou, no padrão, o logo do clã. */
+function SignMark({ dossier, size }: { dossier: Dossier; size: number }) {
+  const c = dossier.command
+  const insignia = c.mark === 'insignia' ? findInsignia(c.insignia) : null
+  if (insignia) {
+    return (
+      <img
+        className="sign-insignia"
+        data-edit="command.mark"
+        src={insigniaUrl(insignia.rank)}
+        alt={insignia.rank.label}
+        style={{ height: size }}
+      />
+    )
+  }
+  if (c.mark === 'avatar' && c.avatarSrc) {
+    return (
+      <img
+        className="sign-avatar"
+        data-edit="command.mark"
+        src={c.avatarSrc}
+        alt={c.commander || 'Signatário'}
+        width={size}
+        height={size}
+      />
+    )
+  }
+  return (
+    <ClanSeal
+      src={dossier.clan.sealSrc}
+      name={dossier.clan.name}
+      shortName={dossier.clan.shortName}
+      size={size}
+      edit="command.mark clan.seal"
+    />
+  )
+}
+
+function Signature({ dossier }: { dossier: Dossier }) {
+  const c = dossier.command
+  if (c.signature === 'image' && c.signatureSrc) {
+    return <img className="op-sign-signature-img" data-edit="command.signature" src={c.signatureSrc} alt="Assinatura" />
+  }
+  if (c.signature === 'font') {
+    const font = signatureFont(c.signatureFont)
+    const text = c.signatureText.trim() || c.commander.trim()
+    if (!text) return null
+    return (
+      <p
+        className="op-sign-signature"
+        data-edit="command.signature"
+        style={{ fontFamily: `${font.family}, cursive`, fontSize: `${Math.round(30 * font.scale)}px` }}
+      >
+        {text}
+      </p>
+    )
+  }
+  return null
+}
+
+/** Assinatura do pé das folhas: marca ao lado, assinatura sobre a linha, nome e função embaixo. */
+export function SignBlock({ dossier, size = 64 }: { dossier: Dossier; size?: number }) {
+  const c = dossier.command
   return (
     <footer className="op-sign">
-      <ClanSeal
-        src={dossier.clan.sealSrc}
-        name={dossier.clan.name}
-        shortName={dossier.clan.shortName}
-        size={64}
-      />
+      <SignMark dossier={dossier} size={size} />
       <div className="op-sign-block" data-edit="command">
+        <Signature dossier={dossier} />
         <p className="op-sign-name">
-          {dossier.command.rank} {dossier.command.commander}
+          {c.rank} {c.commander}
         </p>
-        <p>{dossier.command.billet}</p>
-        <p>Indicativo: {dossier.command.callsign || '—'}</p>
+        <p>{c.billet}</p>
+        <p>Indicativo: {c.callsign || '—'}</p>
       </div>
     </footer>
   )

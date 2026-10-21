@@ -3,7 +3,7 @@ import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { MetaLine, Para } from './Para'
 import { ClanSeal, UnitPatch } from './ClanSeal'
-import { unitTitle } from './DocumentChrome'
+import { unitTitle, SignBlock } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
 
@@ -47,21 +47,7 @@ export function SitrepPage({ dossier }: { dossier: Dossier }) {
         <Para label="4. Pendências / shortfalls" text={s.issues} edit="sitrep.issues" />
         <Para label="5. Intenção / próximos passos" text={s.intent} edit="sitrep.intent" />
 
-        <footer className="op-sign">
-          <ClanSeal
-            src={dossier.clan.sealSrc}
-            name={dossier.clan.name}
-            shortName={dossier.clan.shortName}
-            size={64}
-          />
-          <div className="op-sign-block" data-edit="command">
-            <p className="op-sign-name">
-              {dossier.command.rank} {dossier.command.commander}
-            </p>
-            <p>{dossier.command.billet}</p>
-            <p>Indicativo: {dossier.command.callsign || '—'}</p>
-          </div>
-        </footer>
+        <SignBlock dossier={dossier} />
         <p className="op-foot-class">{classificationLine(dossier)}</p>
       </div>
       <ClassificationBanner dossier={dossier} position="bottom" />
