@@ -104,4 +104,17 @@ describe('normalizeAarResults', () => {
     expect(next?.aar.events.t3.actual).toBe('230204ZSEP26')
     expect(next?.aar.objectives['map-obj'].status).toBe('partial')
   })
+
+  it('joins the old worked/failed fields into sustain and improve', () => {
+    const raw = structuredClone(defaultDossier()) as unknown as { aar: Record<string, unknown> }
+    raw.aar.wentWell = 'UAV a tempo.'
+    raw.aar.sustain = 'Isolamento sul.'
+    raw.aar.wentWrong = 'Atraso na entrada.'
+    raw.aar.improve = 'Atraso na entrada.'
+    const next = migrateDossier(raw)
+    expect(next?.aar.sustain).toBe('UAV a tempo.\nIsolamento sul.')
+    expect(next?.aar.improve).toBe('Atraso na entrada.')
+    expect(next && 'wentWell' in next.aar).toBe(false)
+    expect(next && 'wentWrong' in next.aar).toBe(false)
+  })
 })

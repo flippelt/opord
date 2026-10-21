@@ -539,12 +539,6 @@
   min-height: 40mm;
 }
 
-.aar-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
 .aar-table {
   margin: 4px 0 0;
 }
@@ -1202,26 +1196,41 @@
   }
 
   .desk,
+  .desk-resizer,
   .toolbar,
+  .page-tabs,
+  .stage-note,
+  .preview-modal,
   .export-veil {
     display: none !important;
+  }
+
+  .sheet.is-off {
+    display: flex !important;
   }
 
   .app {
     display: block;
   }
 
+  /* index.css vem depois deste arquivo: sem !important, o padding e o gap da tela venceriam. */
   .workspace,
   .stage {
-    background: none;
-    overflow: visible;
-    padding: 0;
+    display: block !important;
+    background: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  .stage-fit {
+    width: auto !important;
+    height: auto !important;
   }
 
   .stage-inner {
     transform: none !important;
-    gap: 0;
-    width: auto;
+    gap: 0 !important;
+    width: auto !important;
   }
 
   .sheet {

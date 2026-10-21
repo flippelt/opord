@@ -1,5 +1,4 @@
 import { classificationLine } from '../../lib/classification'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { DocumentChrome } from './DocumentChrome'
@@ -15,16 +14,12 @@ export function TimelinePage({ dossier }: { dossier: Dossier }) {
       <div className="notice-body">
         <DocumentChrome
           dossier={dossier}
-          title={sheetTitle(
-            dossier.titles,
-            'timeline',
-            `LINHA DO TEMPO — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'EMPREGO'}`,
-          )}
+          title={`LINHA DO TEMPO — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'EMPREGO'}`}
           subtitle={`Hora-H ${dossier.mission.hHour || '—'} · ${dossier.header.timeZone || 'ZULU'}`}
         />
         <ol className="timeline">
           {rows.map((row) => (
-            <li key={row.id}>
+            <li key={row.id} data-edit={`timeline.${row.id}`}>
               <span className="timeline-mark">{row.mark || '—'}</span>
               <div>
                 <strong>{row.what || '—'}</strong>

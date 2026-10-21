@@ -9,21 +9,12 @@ import {
   statusLabel,
 } from '../../lib/aar'
 import { classificationLine } from '../../lib/classification'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
+import { MetaLine, Para } from './Para'
 import { DocumentChrome, SignBlock } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
-
-function Para({ label, text }: { label: string; text: string }) {
-  return (
-    <section className="sitrep-para">
-      <h2>{label}</h2>
-      <p>{text || '—'}</p>
-    </section>
-  )
-}
 
 export function AarPage({ dossier }: { dossier: Dossier }) {
   const a = dossier.aar
@@ -34,39 +25,19 @@ export function AarPage({ dossier }: { dossier: Dossier }) {
       <div className="notice-body">
         <DocumentChrome
           dossier={dossier}
-          title={sheetTitle(
-            dossier.titles,
-            'aar',
-            `AAR — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'REVISÃO'}`,
-          )}
+          title={`AAR — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'REVISÃO'}`}
           subtitle="After Action Review · lições para o próximo emprego"
         />
         <div className="notice-meta">
-          <div className="notice-line">
-            <span>DTG da revisão</span>
-            <strong>{a.dtg || dossier.header.dtg || '—'}</strong>
-          </div>
-          <div className="notice-line">
-            <span>Local</span>
-            <strong>{a.location || dossier.header.place || '—'}</strong>
-          </div>
-          <div className="notice-line">
-            <span>Baixas / ACE</span>
-            <strong>{a.casualties || '—'}</strong>
-          </div>
-          <div className="notice-line">
-            <span>BDA</span>
-            <strong>{a.bda || '—'}</strong>
-          </div>
+          <MetaLine label="DTG da revisão" value={a.dtg || dossier.header.dtg} edit="aar.dtg" />
+          <MetaLine label="Local" value={a.location || dossier.header.place} edit="aar.location" />
+          <MetaLine label="Baixas / ACE" value={a.casualties} edit="aar.casualties" />
+          <MetaLine label="BDA" value={a.bda} edit="aar.bda" />
         </div>
-        <Para label="1. O que aconteceu" text={a.summary} />
-        <Para label="2. O que funcionou" text={a.wentWell} />
-        <Para label="3. O que falhou" text={a.wentWrong} />
-        <Para label="4. Lições identificadas" text={a.lessons} />
-        <div className="aar-split">
-          <Para label="Manter" text={a.sustain} />
-          <Para label="Melhorar" text={a.improve} />
-        </div>
+        <Para label="1. O que aconteceu" text={a.summary} edit="aar.summary" />
+        <Para label="2. Manter — o que funcionou" text={a.sustain} edit="aar.sustain" />
+        <Para label="3. Melhorar — o que falhou" text={a.improve} edit="aar.improve" />
+        <Para label="4. Lições identificadas" text={a.lessons} edit="aar.lessons" />
         <SignBlock dossier={dossier} />
         <p className="op-foot-class">{classificationLine(dossier)}</p>
       </div>
@@ -107,7 +78,7 @@ export function AarExecutionPage({ dossier }: { dossier: Dossier }) {
                   const result = aarEvent(dossier, row.id)
                   const delta = clockDelta(row.dtg, result.actual)
                   return (
-                    <tr key={row.id}>
+                    <tr key={row.id} data-edit={`aar.event.${row.id}`}>
                       <td>{row.mark || '—'}</td>
                       <td>{row.what || '—'}</td>
                       <td>{row.dtg || '—'}</td>
@@ -137,7 +108,7 @@ export function AarExecutionPage({ dossier }: { dossier: Dossier }) {
                 {objectives.map((plate) => {
                   const result = aarObjective(dossier, plate.id)
                   return (
-                    <tr key={plate.id}>
+                    <tr key={plate.id} data-edit={`aar.objective.${plate.id}`}>
                       <td>{objectiveName(plate)}</td>
                       <td>{plate.location || '—'}</td>
                       <td className={`aar-status aar-status-${result.status || 'none'}`}>

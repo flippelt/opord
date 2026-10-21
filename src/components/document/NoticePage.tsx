@@ -1,5 +1,4 @@
 import { classificationLine, docTypeOf, isNoticeType } from '../../lib/classification'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal, UnitPatch } from './ClanSeal'
@@ -7,10 +6,10 @@ import { unitTitle } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
 
-function Line({ k, v }: { k: string; v: string }) {
+function Line({ k, v, edit }: { k: string; v: string; edit?: string }) {
   if (!v) return null
   return (
-    <div className="notice-line">
+    <div className="notice-line" data-edit={edit}>
       <span>{k}</span>
       <strong>{v}</strong>
     </div>
@@ -43,53 +42,53 @@ export function NoticePage({ dossier }: { dossier: Dossier }) {
             size={72}
           />
           <div className="op-head-mid">
-            <p className="op-unit">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
-            <p className="op-place">
+            <p className="op-unit" data-edit="clan.name">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
+            <p className="op-place" data-edit="header.place header.dtg">
               {dossier.header.place || '—'} · {dossier.header.dtg || '—'}
             </p>
-            <h1>{sheetTitle(dossier.titles, 'notice', title)}</h1>
+            <h1 data-edit="notice.number">{title}</h1>
             <p className="op-subject">{kind.label}</p>
           </div>
           <UnitPatch src={dossier.clan.patchSrc} shortName={dossier.clan.shortName} size={64} />
         </header>
 
         <div className="notice-meta">
-          <Line k="De / FROM" v={dossier.header.origin} />
-          <Line k="Para / TO" v={n.audience || dossier.header.destination} />
-          <Line k="DTG" v={dossier.header.dtg} />
-          <Line k="Nº controle" v={dossier.document.controlNumber} />
-          <Line k="Assunto" v={n.subject} />
-          <Line k="Referência" v={dossier.mission.name ? `OP. ${dossier.mission.name}` : ''} />
+          <Line k="De / FROM" v={dossier.header.origin} edit="header.origin" />
+          <Line k="Para / TO" v={n.audience || dossier.header.destination} edit="notice.audience header.destination" />
+          <Line k="DTG" v={dossier.header.dtg} edit="header.dtg" />
+          <Line k="Nº controle" v={dossier.document.controlNumber} edit="document.control" />
+          <Line k="Assunto" v={n.subject} edit="notice.subject" />
+          <Line k="Referência" v={dossier.mission.name ? `OP. ${dossier.mission.name}` : ''} edit="mission.name" />
         </div>
 
         {isCallup ? (
           <section className="notice-event">
             <h2>Dados do emprego</h2>
             <div className="notice-event-grid">
-              <Line k="Apresentação / DTG" v={n.eventDtg} />
-              <Line k="Comparecimento" v={n.attendance} />
-              <Line k="Servidor" v={n.server} />
-              <Line k="Ponto de reunião" v={n.rally} />
-              <Line k="Mods / mapa" v={n.mods} />
-              <Line k="Slotting" v={n.slotting} />
-              <Line k="Uniforme / loadout" v={n.uniform} />
+              <Line k="Apresentação / DTG" v={n.eventDtg} edit="notice.eventDtg" />
+              <Line k="Comparecimento" v={n.attendance} edit="notice.attendance" />
+              <Line k="Servidor" v={n.server} edit="notice.server" />
+              <Line k="Ponto de reunião" v={n.rally} edit="notice.rally" />
+              <Line k="Mods / mapa" v={n.mods} edit="notice.mods" />
+              <Line k="Slotting" v={n.slotting} edit="notice.slotting" />
+              <Line k="Uniforme / loadout" v={n.uniform} edit="notice.uniform" />
             </div>
           </section>
         ) : null}
 
         <section className="notice-text">
           <h2>{dossier.document.type === 'boletim' ? 'Itens' : 'Texto'}</h2>
-          <p className="notice-pre">{n.body || '—'}</p>
+          <p className="notice-pre" data-edit="notice.body">{n.body || '—'}</p>
         </section>
 
         {n.orders ? (
           <section className="notice-orders">
             <h2>Determinações</h2>
-            <p className="notice-pre">{n.orders}</p>
+            <p className="notice-pre" data-edit="notice.orders">{n.orders}</p>
           </section>
         ) : null}
 
-        <div className="notice-validity">
+        <div className="notice-validity" data-edit="notice.validity">
           <Line k="Vigência de" v={n.validFrom} />
           <Line k="Até" v={n.validUntil} />
           <Line k="Distribuição" v={n.distribution} />
@@ -102,7 +101,7 @@ export function NoticePage({ dossier }: { dossier: Dossier }) {
             shortName={dossier.clan.shortName}
             size={64}
           />
-          <div className="op-sign-block">
+          <div className="op-sign-block" data-edit="command">
             <p className="op-sign-name">
               {dossier.command.rank} {dossier.command.commander}
             </p>

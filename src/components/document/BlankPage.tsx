@@ -15,9 +15,10 @@ export function BlankSheet({ dossier, blank }: { dossier: Dossier; blank: BlankP
           dossier={dossier}
           title={blank.title || 'ANEXO'}
           subtitle={blank.heading || undefined}
+          edit={`blank.${blank.id}.title`}
         />
-        {blank.body ? <p className="blank-text">{blank.body}</p> : null}
-        {blank.lined ? <div className="blank-lines" aria-hidden /> : <div className="blank-open" />}
+        {blank.body ? <p className="blank-text" data-edit={`blank.${blank.id}.body`}>{blank.body}</p> : null}
+        {blank.lined ? <div className="blank-lines" data-edit={`blank.${blank.id}.body`} aria-hidden /> : <div className="blank-open" />}
         <p className="op-foot-class">{classificationLine(dossier)}</p>
       </div>
       <ClassificationBanner dossier={dossier} position="bottom" />

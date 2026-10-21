@@ -272,8 +272,6 @@ export interface Dossier {
     dtg: string
     location: string
     summary: string
-    wentWell: string
-    wentWrong: string
     lessons: string
     sustain: string
     improve: string
@@ -299,7 +297,6 @@ export interface Dossier {
   maps: MapPlate[]
   timeline: TimelineEvent[]
   roster: RosterSlot[]
-  titles: Partial<Record<PageId, string>>
   intelStamp: IntelStamp
   blanks: BlankPage[]
   stack: StackItem[]

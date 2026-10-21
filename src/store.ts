@@ -18,6 +18,14 @@ interface Store {
   dossier: Dossier
   zoom: number
   exporting: string
+  /** Passo do editor: `setup` ou a chave de uma folha (ver lib/sheets). */
+  active: string
+  /** Campo com foco no menu; o palco realça o que tem o mesmo `data-edit`. */
+  focus: string
+  previewOpen: boolean
+  setActive: (key: string) => void
+  setFocus: (key: string) => void
+  setPreviewOpen: (open: boolean) => void
   hydrate: () => Promise<void>
   setDossier: (dossier: Dossier) => void
   patch: (recipe: (draft: Dossier) => void) => void
@@ -45,6 +53,18 @@ export const useDossier = create<Store>((set, get) => ({
   dossier: defaultDossier(),
   zoom: 0.78,
   exporting: '',
+  active: 'setup',
+  focus: '',
+  previewOpen: false,
+  setActive(active) {
+    set({ active, focus: '' })
+  },
+  setFocus(focus) {
+    set({ focus })
+  },
+  setPreviewOpen(previewOpen) {
+    set({ previewOpen })
+  },
   async hydrate() {
     try {
       const saved = await withTimeout(idbGet<Dossier>(KEY), 1200)

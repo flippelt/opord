@@ -3,12 +3,14 @@ import { useRef } from 'react'
 type Props = {
   label: string
   hint?: string
+  /** Liga o campo ao trecho da folha com o mesmo `data-edit`. */
+  edit?: string
   src: string
   onChange: (dataUrl: string) => void
   readFile: (file: File) => Promise<string>
 }
 
-export function ImageField({ label, hint, src, onChange, readFile }: Props) {
+export function ImageField({ label, hint, edit, src, onChange, readFile }: Props) {
   const input = useRef<HTMLInputElement>(null)
 
   async function onFile(file: File | undefined) {
@@ -18,7 +20,7 @@ export function ImageField({ label, hint, src, onChange, readFile }: Props) {
   }
 
   return (
-    <div className="field">
+    <div className="field" data-edit={edit}>
       <span className="field-label">{label}</span>
       <div
         className="drop"
@@ -54,6 +56,7 @@ export function ImageField({ label, hint, src, onChange, readFile }: Props) {
 type TextProps = {
   label: string
   hint?: string
+  edit?: string
   value: string
   onChange: (v: string) => void
   placeholder?: string
@@ -61,9 +64,9 @@ type TextProps = {
   rows?: number
 }
 
-export function Field({ label, hint, value, onChange, placeholder, multiline, rows = 4 }: TextProps) {
+export function Field({ label, hint, edit, value, onChange, placeholder, multiline, rows = 4 }: TextProps) {
   return (
-    <label className="field">
+    <label className="field" data-edit={edit}>
       <span className="field-label">{label}</span>
       {multiline ? (
         <textarea
@@ -82,17 +85,19 @@ export function Field({ label, hint, value, onChange, placeholder, multiline, ro
 
 export function SelectField<T extends string>({
   label,
+  edit,
   value,
   onChange,
   options,
 }: {
   label: string
+  edit?: string
   value: T
   onChange: (v: T) => void
   options: { id: T; label: string }[]
 }) {
   return (
-    <label className="field">
+    <label className="field" data-edit={edit}>
       <span className="field-label">{label}</span>
       <select value={value} onChange={(e) => onChange(e.target.value as T)}>
         {options.map((o) => (

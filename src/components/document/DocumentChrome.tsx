@@ -11,10 +11,13 @@ export function DocumentChrome({
   dossier,
   title,
   subtitle,
+  edit,
 }: {
   dossier: Dossier
   title: string
   subtitle?: string
+  /** Chave `data-edit` do título e do subtítulo. */
+  edit?: string
 }) {
   return (
     <header className="op-head">
@@ -25,12 +28,12 @@ export function DocumentChrome({
         size={72}
       />
       <div className="op-head-mid">
-        <p className="op-unit">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
-        <p className="op-place">
+        <p className="op-unit" data-edit="clan.name">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
+        <p className="op-place" data-edit="header.place header.dtg">
           {dossier.header.place || '—'} · {dossier.header.dtg || '—'}
         </p>
-        <h1>{title}</h1>
-        {subtitle ? <p className="op-subject">{subtitle}</p> : null}
+        <h1 data-edit={edit}>{title}</h1>
+        {subtitle ? <p className="op-subject" data-edit={edit}>{subtitle}</p> : null}
       </div>
       <UnitPatch src={dossier.clan.patchSrc} shortName={dossier.clan.shortName} size={64} />
     </header>
@@ -46,7 +49,7 @@ export function SignBlock({ dossier }: { dossier: Dossier }) {
         shortName={dossier.clan.shortName}
         size={64}
       />
-      <div className="op-sign-block">
+      <div className="op-sign-block" data-edit="command">
         <p className="op-sign-name">
           {dossier.command.rank} {dossier.command.commander}
         </p>

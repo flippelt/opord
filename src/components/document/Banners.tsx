@@ -6,6 +6,7 @@ export function ClassificationBanner({ dossier, position }: { dossier: Dossier; 
   return (
     <div
       className={`class-banner class-banner-${position}`}
+      data-edit="document.classification"
       style={{ background: s.banner, color: s.ink }}
     >
       <span className="class-banner-mark">■</span>

@@ -1,6 +1,5 @@
 import { classificationLine, docTypeOf, handlingText, isNoticeType, styleOf } from '../../lib/classification'
 import { paper } from '../../lib/i18n'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal } from './ClanSeal'
@@ -29,25 +28,27 @@ export function CoverPage({ dossier }: { dossier: Dossier }) {
       <Marks dossier={dossier} page="cover" />
       <div className="cover-body">
         <p className="cover-kicker">Documento controlado · cópia numerada</p>
-        <ClanSeal
-          src={dossier.clan.sealSrc}
-          name={dossier.clan.name}
-          shortName={dossier.clan.shortName}
-          size={148}
-        />
-        <p className="cover-unit">{unitTitle(dossier.clan.name, dossier.clan.shortName, 'UNIDADE')}</p>
-        {dossier.clan.motto ? <p className="cover-motto">« {dossier.clan.motto} »</p> : null}
+        <div className="cover-seal" data-edit="clan.seal">
+          <ClanSeal
+            src={dossier.clan.sealSrc}
+            name={dossier.clan.name}
+            shortName={dossier.clan.shortName}
+            size={148}
+          />
+        </div>
+        <p className="cover-unit" data-edit="clan.name">{unitTitle(dossier.clan.name, dossier.clan.shortName, 'UNIDADE')}</p>
+        {dossier.clan.motto ? <p className="cover-motto" data-edit="clan.motto">« {dossier.clan.motto} »</p> : null}
         <h1 className="cover-kind">{kind.label}</h1>
         <p className="cover-kind-nato">{kind.short}</p>
         <p className="cover-op-label">{kicker}</p>
-        <p className="cover-op">{sheetTitle(dossier.titles, 'cover', op)}</p>
-        {!notice && dossier.mission.nickname ? <p className="cover-nick">{dossier.mission.nickname}</p> : null}
+        <p className="cover-op" data-edit={notice ? 'notice.subject' : 'mission.name'}>{op}</p>
+        {!notice && dossier.mission.nickname ? <p className="cover-nick" data-edit="mission.nickname">{dossier.mission.nickname}</p> : null}
         {notice && dossier.notice.number ? (
-          <p className="cover-nick">Nº {dossier.notice.number}</p>
+          <p className="cover-nick" data-edit="notice.number">Nº {dossier.notice.number}</p>
         ) : null}
 
         <dl className="cover-meta">
-          <div>
+          <div data-edit="document.classification">
             <dt>{t.classification}</dt>
             <dd>{dossier.document.language === 'en' ? style.nato : style.label}</dd>
           </div>
@@ -55,21 +56,21 @@ export function CoverPage({ dossier }: { dossier: Dossier }) {
             <dt>{t.nato}</dt>
             <dd>{style.nato}</dd>
           </div>
-          <div>
+          <div data-edit="document.copy">
             <dt>{t.copy}</dt>
             <dd>
               {dossier.document.copyNumber} / {dossier.document.copyTotal}
             </dd>
           </div>
-          <div>
+          <div data-edit="document.control">
             <dt>{t.control}</dt>
             <dd>{dossier.document.controlNumber || '—'}</dd>
           </div>
-          <div>
+          <div data-edit="header.dtg">
             <dt>{t.issued}</dt>
             <dd>{dossier.header.dtg || '—'}</dd>
           </div>
-          <div>
+          <div data-edit="header.place">
             <dt>{t.place}</dt>
             <dd>{dossier.header.place || '—'}</dd>
           </div>

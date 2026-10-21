@@ -34,7 +34,7 @@ describe('migrateDossier', () => {
     expect(kept?.marks.watermarkTextOnTop).toBe(true)
   })
 
-  it('gives an old dossier a stack and keeps a renamed OPORD', () => {
+  it('gives an old dossier a stack and drops the old sheet titles', () => {
     const raw = structuredClone(defaultDossier())
     const legacy = { ...raw, titles: undefined, blanks: undefined, stack: undefined }
     const next = migrateDossier(legacy)
@@ -42,8 +42,9 @@ describe('migrateDossier', () => {
     expect(next?.stack.at(-1)?.kind === 'blank' || next?.stack.some((item) => item.kind === 'intel')).toBe(
       true,
     )
-    const renamed = migrateDossier({ ...raw, titles: { opord: 'FRAGO 04' }, stack: raw.stack, blanks: raw.blanks })
-    expect(renamed?.titles.opord).toBe('FRAGO 04')
+    const renamed = migrateDossier({ ...raw, titles: { cover: 'OUTRO NOME' }, stack: raw.stack, blanks: raw.blanks })
+    expect(renamed && 'titles' in renamed).toBe(false)
+    expect(renamed?.mission.name).toBe(raw.mission.name)
     const ids = renamed?.stack.map((item) => (item.kind === 'blank' ? item.id : item.kind)) ?? []
     expect(ids.indexOf('opord')).toBeLessThan(ids.indexOf('blank-croqui'))
     expect(ids.indexOf('blank-croqui')).toBeLessThan(ids.indexOf('intel'))

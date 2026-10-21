@@ -1,20 +1,11 @@
 import { classificationLine } from '../../lib/classification'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
+import { MetaLine, Para } from './Para'
 import { ClanSeal, UnitPatch } from './ClanSeal'
 import { unitTitle } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
-
-function Para({ label, text }: { label: string; text: string }) {
-  return (
-    <section className="sitrep-para">
-      <h2>{label}</h2>
-      <p>{text || '—'}</p>
-    </section>
-  )
-}
 
 export function SitrepPage({ dossier }: { dossier: Dossier }) {
   const s = dossier.sitrep
@@ -31,16 +22,12 @@ export function SitrepPage({ dossier }: { dossier: Dossier }) {
             size={72}
           />
           <div className="op-head-mid">
-            <p className="op-unit">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
-            <p className="op-place">
+            <p className="op-unit" data-edit="clan.name">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
+            <p className="op-place" data-edit="header.place header.dtg">
               {dossier.header.place || '—'} · {dossier.header.dtg || '—'}
             </p>
             <h1>
-              {sheetTitle(
-                dossier.titles,
-                'sitrep',
-                `SITREP ${dossier.header.orderNumber} — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'SITUAÇÃO'}`,
-              )}
+              {`SITREP ${dossier.header.orderNumber} — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'SITUAÇÃO'}`}
             </h1>
             <p className="op-subject">{dossier.command.callsign || 'WATCHTOWER'} para cadeia de comando</p>
           </div>
@@ -48,29 +35,17 @@ export function SitrepPage({ dossier }: { dossier: Dossier }) {
         </header>
 
         <div className="notice-meta">
-          <div className="notice-line">
-            <span>Origem</span>
-            <strong>{dossier.header.origin || '—'}</strong>
-          </div>
-          <div className="notice-line">
-            <span>Destino</span>
-            <strong>{dossier.header.destination || '—'}</strong>
-          </div>
-          <div className="notice-line">
-            <span>DTG do relatório</span>
-            <strong>{dossier.header.dtg || '—'}</strong>
-          </div>
-          <div className="notice-line">
-            <span>Período</span>
-            <strong>{s.period || '—'}</strong>
-          </div>
+          <MetaLine label="Origem" value={dossier.header.origin} edit="header.origin" />
+          <MetaLine label="Destino" value={dossier.header.destination} edit="header.destination" />
+          <MetaLine label="DTG do relatório" value={dossier.header.dtg} edit="header.dtg" />
+          <MetaLine label="Período" value={s.period} edit="sitrep.period" />
         </div>
 
-        <Para label="1. Inimigo" text={s.enemy} />
-        <Para label="2. Forças amigas" text={s.friendly} />
-        <Para label="3. Situação própria (ACE)" text={s.own} />
-        <Para label="4. Pendências / shortfalls" text={s.issues} />
-        <Para label="5. Intenção / próximos passos" text={s.intent} />
+        <Para label="1. Inimigo" text={s.enemy} edit="sitrep.enemy" />
+        <Para label="2. Forças amigas" text={s.friendly} edit="sitrep.friendly" />
+        <Para label="3. Situação própria (ACE)" text={s.own} edit="sitrep.own" />
+        <Para label="4. Pendências / shortfalls" text={s.issues} edit="sitrep.issues" />
+        <Para label="5. Intenção / próximos passos" text={s.intent} edit="sitrep.intent" />
 
         <footer className="op-sign">
           <ClanSeal
@@ -79,7 +54,7 @@ export function SitrepPage({ dossier }: { dossier: Dossier }) {
             shortName={dossier.clan.shortName}
             size={64}
           />
-          <div className="op-sign-block">
+          <div className="op-sign-block" data-edit="command">
             <p className="op-sign-name">
               {dossier.command.rank} {dossier.command.commander}
             </p>

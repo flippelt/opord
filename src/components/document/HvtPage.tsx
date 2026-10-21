@@ -1,5 +1,4 @@
 import { classificationLine } from '../../lib/classification'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier, HvtCard } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal } from './ClanSeal'
@@ -24,7 +23,7 @@ export function HvtPage({ dossier, card, index }: { dossier: Dossier; card: HvtC
             <p className="hvt-kicker">
               {unitTitle(dossier.clan.name, dossier.clan.shortName, 'UNIDADE')} · CARTÃO DE ALVO · HVT-{String(index + 1).padStart(2, '0')}
             </p>
-            <h1>{sheetTitle(dossier.titles, 'hvt', card.status || 'WANTED')}</h1>
+            <h1 data-edit={`hvt.${card.id}.status`}>{card.status || 'WANTED'}</h1>
             <p>
               {dossier.mission.name ? `OP. ${dossier.mission.name}` : '—'} · {dossier.header.dtg || '—'}
             </p>
@@ -32,7 +31,7 @@ export function HvtPage({ dossier, card, index }: { dossier: Dossier; card: HvtC
         </header>
 
         <div className="hvt-grid">
-          <figure className="hvt-photo">
+          <figure className="hvt-photo" data-edit={`hvt.${card.id}.photo`}>
             {card.photoSrc ? (
               <img src={card.photoSrc} alt={card.name || 'HVT'} />
             ) : (
@@ -44,9 +43,9 @@ export function HvtPage({ dossier, card, index }: { dossier: Dossier; card: HvtC
             <figcaption>FOTO INTEL · NÃO DIVULGAR FORA DO CANAL</figcaption>
           </figure>
           <div className="hvt-id">
-            <p className="hvt-name">{card.name || 'IDENTIDADE DESCONHECIDA'}</p>
-            <p className="hvt-alias">AKA {card.alias || '—'}</p>
-            <dl>
+            <p className="hvt-name" data-edit={`hvt.${card.id}.name`}>{card.name || 'IDENTIDADE DESCONHECIDA'}</p>
+            <p className="hvt-alias" data-edit={`hvt.${card.id}.name`}>AKA {card.alias || '—'}</p>
+            <dl data-edit={`hvt.${card.id}.id`}>
               <div>
                 <dt>Função</dt>
                 <dd>{card.role || '—'}</dd>
@@ -67,21 +66,21 @@ export function HvtPage({ dossier, card, index }: { dossier: Dossier; card: HvtC
           </div>
         </div>
 
-        <section className="hvt-block">
+        <section className="hvt-block" data-edit={`hvt.${card.id}.description`}>
           <h2>Descrição</h2>
           <p>{card.description || '—'}</p>
         </section>
         <div className="hvt-two">
-          <section className="hvt-block">
+          <section className="hvt-block" data-edit={`hvt.${card.id}.weapons`}>
             <h2>Armamento / meios</h2>
             <p>{card.weapons || '—'}</p>
           </section>
-          <section className="hvt-block">
+          <section className="hvt-block" data-edit={`hvt.${card.id}.associates`}>
             <h2>Associados</h2>
             <p>{card.associates || '—'}</p>
           </section>
         </div>
-        <section className="hvt-guidance">
+        <section className="hvt-guidance" data-edit={`hvt.${card.id}.guidance`}>
           <h2>Orientação</h2>
           <p>{card.guidance || '—'}</p>
         </section>

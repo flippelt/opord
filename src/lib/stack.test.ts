@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { insertBlankBeforeIntel, normalizeStack, sheetTitle } from './stack'
+import { insertBlankBeforeIntel, normalizeStack } from './stack'
 import type { BlankPage } from '../types'
 
 const croqui: BlankPage = {
@@ -9,17 +9,6 @@ const croqui: BlankPage = {
   body: '',
   lined: true,
 }
-
-describe('sheetTitle', () => {
-  it('keeps the default when the custom title is empty', () => {
-    expect(sheetTitle({ opord: '   ' }, 'opord', 'OPORD 23-09-04')).toBe('OPORD 23-09-04')
-    expect(sheetTitle({}, 'opord', 'OPORD 23-09-04')).toBe('OPORD 23-09-04')
-  })
-
-  it('uses a custom title', () => {
-    expect(sheetTitle({ opord: 'FRAGO 04' }, 'opord', 'OPORD 23-09-04')).toBe('FRAGO 04')
-  })
-})
 
 describe('normalizeStack', () => {
   it('builds the classic order and puts old blanks at the end', () => {

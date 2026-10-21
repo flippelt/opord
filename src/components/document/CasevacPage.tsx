@@ -1,5 +1,4 @@
 import { CASEVAC_LINES, classificationLine } from '../../lib/classification'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { DocumentChrome, SignBlock } from './DocumentChrome'
@@ -15,13 +14,13 @@ export function CasevacPage({ dossier }: { dossier: Dossier }) {
       <div className="notice-body">
         <DocumentChrome
           dossier={dossier}
-          title={sheetTitle(dossier.titles, 'casevac', 'PEDIDO CASEVAC — 9 LINHAS')}
+          title={'PEDIDO CASEVAC — 9 LINHAS'}
           subtitle={`${dossier.comms.nets.find((n) => n.name.toUpperCase().includes('CASEVAC'))?.callsign || 'DUSTOFF'} · MEDEVAC request`}
         />
         <p className="nine-kicker">Transmitir na rede CASEVAC. Ler o número da linha, depois o conteúdo.</p>
         <ol className="nine-line">
           {CASEVAC_LINES.map((line) => (
-            <li key={line.key}>
+            <li key={line.key} data-edit={`casevac.${line.key}`}>
               <span className="nine-n">{line.n}</span>
               <div>
                 <span className="nine-label">{line.label}</span>
@@ -32,7 +31,7 @@ export function CasevacPage({ dossier }: { dossier: Dossier }) {
           ))}
         </ol>
         {c.remarks ? (
-          <section className="sitrep-para">
+          <section className="sitrep-para" data-edit="casevac.remarks">
             <h2>Observações</h2>
             <p>{c.remarks}</p>
           </section>

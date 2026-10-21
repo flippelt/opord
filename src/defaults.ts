@@ -197,7 +197,6 @@ export function blankDossier(): Dossier {
     maps: [],
     timeline: emptyTimeline(),
     roster: emptyRoster(),
-    titles: {},
     intelStamp: { enabled: true, text: 'FOTO INTEL' },
     blanks: [],
     stack: defaultStack(),
@@ -250,8 +249,6 @@ export function blankAar() {
     dtg: '',
     location: '',
     summary: '',
-    wentWell: '',
-    wentWrong: '',
     lessons: '',
     sustain: '',
     improve: '',
@@ -612,14 +609,12 @@ export function defaultDossier(): Dossier {
     location: 'FOB KAMINO, ALTIS',
     summary:
       '2º Pel infiltrou LZ HAWK, isolou o complexo e entrou no TOT. C2 destruído com termite. HVT VIPER detido vivo pela 3ª Esq. Extração por PZ RAVEN sem contato no PZ.',
-    wentWell:
-      'Isolamento sul cortou o BTR. UAV identificou sentinela 040 a tempo. Tráfego de rádio mínimo após H-10. HVT vivo.',
-    wentWrong:
-      '1ª Esq atrasou 4 min na entrada do bloco C2. 5.56 da 1ª Esq no limite antes do consolidar. UAV pousou com 8% de bateria.',
     lessons:
       'Ressuprimento de 5.56 na LZ. UAV com bateria reserva no FAC. Ensaio de entrada no bloco com carga de explosivo já montada.',
-    sustain: 'Conceito de isolamento + UAV. PID e HOLD até contato. Extração marcada com IR strobe.',
-    improve: 'Controle de munição por esquadra. Timeline de entrada. Plano B se o UAV cair.',
+    sustain:
+      'Isolamento sul cortou o BTR. UAV identificou a sentinela 040 a tempo. Tráfego de rádio mínimo após H-10. PID e HOLD até contato. Extração marcada com IR strobe.',
+    improve:
+      '1ª Esq atrasou 4 min na entrada do bloco C2. 5.56 da 1ª Esq no limite antes do consolidar. UAV pousou com 8% de bateria; falta plano B se ele cair.',
     casualties: '0 KIA · 1 WIA (estilhaço leve, evacuado no PZ) · ACE verde no consolidar',
     bda: 'Estação C2 destruída. 6 EN KIA. 1 HVT capturado. BTR não engajado (ficou na garagem).',
     events: {
@@ -708,6 +703,22 @@ function sampleBlank(): BlankPage {
   }
 }
 
+/** "O que funcionou" virou parte de Manter, e "O que falhou" de Melhorar. */
+function mergeOldAarPairs(aar: Dossier['aar'], raw: unknown) {
+  const old = (raw && typeof raw === 'object' ? raw : {}) as { wentWell?: unknown; wentWrong?: unknown }
+  const join = (first: unknown, second: string) => {
+    const a = typeof first === 'string' ? first.trim() : ''
+    const b = second.trim()
+    if (!a || b.includes(a)) return second
+    if (!b || a.includes(b)) return a
+    return `${a}\n${b}`
+  }
+  aar.sustain = join(old.wentWell, aar.sustain)
+  aar.improve = join(old.wentWrong, aar.improve)
+  delete (aar as { wentWell?: unknown }).wentWell
+  delete (aar as { wentWrong?: unknown }).wentWrong
+}
+
 function notesFromKind(plate: Partial<MapPlate>, kind: MapPlate['kind']) {
   const azimuth = plate.azimuth || ''
   const heading = plate.heading || (kind === 'pz' ? azimuth : '')
@@ -746,11 +757,11 @@ function mapPlatesFrom(incoming: Partial<Dossier> & { map?: Partial<MapPlate> })
   }
   const legacy = incoming.map
   if (legacy && (legacy.src || legacy.caption || legacy.grid)) {
-    const kind = inferMapKind(incoming.titles?.map || '')
+    const kind = inferMapKind((incoming as { titles?: { map?: string } }).titles?.map || '')
     return [
       {
         id: 'map-1',
-        title: incoming.titles?.map || '',
+        title: (incoming as { titles?: { map?: string } }).titles?.map || '',
         caption: legacy.caption || '',
         kind,
         src: legacy.src || '',
@@ -815,12 +826,13 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.notice = { ...blankNotice(), ...incoming.notice }
   d.sitrep = { ...blankSitrep(), ...incoming.sitrep }
   d.aar = { ...blankAar(), ...incoming.aar, ...normalizeAarResults(incoming.aar) }
+  mergeOldAarPairs(d.aar, incoming.aar)
   d.casevac = { ...blankCasevac(), ...incoming.casevac }
   d.hvts = Array.isArray(incoming.hvts) && incoming.hvts.length ? incoming.hvts : emptyHvtSlots()
   d.orbat = Array.isArray(incoming.orbat) && incoming.orbat.length ? incoming.orbat : emptyOrbatLines()
   d.timeline = Array.isArray(incoming.timeline) && incoming.timeline.length ? incoming.timeline : emptyTimeline()
   d.roster = Array.isArray(incoming.roster) && incoming.roster.length ? incoming.roster : emptyRoster()
-  d.titles = { ...(incoming.titles ?? {}) }
+  delete (d as { titles?: unknown }).titles
   d.blanks = Array.isArray(incoming.blanks)
     ? incoming.blanks.filter((b) => b && typeof b.id === 'string' && b.id)
     : []
