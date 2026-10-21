@@ -11,7 +11,7 @@ import { PreviewModal } from './PreviewModal'
 import { SheetStack } from './SheetStack'
 
 /** Campos que só existem em Geral, mesmo aparecendo em todas as folhas. */
-const GERAL_KEYS = ['clan.seal', 'document.classification']
+const GERAL_KEYS = ['clan.name', 'clan.motto', 'clan.seal', 'clan.patch', 'document.classification']
 
 /** Abre os blocos do campo no menu e dá foco nele (ou abre o seletor de imagem). */
 function openField(key: string): boolean {

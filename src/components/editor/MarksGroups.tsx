@@ -71,7 +71,7 @@ export function WatermarkGroup() {
           ]}
         />
         {dossier.marks.watermarkFigure === 'logo' && !dossier.clan.sealSrc ? (
-          <p className="field-hint">Sobe o logo do clã na capa para ele aparecer aqui.</p>
+          <p className="field-hint">Suba o logo do clã em Geral para ele aparecer aqui.</p>
         ) : null}
         {dossier.marks.watermarkFigure === 'image' ? (
           <ImageField

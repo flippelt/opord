@@ -54,16 +54,46 @@ export function SetupPanel() {
       ) : null}
 
       <Group
-        title="Logo do clã"
-        sub="Capa, cabeçalho e assinatura"
-        hint="Sai na capa, no cabeçalho e na assinatura de todas as folhas. Clicar no logo de qualquer folha também abre o seletor."
+        title="Identidade do clã"
+        sub="Nome, sigla, lema, logo e distintivo"
+        hint="Tudo aqui se repete nas folhas: nome e sigla no cabeçalho, logo na capa e na assinatura, distintivo no canto. Clicar nessas partes de qualquer folha abre o campo."
       >
+        <Field
+          label="Nome da unidade / clã"
+          edit="clan.name"
+          value={dossier.clan.name}
+          onChange={(name) => patch((d) => void (d.clan.name = name))}
+          placeholder="Grupo de Operações…"
+        />
+        <Field
+          label="Sigla"
+          edit="clan.name"
+          hint="Entra ao lado do nome, no selo e no patch sem imagem, e no REL TO."
+          value={dossier.clan.shortName}
+          onChange={(shortName) => patch((d) => void (d.clan.shortName = shortName))}
+          placeholder="FALCÃO"
+        />
+        <Field
+          label="Lema"
+          edit="clan.motto"
+          value={dossier.clan.motto}
+          onChange={(motto) => patch((d) => void (d.clan.motto = motto))}
+        />
         <ImageField
           label="Logo do clã"
           edit="clan.seal"
+          hint="Capa, cabeçalho e assinatura."
           src={dossier.clan.sealSrc}
           readFile={readClanMark}
           onChange={(sealSrc) => patch((d) => void (d.clan.sealSrc = sealSrc))}
+        />
+        <ImageField
+          label="Distintivo / patch"
+          edit="clan.patch"
+          hint="Canto direito do cabeçalho das folhas."
+          src={dossier.clan.patchSrc}
+          readFile={readClanMark}
+          onChange={(patchSrc) => patch((d) => void (d.clan.patchSrc = patchSrc))}
         />
       </Group>
 
@@ -116,7 +146,6 @@ export function SetupPanel() {
               onChange={() =>
                 patch((d) => {
                   d.document.relToOn = !d.document.relToOn
-                  if (d.document.relToOn && !d.document.relTo.trim()) d.document.relTo = d.clan.shortName
                 })
               }
             />
@@ -127,7 +156,7 @@ export function SetupPanel() {
           <Field
             label="REL TO"
             edit="document.classification"
-            hint="Entra na faixa depois das outras restrições. O padrão é a sigla do clã."
+            hint="Vazio usa a sigla do clã e acompanha quando ela muda. Escreva só para liberar a outro grupo."
             value={dossier.document.relTo}
             placeholder={dossier.clan.shortName || 'FALCÃO'}
             onChange={(relTo) => patch((d) => void (d.document.relTo = relTo))}

@@ -1,7 +1,6 @@
 import { isNoticeType } from '../../lib/classification'
 import { nowDtg } from '../../lib/dtg'
-import { readClanMark } from '../../lib/image'
-import { Field, ImageField } from '../ImageField'
+import { Field } from '../ImageField'
 import { Group, usePatch } from './common'
 import { StampsGroup, WatermarkGroup } from './MarksGroups'
 
@@ -10,42 +9,6 @@ export function CoverPanel() {
   const notice = isNoticeType(dossier.document.type)
   return (
     <>
-      <Group
-        title="Identidade do clã"
-        sub="Nome, sigla, lema e distintivo"
-        hint="Nome e sigla entram no cabeçalho de todas as folhas. O logo do clã fica em Geral, porque se repete em todas."
-      >
-        <Field
-          label="Nome da unidade / clã"
-          edit="clan.name"
-          value={dossier.clan.name}
-          onChange={(name) => patch((d) => void (d.clan.name = name))}
-          placeholder="Grupo de Operações…"
-        />
-        <Field
-          label="Sigla"
-          edit="clan.name"
-          hint="Entra ao lado do nome. Também no selo e no patch, quando não há imagem."
-          value={dossier.clan.shortName}
-          onChange={(shortName) => patch((d) => void (d.clan.shortName = shortName))}
-          placeholder="FALCÃO"
-        />
-        <Field
-          label="Lema"
-          edit="clan.motto"
-          value={dossier.clan.motto}
-          onChange={(motto) => patch((d) => void (d.clan.motto = motto))}
-        />
-        <ImageField
-          label="Distintivo / patch"
-          edit="clan.patch"
-          hint="Canto do cabeçalho, nas folhas que levam o distintivo."
-          src={dossier.clan.patchSrc}
-          readFile={readClanMark}
-          onChange={(patchSrc) => patch((d) => void (d.clan.patchSrc = patchSrc))}
-        />
-      </Group>
-
       <Group
         title="Operação"
         sub="Nome e codinome"

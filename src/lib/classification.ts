@@ -176,8 +176,9 @@ export function precedenceOf(id: Precedence) {
   return PRECEDENCE.find((p) => p.id === id) ?? PRECEDENCE[1]
 }
 
+/** REL TO vazio segue a sigla (ou o nome) do clã. */
 export function relToMark(d: Dossier): string {
-  const who = d.document.relTo.trim()
+  const who = d.document.relTo.trim() || d.clan.shortName.trim() || d.clan.name.trim()
   if (!d.document.relToOn || !who) return ''
   return `REL TO ${who}`
 }

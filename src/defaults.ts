@@ -391,7 +391,7 @@ export function defaultDossier(): Dossier {
   d.document.copyTotal = '04'
   d.document.caveats = ['EYES ONLY']
   d.document.relToOn = true
-  d.document.relTo = 'FALCÃO'
+  d.document.relTo = ''
   d.header = {
     origin: 'S3 / 2º BATALHÃO',
     destination: '2º PELOTÃO / CIA BRAVO',
@@ -830,8 +830,10 @@ export function migrateDossier(raw: unknown): Dossier | null {
     const rest = legacyRel ? legacyRel.replace(/^REL TO\s*/i, '').trim() : ''
     const unidade = !rest || rest.toUpperCase() === 'UNIDADE'
     d.document.relToOn = Boolean(legacyRel)
-    d.document.relTo = legacyRel ? (unidade ? d.clan.shortName : rest) : ''
+    d.document.relTo = legacyRel && !unidade ? rest : ''
   }
+  // REL TO igual à sigla passa a seguir a sigla.
+  if (d.document.relTo.trim() && d.document.relTo.trim() === d.clan.shortName.trim()) d.document.relTo = ''
   d.intelStamp = {
     enabled: incoming.intelStamp ? incoming.intelStamp.enabled !== false : true,
     text:

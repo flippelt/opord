@@ -26,7 +26,13 @@ describe('classificationLine', () => {
     const d = defaultDossier()
     expect(relToMark(d)).toBe('REL TO FALCÃO')
     expect(classificationLine(d)).toBe('CONFIDENCIAL // EYES ONLY // REL TO FALCÃO')
+    d.clan.shortName = 'CORVO'
+    expect(relToMark(d)).toBe('REL TO CORVO')
+    d.document.relTo = 'BRAVO'
+    expect(relToMark(d)).toBe('REL TO BRAVO')
     d.document.relTo = '  '
+    d.clan.shortName = ''
+    d.clan.name = ''
     expect(relToMark(d)).toBe('')
   })
 })
