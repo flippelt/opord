@@ -22,14 +22,14 @@ export function Marks({ dossier, page }: { dossier: Dossier; page: PageId | 'bla
     <>
       {figure ? <img className="wm-figure" src={figure} alt="" /> : null}
       {mode === 'tiled' && (
-        <div className="wm-tile" style={{ color: ink }} aria-hidden>
+        <div className="wm-tile" style={{ color: ink }} data-edit="marks.watermark" aria-hidden>
           {Array.from({ length: 16 }, (_, i) => (
             <span key={i}>{text}</span>
           ))}
         </div>
       )}
       {showDiagonalText(mode, dossier.marks.watermarkTextOnTop) && (
-        <div className="wm-word" style={{ color: ink }} aria-hidden>
+        <div className="wm-word" style={{ color: ink }} data-edit="marks.watermark" aria-hidden>
           {text}
         </div>
       )}

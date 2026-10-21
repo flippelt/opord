@@ -1,4 +1,5 @@
-import type { BlankPage, Dossier, MapPlate, StampConfig } from './types'
+import { TYPE_PAGE } from './lib/classification'
+import type { BlankPage, DocType, Dossier, MapPlate, PageId, StampConfig } from './types'
 import { nowDtg } from './lib/dtg'
 import { normalizeAarResults } from './lib/aar'
 import { inferMapKind, isMapKind } from './lib/mapPlate'
@@ -100,6 +101,17 @@ export function defaultStamps(): StampConfig[] {
   ]
 }
 
+/** Dossiê vazio de um tipo, com as folhas escolhidas no novo dossiê. A folha do tipo sempre entra. */
+export function newDossier(type: DocType, pages: PageId[]): Dossier {
+  const d = blankDossier()
+  d.document.type = type
+  const main = TYPE_PAGE[type]
+  const chosen = new Set<PageId>(main ? [...pages, main] : pages)
+  for (const page of Object.keys(d.document.pages) as PageId[]) d.document.pages[page] = chosen.has(page)
+  if (chosen.has('map')) d.maps = [emptyMapPlate('MAPA')]
+  return d
+}
+
 export function blankDossier(): Dossier {
   return {
     version: 1,
@@ -175,6 +187,13 @@ export function blankDossier(): Dossier {
       rank: '',
       billet: '',
       callsign: '',
+      mark: 'clan',
+      insignia: '',
+      avatarSrc: '',
+      signature: 'none',
+      signatureFont: 'mrs-saint-delafield',
+      signatureText: '',
+      signatureSrc: '',
     },
     comms: {
       nets: [
@@ -192,12 +211,12 @@ export function blankDossier(): Dossier {
     sitrep: blankSitrep(),
     aar: blankAar(),
     casevac: blankCasevac(),
+    signatures: {},
     hvts: emptyHvtSlots(),
     orbat: emptyOrbatLines(),
     maps: [],
     timeline: emptyTimeline(),
     roster: emptyRoster(),
-    titles: {},
     intelStamp: { enabled: true, text: 'FOTO INTEL' },
     blanks: [],
     stack: defaultStack(),
@@ -250,8 +269,6 @@ export function blankAar() {
     dtg: '',
     location: '',
     summary: '',
-    wentWell: '',
-    wentWrong: '',
     lessons: '',
     sustain: '',
     improve: '',
@@ -375,7 +392,7 @@ export function defaultDossier(): Dossier {
   d.document.copyTotal = '04'
   d.document.caveats = ['EYES ONLY']
   d.document.relToOn = true
-  d.document.relTo = 'FALCÃO'
+  d.document.relTo = ''
   d.header = {
     origin: 'S3 / 2º BATALHÃO',
     destination: '2º PELOTÃO / CIA BRAVO',
@@ -420,10 +437,14 @@ export function defaultDossier(): Dossier {
     roe: 'Armas em HOLD até contato ou PID positivo de ameaça. Proibido fogo em civis e detidos. HVT vivo se viável. Granadas só no interior do bloco C2 após isolamento. Reportar BDA ao WATCHTOWER ao consolidar.',
   }
   d.command = {
+    ...d.command,
     commander: 'A. MENDES',
     rank: 'CAP',
     billet: 'S3 — OPERAÇÕES',
     callsign: 'WATCHTOWER',
+    signature: 'font',
+    signatureFont: 'mrs-saint-delafield',
+    signatureText: 'A. Mendes',
   }
   d.comms = {
     nets: [
@@ -612,14 +633,12 @@ export function defaultDossier(): Dossier {
     location: 'FOB KAMINO, ALTIS',
     summary:
       '2º Pel infiltrou LZ HAWK, isolou o complexo e entrou no TOT. C2 destruído com termite. HVT VIPER detido vivo pela 3ª Esq. Extração por PZ RAVEN sem contato no PZ.',
-    wentWell:
-      'Isolamento sul cortou o BTR. UAV identificou sentinela 040 a tempo. Tráfego de rádio mínimo após H-10. HVT vivo.',
-    wentWrong:
-      '1ª Esq atrasou 4 min na entrada do bloco C2. 5.56 da 1ª Esq no limite antes do consolidar. UAV pousou com 8% de bateria.',
     lessons:
       'Ressuprimento de 5.56 na LZ. UAV com bateria reserva no FAC. Ensaio de entrada no bloco com carga de explosivo já montada.',
-    sustain: 'Conceito de isolamento + UAV. PID e HOLD até contato. Extração marcada com IR strobe.',
-    improve: 'Controle de munição por esquadra. Timeline de entrada. Plano B se o UAV cair.',
+    sustain:
+      'Isolamento sul cortou o BTR. UAV identificou a sentinela 040 a tempo. Tráfego de rádio mínimo após H-10. PID e HOLD até contato. Extração marcada com IR strobe.',
+    improve:
+      '1ª Esq atrasou 4 min na entrada do bloco C2. 5.56 da 1ª Esq no limite antes do consolidar. UAV pousou com 8% de bateria; falta plano B se ele cair.',
     casualties: '0 KIA · 1 WIA (estilhaço leve, evacuado no PZ) · ACE verde no consolidar',
     bda: 'Estação C2 destruída. 6 EN KIA. 1 HVT capturado. BTR não engajado (ficou na garagem).',
     events: {
@@ -708,6 +727,22 @@ function sampleBlank(): BlankPage {
   }
 }
 
+/** "O que funcionou" virou parte de Manter, e "O que falhou" de Melhorar. */
+function mergeOldAarPairs(aar: Dossier['aar'], raw: unknown) {
+  const old = (raw && typeof raw === 'object' ? raw : {}) as { wentWell?: unknown; wentWrong?: unknown }
+  const join = (first: unknown, second: string) => {
+    const a = typeof first === 'string' ? first.trim() : ''
+    const b = second.trim()
+    if (!a || b.includes(a)) return second
+    if (!b || a.includes(b)) return a
+    return `${a}\n${b}`
+  }
+  aar.sustain = join(old.wentWell, aar.sustain)
+  aar.improve = join(old.wentWrong, aar.improve)
+  delete (aar as { wentWell?: unknown }).wentWell
+  delete (aar as { wentWrong?: unknown }).wentWrong
+}
+
 function notesFromKind(plate: Partial<MapPlate>, kind: MapPlate['kind']) {
   const azimuth = plate.azimuth || ''
   const heading = plate.heading || (kind === 'pz' ? azimuth : '')
@@ -746,11 +781,11 @@ function mapPlatesFrom(incoming: Partial<Dossier> & { map?: Partial<MapPlate> })
   }
   const legacy = incoming.map
   if (legacy && (legacy.src || legacy.caption || legacy.grid)) {
-    const kind = inferMapKind(incoming.titles?.map || '')
+    const kind = inferMapKind((incoming as { titles?: { map?: string } }).titles?.map || '')
     return [
       {
         id: 'map-1',
-        title: incoming.titles?.map || '',
+        title: (incoming as { titles?: { map?: string } }).titles?.map || '',
         caption: legacy.caption || '',
         kind,
         src: legacy.src || '',
@@ -796,8 +831,10 @@ export function migrateDossier(raw: unknown): Dossier | null {
     const rest = legacyRel ? legacyRel.replace(/^REL TO\s*/i, '').trim() : ''
     const unidade = !rest || rest.toUpperCase() === 'UNIDADE'
     d.document.relToOn = Boolean(legacyRel)
-    d.document.relTo = legacyRel ? (unidade ? d.clan.shortName : rest) : ''
+    d.document.relTo = legacyRel && !unidade ? rest : ''
   }
+  // REL TO igual à sigla passa a seguir a sigla.
+  if (d.document.relTo.trim() && d.document.relTo.trim() === d.clan.shortName.trim()) d.document.relTo = ''
   d.intelStamp = {
     enabled: incoming.intelStamp ? incoming.intelStamp.enabled !== false : true,
     text:
@@ -811,16 +848,23 @@ export function migrateDossier(raw: unknown): Dossier | null {
   d.mission = { ...blankDossier().mission, ...incoming.mission }
   d.body = { ...blankDossier().body, ...incoming.body }
   d.command = { ...blankDossier().command, ...incoming.command }
+  d.signatures = {}
+  for (const [key, value] of Object.entries(incoming.signatures ?? {})) {
+    if (value && typeof value === 'object') d.signatures[key] = { ...d.command, ...value }
+  }
+  if (!['clan', 'insignia', 'avatar'].includes(d.command.mark)) d.command.mark = 'clan'
+  if (!['none', 'font', 'image'].includes(d.command.signature)) d.command.signature = 'none'
   d.comms = { ...blankDossier().comms, ...incoming.comms }
   d.notice = { ...blankNotice(), ...incoming.notice }
   d.sitrep = { ...blankSitrep(), ...incoming.sitrep }
   d.aar = { ...blankAar(), ...incoming.aar, ...normalizeAarResults(incoming.aar) }
+  mergeOldAarPairs(d.aar, incoming.aar)
   d.casevac = { ...blankCasevac(), ...incoming.casevac }
   d.hvts = Array.isArray(incoming.hvts) && incoming.hvts.length ? incoming.hvts : emptyHvtSlots()
   d.orbat = Array.isArray(incoming.orbat) && incoming.orbat.length ? incoming.orbat : emptyOrbatLines()
   d.timeline = Array.isArray(incoming.timeline) && incoming.timeline.length ? incoming.timeline : emptyTimeline()
   d.roster = Array.isArray(incoming.roster) && incoming.roster.length ? incoming.roster : emptyRoster()
-  d.titles = { ...(incoming.titles ?? {}) }
+  delete (d as { titles?: unknown }).titles
   d.blanks = Array.isArray(incoming.blanks)
     ? incoming.blanks.filter((b) => b && typeof b.id === 'string' && b.id)
     : []

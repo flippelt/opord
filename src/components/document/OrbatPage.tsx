@@ -1,5 +1,4 @@
 import { classificationLine } from '../../lib/classification'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { DocumentChrome, SignBlock } from './DocumentChrome'
@@ -15,11 +14,7 @@ export function OrbatPage({ dossier }: { dossier: Dossier }) {
       <div className="notice-body">
         <DocumentChrome
           dossier={dossier}
-          title={sheetTitle(
-            dossier.titles,
-            'orbat',
-            `ORBAT — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'TASK ORG'}`,
-          )}
+          title={`ORBAT — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'TASK ORG'}`}
           subtitle="Organização de tarefa · efetivo para o emprego"
         />
         <table className="orbat-table">
@@ -36,7 +31,7 @@ export function OrbatPage({ dossier }: { dossier: Dossier }) {
           <tbody>
             {(rows.length ? rows : [{ id: 'empty', echelon: '', designation: '', callsign: '', lead: '', strength: '', task: '' }]).map(
               (row) => (
-                <tr key={row.id}>
+                <tr key={row.id} data-edit={`orbat.${row.id}`}>
                   <td>{row.echelon || '—'}</td>
                   <td>{row.designation || '—'}</td>
                   <td>{row.callsign || '—'}</td>
@@ -48,7 +43,7 @@ export function OrbatPage({ dossier }: { dossier: Dossier }) {
             )}
           </tbody>
         </table>
-        <p className="intel-note">
+        <p className="intel-note" data-edit="comms.auth">
           Sucessão: {dossier.comms.succession || '—'} · Desafio {dossier.comms.challenge || '—'} /{' '}
           {dossier.comms.password || '—'}
         </p>

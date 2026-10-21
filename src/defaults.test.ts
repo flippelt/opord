@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { blankDossier, defaultDossier, migrateDossier } from './defaults'
+import { TYPE_DEFAULT_PAGES } from './lib/classification'
+import { blankDossier, defaultDossier, migrateDossier, newDossier } from './defaults'
 
 describe('blankDossier', () => {
   it('starts with the cover only', () => {
@@ -34,7 +35,7 @@ describe('migrateDossier', () => {
     expect(kept?.marks.watermarkTextOnTop).toBe(true)
   })
 
-  it('gives an old dossier a stack and keeps a renamed OPORD', () => {
+  it('gives an old dossier a stack and drops the old sheet titles', () => {
     const raw = structuredClone(defaultDossier())
     const legacy = { ...raw, titles: undefined, blanks: undefined, stack: undefined }
     const next = migrateDossier(legacy)
@@ -42,14 +43,15 @@ describe('migrateDossier', () => {
     expect(next?.stack.at(-1)?.kind === 'blank' || next?.stack.some((item) => item.kind === 'intel')).toBe(
       true,
     )
-    const renamed = migrateDossier({ ...raw, titles: { opord: 'FRAGO 04' }, stack: raw.stack, blanks: raw.blanks })
-    expect(renamed?.titles.opord).toBe('FRAGO 04')
+    const renamed = migrateDossier({ ...raw, titles: { cover: 'OUTRO NOME' }, stack: raw.stack, blanks: raw.blanks })
+    expect(renamed && 'titles' in renamed).toBe(false)
+    expect(renamed?.mission.name).toBe(raw.mission.name)
     const ids = renamed?.stack.map((item) => (item.kind === 'blank' ? item.id : item.kind)) ?? []
     expect(ids.indexOf('opord')).toBeLessThan(ids.indexOf('blank-croqui'))
     expect(ids.indexOf('blank-croqui')).toBeLessThan(ids.indexOf('intel'))
   })
 
-  it('turns REL TO UNIDADE into the clan sigla', () => {
+  it('turns REL TO UNIDADE into a REL TO that follows the sigla', () => {
     const raw = structuredClone(defaultDossier())
     raw.document.caveats = ['EYES ONLY', 'REL TO UNIDADE']
     delete (raw.document as { relToOn?: boolean }).relToOn
@@ -57,7 +59,13 @@ describe('migrateDossier', () => {
     const next = migrateDossier(raw)
     expect(next?.document.caveats).toEqual(['EYES ONLY'])
     expect(next?.document.relToOn).toBe(true)
-    expect(next?.document.relTo).toBe('FALCÃO')
+    expect(next?.document.relTo).toBe('')
+  })
+
+  it('lets a REL TO equal to the sigla follow the sigla from now on', () => {
+    const raw = structuredClone(defaultDossier())
+    raw.document.relTo = 'FALCÃO'
+    expect(migrateDossier(raw)?.document.relTo).toBe('')
   })
 
   it('keeps a custom REL TO name and a hidden intel stamp', () => {
@@ -106,5 +114,32 @@ describe('migrateDossier', () => {
   it('rejects payloads without version 1', () => {
     expect(migrateDossier({})).toBeNull()
     expect(migrateDossier({ version: 2 })).toBeNull()
+  })
+})
+
+describe('newDossier', () => {
+  const on = (d: ReturnType<typeof newDossier>) =>
+    Object.entries(d.document.pages)
+      .filter(([, enabled]) => enabled)
+      .map(([id]) => id)
+      .sort()
+
+  it('turns on exactly the chosen sheets and nothing left over', () => {
+    const d = newDossier('sitrep', TYPE_DEFAULT_PAGES.sitrep)
+    expect(d.document.type).toBe('sitrep')
+    expect(on(d)).toEqual(['cover', 'map', 'sitrep'])
+    expect(d.maps).toHaveLength(1)
+  })
+
+  it('always keeps the sheet of the type', () => {
+    const d = newDossier('comunicado', [])
+    expect(on(d)).toEqual(['notice'])
+  })
+
+  it('starts empty, without the example operation', () => {
+    const d = newDossier('opord', TYPE_DEFAULT_PAGES.opord)
+    expect(d.mission.name).toBe('')
+    expect(d.clan.name).toBe('')
+    expect(on(d)).toEqual([...TYPE_DEFAULT_PAGES.opord].sort())
   })
 })

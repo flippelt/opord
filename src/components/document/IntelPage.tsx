@@ -1,5 +1,4 @@
 import { classificationLine, styleOf } from '../../lib/classification'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier, IntelPhoto } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal } from './ClanSeal'
@@ -29,7 +28,7 @@ export function IntelPage({
   }
 
   return (
-    <Sheet page="intel" paper="#efe6d0" ink="#1a1714">
+    <Sheet page="intel" exportId={`intel-${Math.floor(startIndex / 4) + 1}`} paper="#efe6d0" ink="#1a1714">
       <ClassificationBanner dossier={dossier} position="top" />
       <Marks dossier={dossier} page="intel" />
       <div className="intel-body">
@@ -43,7 +42,7 @@ export function IntelPage({
           <div>
             <p className="op-unit">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
             <p className="intel-kicker">Anexo B — Inteligência</p>
-            <h1>{sheetTitle(dossier.titles, 'intel', 'FOTO INTEL / IMAGERY')}</h1>
+            <h1>{'FOTO INTEL / IMAGERY'}</h1>
             <p>
               {dossier.mission.name ? `OP. ${dossier.mission.name}` : '—'} · {dossier.header.dtg || '—'}
             </p>
@@ -77,7 +76,7 @@ function plateStamp(dossier: Dossier, photo: IntelPhoto): string {
 
 function PhotoPlate({ photo, index, stamp }: { photo: IntelPhoto; index: number; stamp: string }) {
   return (
-    <figure className="photo-plate">
+    <figure className="photo-plate" data-edit={photo.id.startsWith('empty-') ? undefined : `intel.${photo.id}`}>
       <div className="photo-frame">
         {photo.src ? (
           <img src={photo.src} alt={photo.caption || `Intel ${index}`} />
@@ -87,7 +86,7 @@ function PhotoPlate({ photo, index, stamp }: { photo: IntelPhoto; index: number;
             <small>Slot {index} — subir foto intel</small>
           </div>
         )}
-        {stamp ? <span className="photo-stamp">{stamp}</span> : null}
+        {stamp ? <span className="photo-stamp" data-edit="intel.stamp">{stamp}</span> : null}
       </div>
       <figcaption>
         <span className="photo-id">B-{String(index).padStart(2, '0')}</span>

@@ -95,6 +95,31 @@ export const PAGE_LABELS: Record<PageId, string> = {
   roster: 'Escalação',
 }
 
+/** Grupos do primeiro passo do novo dossiê. */
+export const DOC_TYPE_GROUPS: { label: string; types: DocType[] }[] = [
+  { label: 'Ordens', types: ['opord', 'frago', 'warnord', 'conops'] },
+  { label: 'Comunicados', types: ['comunicado', 'convocacao', 'boletim'] },
+  { label: 'Relatórios', types: ['sitrep', 'aar', 'intel'] },
+  { label: 'Folhas avulsas', types: ['casevac', 'hvt', 'orbat'] },
+]
+
+/** Folhas que cada tipo traz marcadas no novo dossiê. A pessoa tira ou põe outras. */
+export const TYPE_DEFAULT_PAGES: Record<DocType, PageId[]> = {
+  opord: ['cover', 'opord', 'timeline', 'roster', 'orbat', 'map', 'intel'],
+  frago: ['cover', 'opord', 'timeline', 'map'],
+  warnord: ['cover', 'opord', 'timeline', 'roster'],
+  conops: ['cover', 'opord', 'timeline', 'map', 'intel'],
+  comunicado: ['cover', 'notice'],
+  convocacao: ['cover', 'notice', 'roster'],
+  boletim: ['cover', 'notice'],
+  sitrep: ['cover', 'sitrep', 'map'],
+  aar: ['cover', 'aar', 'timeline', 'map'],
+  casevac: ['cover', 'casevac'],
+  hvt: ['cover', 'hvt', 'intel'],
+  orbat: ['cover', 'orbat', 'roster'],
+  intel: ['cover', 'intel', 'map', 'hvt'],
+}
+
 export const TYPE_PAGE: Partial<Record<DocType, PageId>> = {
   opord: 'opord',
   frago: 'opord',
@@ -151,8 +176,9 @@ export function precedenceOf(id: Precedence) {
   return PRECEDENCE.find((p) => p.id === id) ?? PRECEDENCE[1]
 }
 
+/** REL TO vazio segue a sigla (ou o nome) do clã. */
 export function relToMark(d: Dossier): string {
-  const who = d.document.relTo.trim()
+  const who = d.document.relTo.trim() || d.clan.shortName.trim() || d.clan.name.trim()
   if (!d.document.relToOn || !who) return ''
   return `REL TO ${who}`
 }
@@ -178,8 +204,8 @@ export function handlingText(d: Dossier): string {
     )
   }
   return (
-    `Este documento contém informação sigilosa de grau ${c.label} ` +
-    `(equiv. NATO ${c.nato}). O acesso é restrito ao efetivo autorizado da unidade. ` +
+    `Este documento contém informação sigilosa de grau ${c.label}. ` +
+    `O acesso é restrito ao efetivo autorizado da unidade. ` +
     `É proibida a reprodução, transmissão ou armazenamento em sistemas não aprovados. ` +
     `Destruir por incineração, fragmentação ou meio que impeça a reconstrução. ` +
     `Relatar extravio imediatamente ao S2 / oficial de segurança.`

@@ -3,12 +3,15 @@ type Props = {
   name: string
   shortName: string
   size?: number
+  /** Chave `data-edit`: o logo é editado em Geral. */
+  edit?: string
 }
 
-export function ClanSeal({ src, name, shortName, size = 128 }: Props) {
+export function ClanSeal({ src, name, shortName, size = 128, edit = 'clan.seal' }: Props) {
   if (src) {
     return (
       <img
+        data-edit={edit}
         className="clan-seal-img"
         src={src}
         alt={name || 'Logo do clã'}
@@ -20,7 +23,7 @@ export function ClanSeal({ src, name, shortName, size = 128 }: Props) {
   const rim = (shortName || name || 'UNIDADE').toUpperCase().slice(0, 24)
   const uid = `seal-${size}-${rim.replace(/\s+/g, '')}`
   return (
-    <svg className="clan-seal" width={size} height={size} viewBox="0 0 200 200" role="img" aria-label={name}>
+    <svg data-edit={edit} className="clan-seal" width={size} height={size} viewBox="0 0 200 200" role="img" aria-label={name}>
       <defs>
         <path id={`${uid}-top`} d="M28 108 A78 78 0 0 1 172 108" fill="none" />
       </defs>
@@ -57,11 +60,11 @@ export function ClanSeal({ src, name, shortName, size = 128 }: Props) {
 
 export function UnitPatch({ src, shortName, size = 72 }: { src: string; shortName: string; size?: number }) {
   if (src) {
-    return <img className="unit-patch-img" src={src} alt="Distintivo" width={size} height={size} />
+    return <img data-edit="clan.patch" className="unit-patch-img" src={src} alt="Distintivo" width={size} height={size} />
   }
   const letters = (shortName || 'UN').toUpperCase().slice(0, 4)
   return (
-    <svg className="unit-patch" width={size} height={Math.round(size * 1.2)} viewBox="0 0 80 96" aria-hidden>
+    <svg data-edit="clan.patch" className="unit-patch" width={size} height={Math.round(size * 1.2)} viewBox="0 0 80 96" aria-hidden>
       <path
         d="M40 4 L76 18 V54 C76 74 40 92 40 92 C40 92 4 74 4 54 V18 Z"
         fill="#1a1714"

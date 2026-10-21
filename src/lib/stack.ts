@@ -19,15 +19,6 @@ export function defaultStack(): StackItem[] {
   return STACK_ORDER.map((kind) => ({ kind }))
 }
 
-export function sheetTitle(
-  titles: Partial<Record<PageId, string>> | undefined,
-  id: PageId,
-  fallback: string,
-): string {
-  const custom = titles?.[id]?.trim()
-  return custom ? custom : fallback
-}
-
 function isPageId(value: string): value is PageId {
   return (STACK_ORDER as string[]).includes(value)
 }

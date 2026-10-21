@@ -5,6 +5,7 @@ export function RubberStamp({ stamp, copyLabel }: { stamp: StampConfig; copyLabe
     stamp.id === 'copy' && copyLabel ? copyLabel : stamp.subtitle
   return (
     <div
+      data-edit={`marks.stamp.${stamp.id}`}
       className="rubber-stamp"
       style={{
         left: `${stamp.x}%`,

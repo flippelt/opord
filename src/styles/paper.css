@@ -423,6 +423,50 @@
   font-size: 13px !important;
 }
 
+/* A assinatura fica em cima da linha, como tinta de caneta. */
+.op-sign-block {
+  position: relative;
+}
+
+.op-sign-signature {
+  position: absolute;
+  left: 6px;
+  bottom: calc(100% - 0.35em);
+  margin: 0 !important;
+  line-height: 1;
+  color: #1d2f6b;
+  white-space: nowrap;
+  transform: rotate(-3deg);
+  transform-origin: left bottom;
+  pointer-events: auto;
+}
+
+.op-sign-signature-img {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% - 6px);
+  max-height: 46px;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.op-sign:has(.op-sign-signature, .op-sign-signature-img) {
+  margin-top: 34px;
+}
+
+.sign-insignia {
+  width: auto;
+  max-width: 96px;
+  object-fit: contain;
+}
+
+.sign-avatar {
+  object-fit: cover;
+  border: 2px solid #1a1714;
+  border-radius: 2px;
+  filter: grayscale(0.35) contrast(1.05);
+}
+
 .op-foot-class {
   margin: 8px 0 0;
   text-align: center;
@@ -537,12 +581,6 @@
 .blank-open {
   flex: 1;
   min-height: 40mm;
-}
-
-.aar-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
 }
 
 .aar-table {
@@ -1202,26 +1240,46 @@
   }
 
   .desk,
+  .desk-resizer,
   .toolbar,
+  .page-tabs,
+  .stage-note,
+  .preview-modal,
   .export-veil {
     display: none !important;
+  }
+
+  .sheet.is-off {
+    display: flex !important;
   }
 
   .app {
     display: block;
   }
 
+  /* index.css vem depois deste arquivo: sem !important, o padding e o gap da tela venceriam. */
   .workspace,
   .stage {
-    background: none;
-    overflow: visible;
-    padding: 0;
+    display: block !important;
+    background: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  .stage-fit {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .overview-stack {
+    display: none !important;
   }
 
   .stage-inner {
     transform: none !important;
-    gap: 0;
-    width: auto;
+    gap: 0 !important;
+    width: auto !important;
   }
 
   .sheet {

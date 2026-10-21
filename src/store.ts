@@ -1,7 +1,10 @@
 import { create } from 'zustand'
 import { defaultDossier, migrateDossier } from './defaults'
 import { idbGet, idbSet } from './lib/idb'
-import type { Dossier } from './types'
+import type { DocType, Dossier, PageId } from './types'
+
+/** Novo dossiê em criação: nada é gravado até a pessoa confirmar. */
+export type Wizard = { step: 'type' | 'pages'; type: DocType; pages: PageId[] }
 
 const KEY = 'dossier'
 
@@ -17,11 +20,24 @@ function persist(dossier: Dossier) {
 interface Store {
   dossier: Dossier
   zoom: number
+  /** Zoom das miniaturas (Geral e novo dossiê). */
+  overviewZoom: number
   exporting: string
+  /** Passo do editor: `setup` ou a chave de uma folha (ver lib/sheets). */
+  active: string
+  /** Campo com foco no menu; o palco realça o que tem o mesmo `data-edit`. */
+  focus: string
+  previewOpen: boolean
+  wizard: Wizard | null
+  setWizard: (wizard: Wizard | null) => void
+  setActive: (key: string) => void
+  setFocus: (key: string) => void
+  setPreviewOpen: (open: boolean) => void
   hydrate: () => Promise<void>
   setDossier: (dossier: Dossier) => void
   patch: (recipe: (draft: Dossier) => void) => void
   setZoom: (zoom: number) => void
+  setOverviewZoom: (zoom: number) => void
   setExporting: (msg: string) => void
 }
 
@@ -44,7 +60,24 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 export const useDossier = create<Store>((set, get) => ({
   dossier: defaultDossier(),
   zoom: 0.78,
+  overviewZoom: 0.5,
   exporting: '',
+  active: 'setup',
+  focus: '',
+  previewOpen: false,
+  wizard: null,
+  setWizard(wizard) {
+    set({ wizard, focus: '' })
+  },
+  setActive(active) {
+    set({ active, focus: '' })
+  },
+  setFocus(focus) {
+    set({ focus })
+  },
+  setPreviewOpen(previewOpen) {
+    set({ previewOpen })
+  },
   async hydrate() {
     try {
       const saved = await withTimeout(idbGet<Dossier>(KEY), 1200)
@@ -68,6 +101,9 @@ export const useDossier = create<Store>((set, get) => ({
   },
   setZoom(zoom) {
     set({ zoom })
+  },
+  setOverviewZoom(overviewZoom) {
+    set({ overviewZoom })
   },
   setExporting(msg) {
     set({ exporting: msg })

@@ -1,6 +1,5 @@
 import { classificationLine } from '../../lib/classification'
 import { captionText, notesFor } from '../../lib/mapPlate'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier, MapPlate } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { DocumentChrome } from './DocumentChrome'
@@ -61,7 +60,7 @@ export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate 
   const pictures = (
     <div className={single ? 'map-pair map-one' : 'map-pair'}>
       {showChart ? (
-        <figure>
+        <figure data-edit={`map.${plate.id}.chart`}>
           <MapFrame
             src={plate.src}
             empty={labels.emptyChart}
@@ -73,7 +72,7 @@ export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate 
         </figure>
       ) : null}
       {showPhoto ? (
-        <figure>
+        <figure data-edit={`map.${plate.id}.photo`}>
           <MapFrame src={plate.photoSrc} empty={labels.emptyPhoto} cols={cols} rows={rows} showGrid={false} />
           {slide ? null : <figcaption>{photoCaption}</figcaption>}
         </figure>
@@ -88,12 +87,13 @@ export function MapPage({ dossier, plate }: { dossier: Dossier; plate: MapPlate 
       <div className={slide ? 'notice-body map-body map-slide-page' : 'notice-body map-body'}>
         <DocumentChrome
           dossier={dossier}
-          title={plate.title.trim() || sheetTitle(dossier.titles, 'map', fallback)}
+          title={plate.title.trim() || fallback}
           subtitle={plate.caption || ''}
+          edit={`map.${plate.id}.title`}
         />
         {slide ? <div className="map-slide-fit">{pictures}</div> : pictures}
         {!slide && notes.length ? (
-          <div className="map-notes">
+          <div className="map-notes" data-edit={`map.${plate.id}.notes`}>
             {notes.map(([label, text]) => (
               <section key={label}>
                 <h2>{label}</h2>

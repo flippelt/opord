@@ -1,5 +1,4 @@
 import { classificationLine } from '../../lib/classification'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { DocumentChrome, SignBlock } from './DocumentChrome'
@@ -15,11 +14,7 @@ export function RosterPage({ dossier }: { dossier: Dossier }) {
       <div className="notice-body">
         <DocumentChrome
           dossier={dossier}
-          title={sheetTitle(
-            dossier.titles,
-            'roster',
-            `ESCALAÇÃO — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'EFETIVO'}`,
-          )}
+          title={`ESCALAÇÃO — ${dossier.mission.name ? `OP. ${dossier.mission.name}` : 'EFETIVO'}`}
           subtitle="Quem ocupa cada vaga"
         />
         <table className="orbat-table">
@@ -33,7 +28,7 @@ export function RosterPage({ dossier }: { dossier: Dossier }) {
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.id}>
+              <tr key={row.id} data-edit={`roster.${row.id}`}>
                 <td>{row.element || '—'}</td>
                 <td>{row.billet || '—'}</td>
                 <td>{row.callsign || '—'}</td>

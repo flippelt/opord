@@ -1,35 +1,83 @@
-import { Fragment, useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
-import { hasAarExecution } from '../lib/aar'
 import { docTypeOf, styleOf } from '../lib/classification'
 import { copyNumbers } from '../lib/copies'
-import { chunk } from '../lib/dtg'
 import { captureAll, downloadJson, fileBase, savePdf, savePngZip } from '../lib/export'
-import { emptyHvtSlots, emptyIntelSlots, emptyMapPlate } from '../defaults'
+import { SETUP_KEY, sheetList, stageKey } from '../lib/sheets'
+import { newDossier } from '../defaults'
 import { useDossier } from '../store'
-import { AarExecutionPage, AarPage } from './document/AarPage'
-import { BlankSheet } from './document/BlankPage'
-import { CasevacPage } from './document/CasevacPage'
-import { CoverPage } from './document/CoverPage'
-import { HvtPage } from './document/HvtPage'
-import { IntelPage } from './document/IntelPage'
-import { MapPage } from './document/MapPage'
-import { SheetHoles, SheetOrient } from './document/Sheet'
-import { NoticePage } from './document/NoticePage'
-import { OpordBack, OpordFront } from './document/OpordPage'
-import { OrbatPage } from './document/OrbatPage'
-import { RosterPage } from './document/RosterPage'
-import { SitrepPage } from './document/SitrepPage'
-import { TimelinePage } from './document/TimelinePage'
+import { PageTabs } from './PageTabs'
+import { PreviewModal } from './PreviewModal'
+import { SheetStack } from './SheetStack'
 
-export function Preview() {
+/** Campos que só existem em Geral, mesmo aparecendo em todas as folhas. */
+const GERAL_KEYS = ['clan.name', 'clan.motto', 'clan.seal', 'clan.patch', 'document.classification']
+
+/** Abre os blocos do campo no menu e dá foco nele (ou abre o seletor de imagem). */
+function openField(key: string): boolean {
+  const holder = document.querySelector<HTMLElement>(`.desk [data-edit~="${CSS.escape(key)}"]`)
+  if (!holder) return false
+  for (let el = holder.closest('details'); el; el = el.parentElement?.closest('details') ?? null) el.open = true
+  const file = holder.querySelector<HTMLInputElement>('input[type="file"]')
+  if (file) file.click()
+  else holder.querySelector<HTMLElement>('input, textarea, select, button')?.focus()
+  return true
+}
+
+/** Realça no palco o que tem o mesmo `data-edit` do campo com foco. */
+function focusRule(key: string) {
+  if (!key) return ''
+  const value = key.replace(/["\\]/g, '\\$&')
+  return `.stage [data-edit~="${value}"] { outline: 2px solid #c9a227; outline-offset: 2px; background-color: rgba(201, 162, 39, 0.16); border-radius: 2px; }`
+}
+
+export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand: () => void }) {
   const dossier = useDossier((s) => s.dossier)
   const zoom = useDossier((s) => s.zoom)
   const setZoom = useDossier((s) => s.setZoom)
+  const overviewZoom = useDossier((s) => s.overviewZoom)
+  const setOverviewZoom = useDossier((s) => s.setOverviewZoom)
   const exporting = useDossier((s) => s.exporting)
   const setExporting = useDossier((s) => s.setExporting)
+  const active = useDossier((s) => s.active)
+  const focus = useDossier((s) => s.focus)
+  const previewOpen = useDossier((s) => s.previewOpen)
+  const setPreviewOpen = useDossier((s) => s.setPreviewOpen)
+  const setActive = useDossier((s) => s.setActive)
+  const wizard = useDossier((s) => s.wizard)
+  const draft = useMemo(
+    () => (wizard?.step === 'pages' ? newDossier(wizard.type, wizard.pages) : null),
+    [wizard],
+  )
+  const draftSheets = useMemo(() => (draft ? sheetList(draft) : []), [draft])
+  const [showAll, setShowAll] = useState(false)
   const stack = useRef<HTMLDivElement>(null)
   const orientation = dossier.document.orientation === 'landscape' ? 'landscape' : 'portrait'
+  const sheets = useMemo(() => sheetList(dossier), [dossier])
+  const stage = useRef<HTMLDivElement>(null)
+  const [room, setRoom] = useState(0)
+
+  useEffect(() => {
+    const el = stage.current
+    if (!el) return
+    const observer = new ResizeObserver(() => setRoom(el.clientWidth - 48))
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // A folha cabe na largura do palco: o zoom só escolhe até onde ela cresce.
+  const sheetPx = (orientation === 'landscape' ? 297 : 210) * (96 / 25.4)
+  const sheetTall = (orientation === 'landscape' ? 210 : 297) * (96 / 25.4)
+  const scale = room > 0 ? Math.min(zoom, room / sheetPx) : zoom
+  const onStage = stageKey(sheets, active)
+  // Em Geral e no novo dossiê o palco mostra o pacote todo em miniatura.
+  const overview = !showAll && (Boolean(wizard) || active === SETUP_KEY)
+
+  useEffect(() => {
+    if (!focus) return
+    const el = stack.current?.querySelector(`.sheet:not(.is-off) [data-edit~="${CSS.escape(focus)}"]`)
+    el?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+  }, [focus, onStage])
 
   useEffect(() => {
     const id = 'opord-page-size'
@@ -51,6 +99,7 @@ export function Preview() {
     const pngs: string[] = []
     const names: string[] = []
     const patch = useDossier.getState().patch
+    flushSync(() => setShowAll(true))
     try {
       for (const num of numbers) {
         flushSync(() => {
@@ -72,6 +121,7 @@ export function Preview() {
         patch((d) => {
           d.document.copyNumber = original
         })
+        setShowAll(false)
       })
     }
     return { pngs, names }
@@ -92,23 +142,45 @@ export function Preview() {
   return (
     <section className="workspace">
       <div className="toolbar">
+        {collapsed ? (
+          <button type="button" className="btn-ghost" onClick={onExpand} title="Abrir o menu de edição">
+            ▸ Menu
+          </button>
+        ) : null}
         <div className="toolbar-class" style={{ background: style.banner, color: style.ink }}>
           {style.label}
         </div>
-        <label className="zoom">
-          Zoom
-          <input
-            type="range"
-            min={0.45}
-            max={1.05}
-            step={0.01}
-            value={zoom}
-            onChange={(e) => setZoom(Number(e.target.value))}
-          />
-        </label>
+        {overview ? (
+          <label className="zoom" title="Tamanho das miniaturas">
+            Miniaturas
+            <input
+              type="range"
+              min={0.2}
+              max={1}
+              step={0.01}
+              value={overviewZoom}
+              onChange={(e) => setOverviewZoom(Number(e.target.value))}
+            />
+            <span className="zoom-value">{Math.round(overviewZoom * 100)}%</span>
+          </label>
+        ) : (
+          <label className="zoom">
+            Zoom
+            <input
+              type="range"
+              min={0.45}
+              max={1.05}
+              step={0.01}
+              value={zoom}
+              onChange={(e) => setZoom(Number(e.target.value))}
+            />
+            <span className="zoom-value">{Math.round(scale * 100)}%</span>
+          </label>
+        )}
         <button
           type="button"
           className="btn"
+          disabled={Boolean(wizard)}
           onClick={() =>
             void withCopies(async (pngs) => {
               await savePdf(pngs, `${base}.pdf`, orientation)
@@ -120,6 +192,7 @@ export function Preview() {
         <button
           type="button"
           className="btn"
+          disabled={Boolean(wizard)}
           onClick={() =>
             void withCopies(async (pngs, names) => {
               await savePngZip(pngs, `${base}-paginas.zip`, names)
@@ -127,6 +200,9 @@ export function Preview() {
           }
         >
           Exportar PNG
+        </button>
+        <button type="button" className="btn-ghost" onClick={() => setPreviewOpen(true)}>
+          Pré-visualizar
         </button>
         <button type="button" className="btn-ghost" onClick={() => window.print()}>
           Imprimir
@@ -150,6 +226,7 @@ export function Preview() {
               if (!file) return
               void file.text().then((text) => {
                 const parsed = JSON.parse(text)
+                useDossier.getState().setWizard(null)
                 useDossier.getState().setDossier(parsed)
               })
             }}
@@ -157,76 +234,68 @@ export function Preview() {
         </label>
       </div>
 
-      <div className="stage">
-        <SheetHoles.Provider value={dossier.document.binding}>
-        <SheetOrient.Provider value={orientation}>
+      {wizard ? null : <PageTabs sheets={sheets} />}
+
+      <div
+        className="stage"
+        ref={stage}
+        onClick={(e) => {
+          if (wizard) return
+          const target = (e.target as HTMLElement).closest<HTMLElement>('[data-edit]')
+          const key = target?.dataset.edit?.split(' ')[0]
+          if (key && openField(key)) return
+          if (key && GERAL_KEYS.includes(key) && active !== SETUP_KEY) {
+            // O campo mora em Geral: vai para lá e abre o campo, ainda dentro do clique.
+            flushSync(() => setActive(SETUP_KEY))
+            openField(key)
+            return
+          }
+          // Na miniatura, clicar fora de um campo de Geral abre a folha para editar.
+          const page = (e.target as HTMLElement).closest<HTMLElement>('.overview-stack .sheet')?.dataset.page
+          if (page) setActive(page)
+        }}
+      >
+        <style>{showAll ? '' : focusRule(focus)}</style>
+        {overview ? (
+          <>
+            <p className="stage-note">
+              {wizard?.step === 'type'
+                ? 'Escolha o tipo de documento no menu.'
+                : wizard
+                  ? 'Pacote do novo dossiê. Marque ou desmarque folhas no menu.'
+                  : 'O pacote inteiro. Clique numa folha para editá-la, ou na faixa para mudar a classificação.'}
+            </p>
+            {wizard?.step === 'type' ? null : (
+              <SheetStack
+                dossier={draft ?? dossier}
+                sheets={draft ? draftSheets : sheets}
+                active={null}
+                scope="ov-"
+                className="preview-stack overview-stack"
+                style={{ zoom: overviewZoom }}
+              />
+            )}
+          </>
+        ) : null}
         <div
-          className="stage-inner"
-          ref={stack}
-          data-orient={orientation}
-          style={{ width: orientation === 'landscape' ? '297mm' : '210mm', transform: `scale(${zoom})` }}
+          className={overview ? 'stage-fit is-hidden' : 'stage-fit'}
+          style={{ width: sheetPx * scale, height: showAll ? undefined : sheetTall * scale }}
         >
-          {dossier.stack.map((item) => {
-            if (item.kind === 'blank') {
-              const blank = dossier.blanks.find((b) => b.id === item.id)
-              return blank ? <BlankSheet key={blank.id} dossier={dossier} blank={blank} /> : null
-            }
-            if (!dossier.document.pages[item.kind]) return null
-            if (item.kind === 'cover') return <CoverPage key="cover" dossier={dossier} />
-            if (item.kind === 'notice') return <NoticePage key="notice" dossier={dossier} />
-            if (item.kind === 'opord') {
-              return (
-                <Fragment key="opord">
-                  <OpordFront dossier={dossier} />
-                  <OpordBack dossier={dossier} />
-                </Fragment>
-              )
-            }
-            if (item.kind === 'timeline') return <TimelinePage key="timeline" dossier={dossier} />
-            if (item.kind === 'roster') return <RosterPage key="roster" dossier={dossier} />
-            if (item.kind === 'sitrep') return <SitrepPage key="sitrep" dossier={dossier} />
-            if (item.kind === 'aar') {
-              return (
-                <Fragment key="aar">
-                  <AarPage dossier={dossier} />
-                  {hasAarExecution(dossier) ? <AarExecutionPage dossier={dossier} /> : null}
-                </Fragment>
-              )
-            }
-            if (item.kind === 'orbat') return <OrbatPage key="orbat" dossier={dossier} />
-            if (item.kind === 'hvt') {
-              return (
-                <Fragment key="hvt">
-                  {(dossier.hvts.length ? dossier.hvts : emptyHvtSlots()).map((card, i) => (
-                    <HvtPage key={card.id} dossier={dossier} card={card} index={i} />
-                  ))}
-                </Fragment>
-              )
-            }
-            if (item.kind === 'casevac') return <CasevacPage key="casevac" dossier={dossier} />
-            if (item.kind === 'map') {
-              const plates = dossier.maps.length ? dossier.maps : [emptyMapPlate()]
-              return (
-                <Fragment key="map">
-                  {plates.map((plate) => (
-                    <MapPage key={plate.id} dossier={dossier} plate={plate} />
-                  ))}
-                </Fragment>
-              )
-            }
-            return (
-              <Fragment key="intel">
-                {chunk(dossier.intel.length ? dossier.intel : emptyIntelSlots(), 4).map((group, i) => (
-                  <IntelPage key={group[0]?.id ?? i} dossier={dossier} photos={group} startIndex={i * 4} />
-                ))}
-              </Fragment>
-            )
-          })}
+          <SheetStack
+            ref={stack}
+            dossier={dossier}
+            sheets={sheets}
+            active={showAll ? null : onStage}
+            style={{
+              width: orientation === 'landscape' ? '297mm' : '210mm',
+              transform: `scale(${scale})`,
+              transformOrigin: 'top left',
+            }}
+          />
         </div>
-        </SheetOrient.Provider>
-        </SheetHoles.Provider>
       </div>
 
+      {previewOpen ? <PreviewModal dossier={dossier} sheets={sheets} onClose={() => setPreviewOpen(false)} /> : null}
       {exporting ? <div className="export-veil">{exporting}</div> : null}
     </section>
   )

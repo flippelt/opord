@@ -1,25 +1,24 @@
 import { classificationLine, docTypeOf, precedenceOf } from '../../lib/classification'
 import { paper } from '../../lib/i18n'
-import { sheetTitle } from '../../lib/stack'
 import type { Dossier } from '../../types'
 import { ClassificationBanner } from './Banners'
 import { ClanSeal, UnitPatch } from './ClanSeal'
-import { unitTitle } from './DocumentChrome'
+import { unitTitle, SignBlock } from './DocumentChrome'
 import { Sheet } from './Sheet'
 import { Marks } from './Watermark'
 
-function Block({ label, children }: { label: string; children: string }) {
+function Block({ label, edit, children }: { label: string; edit?: string; children: string }) {
   return (
-    <div className="op-block">
+    <div className="op-block" data-edit={edit}>
       <span className="op-label">{label}</span>
       <p>{children || '—'}</p>
     </div>
   )
 }
 
-function Field({ k, v }: { k: string; v: string }) {
+function Field({ k, v, edit }: { k: string; v: string; edit?: string }) {
   return (
-    <div className="op-field">
+    <div className="op-field" data-edit={edit}>
       <span>{k}</span>
       <strong>{v || '—'}</strong>
     </div>
@@ -38,18 +37,14 @@ function OpordChrome({ dossier }: { dossier: Dossier }) {
         size={72}
       />
       <div className="op-head-mid">
-        <p className="op-unit">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
-        <p className="op-place">
+        <p className="op-unit" data-edit="clan.name">{unitTitle(dossier.clan.name, dossier.clan.shortName)}</p>
+        <p className="op-place" data-edit="header.place header.dtg">
           {dossier.header.place || '—'} · {dossier.header.dtg || '—'}
         </p>
-        <h1>
-          {sheetTitle(
-            dossier.titles,
-            'opord',
-            `${kind.short} ${dossier.header.orderNumber} — ${opName}`.replace(/\s+/g, ' ').trim(),
-          )}
+        <h1 data-edit="header.orderNumber mission.name">
+          {`${kind.short} ${dossier.header.orderNumber} — ${opName}`.replace(/\s+/g, ' ').trim()}
         </h1>
-        <p className="op-subject">{dossier.mission.subject || kind.label}</p>
+        <p className="op-subject" data-edit="mission.subject">{dossier.mission.subject || kind.label}</p>
       </div>
       <UnitPatch src={dossier.clan.patchSrc} shortName={dossier.clan.shortName} size={64} />
     </header>
@@ -67,36 +62,36 @@ export function OpordFront({ dossier }: { dossier: Dossier }) {
       <div className="op-body">
         <OpordChrome dossier={dossier} />
         <div className="op-id-grid">
-          <Field k={t.origin} v={dossier.header.origin} />
-          <Field k={t.destination} v={dossier.header.destination} />
-          <Field k={t.info} v={dossier.header.info} />
-          <Field k={t.precedence} v={precLabel} />
-          <Field k={t.hhour} v={dossier.mission.hHour} />
-          <Field k={t.zone} v={dossier.header.timeZone} />
-          <Field k="AO" v={dossier.mission.ao} />
-          <Field k="Grid" v={dossier.mission.grid} />
-          <Field k={t.map} v={dossier.header.mapSheet} />
-          <Field k={t.terrain} v={dossier.mission.terrain} />
-          <Field k={t.copy} v={`${dossier.document.copyNumber} ${t.of} ${dossier.document.copyTotal}`} />
-          <Field k={t.control} v={dossier.document.controlNumber} />
+          <Field k={t.origin} v={dossier.header.origin} edit="header.origin" />
+          <Field k={t.destination} v={dossier.header.destination} edit="header.destination" />
+          <Field k={t.info} v={dossier.header.info} edit="header.info" />
+          <Field k={t.precedence} v={precLabel} edit="header.precedence" />
+          <Field k={t.hhour} v={dossier.mission.hHour} edit="mission.hHour" />
+          <Field k={t.zone} v={dossier.header.timeZone} edit="header.timeZone" />
+          <Field k="AO" v={dossier.mission.ao} edit="mission.ao" />
+          <Field k="Grid" v={dossier.mission.grid} edit="mission.grid" />
+          <Field k={t.map} v={dossier.header.mapSheet} edit="header.mapSheet" />
+          <Field k={t.terrain} v={dossier.mission.terrain} edit="mission.terrain" />
+          <Field k={t.copy} v={`${dossier.document.copyNumber} ${t.of} ${dossier.document.copyTotal}`} edit="document.copy" />
+          <Field k={t.control} v={dossier.document.controlNumber} edit="document.control" />
         </div>
         <ol className="op-smeac">
           <li>
             <h2>{t.situation}</h2>
-            <Block label={t.enemy}>{dossier.body.situationEnemy}</Block>
-            <Block label={t.friendly}>{dossier.body.situationFriendly}</Block>
-            <Block label={t.attachments}>{dossier.body.situationAttachments}</Block>
-            <Block label={t.weather}>{dossier.body.situationWeather}</Block>
+            <Block label={t.enemy} edit="body.situationEnemy">{dossier.body.situationEnemy}</Block>
+            <Block label={t.friendly} edit="body.situationFriendly">{dossier.body.situationFriendly}</Block>
+            <Block label={t.attachments} edit="body.situationAttachments">{dossier.body.situationAttachments}</Block>
+            <Block label={t.weather} edit="body.situationWeather">{dossier.body.situationWeather}</Block>
           </li>
           <li>
             <h2>{t.mission}</h2>
-            <p className="op-mission">{dossier.body.mission || '—'}</p>
+            <p className="op-mission" data-edit="body.mission">{dossier.body.mission || '—'}</p>
           </li>
           <li>
             <h2>{t.execution}</h2>
-            <Block label={t.concept}>{dossier.body.executionConcept}</Block>
-            <Block label={t.tasks}>{dossier.body.executionTasks}</Block>
-            <Block label={t.coord}>{dossier.body.executionCoord}</Block>
+            <Block label={t.concept} edit="body.executionConcept">{dossier.body.executionConcept}</Block>
+            <Block label={t.tasks} edit="body.executionTasks">{dossier.body.executionTasks}</Block>
+            <Block label={t.coord} edit="body.executionCoord">{dossier.body.executionCoord}</Block>
           </li>
         </ol>
         <p className="op-cont">{paper(dossier).continues}</p>
@@ -119,12 +114,12 @@ export function OpordBack({ dossier }: { dossier: Dossier }) {
         <ol className="op-smeac" start={4}>
           <li>
             <h2>{t.sustainment}</h2>
-            <p>{dossier.body.sustainment || '—'}</p>
+            <p data-edit="body.sustainment">{dossier.body.sustainment || '—'}</p>
           </li>
           <li>
             <h2>{t.command}</h2>
-            <p>{dossier.body.commandSignal || '—'}</p>
-            <table className="op-nets">
+            <p data-edit="body.commandSignal">{dossier.body.commandSignal || '—'}</p>
+            <table className="op-nets" data-edit="comms.nets">
               <thead>
                 <tr>
                   <th>{t.net}</th>
@@ -142,7 +137,7 @@ export function OpordBack({ dossier }: { dossier: Dossier }) {
                 ))}
               </tbody>
             </table>
-            <div className="op-auth">
+            <div className="op-auth" data-edit="comms.auth">
               <span>{t.challenge}: {dossier.comms.challenge || '—'}</span>
               <span>{t.password}: {dossier.comms.password || '—'}</span>
               <span>{t.succession}: {dossier.comms.succession || '—'}</span>
@@ -151,25 +146,9 @@ export function OpordBack({ dossier }: { dossier: Dossier }) {
         </ol>
         <section className="op-roe">
           <h2>{t.roe}</h2>
-          <p>{dossier.body.roe || '—'}</p>
+          <p data-edit="body.roe">{dossier.body.roe || '—'}</p>
         </section>
-        <footer className="op-sign">
-          <div className="op-sign-seal">
-            <ClanSeal
-              src={dossier.clan.sealSrc}
-              name={dossier.clan.name}
-              shortName={dossier.clan.shortName}
-              size={72}
-            />
-          </div>
-          <div className="op-sign-block">
-            <p className="op-sign-name">
-              {dossier.command.rank} {dossier.command.commander}
-            </p>
-            <p>{dossier.command.billet}</p>
-            <p>Indicativo: {dossier.command.callsign || '—'}</p>
-          </div>
-        </footer>
+        <SignBlock dossier={dossier} size={72} />
         <p className="op-foot-class">{classificationLine(dossier)}</p>
       </div>
       <ClassificationBanner dossier={dossier} position="bottom" />
