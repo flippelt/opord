@@ -28,7 +28,7 @@ export function PageTabs({ sheets }: { sheets: SheetRef[] }) {
         onClick={() => setActive(SETUP_KEY)}
       >
         <span className="page-tab-n">⚙</span>
-        Documento
+        Geral
       </button>
       {sheets.map((sheet, i) => (
         <button

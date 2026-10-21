@@ -1,7 +1,10 @@
 import { create } from 'zustand'
 import { defaultDossier, migrateDossier } from './defaults'
 import { idbGet, idbSet } from './lib/idb'
-import type { Dossier } from './types'
+import type { DocType, Dossier, PageId } from './types'
+
+/** Novo dossiê em criação: nada é gravado até a pessoa confirmar. */
+export type Wizard = { step: 'type' | 'pages'; type: DocType; pages: PageId[] }
 
 const KEY = 'dossier'
 
@@ -23,6 +26,8 @@ interface Store {
   /** Campo com foco no menu; o palco realça o que tem o mesmo `data-edit`. */
   focus: string
   previewOpen: boolean
+  wizard: Wizard | null
+  setWizard: (wizard: Wizard | null) => void
   setActive: (key: string) => void
   setFocus: (key: string) => void
   setPreviewOpen: (open: boolean) => void
@@ -56,6 +61,10 @@ export const useDossier = create<Store>((set, get) => ({
   active: 'setup',
   focus: '',
   previewOpen: false,
+  wizard: null,
+  setWizard(wizard) {
+    set({ wizard, focus: '' })
+  },
   setActive(active) {
     set({ active, focus: '' })
   },

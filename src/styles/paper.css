@@ -1223,8 +1223,13 @@
   }
 
   .stage-fit {
+    display: block !important;
     width: auto !important;
     height: auto !important;
+  }
+
+  .overview-stack {
+    display: none !important;
   }
 
   .stage-inner {

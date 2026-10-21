@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { blankDossier, defaultDossier, migrateDossier } from './defaults'
+import { TYPE_DEFAULT_PAGES } from './lib/classification'
+import { blankDossier, defaultDossier, migrateDossier, newDossier } from './defaults'
 
 describe('blankDossier', () => {
   it('starts with the cover only', () => {
@@ -107,5 +108,32 @@ describe('migrateDossier', () => {
   it('rejects payloads without version 1', () => {
     expect(migrateDossier({})).toBeNull()
     expect(migrateDossier({ version: 2 })).toBeNull()
+  })
+})
+
+describe('newDossier', () => {
+  const on = (d: ReturnType<typeof newDossier>) =>
+    Object.entries(d.document.pages)
+      .filter(([, enabled]) => enabled)
+      .map(([id]) => id)
+      .sort()
+
+  it('turns on exactly the chosen sheets and nothing left over', () => {
+    const d = newDossier('sitrep', TYPE_DEFAULT_PAGES.sitrep)
+    expect(d.document.type).toBe('sitrep')
+    expect(on(d)).toEqual(['cover', 'map', 'sitrep'])
+    expect(d.maps).toHaveLength(1)
+  })
+
+  it('always keeps the sheet of the type', () => {
+    const d = newDossier('comunicado', [])
+    expect(on(d)).toEqual(['notice'])
+  })
+
+  it('starts empty, without the example operation', () => {
+    const d = newDossier('opord', TYPE_DEFAULT_PAGES.opord)
+    expect(d.mission.name).toBe('')
+    expect(d.clan.name).toBe('')
+    expect(on(d)).toEqual([...TYPE_DEFAULT_PAGES.opord].sort())
   })
 })

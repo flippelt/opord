@@ -4,6 +4,7 @@ import { docTypeOf, styleOf } from '../lib/classification'
 import { copyNumbers } from '../lib/copies'
 import { captureAll, downloadJson, fileBase, savePdf, savePngZip } from '../lib/export'
 import { SETUP_KEY, sheetList, stageKey } from '../lib/sheets'
+import { newDossier } from '../defaults'
 import { useDossier } from '../store'
 import { PageTabs } from './PageTabs'
 import { PreviewModal } from './PreviewModal'
@@ -26,6 +27,13 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
   const focus = useDossier((s) => s.focus)
   const previewOpen = useDossier((s) => s.previewOpen)
   const setPreviewOpen = useDossier((s) => s.setPreviewOpen)
+  const setActive = useDossier((s) => s.setActive)
+  const wizard = useDossier((s) => s.wizard)
+  const draft = useMemo(
+    () => (wizard?.step === 'pages' ? newDossier(wizard.type, wizard.pages) : null),
+    [wizard],
+  )
+  const draftSheets = useMemo(() => (draft ? sheetList(draft) : []), [draft])
   const [showAll, setShowAll] = useState(false)
   const stack = useRef<HTMLDivElement>(null)
   const orientation = dossier.document.orientation === 'landscape' ? 'landscape' : 'portrait'
@@ -46,6 +54,8 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
   const sheetTall = (orientation === 'landscape' ? 210 : 297) * (96 / 25.4)
   const scale = room > 0 ? Math.min(zoom, room / sheetPx) : zoom
   const onStage = stageKey(sheets, active)
+  // Em Geral e no novo dossiê o palco mostra o pacote todo em miniatura.
+  const overview = !showAll && (Boolean(wizard) || active === SETUP_KEY)
 
   useEffect(() => {
     if (!focus) return
@@ -138,6 +148,7 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
         <button
           type="button"
           className="btn"
+          disabled={Boolean(wizard)}
           onClick={() =>
             void withCopies(async (pngs) => {
               await savePdf(pngs, `${base}.pdf`, orientation)
@@ -149,6 +160,7 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
         <button
           type="button"
           className="btn"
+          disabled={Boolean(wizard)}
           onClick={() =>
             void withCopies(async (pngs, names) => {
               await savePngZip(pngs, `${base}-paginas.zip`, names)
@@ -182,6 +194,7 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
               if (!file) return
               void file.text().then((text) => {
                 const parsed = JSON.parse(text)
+                useDossier.getState().setWizard(null)
                 useDossier.getState().setDossier(parsed)
               })
             }}
@@ -189,17 +202,22 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
         </label>
       </div>
 
-      <PageTabs sheets={sheets} />
+      {wizard ? null : <PageTabs sheets={sheets} />}
 
       <div
         className="stage"
         ref={stage}
         onClick={(e) => {
+          if (wizard) return
           const target = (e.target as HTMLElement).closest<HTMLElement>('[data-edit]')
           const key = target?.dataset.edit?.split(' ')[0]
-          if (!key) return
-          const holder = document.querySelector<HTMLElement>(`.desk [data-edit~="${CSS.escape(key)}"]`)
-          if (!holder) return
+          const holder = key ? document.querySelector<HTMLElement>(`.desk [data-edit~="${CSS.escape(key)}"]`) : null
+          if (!holder) {
+            // Na miniatura, clicar fora de um campo de Geral abre a folha para editar.
+            const page = (e.target as HTMLElement).closest<HTMLElement>('.overview-stack .sheet')?.dataset.page
+            if (page) setActive(page)
+            return
+          }
           // O bloco começa fechado: abre os que guardam o campo antes de dar foco.
           for (let el = holder.closest('details'); el; el = el.parentElement?.closest('details') ?? null) el.open = true
           // Num campo de imagem, clicar no papel já abre o seletor de arquivo.
@@ -209,11 +227,28 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
         }}
       >
         <style>{showAll ? '' : focusRule(focus)}</style>
-        {active === SETUP_KEY ? (
-          <p className="stage-note">Configuração do documento. A capa mostra o resultado.</p>
+        {overview ? (
+          <>
+            <p className="stage-note">
+              {wizard?.step === 'type'
+                ? 'Escolha o tipo de documento no menu.'
+                : wizard
+                  ? 'Pacote do novo dossiê. Marque ou desmarque folhas no menu.'
+                  : 'O pacote inteiro. Clique numa folha para editá-la, ou na faixa para mudar a classificação.'}
+            </p>
+            {wizard?.step === 'type' ? null : (
+              <SheetStack
+                dossier={draft ?? dossier}
+                sheets={draft ? draftSheets : sheets}
+                active={null}
+                scope="ov-"
+                className="preview-stack overview-stack"
+              />
+            )}
+          </>
         ) : null}
         <div
-          className="stage-fit"
+          className={overview ? 'stage-fit is-hidden' : 'stage-fit'}
           style={{ width: sheetPx * scale, height: showAll ? undefined : sheetTall * scale }}
         >
           <SheetStack

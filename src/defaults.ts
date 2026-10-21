@@ -1,4 +1,5 @@
-import type { BlankPage, Dossier, MapPlate, StampConfig } from './types'
+import { TYPE_PAGE } from './lib/classification'
+import type { BlankPage, DocType, Dossier, MapPlate, PageId, StampConfig } from './types'
 import { nowDtg } from './lib/dtg'
 import { normalizeAarResults } from './lib/aar'
 import { inferMapKind, isMapKind } from './lib/mapPlate'
@@ -98,6 +99,17 @@ export function defaultStamps(): StampConfig[] {
       size: 150,
     },
   ]
+}
+
+/** Dossiê vazio de um tipo, com as folhas escolhidas no novo dossiê. A folha do tipo sempre entra. */
+export function newDossier(type: DocType, pages: PageId[]): Dossier {
+  const d = blankDossier()
+  d.document.type = type
+  const main = TYPE_PAGE[type]
+  const chosen = new Set<PageId>(main ? [...pages, main] : pages)
+  for (const page of Object.keys(d.document.pages) as PageId[]) d.document.pages[page] = chosen.has(page)
+  if (chosen.has('map')) d.maps = [emptyMapPlate('MAPA')]
+  return d
 }
 
 export function blankDossier(): Dossier {

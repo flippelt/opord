@@ -3,6 +3,7 @@ import { nowDtg } from '../../lib/dtg'
 import { readClanMark } from '../../lib/image'
 import { Field, ImageField } from '../ImageField'
 import { Group, usePatch } from './common'
+import { StampsGroup, WatermarkGroup } from './MarksGroups'
 
 export function CoverPanel() {
   const { dossier, patch } = usePatch()
@@ -117,6 +118,8 @@ export function CoverPanel() {
           placeholder="FOB, mapa, grid"
         />
       </Group>
+      <WatermarkGroup />
+      <StampsGroup />
     </>
   )
 }

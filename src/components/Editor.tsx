@@ -5,6 +5,7 @@ import { AarExecutionPanel, AarPanel, CasevacPanel, NoticePanel, OpordBackPanel,
 import { BlankPanel, IntelPanel, MapPanel } from './editor/AnnexPanels'
 import { CoverPanel } from './editor/CoverPanel'
 import { HvtPanel, OrbatPanel, RosterPanel, TimelinePanel } from './editor/ListPanels'
+import { NewDossierWizard } from './editor/NewDossierWizard'
 import { SetupPanel } from './editor/SetupPanel'
 
 function Panel({ sheet }: { sheet: SheetRef }) {
@@ -43,6 +44,7 @@ export function Editor({ onCollapse }: { onCollapse: () => void }) {
   const active = useDossier((s) => s.active)
   const setActive = useDossier((s) => s.setActive)
   const setFocus = useDossier((s) => s.setFocus)
+  const wizard = useDossier((s) => s.wizard)
   const sheets = useMemo(() => sheetList(dossier), [dossier])
   const steps = [SETUP_KEY, ...sheets.map((s) => s.key)]
   const at = Math.max(0, steps.indexOf(active))
@@ -55,7 +57,7 @@ export function Editor({ onCollapse }: { onCollapse: () => void }) {
     desk.current?.scrollTo({ top: 0 })
   }, [active])
 
-  const labelOf = (key: string) => (key === SETUP_KEY ? 'Documento' : sheets.find((s) => s.key === key)?.label ?? '')
+  const labelOf = (key: string) => (key === SETUP_KEY ? 'Geral' : sheets.find((s) => s.key === key)?.label ?? '')
 
   return (
     <aside
@@ -90,15 +92,19 @@ export function Editor({ onCollapse }: { onCollapse: () => void }) {
         </button>
       </header>
 
+      {wizard ? (
+        <NewDossierWizard />
+      ) : (
+        <>
       <div className="desk-step">
         <p className="desk-kicker">
           Passo {at + 1} de {steps.length}
         </p>
-        <h2>{sheet ? sheet.label : 'Documento'}</h2>
+        <h2>{sheet ? sheet.label : 'Geral'}</h2>
         <p className="field-hint">
           {sheet
             ? 'Só os campos desta folha. Clique num campo e o trecho dele acende no papel.'
-            : 'O que vale para o pacote inteiro: classificação, papel, folhas e marcas.'}
+            : 'O que vale para o pacote inteiro: classificação, restrições, papel e folhas. Clique numa miniatura para editar a folha.'}
         </p>
       </div>
 
@@ -114,6 +120,8 @@ export function Editor({ onCollapse }: { onCollapse: () => void }) {
           {next ? labelOf(next) : 'Fim'} →
         </button>
       </nav>
+        </>
+      )}
     </aside>
   )
 }
