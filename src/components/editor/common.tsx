@@ -105,7 +105,8 @@ export function SignatureGroup() {
         onChange={(mark: SignMark) => update((t) => void (t.mark = mark))}
         options={[
           { id: 'clan', label: 'Logo do clã' },
-          { id: 'insignia', label: 'Insígnia da patente' },
+          // Sem catálogo, a insígnia não entra na lista (ela chega com os arquivos e créditos).
+          ...(INSIGNIA_SETS.length ? [{ id: 'insignia' as const, label: 'Insígnia da patente' }] : []),
           { id: 'avatar', label: 'Foto do signatário' },
         ]}
       />
