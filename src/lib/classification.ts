@@ -178,8 +178,8 @@ export function handlingText(d: Dossier): string {
     )
   }
   return (
-    `Este documento contém informação sigilosa de grau ${c.label} ` +
-    `(equiv. NATO ${c.nato}). O acesso é restrito ao efetivo autorizado da unidade. ` +
+    `Este documento contém informação sigilosa de grau ${c.label}. ` +
+    `O acesso é restrito ao efetivo autorizado da unidade. ` +
     `É proibida a reprodução, transmissão ou armazenamento em sistemas não aprovados. ` +
     `Destruir por incineração, fragmentação ou meio que impeça a reconstrução. ` +
     `Relatar extravio imediatamente ao S2 / oficial de segurança.`

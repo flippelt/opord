@@ -202,7 +202,10 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
           if (!holder) return
           // O bloco começa fechado: abre os que guardam o campo antes de dar foco.
           for (let el = holder.closest('details'); el; el = el.parentElement?.closest('details') ?? null) el.open = true
-          holder.querySelector<HTMLElement>('input, textarea, select, button')?.focus()
+          // Num campo de imagem, clicar no papel já abre o seletor de arquivo.
+          const file = holder.querySelector<HTMLInputElement>('input[type="file"]')
+          if (file) file.click()
+          else holder.querySelector<HTMLElement>('input, textarea, select, button')?.focus()
         }}
       >
         <style>{showAll ? '' : focusRule(focus)}</style>

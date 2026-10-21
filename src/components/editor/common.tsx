@@ -9,10 +9,24 @@ export function usePatch() {
 }
 
 /** Um bloco do painel, com o nome do trecho da folha que ele edita. Começa fechado. */
-export function Group({ title, hint, children }: { title: string; hint?: string; children: ReactNode }) {
+export function Group({
+  title,
+  sub,
+  hint,
+  children,
+}: {
+  title: string
+  /** O que tem dentro, visível com o bloco fechado. */
+  sub?: string
+  hint?: string
+  children: ReactNode
+}) {
   return (
     <details className="panel-group">
-      <summary>{title}</summary>
+      <summary>
+        {title}
+        {sub ? <small className="panel-sub">{sub}</small> : null}
+      </summary>
       {hint ? <p className="field-hint">{hint}</p> : null}
       {children}
     </details>

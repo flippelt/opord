@@ -9,7 +9,11 @@ export function CoverPanel() {
   const notice = isNoticeType(dossier.document.type)
   return (
     <>
-      <Group title="Identidade do clã" hint="Nome, sigla e logo entram no cabeçalho de todas as folhas.">
+      <Group
+        title="Identidade do clã"
+        sub="Nome, sigla, lema, logo e distintivo"
+        hint="Nome, sigla e logo entram no cabeçalho de todas as folhas. Clicar no logo da capa também abre o seletor de imagem."
+      >
         <Field
           label="Nome da unidade / clã"
           edit="clan.name"
@@ -51,6 +55,7 @@ export function CoverPanel() {
 
       <Group
         title="Operação"
+        sub="Nome e codinome"
         hint={notice ? 'No comunicado, a capa mostra o assunto do comunicado.' : 'O nome entra na capa e no título das folhas.'}
       >
         <Field
@@ -68,7 +73,7 @@ export function CoverPanel() {
         />
       </Group>
 
-      <Group title="Controle e emissão" hint="O DTG e o local também saem no cabeçalho das outras folhas.">
+      <Group title="Controle e emissão" sub="Cópias, nº de controle, DTG e local" hint="O DTG e o local também saem no cabeçalho das outras folhas.">
         <div className="row2">
           <Field
             label="Cópia nº"

@@ -128,6 +128,16 @@ textarea {
   padding: 10px 0;
 }
 
+.panel-sub {
+  display: block;
+  margin: 2px 0 0 1.1em;
+  font-family: var(--ui);
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--sand-dim);
+}
+
 .stamp-edit {
   border: 1px solid var(--line);
   margin: 8px 0;

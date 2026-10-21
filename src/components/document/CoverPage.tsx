@@ -52,10 +52,6 @@ export function CoverPage({ dossier }: { dossier: Dossier }) {
             <dt>{t.classification}</dt>
             <dd>{dossier.document.language === 'en' ? style.nato : style.label}</dd>
           </div>
-          <div>
-            <dt>{t.nato}</dt>
-            <dd>{style.nato}</dd>
-          </div>
           <div data-edit="document.copy">
             <dt>{t.copy}</dt>
             <dd>
