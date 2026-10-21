@@ -789,38 +789,116 @@ textarea {
 }
 
 .overview-zoom {
-  position: sticky;
-  top: -32px;
-  z-index: 3;
+  z-index: 6;
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin: -16px auto 12px;
-  padding: 8px 12px;
-  background: var(--desk);
+  gap: 6px;
+  padding: 6px 8px;
+  background: rgba(18, 20, 15, 0.94);
   border: 1px solid var(--line);
-  border-radius: 2px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
+  color: var(--sand-dim);
+  font-family: var(--mono);
+  font-size: 12px;
 }
 
-.overview-zoom .btn-ghost {
-  min-width: 34px;
-  padding: 4px 8px;
+/* Solto: no canto inferior direito do papel, por cima das folhas. */
+.overview-zoom.is-floating {
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+}
+
+/* Preso: no topo do palco, acompanhando a rolagem. */
+.overview-zoom.is-pinned {
+  position: sticky;
+  top: -20px;
+  margin: -12px auto 14px;
+}
+
+.oz-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--sand);
   font-size: 16px;
   line-height: 1;
+  cursor: pointer;
 }
 
-.overview-zoom input {
-  width: 220px;
+.oz-btn:hover {
+  border-color: var(--brass-dim);
+  color: var(--brass);
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+.oz-pin.on {
+  color: var(--brass);
+  border-color: var(--brass-dim);
+}
+
+.oz-value {
+  min-width: 3.2em;
+  text-align: right;
+  color: var(--sand);
+}
+
+.overview-zoom .theme-range {
+  width: 150px;
+}
+
+/* Slider no tema: trilho fino e marcador dourado. */
+.theme-range {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 18px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: var(--line);
+  border-radius: 2px;
+}
+
+.theme-range::-moz-range-track {
+  height: 2px;
+  background: var(--line);
+  border-radius: 2px;
+}
+
+.theme-range::-moz-range-progress {
+  height: 2px;
+  background: var(--brass-dim);
+}
+
+.theme-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: -5px;
+  background: var(--brass);
+  border: 2px solid var(--desk);
+  border-radius: 50%;
+}
+
+.theme-range::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background: var(--brass);
+  border: 2px solid var(--desk);
+  border-radius: 50%;
+}
+
+.theme-range:focus-visible {
+  outline: 1px solid var(--brass);
+  outline-offset: 2px;
 }
 
 .zoom-value {

@@ -6,9 +6,12 @@ import { captureAll, downloadJson, fileBase, savePdf, savePngZip } from '../lib/
 import { SETUP_KEY, sheetList, stageKey } from '../lib/sheets'
 import { newDossier } from '../defaults'
 import { useDossier } from '../store'
+import { OverviewZoom } from './OverviewZoom'
 import { PageTabs } from './PageTabs'
 import { PreviewModal } from './PreviewModal'
 import { SheetStack } from './SheetStack'
+
+const PIN_KEY = 'opord.overviewZoom.pinned'
 
 /** Campos que só existem em Geral, mesmo aparecendo em todas as folhas. */
 const GERAL_KEYS = ['clan.name', 'clan.motto', 'clan.seal', 'clan.patch', 'document.classification']
@@ -51,6 +54,21 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
   )
   const draftSheets = useMemo(() => (draft ? sheetList(draft) : []), [draft])
   const [showAll, setShowAll] = useState(false)
+  const [zoomPinned, setZoomPinnedState] = useState(() => {
+    try {
+      return localStorage.getItem(PIN_KEY) === '1'
+    } catch {
+      return false
+    }
+  })
+  function setZoomPinned(pinned: boolean) {
+    setZoomPinnedState(pinned)
+    try {
+      localStorage.setItem(PIN_KEY, pinned ? '1' : '0')
+    } catch {
+      /* sem armazenamento: volta solto na próxima visita */
+    }
+  }
   const stack = useRef<HTMLDivElement>(null)
   const orientation = dossier.document.orientation === 'landscape' ? 'landscape' : 'portrait'
   const sheets = useMemo(() => sheetList(dossier), [dossier])
@@ -154,6 +172,7 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
           <label className="zoom">
             Zoom
             <input
+              className="theme-range"
               type="range"
               min={0.45}
               max={1.05}
@@ -245,37 +264,8 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
         <style>{showAll ? '' : focusRule(focus)}</style>
         {overview ? (
           <>
-            {wizard?.step === 'type' ? null : (
-              <div className="overview-zoom" onClick={(e) => e.stopPropagation()}>
-                <button
-                  type="button"
-                  className="btn-ghost"
-                  aria-label="Diminuir as miniaturas"
-                  onClick={() => setOverviewZoom(Math.max(0.2, Math.round((overviewZoom - 0.1) * 100) / 100))}
-                >
-                  −
-                </button>
-                <label>
-                  <span className="sr-only">Tamanho das miniaturas</span>
-                  <input
-                    type="range"
-                    min={0.2}
-                    max={1}
-                    step={0.01}
-                    value={overviewZoom}
-                    onChange={(e) => setOverviewZoom(Number(e.target.value))}
-                  />
-                </label>
-                <button
-                  type="button"
-                  className="btn-ghost"
-                  aria-label="Aumentar as miniaturas"
-                  onClick={() => setOverviewZoom(Math.min(1, Math.round((overviewZoom + 0.1) * 100) / 100))}
-                >
-                  +
-                </button>
-                <span className="zoom-value">{Math.round(overviewZoom * 100)}%</span>
-              </div>
+            {wizard?.step === 'type' || !zoomPinned ? null : (
+              <OverviewZoom zoom={overviewZoom} onZoom={setOverviewZoom} pinned onPin={setZoomPinned} />
             )}
             <p className="stage-note">
               {wizard?.step === 'type'
@@ -314,6 +304,9 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
         </div>
       </div>
 
+      {overview && !zoomPinned && wizard?.step !== 'type' ? (
+        <OverviewZoom zoom={overviewZoom} onZoom={setOverviewZoom} pinned={false} onPin={setZoomPinned} />
+      ) : null}
       {previewOpen ? <PreviewModal dossier={dossier} sheets={sheets} onClose={() => setPreviewOpen(false)} /> : null}
       {exporting ? <div className="export-veil">{exporting}</div> : null}
     </section>
