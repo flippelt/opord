@@ -1338,7 +1338,8 @@
     height: auto !important;
   }
 
-  .overview-stack {
+  .overview-stack,
+  .overview-zoom {
     display: none !important;
   }
 

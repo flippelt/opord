@@ -150,20 +150,7 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
         <div className="toolbar-class" style={{ background: style.banner, color: style.ink }}>
           {style.label}
         </div>
-        {overview ? (
-          <label className="zoom" title="Tamanho das miniaturas">
-            Miniaturas
-            <input
-              type="range"
-              min={0.2}
-              max={1}
-              step={0.01}
-              value={overviewZoom}
-              onChange={(e) => setOverviewZoom(Number(e.target.value))}
-            />
-            <span className="zoom-value">{Math.round(overviewZoom * 100)}%</span>
-          </label>
-        ) : (
+        {overview ? null : (
           <label className="zoom">
             Zoom
             <input
@@ -258,6 +245,38 @@ export function Preview({ collapsed, onExpand }: { collapsed: boolean; onExpand:
         <style>{showAll ? '' : focusRule(focus)}</style>
         {overview ? (
           <>
+            {wizard?.step === 'type' ? null : (
+              <div className="overview-zoom" onClick={(e) => e.stopPropagation()}>
+                <button
+                  type="button"
+                  className="btn-ghost"
+                  aria-label="Diminuir as miniaturas"
+                  onClick={() => setOverviewZoom(Math.max(0.2, Math.round((overviewZoom - 0.1) * 100) / 100))}
+                >
+                  −
+                </button>
+                <label>
+                  <span className="sr-only">Tamanho das miniaturas</span>
+                  <input
+                    type="range"
+                    min={0.2}
+                    max={1}
+                    step={0.01}
+                    value={overviewZoom}
+                    onChange={(e) => setOverviewZoom(Number(e.target.value))}
+                  />
+                </label>
+                <button
+                  type="button"
+                  className="btn-ghost"
+                  aria-label="Aumentar as miniaturas"
+                  onClick={() => setOverviewZoom(Math.min(1, Math.round((overviewZoom + 0.1) * 100) / 100))}
+                >
+                  +
+                </button>
+                <span className="zoom-value">{Math.round(overviewZoom * 100)}%</span>
+              </div>
+            )}
             <p className="stage-note">
               {wizard?.step === 'type'
                 ? 'Escolha o tipo de documento no menu.'
