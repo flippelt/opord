@@ -98,7 +98,7 @@ export function Editor({ onCollapse }: { onCollapse: () => void }) {
         <p className="field-hint">
           {sheet
             ? 'Só os campos desta folha. Clique num campo e o trecho dele acende no papel.'
-            : 'O que vale para o pacote inteiro: modelo, classificação, papel, folhas e marcas.'}
+            : 'O que vale para o pacote inteiro: classificação, papel, folhas e marcas.'}
         </p>
       </div>
 

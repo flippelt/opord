@@ -11,6 +11,9 @@ import { Field, ImageField, SelectField } from '../ImageField'
 import { SheetOrder } from '../SheetOrder'
 import { Group, usePatch } from './common'
 
+/** Modelos prontos desligados até o conserto (2026-10-21). Volta com true. */
+const TEMPLATES_ON = false
+
 const STAMP_CHOICES = [
   ...STAMP_TERMS.map((id) => ({ id, label: id })),
   { id: 'custom', label: 'Outro texto' },
@@ -54,6 +57,7 @@ export function SetupPanel() {
 
   return (
     <>
+      {TEMPLATES_ON ? (
       <Group
         title="Modelo pronto"
         hint="O modelo preenche a missão e liga as folhas daquele tipo. Depois o editor segue folha por folha. O logo do clã fica."
@@ -74,6 +78,7 @@ export function SetupPanel() {
           ))}
         </div>
       </Group>
+      ) : null}
 
       <Group title="Documento" hint="Tipo e classificação valem para todas as folhas.">
         <SelectField
