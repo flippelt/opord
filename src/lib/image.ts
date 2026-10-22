@@ -34,6 +34,11 @@ export function readClanMark(file: File): Promise<string> {
   return fileToDataUrl(file, { maxEdge: 900, quality: 0.9, keepAlpha: true })
 }
 
+/** Pin de patente: pequeno, com transparência. */
+export function readRankPin(file: File): Promise<string> {
+  return fileToDataUrl(file, { maxEdge: 480, quality: 0.9, keepAlpha: true })
+}
+
 export function readIntelPhoto(file: File): Promise<string> {
   return fileToDataUrl(file, { maxEdge: 1600, quality: 0.82, keepAlpha: false })
 }

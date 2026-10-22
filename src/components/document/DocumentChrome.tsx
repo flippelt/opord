@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import type { Dossier } from '../../types'
-import { findInsignia, insigniaUrl } from '../../lib/insignia'
+import { findInsignia } from '../../lib/insignia'
 import { signatureFont } from '../../lib/signature'
 import { ClanSeal, UnitPatch } from './ClanSeal'
 import { SheetKey } from './Sheet'
@@ -46,14 +46,14 @@ export function DocumentChrome({
 
 /** O que vai ao lado da assinatura: insígnia, foto ou, no padrão, o logo do clã. */
 function SignMark({ dossier, c, size }: { dossier: Dossier; c: Dossier['command']; size: number }) {
-  const insignia = c.mark === 'insignia' ? findInsignia(c.insignia) : null
+  const insignia = c.mark === 'insignia' ? findInsignia(c.insignia, dossier.clan.pins, dossier.document.language) : null
   if (insignia) {
     return (
       <img
         className="sign-insignia"
         data-edit="command.mark"
-        src={insigniaUrl(insignia.rank)}
-        alt={insignia.rank.label}
+        src={insignia.src}
+        alt={insignia.label}
         style={{ height: size }}
       />
     )
