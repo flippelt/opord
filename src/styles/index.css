@@ -498,8 +498,18 @@ textarea {
   color: var(--brass-dim);
 }
 
-.desk details[open] summary::before {
+.desk details[open] > summary::before {
   content: '▾ ';
+}
+
+.desk details.sub-fold {
+  margin: 4px 0 8px;
+  padding: 0 0 4px;
+  border-top: 1px dashed var(--line);
+}
+
+.sub-fold > summary {
+  font-size: 12px;
 }
 
 .field {

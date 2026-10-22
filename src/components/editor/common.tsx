@@ -37,6 +37,19 @@ export function Group({
   )
 }
 
+/** Lista longa dentro de um bloco. Começa fechada e mostra a escolha atual. */
+function Fold({ title, sub, children }: { title: string; sub: string; children: ReactNode }) {
+  return (
+    <details className="sub-fold">
+      <summary>
+        {title}
+        <small className="panel-sub">{sub}</small>
+      </summary>
+      {children}
+    </details>
+  )
+}
+
 /** Assinatura no pé da folha. É a mesma em todas as folhas que a levam. */
 export function SignatureGroup() {
   const { dossier, patch } = usePatch()
@@ -107,17 +120,22 @@ export function SignatureGroup() {
         ]}
       />
       {c.mark === 'insignia' ? (
-        <InsigniaPicker
-          value={c.insignia}
-          onPick={(ref, label) =>
-            update((t) => {
-              // O posto acompanha a insígnia enquanto ninguém escreveu outro.
-              const before = findInsignia(t.insignia, dossier.clan.pins, dossier.document.language)?.label
-              if (!t.rank.trim() || t.rank === before) t.rank = label
-              t.insignia = ref
-            })
-          }
-        />
+        <Fold
+          title="Insígnias"
+          sub={findInsignia(c.insignia, dossier.clan.pins, dossier.document.language)?.label || 'Nenhuma escolhida'}
+        >
+          <InsigniaPicker
+            value={c.insignia}
+            onPick={(ref, label) =>
+              update((t) => {
+                // O posto acompanha a insígnia enquanto ninguém escreveu outro.
+                const before = findInsignia(t.insignia, dossier.clan.pins, dossier.document.language)?.label
+                if (!t.rank.trim() || t.rank === before) t.rank = label
+                t.insignia = ref
+              })
+            }
+          />
+        </Fold>
       ) : null}
       {c.mark === 'avatar' ? (
         <ImageField
@@ -150,20 +168,22 @@ export function SignatureGroup() {
             placeholder={c.commander || 'A. Mendes'}
             onChange={(signatureText) => update((t) => void (t.signatureText = signatureText))}
           />
-          <div className="font-picks">
-            {SIGNATURE_FONTS.map((font) => (
-              <button
-                key={font.id}
-                type="button"
-                className={c.signatureFont === font.id ? 'font-pick on' : 'font-pick'}
-                title={font.label}
-                style={{ fontFamily: `${font.family}, cursive`, fontSize: `${Math.round(24 * font.scale)}px` }}
-                onClick={() => update((t) => void (t.signatureFont = font.id))}
-              >
-                {c.signatureText.trim() || c.commander.trim() || 'A. Mendes'}
-              </button>
-            ))}
-          </div>
+          <Fold title="Letras" sub={SIGNATURE_FONTS.find((f) => f.id === c.signatureFont)?.label ?? ''}>
+            <div className="font-picks">
+              {SIGNATURE_FONTS.map((font) => (
+                <button
+                  key={font.id}
+                  type="button"
+                  className={c.signatureFont === font.id ? 'font-pick on' : 'font-pick'}
+                  title={font.label}
+                  style={{ fontFamily: `${font.family}, cursive`, fontSize: `${Math.round(24 * font.scale)}px` }}
+                  onClick={() => update((t) => void (t.signatureFont = font.id))}
+                >
+                  {c.signatureText.trim() || c.commander.trim() || 'A. Mendes'}
+                </button>
+              ))}
+            </div>
+          </Fold>
         </div>
       ) : null}
       {c.signature === 'image' ? (
