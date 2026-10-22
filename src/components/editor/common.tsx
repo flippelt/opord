@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react'
+import { useRef, useState, type ReactNode } from 'react'
 import { useDossier } from '../../store'
-import { readClanMark } from '../../lib/image'
-import { findInsignia, INSIGNIA_SETS, insigniaUrl } from '../../lib/insignia'
+import { readClanMark, readRankPin } from '../../lib/image'
+import { findInsignia, FORCES, NATO_RANKS, natoInsigniaUrl, rankName, type Force, type InsigniaGroup } from '../../lib/insignia'
 import { SIGNATURE_FONTS } from '../../lib/signature'
 import type { Dossier, SignatureMode, SignMark } from '../../types'
 import { Field, ImageField, SelectField } from '../ImageField'
@@ -37,6 +37,19 @@ export function Group({
   )
 }
 
+/** Lista longa dentro de um bloco. Começa fechada e mostra a escolha atual. */
+function Fold({ title, sub, children }: { title: string; sub: string; children: ReactNode }) {
+  return (
+    <details className="sub-fold">
+      <summary>
+        {title}
+        <small className="panel-sub">{sub}</small>
+      </summary>
+      {children}
+    </details>
+  )
+}
+
 /** Assinatura no pé da folha. É a mesma em todas as folhas que a levam. */
 export function SignatureGroup() {
   const { dossier, patch } = usePatch()
@@ -45,9 +58,6 @@ export function SignatureGroup() {
   const c = dossier.signatures[key] ?? dossier.command
   /** Edita a assinatura desta folha se ela tiver a própria; senão, a comum. */
   const update = (recipe: (t: Dossier['command']) => void) => patch((d) => recipe(d.signatures[key] ?? d.command))
-  const [setId] = c.insignia.split('/')
-  const set = INSIGNIA_SETS.find((s) => s.id === setId) ?? INSIGNIA_SETS[0]
-  const chosen = findInsignia(c.insignia)
   return (
     <Group
       title="Assinatura"
@@ -105,64 +115,27 @@ export function SignatureGroup() {
         onChange={(mark: SignMark) => update((t) => void (t.mark = mark))}
         options={[
           { id: 'clan', label: 'Logo do clã' },
-          // Sem catálogo, a insígnia não entra na lista (ela chega com os arquivos e créditos).
-          ...(INSIGNIA_SETS.length ? [{ id: 'insignia' as const, label: 'Insígnia da patente' }] : []),
+          { id: 'insignia', label: 'Insígnia da patente' },
           { id: 'avatar', label: 'Foto do signatário' },
         ]}
       />
       {c.mark === 'insignia' ? (
-        INSIGNIA_SETS.length && set ? (
-          <div data-edit="command.mark">
-            <SelectField
-              label="Força"
-              value={set.id}
-              onChange={(id) => update((t) => void (t.insignia = `${id}/`))}
-              options={INSIGNIA_SETS.map((s) => ({ id: s.id, label: s.label }))}
-            />
-            {(['enlisted', 'officer'] as const).map((group) => (
-              <div key={group} className="insignia-grid-wrap">
-                <p className="field-label">{group === 'officer' ? 'Oficiais' : 'Praças'}</p>
-                <div className="insignia-grid">
-                  {set.ranks
-                    .filter((r) => r.group === group)
-                    .sort((a, b) => a.order - b.order)
-                    .map((rank) => {
-                      const ref = `${set.id}/${rank.id}`
-                      return (
-                        <button
-                          key={rank.id}
-                          type="button"
-                          className={c.insignia === ref ? 'insignia-pick on' : 'insignia-pick'}
-                          title={rank.label}
-                          onClick={() =>
-                            update((t) => {
-                              t.insignia = ref
-                              if (!t.rank.trim()) t.rank = rank.abbr
-                            })
-                          }
-                        >
-                          <img src={insigniaUrl(rank)} alt="" />
-                          <span>{rank.abbr}</span>
-                        </button>
-                      )
-                    })}
-                </div>
-              </div>
-            ))}
-            {chosen ? (
-              <p className="field-hint">
-                {chosen.rank.label} · {chosen.rank.author}, {chosen.rank.license}, via{' '}
-                <a href={chosen.rank.source} target="_blank" rel="noreferrer">
-                  Wikimedia Commons
-                </a>
-              </p>
-            ) : (
-              <p className="field-hint">Escolha a patente. Sem escolha, a folha mostra o logo do clã.</p>
-            )}
-          </div>
-        ) : (
-          <p className="field-hint">As insígnias ainda não estão no pacote. Por enquanto a folha mostra o logo do clã.</p>
-        )
+        <Fold
+          title="Insígnias"
+          sub={findInsignia(c.insignia, dossier.clan.pins, dossier.document.language)?.label || 'Nenhuma escolhida'}
+        >
+          <InsigniaPicker
+            value={c.insignia}
+            onPick={(ref, label) =>
+              update((t) => {
+                // O posto acompanha a insígnia enquanto ninguém escreveu outro.
+                const before = findInsignia(t.insignia, dossier.clan.pins, dossier.document.language)?.label
+                if (!t.rank.trim() || t.rank === before) t.rank = label
+                t.insignia = ref
+              })
+            }
+          />
+        </Fold>
       ) : null}
       {c.mark === 'avatar' ? (
         <ImageField
@@ -195,20 +168,22 @@ export function SignatureGroup() {
             placeholder={c.commander || 'A. Mendes'}
             onChange={(signatureText) => update((t) => void (t.signatureText = signatureText))}
           />
-          <div className="font-picks">
-            {SIGNATURE_FONTS.map((font) => (
-              <button
-                key={font.id}
-                type="button"
-                className={c.signatureFont === font.id ? 'font-pick on' : 'font-pick'}
-                title={font.label}
-                style={{ fontFamily: `${font.family}, cursive`, fontSize: `${Math.round(24 * font.scale)}px` }}
-                onClick={() => update((t) => void (t.signatureFont = font.id))}
-              >
-                {c.signatureText.trim() || c.commander.trim() || 'A. Mendes'}
-              </button>
-            ))}
-          </div>
+          <Fold title="Letras" sub={SIGNATURE_FONTS.find((f) => f.id === c.signatureFont)?.label ?? ''}>
+            <div className="font-picks">
+              {SIGNATURE_FONTS.map((font) => (
+                <button
+                  key={font.id}
+                  type="button"
+                  className={c.signatureFont === font.id ? 'font-pick on' : 'font-pick'}
+                  title={font.label}
+                  style={{ fontFamily: `${font.family}, cursive`, fontSize: `${Math.round(24 * font.scale)}px` }}
+                  onClick={() => update((t) => void (t.signatureFont = font.id))}
+                >
+                  {c.signatureText.trim() || c.commander.trim() || 'A. Mendes'}
+                </button>
+              ))}
+            </div>
+          </Fold>
         </div>
       ) : null}
       {c.signature === 'image' ? (
@@ -222,6 +197,146 @@ export function SignatureGroup() {
         />
       ) : null}
     </Group>
+  )
+}
+
+const GROUP_LABEL: Record<InsigniaGroup, string> = {
+  enlisted: 'Praças',
+  warrant: 'Oficiais técnicos',
+  officer: 'Oficiais',
+}
+
+/** Patentes pelo código OTAN e os pins que o clã enviou, que valem para todas as assinaturas. */
+function InsigniaPicker({ value, onPick }: { value: string; onPick: (ref: string, label: string) => void }) {
+  const { dossier, patch } = usePatch()
+  const input = useRef<HTMLInputElement>(null)
+  const pins = dossier.clan.pins
+  const language = dossier.document.language
+  const chosen = findInsignia(value, pins, language)
+  const [force, setForce] = useState<Force>(chosen?.force ?? 'army')
+  const ownPin = value.startsWith('clan/') ? pins.find((p) => `clan/${p.id}` === value) : undefined
+
+  async function addPins(files: FileList | null) {
+    if (!files?.length) return
+    const added = await Promise.all(
+      [...files].map(async (file) => ({
+        id: `pin-${crypto.randomUUID()}`,
+        label: file.name.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ').trim(),
+        src: await readRankPin(file),
+      })),
+    )
+    patch((d) => void d.clan.pins.push(...added))
+    onPick(`clan/${added[0].id}`, added[0].label)
+  }
+
+  function removePin(id: string) {
+    const ref = `clan/${id}`
+    patch((d) => {
+      d.clan.pins = d.clan.pins.filter((p) => p.id !== id)
+      for (const c of [d.command, ...Object.values(d.signatures)]) if (c.insignia === ref) c.insignia = ''
+    })
+  }
+
+  return (
+    <div data-edit="command.mark">
+      <SelectField
+        label="Força"
+        value={force}
+        onChange={(next: Force) => {
+          setForce(next)
+          // A mesma patente na outra força: o pin é igual, muda só o nome.
+          const rank = chosen?.code ? NATO_RANKS.find((r) => r.code === chosen.code) : undefined
+          if (rank) onPick(`${next}/${rank.code}`, rankName(rank, next, language))
+        }}
+        options={FORCES}
+      />
+      {(['enlisted', 'warrant', 'officer'] as const).map((group) => (
+        <div key={group} className="insignia-grid-wrap">
+          <p className="field-label">{GROUP_LABEL[group]}</p>
+          <div className="insignia-grid">
+            {NATO_RANKS.filter((r) => r.group === group).map((rank) => {
+              const ref = `${force}/${rank.code}`
+              const label = rankName(rank, force, language)
+              return (
+                <button
+                  key={rank.code}
+                  type="button"
+                  className={value === ref ? 'insignia-pick on' : 'insignia-pick'}
+                  title={`${rank.code} · ${label}`}
+                  onClick={() => onPick(ref, label)}
+                >
+                  <img src={natoInsigniaUrl(rank.code)} alt="" />
+                  <span>{rank.code}</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      ))}
+
+      <div className="insignia-grid-wrap">
+        <p className="field-label">Pins do clã</p>
+        <div className="insignia-grid">
+          {pins.map((pin) => {
+            const ref = `clan/${pin.id}`
+            return (
+              <button
+                key={pin.id}
+                type="button"
+                className={value === ref ? 'insignia-pick on' : 'insignia-pick'}
+                title={pin.label}
+                onClick={() => onPick(ref, pin.label)}
+              >
+                <img src={pin.src} alt="" />
+                <span>{pin.label || 'Pin'}</span>
+              </button>
+            )
+          })}
+          <button type="button" className="insignia-pick insignia-add" onClick={() => input.current?.click()}>
+            <span className="insignia-add-plus">+</span>
+            <span>Enviar</span>
+          </button>
+        </div>
+        <input
+          ref={input}
+          type="file"
+          hidden
+          multiple
+          accept="image/png,image/jpeg,image/webp,image/svg+xml"
+          onChange={(e) => {
+            void addPins(e.target.files)
+            e.target.value = ''
+          }}
+        />
+      </div>
+
+      {ownPin ? (
+        <div className="row2 insignia-own">
+          <Field
+            label="Nome do pin"
+            value={ownPin.label}
+            placeholder="Capitão"
+            onChange={(label) =>
+              patch((d) => {
+                const p = d.clan.pins.find((x) => x.id === ownPin.id)
+                if (p) p.label = label
+              })
+            }
+          />
+          <button type="button" className="btn-ghost" onClick={() => removePin(ownPin.id)}>
+            Apagar pin
+          </button>
+        </div>
+      ) : null}
+
+      <p className="field-hint">
+        {chosen
+          ? chosen.code
+            ? `${chosen.code} · ${chosen.label}. Desenho genérico pelo código OTAN, sem a cor de nenhum país.`
+            : `${chosen.label || 'Pin do clã'}. Os pins enviados ficam no dossiê e servem para todas as assinaturas.`
+          : 'Escolha a patente ou envie os pins do clã (PNG com fundo transparente). Sem escolha, a folha mostra o logo do clã.'}
+      </p>
+    </div>
   )
 }
 

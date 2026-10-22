@@ -144,6 +144,13 @@ export type MapKind = 'area' | 'lz' | 'pz' | 'objective' | 'other'
 
 export type SignMark = 'clan' | 'insignia' | 'avatar'
 
+/** Pin de patente enviado pelo clã. */
+export type RankPin = {
+  id: string
+  label: string
+  src: string
+}
+
 export type SignatureMode = 'none' | 'font' | 'image'
 
 export type ObjectiveStatus = '' | 'done' | 'partial' | 'failed'
@@ -209,6 +216,8 @@ export interface Dossier {
     motto: string
     sealSrc: string
     patchSrc: string
+    /** Pins de patente que o clã enviou; a assinatura escolhe entre eles e os da OTAN. */
+    pins: RankPin[]
   }
   document: {
     type: DocType
@@ -270,7 +279,7 @@ export interface Dossier {
     callsign: string
     /** O que vai ao lado da assinatura: logo do clã, insígnia da patente ou foto. */
     mark: SignMark
-    /** Insígnia escolhida, `<conjunto>/<posto>` (ver lib/insignia). */
+    /** Insígnia escolhida, `<força>/<código>` (army, navy ou air) ou `clan/<id do pin>` (ver lib/insignia). */
     insignia: string
     avatarSrc: string
     /** Assinatura: nenhuma, nome numa fonte cursiva ou imagem enviada. */

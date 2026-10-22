@@ -4,6 +4,7 @@ import { nowDtg } from './lib/dtg'
 import { normalizeAarResults } from './lib/aar'
 import { applyTemplate, type MissionTemplate } from './lib/templates'
 import { inferMapKind, isMapKind } from './lib/mapPlate'
+import { migrateInsigniaRef } from './lib/insignia'
 import { defaultStack, insertBlankBeforeIntel, normalizeStack } from './lib/stack'
 
 export function defaultStamps(): StampConfig[] {
@@ -123,6 +124,7 @@ export function blankDossier(): Dossier {
       motto: '',
       sealSrc: '',
       patchSrc: '',
+      pins: [],
     },
     document: {
       type: 'opord',
@@ -400,6 +402,7 @@ export function defaultDossier(): Dossier {
     motto: 'Quem vê primeiro, age primeiro',
     sealSrc: '',
     patchSrc: '',
+    pins: [],
   }
   d.document.controlNumber = 'FALCAO-23-09-04'
   d.document.copyNumber = '01'
@@ -860,6 +863,10 @@ export function migrateDossier(raw: unknown): Dossier | null {
   const d = structuredClone(blankDossier())
   Object.assign(d, incoming)
   d.clan = { ...blankDossier().clan, ...incoming.clan }
+  d.clan.pins = Array.isArray(d.clan.pins)
+    ? d.clan.pins.filter((p) => p && typeof p.id === 'string' && p.id && typeof p.src === 'string')
+        .map((p) => ({ id: p.id, label: typeof p.label === 'string' ? p.label : '', src: p.src }))
+    : []
   d.document = { ...blankDossier().document, ...incoming.document }
   const pages = { ...blankDossier().document.pages, ...incoming.document?.pages }
   delete (pages as { radio?: boolean }).radio
@@ -899,6 +906,7 @@ export function migrateDossier(raw: unknown): Dossier | null {
     if (value && typeof value === 'object') d.signatures[key] = { ...d.command, ...value }
   }
   if (!['clan', 'insignia', 'avatar'].includes(d.command.mark)) d.command.mark = 'clan'
+  for (const c of [d.command, ...Object.values(d.signatures)]) c.insignia = typeof c.insignia === 'string' ? migrateInsigniaRef(c.insignia) : ''
   if (!['none', 'font', 'image'].includes(d.command.signature)) d.command.signature = 'none'
   d.comms = { ...blankDossier().comms, ...incoming.comms }
   d.comms.codeWords = Array.isArray(d.comms.codeWords)

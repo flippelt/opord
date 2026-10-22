@@ -201,6 +201,29 @@ textarea {
   box-shadow: 0 0 0 1px var(--brass);
 }
 
+.insignia-pick span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.insignia-add {
+  justify-content: center;
+  background: transparent;
+  border: 2px dashed #8a8170;
+  color: inherit;
+}
+
+.insignia-add-plus {
+  font-size: 22px;
+  line-height: 40px;
+}
+
+.insignia-own {
+  align-items: end;
+}
+
 .font-picks {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -475,8 +498,18 @@ textarea {
   color: var(--brass-dim);
 }
 
-.desk details[open] summary::before {
+.desk details[open] > summary::before {
   content: '▾ ';
+}
+
+.desk details.sub-fold {
+  margin: 4px 0 8px;
+  padding: 0 0 4px;
+  border-top: 1px dashed var(--line);
+}
+
+.sub-fold > summary {
+  font-size: 12px;
 }
 
 .field {
