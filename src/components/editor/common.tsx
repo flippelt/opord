@@ -1,4 +1,5 @@
 import { useRef, useState, type ReactNode } from 'react'
+import { EditorBlock } from 'rpg-prop-kit'
 import { useDossier } from '../../store'
 import { readClanMark, readRankPin } from '../../lib/image'
 import { findInsignia, FORCES, NATO_RANKS, natoInsigniaUrl, rankName, type Force, type InsigniaGroup } from '../../lib/insignia'
@@ -26,27 +27,19 @@ export function Group({
   children: ReactNode
 }) {
   return (
-    <details className="panel-group">
-      <summary>
-        {title}
-        {sub ? <small className="panel-sub">{sub}</small> : null}
-      </summary>
+    <EditorBlock className="panel-group" title={title} sub={sub}>
       {hint ? <p className="field-hint">{hint}</p> : null}
       {children}
-    </details>
+    </EditorBlock>
   )
 }
 
 /** Lista longa dentro de um bloco. Começa fechada e mostra a escolha atual. */
 function Fold({ title, sub, children }: { title: string; sub: string; children: ReactNode }) {
   return (
-    <details className="sub-fold">
-      <summary>
-        {title}
-        <small className="panel-sub">{sub}</small>
-      </summary>
+    <EditorBlock className="sub-fold" title={title} sub={sub}>
       {children}
-    </details>
+    </EditorBlock>
   )
 }
 
