@@ -131,7 +131,8 @@ export function blankDossier(): Dossier {
       classification: 'confidencial',
       caveats: ['EYES ONLY'],
       copyNumber: '01',
-      copyTotal: '04',
+      // Uma cópia só; quem precisa de mais muda o total em Geral.
+      copyTotal: '01',
       controlNumber: '',
       orientation: 'portrait',
       binding: true,

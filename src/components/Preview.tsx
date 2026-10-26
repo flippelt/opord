@@ -14,7 +14,7 @@ import { SheetStack } from './SheetStack'
 const PIN_KEY = 'opord.overviewZoom.pinned'
 
 /** Campos que só existem em Geral, mesmo aparecendo em todas as folhas. */
-const GERAL_KEYS = ['clan.name', 'clan.motto', 'clan.seal', 'clan.patch', 'document.classification']
+const GERAL_KEYS = ['clan.name', 'clan.motto', 'clan.seal', 'clan.patch', 'document.classification', 'document.copy']
 
 /** Abre os blocos do campo no menu e dá foco nele (ou abre o seletor de imagem). */
 function openField(key: string): boolean {
