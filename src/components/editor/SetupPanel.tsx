@@ -8,6 +8,17 @@ import { Field, ImageField, SelectField } from '../ImageField'
 import { SheetOrder } from '../SheetOrder'
 import { Group, usePatch } from './common'
 
+function ColorField({ label, value, onChange }: { label: string; value: string; onChange: (color: string) => void }) {
+  return (
+    <label className="field" data-edit="clan.colors">
+      <span className="field-label">{label}</span>
+      <span className="color-row">
+        <input type="color" value={value} onChange={(e) => onChange(e.target.value)} />
+      </span>
+    </label>
+  )
+}
+
 /** Vai para a primeira folha de um tipo, depois que ela entrou no pacote. */
 function goToFirst(kind: PageId) {
   const { dossier, setActive } = useDossier.getState()
@@ -67,6 +78,19 @@ export function SetupPanel() {
           readFile={readClanMark}
           onChange={(patchSrc) => patch((d) => void (d.clan.patchSrc = patchSrc))}
         />
+        <div className="row2">
+          <ColorField
+            label="Cor do clã"
+            value={dossier.clan.accent}
+            onChange={(accent) => patch((d) => void (d.clan.accent = accent))}
+          />
+          <ColorField
+            label="Cor de fundo"
+            value={dossier.clan.base}
+            onChange={(base) => patch((d) => void (d.clan.base = base))}
+          />
+        </div>
+        <p className="field-hint">As cores só valem na folha do clã (comunicado com visual do clã).</p>
       </Group>
 
       <Group

@@ -11,7 +11,7 @@ import {
 } from '../../lib/aar'
 import { annexList } from '../../lib/annexes'
 import { CASEVAC_LINES, PRECEDENCE } from '../../lib/classification'
-import type { Dossier, Precedence } from '../../types'
+import type { Dossier, NoticeLook, Precedence } from '../../types'
 import { Field, SelectField } from '../ImageField'
 import { Group, RoutingFields, SignatureGroup, usePatch } from './common'
 
@@ -35,9 +35,21 @@ function BodyField({ k, label, rows }: { k: BodyKey; label: string; rows?: numbe
 export function NoticePanel() {
   const { dossier, patch } = usePatch()
   const n = dossier.notice
-  const set = (key: keyof Dossier['notice']) => (value: string) => patch((d) => void (d.notice[key] = value))
+  const set = (key: Exclude<keyof Dossier['notice'], 'look'>) => (value: string) => patch((d) => void (d.notice[key] = value))
   return (
     <>
+      <Group title="Visual" sub="Documento ou folha do clã" hint="Folha do clã: sem faixas nem grau, nas cores do clã (em Geral).">
+        <SelectField
+          label="Visual"
+          edit="notice.look"
+          value={n.look}
+          onChange={(look: NoticeLook) => patch((d) => void (d.notice.look = look))}
+          options={[
+            { id: 'document', label: 'Documento confidencial' },
+            { id: 'clan', label: 'Folha do clã' },
+          ]}
+        />
+      </Group>
       <Group title="Cabeçalho" sub="Nº, origem e assunto">
         <Field label="Nº do comunicado" edit="notice.number" value={n.number} onChange={set('number')} placeholder="12/2026" />
         <RoutingFields destination={false} />

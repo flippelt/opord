@@ -28,6 +28,8 @@ export type WatermarkFigure = 'none' | 'logo' | 'image'
 
 export type WatermarkColorMode = 'classification' | 'custom'
 
+export type NoticeLook = 'document' | 'clan'
+
 export type StampKind = 'oval' | 'box' | 'round'
 
 export type PageId =
@@ -218,6 +220,9 @@ export interface Dossier {
     patchSrc: string
     /** Pins de patente que o clã enviou; a assinatura escolhe entre eles e os da OTAN. */
     pins: RankPin[]
+    /** Cores do clã (hex), usadas na folha do clã: destaque e fundo. */
+    accent: string
+    base: string
   }
   document: {
     type: DocType
@@ -302,6 +307,8 @@ export interface Dossier {
   }
   intel: IntelPhoto[]
   notice: {
+    /** `clan`: folha do clã, nas cores do clã e sem faixas nem grau de sigilo. */
+    look: NoticeLook
     number: string
     audience: string
     subject: string

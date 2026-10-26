@@ -115,6 +115,12 @@ export function newDossier(type: DocType, pages: PageId[], template?: MissionTem
   return d
 }
 
+/** Cores padrão da folha do clã: vermelho e quase preto. */
+export const CLAN_ACCENT = '#ce1e28'
+export const CLAN_BASE = '#0b0c0d'
+
+const HEX = /^#[0-9a-fA-F]{6}$/
+
 export function blankDossier(): Dossier {
   return {
     version: 1,
@@ -125,6 +131,8 @@ export function blankDossier(): Dossier {
       sealSrc: '',
       patchSrc: '',
       pins: [],
+      accent: CLAN_ACCENT,
+      base: CLAN_BASE,
     },
     document: {
       type: 'opord',
@@ -247,8 +255,9 @@ export function blankDossier(): Dossier {
   }
 }
 
-export function blankNotice() {
+export function blankNotice(): Dossier['notice'] {
   return {
+    look: 'document',
     number: '',
     audience: '',
     subject: '',
@@ -403,6 +412,8 @@ export function defaultDossier(): Dossier {
     sealSrc: '',
     patchSrc: '',
     pins: [],
+    accent: CLAN_ACCENT,
+    base: CLAN_BASE,
   }
   d.document.controlNumber = 'FALCAO-23-09-04'
   d.document.copyNumber = '01'
@@ -633,6 +644,7 @@ export function defaultDossier(): Dossier {
     },
   ]
   d.notice = {
+    look: 'document',
     number: '12/2026',
     audience: 'TODO O EFETIVO DO GRUPO FALCÃO',
     subject: 'Emprego 23 SEP 26 — Operação SERPENTE NEGRA',
@@ -867,6 +879,8 @@ export function migrateDossier(raw: unknown): Dossier | null {
     ? d.clan.pins.filter((p) => p && typeof p.id === 'string' && p.id && typeof p.src === 'string')
         .map((p) => ({ id: p.id, label: typeof p.label === 'string' ? p.label : '', src: p.src }))
     : []
+  if (!HEX.test(String(d.clan.accent))) d.clan.accent = CLAN_ACCENT
+  if (!HEX.test(String(d.clan.base))) d.clan.base = CLAN_BASE
   d.document = { ...blankDossier().document, ...incoming.document }
   const pages = { ...blankDossier().document.pages, ...incoming.document?.pages }
   delete (pages as { radio?: boolean }).radio
@@ -913,6 +927,7 @@ export function migrateDossier(raw: unknown): Dossier | null {
     ? d.comms.codeWords.filter((c) => c && typeof c.word === 'string' && typeof c.meaning === 'string')
     : []
   d.notice = { ...blankNotice(), ...incoming.notice }
+  if (d.notice.look !== 'clan') d.notice.look = 'document'
   d.sitrep = { ...blankSitrep(), ...incoming.sitrep }
   d.aar = { ...blankAar(), ...incoming.aar, ...normalizeAarResults(incoming.aar) }
   mergeOldAarPairs(d.aar, incoming.aar)
