@@ -29,22 +29,7 @@ export function CoverPanel() {
         />
       </Group>
 
-      <Group title="Controle e emissão" sub="Cópias, controle e DTG" hint="O DTG e o local também saem no cabeçalho das outras folhas.">
-        <div className="row2">
-          <Field
-            label="Cópia nº"
-            edit="document.copy"
-            value={dossier.document.copyNumber}
-            onChange={(copyNumber) => patch((d) => void (d.document.copyNumber = copyNumber))}
-          />
-          <Field
-            label="De"
-            edit="document.copy"
-            hint="A exportação numera de 01 até este total."
-            value={dossier.document.copyTotal}
-            onChange={(copyTotal) => patch((d) => void (d.document.copyTotal = copyTotal))}
-          />
-        </div>
+      <Group title="Controle e emissão" sub="Controle, DTG e local" hint="O DTG e o local também saem no cabeçalho das outras folhas. As cópias ficam em Geral.">
         <Field
           label="Nº de controle"
           edit="document.control"

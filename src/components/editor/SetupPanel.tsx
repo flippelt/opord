@@ -136,7 +136,7 @@ export function SetupPanel() {
         ) : null}
       </Group>
 
-      <Group title="Papel" sub="Sentido, idioma e furos">
+      <Group title="Papel" sub="Sentido, idioma, furos e cópias">
         <div className="row2">
           <SelectField
             label="Sentido"
@@ -167,6 +167,21 @@ export function SetupPanel() {
           />
           Furos na folha
         </label>
+        <div className="row2">
+          <Field
+            label="Cópia nº"
+            edit="document.copy"
+            value={dossier.document.copyNumber}
+            onChange={(copyNumber) => patch((d) => void (d.document.copyNumber = copyNumber))}
+          />
+          <Field
+            label="Total de cópias"
+            edit="document.copy"
+            value={dossier.document.copyTotal}
+            onChange={(copyTotal) => patch((d) => void (d.document.copyTotal = copyTotal))}
+          />
+        </div>
+        <p className="field-hint">A exportação numera de 01 até o total.</p>
       </Group>
 
       <Group
