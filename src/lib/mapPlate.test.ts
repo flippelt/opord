@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { emptyMapPlate } from '../defaults'
-import { inferMapKind, notesFor } from './mapPlate'
+import { EMPTY_MAP_ID, inferMapKind, mapToEdit, notesFor } from './mapPlate'
 
 describe('inferMapKind', () => {
   it('reads the place from the title', () => {
@@ -45,5 +45,36 @@ describe('notesFor', () => {
     objective.kind = 'objective'
     objective.entry = 'Noroeste'
     expect(notesFor(objective, 'pt').map(([label]) => label)).toEqual(['Direção de entrada'])
+  })
+})
+
+describe('mapToEdit', () => {
+  it('edits the saved map with the same id', () => {
+    const plate = emptyMapPlate('LZ HAWK')
+    const maps = [plate]
+    expect(mapToEdit(maps, { ...plate })).toBe(plate)
+    expect(maps).toHaveLength(1)
+  })
+
+  it('adds a map when the empty sheet is edited', () => {
+    const maps: ReturnType<typeof emptyMapPlate>[] = []
+    const created = mapToEdit(maps, { ...emptyMapPlate(), id: EMPTY_MAP_ID })
+    expect(maps).toEqual([created])
+    expect(created?.id).not.toBe(EMPTY_MAP_ID)
+  })
+
+  it('does not bring back a removed map when its image arrives late', () => {
+    const removed = emptyMapPlate('LZ HAWK')
+    const other = emptyMapPlate('PZ RAVEN')
+    const maps = [other]
+    expect(mapToEdit(maps, removed)).toBeNull()
+    expect(mapToEdit([], removed)).toBeNull()
+    expect(maps).toEqual([other])
+  })
+
+  it('does not add a second map from the empty sheet once one exists', () => {
+    const maps = [emptyMapPlate('LZ HAWK')]
+    expect(mapToEdit(maps, { ...emptyMapPlate(), id: EMPTY_MAP_ID })).toBeNull()
+    expect(maps).toHaveLength(1)
   })
 })

@@ -10,6 +10,23 @@ export const MAP_KINDS: { id: MapKind; label: string }[] = [
 
 export const CAPTION_PRESETS = ['Zoom', 'Drone', 'Mapa', 'Foto'] as const
 
+/** Folha de mapa que aparece enquanto o pacote não tem nenhum mapa. */
+export const EMPTY_MAP_ID = 'map-empty'
+
+/**
+ * O mapa que uma edição da folha altera. A folha vazia ganha um mapa na
+ * primeira edição; um mapa removido não volta, nem quando a imagem que ainda
+ * carregava chega depois da remoção.
+ */
+export function mapToEdit(maps: MapPlate[], plate: MapPlate): MapPlate | null {
+  const found = maps.find((m) => m.id === plate.id)
+  if (found) return found
+  if (plate.id !== EMPTY_MAP_ID || maps.length) return null
+  const created = { ...plate, id: `map-${crypto.randomUUID()}` }
+  maps.push(created)
+  return created
+}
+
 export function inferMapKind(title: string): MapKind {
   const text = title.toUpperCase()
   if (/\bLZ\b/.test(text)) return 'lz'
