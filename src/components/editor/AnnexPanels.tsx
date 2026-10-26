@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { readIntelPhoto } from '../../lib/image'
-import { CAPTION_PRESETS, MAP_KINDS } from '../../lib/mapPlate'
+import { CAPTION_PRESETS, MAP_KINDS, mapToEdit } from '../../lib/mapPlate'
 import { emptyMapPlate } from '../../defaults'
 import { useDossier } from '../../store'
 import type { BlankPage, IntelPhoto, MapKind, MapPlate } from '../../types'
@@ -65,18 +65,14 @@ export function MapPanel({ plate }: { plate: MapPlate }) {
   const at = dossier.maps.findIndex((m) => m.id === plate.id)
   /** Edita o mapa desta folha; sem mapa salvo, ele entra no pacote. */
   function update(recipe: (m: MapPlate) => void) {
+    let created = ''
     patch((d) => {
-      let target = d.maps.find((m) => m.id === plate.id)
-      if (!target) {
-        target = { ...plate, id: `map-${crypto.randomUUID()}` }
-        d.maps.push(target)
-      }
+      const target = mapToEdit(d.maps, plate)
+      if (!target) return
+      if (target.id !== plate.id) created = target.id
       recipe(target)
     })
-    if (at < 0) {
-      const added = useDossier.getState().dossier.maps.at(-1)
-      if (added) setActive(`map-${added.id}`)
-    }
+    if (created) setActive(`map-${created}`)
   }
   const edit = (key: string) => `map.${plate.id}.${key}`
   return (
@@ -316,7 +312,13 @@ export function IntelPanel({ photos, startIndex }: { photos: IntelPhoto[]; start
                 label="Imagem"
                 src={photo.src}
                 readFile={readIntelPhoto}
-                onChange={(src) => patch((d) => void (d.intel[i].src = src))}
+                onChange={(src) =>
+                  // A imagem chega depois de carregar: procura a placa pelo id, que pode ter mudado de lugar ou sido removida.
+                  patch((d) => {
+                    const target = d.intel.find((x) => x.id === photo.id)
+                    if (target) target.src = src
+                  })
+                }
               />
               <Field
                 label="Legenda"

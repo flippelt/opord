@@ -1,4 +1,5 @@
 import { emptyHvtSlots, emptyIntelSlots, emptyMapPlate } from '../defaults'
+import { EMPTY_MAP_ID } from './mapPlate'
 import type { BlankPage, Dossier, HvtCard, IntelPhoto, MapPlate, PageId } from '../types'
 import { hasAarExecution } from './aar'
 import { PAGE_LABELS } from './classification'
@@ -47,7 +48,7 @@ export function sheetList(dossier: Dossier): SheetRef[] {
         out.push({ key: `hvt-${index + 1}`, kind, card, index, label: `HVT ${index + 1}` }),
       )
     } else if (kind === 'map') {
-      const plates = dossier.maps.length ? dossier.maps : [{ ...emptyMapPlate(), id: 'map-empty' }]
+      const plates = dossier.maps.length ? dossier.maps : [{ ...emptyMapPlate(), id: EMPTY_MAP_ID }]
       plates.forEach((plate) =>
         out.push({ key: `map-${plate.id}`, kind, plate, label: plate.title.trim() || 'Mapa' }),
       )
